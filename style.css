@@ -73,3 +73,17 @@ h1 {
 .kofi {
   background: #29abe0;
 }
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/2kzDSQz.png');
+  background-size: cover;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
