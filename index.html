@@ -13,19 +13,107 @@
     <p class="subtitle">Links to all our stuff ↓</p>
 
     <div class="links">
-      <a href="https://discord.com/invite/thesecrettunnel" target="_blank" class="link-button discord">
-        <img src="https://cdn.discordapp.com/emojis/1398163249005985883.webp?size=96" alt="Discord" />
-        Join our Discord
+      <!-- About the Server -->
+      <a href="#" class="link-button about" onclick="openModal()">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f52a.png" alt="About" />
+        About The Secret Tunnel
       </a>
+
+      <!-- Discord Server -->
+      <a href="https://discord.com/invite/thesecrettunnel" target="_blank" class="link-button discord">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Discord" />
+        Join the Discord
+      </a>
+
+      <!-- About Meow Bot -->
+      <a href="#" class="link-button about-bot" onclick="openBotModal()">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
+        About Meow Bot
+      </a>
+
+      <!-- Meow Bot Invite -->
       <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
-        <img src="https://cdn.discordapp.com/emojis/1169675565507297331.webp?size=96" alt="Meow Bot" />
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Bot" />
         Invite Meow Bot
       </a>
+
+      <!-- Ko-fi -->
       <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2615.png" alt="Ko-fi" />
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
         Support the Bot
       </a>
     </div>
   </div>
+
+  <!-- About The Secret Tunnel Modal -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="about-text">
+        <p>☠️ <strong>Join for the CULT tag</strong> ☠️</p>
+        <p>꒰ 👣 ˚₊‧꒦ ✧༚ welcome to the chaos ✧༚꒦ ‧₊˚ 👣 ꒱</p>
+        <p>Looking for chaotic good energy, unhinged confessions, and the world's sassiest Meow bot? You've found it. Our server is a safe haven for the unfiltered, the hilarious, and the emotionally unstable (with ✨vibes✨).</p>
+        <ul>
+          <li>✦ Meme & vent zones</li>
+          <li>✦ Confess your sins anonymously 😈</li>
+          <li>✦ Cats, dogs, crumbs & selfies</li>
+          <li>✦ Gaming channels from Final Fantasy to “fartnite”</li>
+          <li>✦ ✨Book club & braincell sacrifice pit</li>
+          <li>✦ Active, inclusive, and a little ✨feral✨</li>
+          <li>✦ Shitposting encouraged, sanity optional</li>
+        </ul>
+        <p>Whether you're here to overshare, touch grass, or catch Pokémon – we've got a channel for it.</p>
+        <p>꒰ 😺 ˚₊‧꒦ ✧༚ you belong with us now ✧༚꒦ ‧₊˚ 💀 ꒱</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Meow Bot Modal -->
+  <div id="botModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBotModal()">&times;</span>
+      <div class="about-text">
+        <p>😺 <strong>Meow Bot Features:</strong></p>
+        <ul>
+          <li>🐾 Meow & Bark Counting: Keep track of your playful nonsense.</li>
+          <li>🌐 Global Leaderboards: Track your meows across all servers, not just one!</li>
+          <li>💌 Welcome Messages: Customizable greetings for new members—toggle on or off.</li>
+          <li>⏰ Personal Reminders: Never forget important stuff - set reminders for yourself.</li>
+          <li>🧾 Quote Maker: Save and share memorable quotes (beta, work in progress).<br>— If you have Make It A Quote you can use /randomquote to pull up random quotes from your quote channel meaning they won't get buried as time goes by.</li>
+          <li>🎭 Anonymous Confessions: Submit confessions anonymously; admins can enable or disable this feature.</li>
+          <li>📊 Polls: Create interactive polls with up to 10 options.</li>
+          <li>🎮 Twitch Alerts: Get notifications for your favorite streamers (feature can be toggled).</li>
+          <li>🧹 /clear Command: Purge up to 100 messages at once for easy chat cleanup.</li>
+          <li>🖼️ /avatar: Show anyone's Discord avatar in full size.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Scripts -->
+  <script>
+    function openModal() {
+      document.getElementById('aboutModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('aboutModal').style.display = 'none';
+    }
+
+    function openBotModal() {
+      document.getElementById('botModal').style.display = 'block';
+    }
+
+    function closeBotModal() {
+      document.getElementById('botModal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      const about = document.getElementById('aboutModal');
+      const bot = document.getElementById('botModal');
+      if (event.target === about) closeModal();
+      if (event.target === bot) closeBotModal();
+    };
+  </script>
 </body>
 </html>
