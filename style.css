@@ -198,9 +198,7 @@ body::before {
 /* Mobile polish */
 @media (max-width: 480px) {
   body {
-    padding: 40px 20px; /* Add padding to ensure glow is visible */
-    height: auto;
-    min-height: 100vh;
+    padding: 0 20px; /* Only horizontal padding to prevent glow cutoff */
   }
 
   .container {
