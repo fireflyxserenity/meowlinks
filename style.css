@@ -98,6 +98,23 @@ h1 {
   box-shadow: 0 0 6px #00b86b, 0 0 12px #00c89644;
 }
 
+.patch-notes {
+  background: #8a2be2;
+  color: #fff;
+  box-shadow: 0 0 6px #8a2be2, 0 0 12px #dda0dd44;
+}
+
+/* Half-width buttons container */
+.half-width-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.half-width-buttons .link-button {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
 /* Glitter shimmer background */
 body::before {
   content: '';
