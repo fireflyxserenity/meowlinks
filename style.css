@@ -197,6 +197,18 @@ body::before {
 
 /* Mobile polish */
 @media (max-width: 480px) {
+  body {
+    padding: 40px 20px; /* Add padding to ensure glow is visible */
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 350px; /* Slightly smaller container */
+    margin: 0 auto;
+    box-shadow: 0 0 20px #0ff; /* Reduce glow size slightly for mobile */
+  }
+
   h1 {
     font-size: 1.6rem;
   }
