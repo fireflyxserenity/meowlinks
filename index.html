@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initi        <h4>📸 Enhanced          <li>📊 <strong>Server Independence:</strong> Each server maintains its own settings and data</li>Quote Features</h4>l-scale=1.0" />
   <title>The Secret Tunnel</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
@@ -24,11 +24,17 @@
         Invite Meow Bot
       </a>
 
-      <!-- Ko-fi -->
-      <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
-        Support the Bot
-      </a>
+      <!-- Patch Notes and Support - Half Width -->
+      <div class="half-width-buttons">
+        <a href="#" class="link-button patch-notes" onclick="openPatchNotesModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
+          Patch Notes
+        </a>
+        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
+          Support the Bot
+        </a>
+      </div>
     </div>
 
     <h1>✨ The Secret Tunnel ✨</h1>
@@ -37,7 +43,7 @@
     <div class="links">
       <!-- About the Server -->
       <a href="#" class="link-button about" onclick="openModal()">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f52a.png" alt="About" />
+        <img src="https://cdn.discordapp.com/emojis/1398163249005985883.webp?size=96" alt="About" />
         About The Secret Tunnel
       </a>
 
@@ -98,6 +104,50 @@
     </div>
   </div>
 
+  <!-- Patch Notes Modal -->
+  <div id="patchNotesModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePatchNotesModal()">&times;</span>
+      <div class="about-text">
+<h2>📝 Meow Bot - Patch Notes</h2>
+
+<h3>🎯 Version 1.2 - "Embed Revolution"</h3>
+<p>
+  <strong>🔧 Quote Overhaul:</strong> Switched from image quotes to Discord embeds, Fixed emoji bugs, Fixed name rendering, Much faster and more stable, Still in testing (expect tweaks)<br>
+  <strong>💡 Emoji & Appearance:</strong> Perfect emoji support (yes, custom ones too), Clean new Discord-style look, Works better across all servers<br>
+  <strong>⚠️ Known Issues:</strong> Simpler visuals than before, Still adjusting features for the best combo of style + stability
+</p>
+
+<h3>🌍 Version 1.1 - "Global Expansion"</h3>
+<p>
+  <strong>🚀 Multi-Server Support:</strong> Meow Bot now works fully across multiple servers, Meows tracked globally, Each server keeps its own settings, Upgraded automatically<br>
+  <strong>📈 New Features:</strong> Global meow rankings, Server-specific options, Faster and smoother performance<br>
+  <strong>🛠️ Improvements:</strong> Less lag, Fewer bugs, More reliable overall
+</p>
+
+<h3>💬 Version 1.0 - "Foundation & Confessions"</h3>
+<p>
+  <strong>🎉 First Features:</strong> Meow counter, Quote maker, Reaction roles, Twitch stream alerts<br>
+  <strong>🤐 Anonymous Confessions:</strong> Send secrets anonymously, Private & secure, Admins can manage settings<br>
+  <strong>⏰ Smart Reminders:</strong> Set reminders with natural phrases (like “in 10 mins”), Reminders survive restarts, Everyone can manage their own<br>
+  <strong>🎯 Admin Tools:</strong> Centralized settings, Activity logs, Role permissions, Easy setup
+</p>
+
+<h3>🔮 Coming Soon</h3>
+<p>
+  More quote customization (and maybe image quotes again once they're fixed!), detailed server logs for avatar updates, VC activity, message edits/deletes, and join/leave tracking
+</p>
+
+
+<h3>📞 Support & Feedback</h3>
+<p><em>Meow Bot is always improving. Thanks for meowing with us 🐱 Got feedback or ideas? DM <strong>fireflyxserenity</strong> or swing by The Secret Tunnel to tell us what you wanna see next!</em></p>
+
+
+
+</div>
+    </div>
+  </div>
+
   <!-- Modal Scripts -->
   <script>
     function openModal() {
@@ -116,11 +166,21 @@
       document.getElementById('botModal').style.display = 'none';
     }
 
+    function openPatchNotesModal() {
+      document.getElementById('patchNotesModal').style.display = 'block';
+    }
+
+    function closePatchNotesModal() {
+      document.getElementById('patchNotesModal').style.display = 'none';
+    }
+
     window.onclick = function (event) {
       const about = document.getElementById('aboutModal');
       const bot = document.getElementById('botModal');
+      const patchNotes = document.getElementById('patchNotesModal');
       if (event.target === about) closeModal();
       if (event.target === bot) closeBotModal();
+      if (event.target === patchNotes) closePatchNotesModal();
     };
   </script>
 </body>
