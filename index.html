@@ -256,19 +256,23 @@
 
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
+      document.body.classList.add('modal-open');
     }
 
     function closeModal() {
       document.getElementById('aboutModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
     }
 
     function openBotModal() {
       document.getElementById('botModal').style.display = 'block';
+      document.body.classList.add('modal-open');
       showBotTab('userFeatures'); // Always start on User Features tab
     }
 
     function closeBotModal() {
       document.getElementById('botModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
     }
 
     // Bot Modal Tab Functions
@@ -293,20 +297,28 @@
 
     function openPatchNotesModal() {
       document.getElementById('patchNotesModal').style.display = 'block';
+      document.body.classList.add('modal-open');
       showPatchNotesPage(1); // Always start on page 1
     }
 
     function closePatchNotesModal() {
       document.getElementById('patchNotesModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
     }
 
     window.onclick = function (event) {
       const about = document.getElementById('aboutModal');
       const bot = document.getElementById('botModal');
       const patchNotes = document.getElementById('patchNotesModal');
-      if (event.target === about) closeModal();
-      if (event.target === bot) closeBotModal();
-      if (event.target === patchNotes) closePatchNotesModal();
+      if (event.target === about) {
+        closeModal();
+      }
+      if (event.target === bot) {
+        closeBotModal();
+      }
+      if (event.target === patchNotes) {
+        closePatchNotesModal();
+      }
     };
   </script>
 </body>
