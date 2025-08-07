@@ -13,6 +13,13 @@ body {
   z-index: 1;
 }
 
+/* Prevent scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 .container {
   max-width: 400px;
   padding: 20px;
@@ -152,7 +159,8 @@ body::before {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: rgba(0, 0, 0, 0.8);
   animation: fadeIn 0.4s ease;
 }
@@ -168,6 +176,9 @@ body::before {
   color: white;
   box-shadow: 0 0 20px #0ff;
   position: relative;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .close {
@@ -216,9 +227,20 @@ body::before {
     padding: 10px 16px;
   }
 
+  .modal {
+    padding: 10px;
+  }
+
   .modal-content {
-    margin-top: 20%;
+    margin: 5% auto;
+    margin-top: 10%;
+    padding: 15px;
+    width: 95%;
+    max-width: 100%;
     font-size: 0.95rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   /* Tab navigation mobile styles */
@@ -231,6 +253,22 @@ body::before {
     padding: 10px 12px;
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  /* Ensure text doesn't cause horizontal overflow */
+  .about-text,
+  .tab-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .about-text p,
+  .about-text ul,
+  .tab-content p,
+  .tab-content ul {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }
 
