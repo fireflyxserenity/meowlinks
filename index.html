@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initi        <h4>📸 Enhanced          <li>📊 <strong>Server Independence:</strong> Each server maintains its own settings and data</li>Quote Features</h4>l-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Secret Tunnel</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
@@ -70,7 +70,7 @@
           <li>✦ Meme & vent zones</li>
           <li>✦ Confess your sins anonymously 😈</li>
           <li>✦ Cats, dogs, crumbs & selfies</li>
-          <li>✦ Gaming channels from Final Fantasy to “fartnite”</li>
+          <li>✦ Gaming channels from Final Fantasy to "fartnite"</li>
           <li>✦ ✨Book club & braincell sacrifice pit</li>
           <li>✦ Active, inclusive, and a little ✨feral✨</li>
           <li>✦ Shitposting encouraged, sanity optional</li>
@@ -86,20 +86,60 @@
     <div class="modal-content">
       <span class="close" onclick="closeBotModal()">&times;</span>
       <div class="about-text">
-        <p>😺 <strong>Meow Bot Features:</strong></p>
-        <ul>
-          <li>🐾 Meow & Bark Counting: Keep track of your playful nonsense.</li>
-          <li>🌐 Global Leaderboards: Track your meows across all servers, not just one!</li>
-          <li>💌 Welcome Messages: Customizable greetings for new members—toggle on or off.</li>
-          <li>⏰ Personal Reminders: Never forget important stuff - set reminders for yourself.</li>
-          <li>🧾 Quote Maker: Save and share memorable quotes (beta, work in progress).<br>— If you have Make It A Quote you can use /randomquote to pull up random quotes from your quote channel meaning they won't get buried as time goes by.</li>
-          <li>🎭 Anonymous Confessions: Submit confessions anonymously; admins can enable or disable this feature.</li>
-          <li>📊 Polls: Create interactive polls with up to 10 options.</li>
-          <li>🎮 Twitch Alerts: Get notifications for your favorite streamers (feature can be toggled).</li>
-          <li>🎭 Reaction roles: Also in beta/work in progress.</li>
-          <li>🧹 /clear Command: Purge up to 100 messages at once for easy chat cleanup.</li>
-          <li>🖼️ /avatar: Show anyone's Discord avatar in full size.</li>
-        </ul>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+          <button id="userFeaturesTab" class="tab-button active" onclick="showBotTab('userFeatures')">User Features</button>
+          <button id="adminFeaturesTab" class="tab-button" onclick="showBotTab('adminFeatures')">Admin Features</button>
+        </div>
+
+        <!-- User Features Tab Content -->
+        <div id="userFeaturesContent" class="tab-content active">
+          <h2>🐾 Meow Bot User Features</h2>
+
+          <h3>Meow Features:</h3>
+          <ul>
+            <li>🐱 <strong>Meow & Bark Counting:</strong> Keep track of your playful nonsense with /meow and /barkcount</li>
+            <li>🏆 <strong>Server Leaderboards:</strong> View server rankings with /meowboard</li>
+            <li>🌐 <strong>Global Leaderboards:</strong> Track your meows across all servers with /globalmeowboard</li>
+          </ul>
+
+          <h3>Communication & Social:</h3>
+          <ul>
+            <li>💌 <strong>Personal Reminders:</strong> Never forget important stuff with /remind</li>
+            <li>🎭 <strong>Anonymous Confessions:</strong> Submit confessions anonymously with /confess</li>
+            <li>📊 <strong>Polls:</strong> Create interactive polls with up to 10 options using /poll</li>
+            <li>🧾 <strong>Quote System:</strong> Save and share memorable quotes (beta) with /randomquote</li>
+            <li>🖼️ <strong>Avatar Display:</strong> Show anyone's Discord avatar in full size with /avatar</li>
+          </ul>
+        </div>
+
+        <!-- Admin Features Tab Content -->
+        <div id="adminFeaturesContent" class="tab-content" style="display: none;">
+          <h2>🛠️ Meow Bot Admin Features</h2>
+          <p><em>(Features that require admin permissions)</em></p>
+
+          <h3>Server Configuration:</h3>
+          <ul>
+            <li>💌 <strong>Welcome Messages:</strong> Customizable greetings for new members—toggle on/off with /config_welcome</li>
+            <li>🐱 <strong>Meow Rate Limiting:</strong> Control spam by capping meows per message with /config_meow_limits</li>
+            <li>🌐 <strong>Global Leaderboard Participation:</strong> Opt in/out of cross-server leaderboards</li>
+            <li>🎭 <strong>Anonymous Confessions:</strong> Toggle confession feature and set channels with /config_confess</li>
+          </ul>
+
+          <h3>Channel Management:</h3>
+          <ul>
+            <li>💬 <strong>Quote Channel Setup:</strong> Configure where quotes are stored and retrieved</li>
+            <li>🎮 <strong>Twitch Alerts:</strong> Set up notifications for favorite streamers (configurable per server)</li>
+            <li>🎭 <strong>Reaction Roles:</strong> Assign roles via reactions (beta/work in progress)</li>
+          </ul>
+
+          <h3>Moderation Tools:</h3>
+          <ul>
+            <li>🧹 <strong>Message Purging:</strong> Clear up to 100 messages at once with /clear</li>
+            <li>🔧 <strong>Server Setup:</strong> Interactive configuration menu with /setup</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -111,11 +151,13 @@
       <div class="about-text">
 <h2>📝 Meow Bot - Patch Notes</h2>
 
-<h3>🎯 Version 1.2 - "Embeds and confession replies"</h3>
+<!-- Page 1 Content -->
+<div id="patchNotesPage1" class="patch-notes-page">
+<h3>🎯 Version 1.2 - "Embed Revolution"</h3>
 <p>
- <strong>🧵 Confession replies:</strong> Confessions now automatically create discussion threads, and using /confess within a thread posts anonymous replies directly there instead of creating new confessions.<br>
   <strong>🔧 Quote Overhaul:</strong> Switched from image quotes to Discord embeds, Fixed emoji bugs, Fixed name rendering, Much faster and more stable, Still in testing (expect tweaks)<br>
   <strong>💡 Emoji & Appearance:</strong> Perfect emoji support (yes, custom ones too), Clean new Discord-style look, Works better across all servers<br>
+  <strong>🛡️ Meow Rate Limiting:</strong> Control spam by capping meows per message with /config_meow_limits<br>
   <strong>⚠️ Known Issues:</strong> Simpler visuals than before, Still adjusting features for the best combo of style + stability, ‼️vrnvctss yelling at the bot
 </p>
 
@@ -130,10 +172,13 @@
 <p>
   <strong>🎉 First Features:</strong> Meow counter, Quote maker, Reaction roles, Twitch stream alerts<br>
   <strong>🤐 Anonymous Confessions:</strong> Send secrets anonymously, Private & secure, Admins can manage settings<br>
-  <strong>⏰ Smart Reminders:</strong> Set reminders with natural phrases (like “in 10 mins”), Reminders survive restarts, Everyone can manage their own<br>
+  <strong>⏰ Smart Reminders:</strong> Set reminders with natural phrases (like "in 10 mins"), Reminders survive restarts, Everyone can manage their own<br>
   <strong>🎯 Admin Tools:</strong> Centralized settings, Activity logs, Role permissions, Easy setup
 </p>
+</div>
 
+<!-- Page 2 Content -->
+<div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
 <h3>🔮 Coming Soon</h3>
 <p>
   More quote customization (and maybe image quotes again once they're fixed!), detailed server logs for avatar updates, VC activity, message edits/deletes, and join/leave tracking
@@ -143,6 +188,22 @@
 <h3>📞 Support & Feedback</h3>
 <p><em>Meow Bot is always improving. Thanks for meowing with us 🐱 Got feedback or ideas? DM <strong>fireflyxserenity</strong> or swing by The Secret Tunnel to tell us what you wanna see next!</em></p>
 
+<h3>🛠️ Development Notes</h3>
+<p>
+  <strong>🧪 Beta Features:</strong> Quote maker and reaction roles are still being refined<br>
+  <strong>🔄 Continuous Updates:</strong> Regular improvements based on user feedback<br>
+  <strong>📊 Performance Monitoring:</strong> Tracking bot performance across all servers<br>
+  <strong>🔐 Security:</strong> Anonymous confessions use secure processing
+</p>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination-controls" style="text-align: center; margin-top: 20px; border-top: 1px solid #444; padding-top: 15px;">
+  <button id="prevPageBtn" onclick="showPatchNotesPage(1)" style="margin-right: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;" disabled>◀ Previous</button>
+  <span id="pageIndicator" style="margin: 0 15px; color: #bbb;">Page 1 of 2</span>
+  <button id="nextPageBtn" onclick="showPatchNotesPage(2)" style="margin-left: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;">Next ▶</button>
+</div>
+
 
 
 </div>
@@ -151,6 +212,52 @@
 
   <!-- Modal Scripts -->
   <script>
+    // Patch Notes Pagination
+    let currentPatchNotesPage = 1;
+    const totalPatchNotesPages = 2;
+
+    function showPatchNotesPage(pageNumber) {
+      // Hide all pages
+      document.getElementById('patchNotesPage1').style.display = 'none';
+      document.getElementById('patchNotesPage2').style.display = 'none';
+
+      // Show the requested page
+      document.getElementById('patchNotesPage' + pageNumber).style.display = 'block';
+
+      // Update current page
+      currentPatchNotesPage = pageNumber;
+
+      // Update pagination controls
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const prevBtn = document.getElementById('prevPageBtn');
+      const nextBtn = document.getElementById('nextPageBtn');
+      const pageIndicator = document.getElementById('pageIndicator');
+
+      // Update page indicator
+      pageIndicator.textContent = `Page ${currentPatchNotesPage} of ${totalPatchNotesPages}`;
+
+      // Update buttons
+      prevBtn.disabled = currentPatchNotesPage === 1;
+      nextBtn.disabled = currentPatchNotesPage === totalPatchNotesPages;
+
+      // Update button styles
+      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
+      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
+
+      // Update onclick handlers
+      if (currentPatchNotesPage > 1) {
+        prevBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage - 1);
+      }
+      if (currentPatchNotesPage < totalPatchNotesPages) {
+        nextBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage + 1);
+      }
+    }
+
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
     }
@@ -161,14 +268,36 @@
 
     function openBotModal() {
       document.getElementById('botModal').style.display = 'block';
+      showBotTab('userFeatures'); // Always start on User Features tab
     }
 
     function closeBotModal() {
       document.getElementById('botModal').style.display = 'none';
     }
 
+    // Bot Modal Tab Functions
+    function showBotTab(tabName) {
+      // Hide all tab contents
+      document.getElementById('userFeaturesContent').style.display = 'none';
+      document.getElementById('adminFeaturesContent').style.display = 'none';
+
+      // Remove active class from all tabs
+      document.getElementById('userFeaturesTab').classList.remove('active');
+      document.getElementById('adminFeaturesTab').classList.remove('active');
+
+      // Show the selected tab content and mark tab as active
+      if (tabName === 'userFeatures') {
+        document.getElementById('userFeaturesContent').style.display = 'block';
+        document.getElementById('userFeaturesTab').classList.add('active');
+      } else if (tabName === 'adminFeatures') {
+        document.getElementById('adminFeaturesContent').style.display = 'block';
+        document.getElementById('adminFeaturesTab').classList.add('active');
+      }
+    }
+
     function openPatchNotesModal() {
       document.getElementById('patchNotesModal').style.display = 'block';
+      showPatchNotesPage(1); // Always start on page 1
     }
 
     function closePatchNotesModal() {
