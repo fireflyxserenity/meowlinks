@@ -220,6 +220,18 @@ body::before {
     margin-top: 20%;
     font-size: 0.95rem;
   }
+
+  /* Tab navigation mobile styles */
+  .tab-navigation {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .tab-button {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
 }
 
 /* Pagination styles */
