@@ -232,28 +232,39 @@ body::before {
     padding: 10px;
   }
 
-  .modal-content {
-    margin: 5% auto;
-    margin-top: 10%;
-    padding: 15px;
-    width: 95%;
-    max-width: 100%;
-    font-size: 0.95rem;
-    max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
   /* Tab navigation mobile styles */
   .tab-navigation {
     gap: 4px;
     padding: 4px;
+    margin-top: 8px !important;
   }
 
   .tab-button {
     padding: 10px 12px;
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  /* Adjust close button position on mobile */
+  .close {
+    right: 10px;
+    top: 10px;
+    font-size: 22px;
+    padding: 4px;
+  }
+
+  /* Adjust modal content padding to bring everything closer */
+  .modal-content {
+    margin: 5% auto;
+    margin-top: 10%;
+    padding: 15px;
+    padding-top: 10px;
+    width: 95%;
+    max-width: 100%;
+    font-size: 0.95rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   /* Ensure text doesn't cause horizontal overflow */
