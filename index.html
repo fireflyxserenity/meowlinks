@@ -10,6 +10,17 @@
 <body>
   <div class="container">
     
+    <!-- Hidden Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+      <div class="admin-content">
+        <h3>🔧 Admin Panel</h3>
+        <p>Page Views: <span id="pageViews">0</span></p>
+        <p>Unique Visitors: <span id="uniqueVisitors">0</span></p>
+        <p>Last Visit: <span id="lastVisit">Never</span></p>
+        <button onclick="closeAdminPanel()">Close</button>
+      </div>
+    </div>
+    
     <h1>✨ Meow Bot ✨</h1>
     <div class="links">
       <!-- About Meow Bot -->
@@ -221,6 +232,65 @@
 
   <!-- Modal Scripts -->
   <script>
+    // Traffic Counter & Admin Panel
+    function initTrafficCounter() {
+      const now = new Date().toISOString();
+      
+      // Increment page views
+      let pageViews = parseInt(localStorage.getItem('pageViews') || '0');
+      pageViews++;
+      localStorage.setItem('pageViews', pageViews.toString());
+      
+      // Check for unique visitor (if no visit in last 24 hours)
+      const lastVisit = localStorage.getItem('lastVisit');
+      const lastVisitDate = lastVisit ? new Date(lastVisit) : null;
+      const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      
+      let uniqueVisitors = parseInt(localStorage.getItem('uniqueVisitors') || '0');
+      if (!lastVisitDate || lastVisitDate < dayAgo) {
+        uniqueVisitors++;
+        localStorage.setItem('uniqueVisitors', uniqueVisitors.toString());
+      }
+      
+      localStorage.setItem('lastVisit', now);
+    }
+
+    function updateAdminPanel() {
+      const pageViews = localStorage.getItem('pageViews') || '0';
+      const uniqueVisitors = localStorage.getItem('uniqueVisitors') || '0';
+      const lastVisit = localStorage.getItem('lastVisit') || 'Never';
+      
+      document.getElementById('pageViews').textContent = pageViews;
+      document.getElementById('uniqueVisitors').textContent = uniqueVisitors;
+      document.getElementById('lastVisit').textContent = lastVisit !== 'Never' 
+        ? new Date(lastVisit).toLocaleString() 
+        : 'Never';
+    }
+
+    function openAdminPanel() {
+      updateAdminPanel();
+      document.getElementById('adminPanel').style.display = 'block';
+      document.body.classList.add('modal-open');
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    // Secret key combination to open admin panel (Ctrl + Shift + A)
+    document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+        event.preventDefault();
+        openAdminPanel();
+      }
+    });
+
+    // Initialize traffic counter when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initTrafficCounter();
+    });
+
     // Patch Notes Pagination
     let currentPatchNotesPage = 1;
     const totalPatchNotesPages = 3;
