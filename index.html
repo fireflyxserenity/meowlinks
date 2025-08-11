@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Secret Tunnel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Hidden Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+      <div class="admin-content">
+        <h3>🔧 Admin Panel</h3>
+        <p>Page Views: <span id="pageViews">0</span></p>
+        <p>Unique Visitors: <span id="uniqueVisitors">0</span></p>
+        <p>Last Visit: <span id="lastVisit">Never</span></p>
+        <button onclick="closeAdminPanel()">Close</button>
+      </div>
+    </div>
+    
+    <h1>✨ Meow Bot ✨</h1>
+    <div class="links">
+      <!-- About Meow Bot -->
+      <a href="#" class="link-button about-bot" onclick="openBotModal()">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
+        About Meow Bot
+      </a>
+
+      <!-- Meow Bot Invite -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Bot" />
+        Invite Meow Bot
+      </a>
+
+      <!-- Patch Notes and Support - Half Width -->
+      <div class="half-width-buttons">
+        <a href="#" class="link-button patch-notes" onclick="openPatchNotesModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
+          Patch Notes
+        </a>
+        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
+          Support the Bot
+        </a>
+      </div>
+      <a href="#" class="link-button bug-report" style="margin-top:4px;" onclick="openBugModal()">
+        🐞 Report a Bug / Feature Requests
+      </a>
+  <!-- Bug Report Modal -->
+  <div id="bugModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBugModal()">&times;</span>
+      <div class="about-text">
+        <h2>🐞 Report a Bug / Feature Requests</h2>
+        <p style="margin-bottom:15px; color:#aaa; font-size:1em;">Hey there! Use this form to let me know about any bugs, issues, or cool ideas you want to see in Meow Bot.<br>I'm always happy to hear from you! 🐱✨</p>
+        <form action="https://formspree.io/f/mvgqdkgr" method="POST" style="margin-top:10px;">
+          <div style="display:flex; gap:24px; margin-bottom:18px; flex-wrap:wrap;">
+            <label style="flex:1; min-width:150px; display:flex; flex-direction:column; gap:4px;">
+              E-mail (optional):
+              <input type="email" name="email" style="width:100%;padding:8px;background:#181a20;color:#fff;border:1px solid #333;border-radius:6px;margin-bottom:8px;box-sizing:border-box;" placeholder="you@email.com">
+            </label>
+            <label style="flex:1; min-width:150px; display:flex; flex-direction:column; gap:4px;">
+              Discord name (optional):
+              <input type="text" name="discord" style="width:100%;padding:8px;background:#181a20;color:#fff;border:1px solid #333;border-radius:6px;margin-bottom:8px;box-sizing:border-box;" placeholder="fireflyxserenity#1234">
+            </label>
+          </div>
+          <label style="display:block; margin-bottom:12px;">
+            What type of feedback is this?
+            <select name="type" required style="width:100%;padding:8px;background:#181a20;color:#fff;border:1px solid #333;border-radius:6px;margin-top:4px;margin-bottom:8px;box-sizing:border-box;">
+              <option value="Bug Report">Bug Report</option>
+              <option value="Feature Request">Feature Request</option>
+            </select>
+          </label>
+          <label style="display:block; margin-bottom:10px;">
+            What would you like to report or suggest?<br>
+            <textarea name="message" rows="5" style="width:100%;padding:8px;background:#181a20;color:#fff;border:1px solid #333;border-radius:6px;box-sizing:border-box;" required placeholder="Describe the bug or feature request in detail!"></textarea>
+          </label>
+          <button type="submit" style="background:#222;color:#fff;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;transition:background 0.2s;">Send</button>
+        </form>
+  <p style="margin-top:15px;font-size:0.95em;color:#bbb;">Your info is only used to contact you if more details are needed. Thank you for helping make the bot better! 💜</p>
+  <p style="margin-top:8px;font-size:0.95em;color:#bbb;">If you have screenshots, please upload them to <a href="https://imgur.com/upload" target="_blank" style="color:#7ecfff;">Imgur</a> and paste the link above, or we may request them if you provide your email or Discord name.</p>
+      </div>
+    </div>
+  </div>
+    
+    </div>
+
+    <h1>✨ The Secret Tunnel ✨</h1>
+   
+
+    <div class="links">
+      <!-- About the Server -->
+      <a href="#" class="link-button about" onclick="openModal()">
+        <img src="https://cdn.discordapp.com/emojis/1398163249005985883.webp?size=96" alt="About" />
+        About The Secret Tunnel
+      </a>
+
+      <!-- Discord Server -->
+      <a href="https://discord.com/invite/thesecrettunnel" target="_blank" class="link-button discord">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Discord" />
+        Join the Discord
+      </a>
+      <div style="margin-top:8px; font-size:0.8rem; color:#bbb; text-align:center; opacity:0.7;">
+        <span>❓ Questions, suggestions, or bugs? DM <strong>fireflyxserenity</strong> on Discord.</span>
+      </div>
+      
+      <!-- Mini Game Link -->
+      <div style="margin-top:15px; text-align:center;">
+        <a href="https://fireflyxserenity.github.io/meowclicker/" target="_blank" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#bbb; font-size:0.85rem; opacity:0.8; transition:opacity 0.3s ease;">
+          <img src="https://cdn.discordapp.com/emojis/1404200966810505268.webp?size=96" alt="Meow Clicker" style="width:20px; height:20px;" />
+          <span>Play Meow Clicker</span>
+          <span style="font-size:0.7rem; color:#ff6b6b; margin-left:4px;">(very early alpha - expect bugs!)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About The Secret Tunnel Modal -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="about-text">
+        <p>☠️ <strong>Join for the CULT tag</strong> ☠️</p>
+        <p>꒰ 👣 ˚₊‧꒦ ✧༚ welcome to the chaos ✧༚꒦ ‧₊˚ 👣 ꒱</p>
+        <p>Looking for chaotic good energy, unhinged confessions, and the world's sassiest Meow bot? You've found it. Our server is a safe haven for the unfiltered, the hilarious, and the emotionally unstable (with ✨vibes✨).</p>
+        <ul>
+          <li>✦ Meme & vent zones</li>
+          <li>✦ Confess your sins anonymously 😈</li>
+          <li>✦ Cats, dogs, crumbs & selfies</li>
+          <li>✦ Gaming channels from Final Fantasy to "fartnite"</li>
+          <li>✦ ✨Book club & braincell sacrifice pit</li>
+          <li>✦ Active, inclusive, and a little ✨feral✨</li>
+          <li>✦ Shitposting encouraged, sanity optional</li>
+        </ul>
+        <p>Whether you're here to overshare, touch grass, or catch Pokémon – we've got a channel for it.</p>
+        <p>꒰ 😺 ˚₊‧꒦ ✧༚ you belong with us now ✧༚꒦ ‧₊˚ 💀 ꒱</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Meow Bot Modal -->
+  <div id="botModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBotModal()">&times;</span>
+      <div class="about-text">
+        
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+          <button id="userFeaturesTab" class="tab-button active" onclick="showBotTab('userFeatures')">User Features</button>
+          <button id="adminFeaturesTab" class="tab-button" onclick="showBotTab('adminFeatures')">Admin Features</button>
+        </div>
+
+        <!-- User Features Tab Content -->
+        <div id="userFeaturesContent" class="tab-content active">
+          <h2>🐾 Meow Bot User Features</h2>
+
+          <h3>Meow Features:</h3>
+          <ul>
+            <li>🐱 <strong>Meow & Bark Counting:</strong> Keep track of your playful nonsense with /meow and /barkcount</li>
+            <li>🏆 <strong>Server Leaderboards:</strong> View server rankings with /meowboard</li>
+            <li>🌐 <strong>Global Leaderboards:</strong> Track your meows across all servers with /globalmeowboard</li>
+          </ul>
+
+          <h3>Communication & Social:</h3>
+          <ul>
+            <li>💌 <strong>Personal Reminders:</strong> Never forget important stuff with /remind</li>
+            <li>🎭 <strong>Anonymous Confessions:</strong> Submit confessions anonymously with /confess</li>
+            <li>📊 <strong>Polls:</strong> Create interactive polls with up to 10 options using /poll</li>
+            <li>🧾 <strong>Quote System:</strong> Save and share memorable quotes (beta) with /randomquote</li>
+          </ul>
+
+          <h3>Extras:</h3>
+          <ul>
+            <li>🖼️ <strong>Avatar Display:</strong> Show anyone's Discord avatar in full size with /avatar</li>
+            <li>🔄 <strong>Universal Conversions:</strong> Convert between 8+ unit types with /convert - distance, weight, volume, time, data storage, speed, temperature, and 160+ live currencies!</li>
+            <li>💱 <strong>Live Currency Updates:</strong> Real-time exchange rates that update hourly for accurate conversions</li>
+          </ul>
+        </div>
+
+        <!-- Admin Features Tab Content -->
+        <div id="adminFeaturesContent" class="tab-content" style="display: none;">
+          <h2>🛠️ Meow Bot Admin Features</h2>
+          <p><em>(Features that require admin permissions)</em></p>
+
+          <h3>Server Configuration:</h3>
+          <ul>
+            <li>💌 <strong>Welcome Messages:</strong> Customizable greetings for new members—toggle on/off with /config_welcome</li>
+            <li>🐱 <strong>Meow Rate Limiting:</strong> Control spam by capping meows per message with /config_meow_limits</li>
+            <li>🌐 <strong>Global Leaderboard Participation:</strong> Opt in/out of cross-server leaderboards</li>
+            <li>🎭 <strong>Anonymous Confessions:</strong> Toggle confession feature and set channels with /config_confess</li>
+          </ul>
+
+          <h3>Server Management:</h3>
+          <ul>
+            <li>💬 <strong>Quote Channel Setup:</strong> Configure where quotes are stored and retrieved</li>
+            <li>🎮 <strong>Twitch Alerts:</strong> Set up notifications for favorite streamers (configurable per server)</li>
+            <li>🎭 <strong>Reaction Roles:</strong> Assign roles via reactions (beta/work in progress)</li>
+            <li>🧹 <strong>Message Purging:</strong> Clear up to 100 messages at once with /clear</li>
+            <li>🔧 <strong>Server Setup:</strong> Interactive configuration menu with /setup</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patch Notes Modal -->
+  <div id="patchNotesModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePatchNotesModal()">&times;</span>
+      <div class="about-text">
+        <h2>📝 Meow Bot - Patch Notes</h2>
+
+        <!-- Page 1 Content -->
+        <div id="patchNotesPage1" class="patch-notes-page">
+          <h3>✨ Version 2.4.1 - "Quote System Update"</h3>
+          <p><em>Release Date: August 11, 2025</em></p>
+          <p>
+            <strong>🎲 Quote System Update:</strong> Reroll function for /random quote feature<br>
+            <strong>⏰ Reminder System Update:</strong> Simplified - Cleaner reminder embeds with better formatting<br>
+            <strong>🤐 Confession Threads:</strong> Simplified - Streamlined confession thread embeds
+          </p>
+
+          <h3>✨ Version 2.4.0 - "Translation & Polish Update"</h3>
+          <p><em>Release Date: August 10, 2025</em></p>
+          <p>
+            <strong>🌐 Translation System:</strong> Added /translate command with auto language detection supporting 100+ languages<br>
+            <strong>🎨 UI Improvements:</strong> Simplified embeds with cleaner, more compact design for conversions and translations<br>
+            <strong>📝 Quote System Updates:</strong> Removed quote requester mentions for cleaner notifications<br>
+            <strong>📊 Poll System Enhancements:</strong> Added optional image support and auto-moderation to remove invalid emoji reactions<br>
+            <strong>👋 Welcome System Improvements:</strong> Bot filtering prevents welcome spam when other bots join
+          </p>
+
+          <h3>🔧 Version 2.3.1 - "Fixes & Polls Update"</h3>
+          <p><em>Release Date: August 9, 2025</em></p>
+          <p>
+            <strong>🔧 Quote Mention Fix:</strong> Fixed quotes so users don't get @mentioned twice when using a dedicated quotes channel<br>
+            <strong>📊 Poll Images:</strong> Added single image support to polls - now you can add a visual to help explain your poll!<br>
+            <strong>✨ Quality of Life:</strong> Better user experience with quote notifications
+          </p>
+        </div>
+
+        <!-- Page 2 Content -->
+        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
+          <h3>🎨 Version 2.3.0 - "QuoteMaker Update"</h3>
+          <p><em>Release Date: August 8, 2025</em></p>
+          <p>
+            <strong>🌌 New Backgrounds:</strong> Pick between Galaxy, Dark Sky, Cats, or classic Black<br>
+            <strong>😎 Emoji handling:</strong> Custom + Unicode emojis render cleaner and in-line<br>
+            <strong>📦 Quote channel support:</strong> Post straight to a dedicated quotes channel, with dual-post option<br>
+            <strong>📢 Mentions now readable:</strong> &lt;@12345&gt; becomes @Username<br>
+            <strong>✂️ Smart quote trimming:</strong> Overly long quotes get trimmed with smarter space-based truncation<br>
+            <strong>⚠️ Still working on:</strong> Unicode rendering – massively in beta, expect weirdness with ultra-fancy names
+          </p>
+          <p><em>💙 Special thanks to @RyanCAD for extensive coding and testing work, and @vrnvctss for additional testing and coding support!</em></p>
+
+          <h3>🚀 Version 2.2.0 - "Universal Conversion System"</h3>
+          <p><em>Release Date: August 7, 2025</em></p>
+          <p>
+            <strong>🔄 New Feature:</strong> Universal Unit Conversion System - Convert between 8 different types of stuff with natural language!<br>
+            <strong>🆕 New Commands:</strong> /convert, /conversionhelp<br>
+            <strong>📏 What you can convert:</strong> Distance, weight, volume, time, data storage, speed, temperature, and currency (with live rates!)<br>
+            <strong>🗣️ Just type naturally:</strong> "60 mph to kmh", "5 kg to pounds", "100 USD to CAD"<br>
+            <strong>💱 160+ currencies supported</strong> with real-time exchange rates that update hourly
+          </p>
+        </div>
+
+        <!-- Page 3 Content -->
+        <div id="patchNotesPage3" class="patch-notes-page" style="display: none;">
+          <h3>🎯 Version 2.1.0 - "Embed Revolution"</h3>
+          <p>
+            <strong>🔧 Quote System Makeover:</strong> Switched from images to Discord embeds - way faster and prettier!<br>
+            <strong>💡 Perfect Emoji Support:</strong> Custom server emojis now work flawlessly<br>
+            <strong>🛡️ New Command:</strong> /config_meow_limits to stop meow spam<br>
+            <strong>🐛 Bug Fixes:</strong> Fixed emoji and name rendering issues<br>
+            <strong>⚠️ Known Issues:</strong> Quotes look simpler now, still tweaking for the best balance
+          </p>
+
+          <h3>🌍 Version 2.0.0 - "Global Expansion"</h3>
+          <p>
+            <strong>🚀 Multi-Server Support:</strong> Bot now works across multiple Discord servers!<br>
+            <strong>🌐 Global Meow Tracking:</strong> Your meows count everywhere with /globalmeowboard<br>
+            <strong>⚙️ Server Independence:</strong> Each server keeps its own settings and preferences<br>
+            <strong>🛠️ General Improvements:</strong> Faster response times, less lag, fewer bugs
+          </p>
+        </div>
+
+        <!-- Page 4 Content -->
+        <div id="patchNotesPage4" class="patch-notes-page" style="display: none;">
+          <h3>🤐 Version 1.5.0 - "Confessions & More"</h3>
+          <p>
+            <strong>🤐 Anonymous Confessions:</strong> /confess to send secret messages safely<br>
+            <strong>⏰ Smart Reminders:</strong> /remind with natural language like "in 10 minutes"<br>
+            <strong>🎯 Admin Stuff:</strong> /setup, /clear, /config_welcome, and activity logging
+          </p>
+
+          <h3>💬 Version 1.0.0 - "Foundation"</h3>
+          <p>
+            <strong>🎉 The Beginning:</strong> /meow, /barkcount, /meowboard, /randomquote, reaction roles, Twitch alerts
+          </p>
+
+          <h3>🔮 Coming Soon</h3>
+          <p>
+            Fixing the quote system to be more visually appealing<br>Logging features such as users joining and leaving the server and voice chats.
+          </p>
+
+          <h3>📞 Support & Feedback</h3>
+          <p><em>Meow Bot is always getting better! Got ideas or found bugs? DM <strong>fireflyxserenity</strong> on Discord or come hang out in The Secret Tunnel! 🐱</em></p>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-controls" style="text-align: center; margin-top: 20px; border-top: 1px solid #444; padding-top: 15px;">
+          <button id="prevPageBtn" onclick="showPatchNotesPage(1)" style="margin-right: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;" disabled>◀ Previous</button>
+          <span id="pageIndicator" style="margin: 0 15px; color: #bbb;">Page 1 of 4</span>
+          <button id="nextPageBtn" onclick="showPatchNotesPage(2)" style="margin-left: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;">Next ▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Scripts -->
+  <script>
+    // Bug Modal Functions
+    function openBugModal() {
+      document.getElementById('bugModal').style.display = 'block';
+      document.body.classList.add('modal-open');
+    }
+    function closeBugModal() {
+      document.getElementById('bugModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+    // Traffic Counter & Admin Panel
+    function initTrafficCounter() {
+      const now = new Date().toISOString();
+      
+      // Increment page views
+      let pageViews = parseInt(localStorage.getItem('pageViews') || '0');
+      pageViews++;
+      localStorage.setItem('pageViews', pageViews.toString());
+      
+      // Check for unique visitor (if no visit in last 24 hours)
+      const lastVisit = localStorage.getItem('lastVisit');
+      const lastVisitDate = lastVisit ? new Date(lastVisit) : null;
+      const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      
+      let uniqueVisitors = parseInt(localStorage.getItem('uniqueVisitors') || '0');
+      if (!lastVisitDate || lastVisitDate < dayAgo) {
+        uniqueVisitors++;
+        localStorage.setItem('uniqueVisitors', uniqueVisitors.toString());
+      }
+      
+      localStorage.setItem('lastVisit', now);
+    }
+
+    function updateAdminPanel() {
+      const pageViews = localStorage.getItem('pageViews') || '0';
+      const uniqueVisitors = localStorage.getItem('uniqueVisitors') || '0';
+      const lastVisit = localStorage.getItem('lastVisit') || 'Never';
+      
+      document.getElementById('pageViews').textContent = pageViews;
+      document.getElementById('uniqueVisitors').textContent = uniqueVisitors;
+      document.getElementById('lastVisit').textContent = lastVisit !== 'Never' 
+        ? new Date(lastVisit).toLocaleString() 
+        : 'Never';
+    }
+
+    function openAdminPanel() {
+      updateAdminPanel();
+      document.getElementById('adminPanel').style.display = 'block';
+      document.body.classList.add('modal-open');
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    // Initialize traffic counter when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initTrafficCounter();
+    });
+
+    // Patch Notes Pagination
+    let currentPatchNotesPage = 1;
+    const totalPatchNotesPages = 4;
+
+    function showPatchNotesPage(pageNumber) {
+      // Hide all pages
+      document.getElementById('patchNotesPage1').style.display = 'none';
+      document.getElementById('patchNotesPage2').style.display = 'none';
+      document.getElementById('patchNotesPage3').style.display = 'none';
+      document.getElementById('patchNotesPage4').style.display = 'none';
+
+      // Show the requested page
+      document.getElementById('patchNotesPage' + pageNumber).style.display = 'block';
+
+      // Update current page
+      currentPatchNotesPage = pageNumber;
+
+      // Update pagination controls
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const prevBtn = document.getElementById('prevPageBtn');
+      const nextBtn = document.getElementById('nextPageBtn');
+      const pageIndicator = document.getElementById('pageIndicator');
+
+      // Update page indicator
+      pageIndicator.textContent = `Page ${currentPatchNotesPage} of ${totalPatchNotesPages}`;
+
+      // Update buttons
+      prevBtn.disabled = currentPatchNotesPage === 1;
+      nextBtn.disabled = currentPatchNotesPage === totalPatchNotesPages;
+
+      // Update button styles
+      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
+      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
+
+      // Update onclick handlers
+      if (currentPatchNotesPage > 1) {
+        prevBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage - 1);
+      }
+      if (currentPatchNotesPage < totalPatchNotesPages) {
+        nextBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage + 1);
+      }
+    }
+
+    function openModal() {
+      document.getElementById('aboutModal').style.display = 'block';
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      document.getElementById('aboutModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    function openBotModal() {
+      document.getElementById('botModal').style.display = 'block';
+      document.body.classList.add('modal-open');
+      showBotTab('userFeatures'); // Always start on User Features tab
+    }
+
+    function closeBotModal() {
+      document.getElementById('botModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    // Bot Modal Tab Functions
+    function showBotTab(tabName) {
+      // Hide all tab contents
+      document.getElementById('userFeaturesContent').style.display = 'none';
+      document.getElementById('adminFeaturesContent').style.display = 'none';
+
+      // Remove active class from all tabs
+      document.getElementById('userFeaturesTab').classList.remove('active');
+      document.getElementById('adminFeaturesTab').classList.remove('active');
+
+      // Show the selected tab content and mark tab as active
+      if (tabName === 'userFeatures') {
+        document.getElementById('userFeaturesContent').style.display = 'block';
+        document.getElementById('userFeaturesTab').classList.add('active');
+      } else if (tabName === 'adminFeatures') {
+        document.getElementById('adminFeaturesContent').style.display = 'block';
+        document.getElementById('adminFeaturesTab').classList.add('active');
+      }
+
+      // Scroll modal content to top for a smooth experience
+      var modalContent = document.querySelector('#botModal .modal-content');
+      if (modalContent) {
+        modalContent.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function openPatchNotesModal() {
+      document.getElementById('patchNotesModal').style.display = 'block';
+      document.body.classList.add('modal-open');
+      showPatchNotesPage(1); // Always start on page 1
+    }
+
+    function closePatchNotesModal() {
+      document.getElementById('patchNotesModal').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    window.onclick = function (event) {
+      const about = document.getElementById('aboutModal');
+      const bot = document.getElementById('botModal');
+      const patchNotes = document.getElementById('patchNotesModal');
+      if (event.target === about) {
+        closeModal();
+      }
+      if (event.target === bot) {
+        closeBotModal();
+      }
+      if (event.target === patchNotes) {
+        closePatchNotesModal();
+      }
+    };
+  </script>
+</body>
+</html>
