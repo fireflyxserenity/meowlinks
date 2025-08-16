@@ -23,12 +23,43 @@
       height: auto;
       min-height: 100vh;
       padding: 20px;
+      font-size: 0.85rem; /* Smaller base font size */
+    }
+    
+    .container {
+      line-height: 1.4; /* Tighter line spacing */
+    }
+    
+    h1 {
+      font-size: 1.8rem; /* Smaller headings */
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      margin: 20px 0 10px 0;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+      margin: 15px 0 8px 0;
+    }
+    
+    p, li {
+      font-size: 0.85rem; /* Smaller paragraph and list text */
+      margin-bottom: 8px;
+    }
+    
+    ul {
+      margin: 8px 0;
+      padding-left: 20px;
     }
     
     /* Mobile optimizations */
     @media (max-width: 480px) {
       body {
         padding: 10px;
+        font-size: 0.8rem;
       }
       .container {
         max-width: 100% !important;
@@ -37,13 +68,16 @@
         padding-bottom: 100px !important;
       }
       h1 {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
       }
       h2 {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
       }
       h3 {
-        font-size: 1.2rem !important;
+        font-size: 1.0rem !important;
+      }
+      p, li {
+        font-size: 0.8rem !important;
       }
     }
   </style>
@@ -56,7 +90,7 @@
     </p>
     
     <div style="text-align: left; color: #ddd; line-height: 1.6;">
-      <p><strong>Last Updated:</strong> August 12, 2025</p>
+      <p><strong>Last Updated:</strong> August 16, 2025</p>
       
       <h2>🤝 Acceptance of Terms</h2>
       <p>By using Meow Bot ("the Bot"), you agree to these Terms of Service ("Terms"). If you disagree with any part of these terms, you must discontinue use immediately by removing the Bot from your server or ceasing to interact with it.</p>
@@ -66,6 +100,9 @@
       <p>The Bot provides the following features:</p>
       <ul>
         <li><strong>Counting System:</strong> Meow/bark counting with server and global leaderboards</li>
+        <li><strong>Activity Ranking System:</strong> XP tracking, leveling, leaderboards, and automated role rewards</li>
+        <li><strong>Time-Filtered Statistics:</strong> Daily, weekly, monthly, and yearly activity breakdowns</li>
+        <li><strong>Progressive Role System:</strong> Automatic role assignment based on activity levels</li>
         <li><strong>Communication Tools:</strong> Anonymous confessions, reminders, quotes, and polls</li>
         <li><strong>Server Management:</strong> Welcome messages, reaction roles, and message clearing</li>
         <li><strong>Utility Features:</strong> Unit conversion, currency exchange, translation, and avatar display</li>
@@ -96,12 +133,24 @@
         <li><strong>Commercial Misuse:</strong> Using the Bot for unauthorized commercial purposes</li>
       </ul>
 
+      <h3>⚠️ Activity System Violations:</h3>
+      <ul>
+        <li><strong>XP Farming:</strong> Artificial inflation of activity metrics through automation, spam, or coordinated abuse</li>
+        <li><strong>Voice Idling:</strong> Remaining in voice channels solely for XP without genuine participation</li>
+        <li><strong>Ranking Manipulation:</strong> Coordinated efforts to artificially boost individual or group rankings</li>
+        <li><strong>System Exploitation:</strong> Attempting to bypass cooldowns, duplicate XP gains, or exploit progression mechanics</li>
+      </ul>
+
       <h2>🔒 Data & Privacy Summary</h2>
       <ul>
         <li>Data is collected and used solely for Bot functionality</li>
         <li>User statistics are maintained until manually reset by administrators</li>
         <li>Confession logs are kept for moderation and abuse prevention</li>
         <li>Server administrators have access to server data and confession moderation logs</li>
+        <li>Activity rankings and statistics are publicly displayed within servers</li>
+        <li>Long-term retention of XP, levels, and daily activity data for progression tracking</li>
+        <li>Leaderboard data includes usernames, activity metrics, and comparative statistics</li>
+        <li>Role assignments based on activity levels are publicly visible on Discord</li>
         <li><strong>Important:</strong> Anonymous confessions are not completely anonymous to Bot operators and server administrators</li>
         <li>Full details available in our <a href="privacy.html" style="color: #0ff;">Privacy Policy</a></li>
       </ul>

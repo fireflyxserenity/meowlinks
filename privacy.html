@@ -23,12 +23,43 @@
       height: auto;
       min-height: 100vh;
       padding: 20px;
+      font-size: 0.85rem; /* Smaller base font size */
+    }
+    
+    .container {
+      line-height: 1.4; /* Tighter line spacing */
+    }
+    
+    h1 {
+      font-size: 1.8rem; /* Smaller headings */
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      margin: 20px 0 10px 0;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+      margin: 15px 0 8px 0;
+    }
+    
+    p, li {
+      font-size: 0.85rem; /* Smaller paragraph and list text */
+      margin-bottom: 8px;
+    }
+    
+    ul {
+      margin: 8px 0;
+      padding-left: 20px;
     }
     
     /* Mobile optimizations */
     @media (max-width: 480px) {
       body {
         padding: 10px;
+        font-size: 0.8rem;
       }
       .container {
         max-width: 100% !important;
@@ -37,13 +68,16 @@
         padding-bottom: 100px !important;
       }
       h1 {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
       }
       h2 {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
       }
       h3 {
-        font-size: 1.2rem !important;
+        font-size: 1.0rem !important;
+      }
+      p, li {
+        font-size: 0.8rem !important;
       }
     }
   </style>
@@ -56,7 +90,7 @@
     </p>
     
     <div style="text-align: left; color: #ddd; line-height: 1.6;">
-      <p><strong>Last Updated:</strong> August 12, 2025</p>
+      <p><strong>Last Updated:</strong> August 16, 2025</p>
       
       <h2>🐱 What We Collect</h2>
       
@@ -76,6 +110,15 @@
         <li><strong>Polls:</strong> Poll questions, options, and vote responses</li>
       </ul>
 
+      <h3>Activity Ranking Data:</h3>
+      <ul>
+        <li><strong>User XP:</strong> Experience points, levels, and ranking progression</li>
+        <li><strong>Activity Statistics:</strong> Message count tracking and voice chat duration statistics</li>
+        <li><strong>Leaderboard Data:</strong> Daily activity breakdowns for time-filtered leaderboards</li>
+        <li><strong>Progression History:</strong> Level-up timestamps and role assignment history</li>
+        <li><strong>Ranking Positions:</strong> Server ranking positions and comparative statistics</li>
+      </ul>
+
       <h2>🎯 How We Use Your Data</h2>
       <ul>
         <li>Track and display meow/bark counts and server leaderboards</li>
@@ -84,6 +127,11 @@
         <li>Generate polls and collect responses</li>
         <li>Configure welcome messages and server-specific features</li>
         <li>Maintain global and server-specific statistics</li>
+        <li>Track and display user activity rankings and leaderboards</li>
+        <li>Calculate XP rewards for messages and voice participation</li>
+        <li>Assign and manage level-based role rewards automatically</li>
+        <li>Generate time-filtered activity statistics (daily, weekly, monthly, yearly)</li>
+        <li>Maintain progression history and achievement tracking</li>
         <li>Improve Bot functionality and prevent abuse</li>
       </ul>
 
@@ -93,7 +141,19 @@
         <li><strong>Retention:</strong> User statistics maintained until manually reset by administrators</li>
         <li><strong>Confessions:</strong> Content and user association logs kept for moderation purposes</li>
         <li><strong>Reminders:</strong> Automatically deleted after successful delivery</li>
+        <li><strong>Activity Data:</strong> Long-term storage of XP, levels, and daily activity statistics</li>
+        <li><strong>Leaderboards:</strong> Publicly visible ranking data within servers</li>
+        <li><strong>Role History:</strong> Level-based role assignments and progression tracking</li>
+        <li><strong>Retention Policy:</strong> Activity statistics maintained indefinitely unless manually reset</li>
         <li><strong>Security:</strong> Industry-standard security measures and access controls</li>
+      </ul>
+
+      <h2>🏆 Public Data Display</h2>
+      <ul>
+        <li><strong>Server Leaderboards:</strong> Display usernames, levels, XP, and activity metrics</li>
+        <li><strong>Rankings & Statistics:</strong> Visible to all server members within the same server</li>
+        <li><strong>Time-Filtered Data:</strong> Leaderboards show comparative activity data by time periods</li>
+        <li><strong>Role Visibility:</strong> Level-based roles are publicly visible on Discord profiles</li>
       </ul>
 
       <h2>🚫 Data Sharing Policy</h2>
@@ -159,6 +219,7 @@
         <li><strong>Consent:</strong> For features you actively use</li>
         <li><strong>Legitimate Interest:</strong> For Bot functionality and abuse prevention</li>
         <li><strong>Contract:</strong> For providing requested Bot services</li>
+        <li><strong>Activity Ranking Features:</strong> We process data based on legitimate interest in providing gamification features and maintaining fair competition within servers</li>
       </ul>
       
       <div style="margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; text-align: center;">
