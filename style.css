@@ -115,6 +115,21 @@ section:first-child h1 {
   box-shadow: 0 0 6px #e6b800, 0 0 12px #ffd60044;
 }
 
+/* ===== MAIN SECTION COLORS (GENERAL MEOWERS) ===== */
+.main-section .discord {
+  background: linear-gradient(135deg, #7289da, #5b6eae);
+  color: #fff;
+  box-shadow: 0 0 8px #7289da, 0 0 16px #7289da44;
+  border: 1px solid #7289da;
+}
+
+.main-section .kofi {
+  background: linear-gradient(135deg, #29abe0, #2196f3);
+  color: #fff;
+  box-shadow: 0 0 8px #29abe0, 0 0 16px #29abe044;
+  border: 1px solid #29abe0;
+}
+
 /* ===== MEOW BOT SECTION COLORS (BRIGHT BUT NOT BLINDING) ===== */
 .bot-section .bot {
   background: linear-gradient(135deg, #ff4081, #e91e63);
@@ -177,6 +192,7 @@ section:first-child h1 {
 }
 
 /* Enhanced hover effects for all colored buttons */
+.main-section .link-button:hover,
 .bot-section .link-button:hover,
 .manager-section .link-button:hover,
 .server-section .link-button:hover {
@@ -195,6 +211,7 @@ section:first-child h1 {
   }
 }
 
+.main-section .link-button,
 .bot-section .link-button,
 .manager-section .link-button,
 .server-section .link-button {
