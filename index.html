@@ -22,7 +22,21 @@
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
 </head>
 <body>
-  <div class="container">
+  <!-- Navigation Header -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 10px 20px; z-index: 100; backdrop-filter: blur(10px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🐱 Meow Links</div>
+      <div style="display: flex; gap: 20px;">
+        <a href="#home" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Home</a>
+        <a href="#bots" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Bots</a>
+        <a href="#community" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Community</a>
+        <a href="privacy.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Privacy</a>
+        <a href="terms.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="home" style="margin-top: 60px;">
     
     <!-- Hidden Admin Panel -->
     <div id="adminPanel" class="admin-panel" style="display: none;">
@@ -36,9 +50,9 @@
     </div>
     
     <!-- Main Content Sections -->
-    <section class="main-section">
+    <section class="main-section" id="home">
       <h1>✨ General Meowers ✨</h1>
-      <div class="subtitle">Join our support discord server or help support the bot</div>
+      <div class="subtitle">Welcome to the official hub for Meow Bot services and The Secret Tunnel Discord community. Find Discord bots, support resources, and join our vibrant gaming community.</div>
       <div class="links">
         <!-- Support buttons - Half Width -->
         <div class="half-width-buttons">
@@ -55,9 +69,9 @@
       </div>
     </section>
 
-    <section class="bot-section">
+    <section class="bot-section" id="bots">
       <h1>✨ Meow Bot ✨</h1>
-      <div class="subtitle">Our original tried and true Meow counter, compete globally amongst servers</div>
+      <div class="subtitle">Our original Discord bot for meow counting and community engagement. Track your server activity and compete globally across Discord servers.</div>
       <div class="links">
         <!-- Meow Bot Invite -->
         <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
@@ -81,7 +95,7 @@
 
     <section class="manager-section">
       <h1>✨ Meow Manager ✨</h1>
-      <div class="subtitle">Our new administrative discord bot which also includes activity rankings</div>
+      <div class="subtitle">Advanced Discord server management with comprehensive moderation tools and activity ranking systems. Perfect for growing Discord communities.</div>
       <div class="links">
         <!-- Meow Manager Invite -->
         <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="link-button bot">
@@ -103,9 +117,9 @@
       </div>
     </section>
 
-    <section class="server-section">
+    <section class="server-section" id="community">
       <h1>✨ The Secret Tunnel ✨</h1>
-      <div class="subtitle">Our top supporting server. Come check us out</div>
+      <div class="subtitle">Join our inclusive Discord gaming community. Connect with fellow gamers, share experiences, and participate in events across multiple gaming platforms.</div>
       <div class="links">
         <!-- About the Server -->
         <a href="#" class="link-button about" onclick="openModal()">
@@ -868,37 +882,34 @@
     document.addEventListener('DOMContentLoaded', function() {
       initTrafficCounter();
     });
+
+    // ESC key functionality - Close modals and admin panel
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        // Check which modal is open and close it
+        const aboutModal = document.getElementById('aboutModal');
+        const botModal = document.getElementById('botModal');
+        const managerModal = document.getElementById('managerModal');
+        const patchNotesModal = document.getElementById('patchNotesModal');
+        const managerPatchNotesModal = document.getElementById('managerPatchNotesModal');
+        const adminPanel = document.getElementById('adminPanel');
+
+        if (aboutModal.style.display === 'block') {
+          closeModal();
+        } else if (botModal.style.display === 'block') {
+          closeBotModal();
+        } else if (managerModal.style.display === 'block') {
+          closeManagerModal();
+        } else if (patchNotesModal.style.display === 'block') {
+          closePatchNotesModal();
+        } else if (managerPatchNotesModal.style.display === 'block') {
+          closeManagerPatchNotesModal();
+        } else if (adminPanel.style.display === 'block') {
+          closeAdminPanel();
+        }
+      }
+    });
   </script>
 
-
-  <!-- Footer with legal links -->
-  <footer style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 10;">
-    <div style="font-size: 0.75rem; color: #666; opacity: 0.7; white-space: nowrap;">
-      <a href="terms.html" style="color: #888; text-decoration: none; margin: 0 8px; transition: color 0.3s;">Terms of Service</a>
-      <span style="color: #444;">•</span>
-      <a href="privacy.html" style="color: #888; text-decoration: none; margin: 0 8px; transition: color 0.3s;">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <style>
-    /* Mobile footer adjustments */
-    @media (max-width: 480px) {
-      footer {
-        bottom: 5px !important;
-        left: 50% !important;
-        width: 100% !important;
-        padding: 0 10px !important;
-        box-sizing: border-box !important;
-      }
-      footer div {
-        font-size: 0.7rem !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-      }
-      footer a {
-        margin: 0 4px !important;
-      }
-    }
-  </style>
 </body>
 </html>
