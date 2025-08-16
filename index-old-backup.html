@@ -16,26 +16,12 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="bJTja6pslcTo-rd24_1JI6n2MBj3SDpIIM08e4cJjYk" />
   <title>The Secret Tunnel</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
 </head>
 <body>
-  <!-- Navigation Header -->
-  <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 10px 20px; z-index: 100; backdrop-filter: blur(10px);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <div style="color: #0ff; font-weight: bold; font-size: 1.1rem;">🐱 Meow Links</div>
-      <div style="display: flex; gap: 20px;">
-        <a href="bots.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Bots</a>
-        <a href="community.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Community</a>
-        <a href="privacy.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Privacy</a>
-        <a href="terms.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Terms</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container" id="home" style="margin-top: 60px;">
+  <div class="container">
     
     <!-- Hidden Admin Panel -->
     <div id="adminPanel" class="admin-panel" style="display: none;">
@@ -48,94 +34,83 @@
       </div>
     </div>
     
-    <!-- Main Content Sections -->
-    <section class="main-section" id="home">
-      <h1>✨ General Meowers ✨</h1>
-      <div class="subtitle">Welcome to the official hub for Meow Bot services and The Secret Tunnel Discord community. Find Discord bots, support resources, and join our vibrant gaming community.</div>
-      <div class="links">
-        <!-- Support buttons - Half Width -->
-        <div class="half-width-buttons">
-          <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Support Server" />
-            Support Server
-          </a>
-          
-          <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
-            Support the Bots
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="bot-section" id="bots">
-      <h1>✨ Meow Bot ✨</h1>
-      <div class="subtitle">Our original Discord bot for meow counting and community engagement. Track your server activity and compete globally across Discord servers.</div>
-      <div class="links">
-        <!-- Meow Bot Invite -->
-        <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
-          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Bot" />
-          Invite Meow Bot
+    <h1>✨ General Meowers ✨</h1>
+    <div class="links">
+      <!-- Support buttons - Half Width -->
+      <div class="half-width-buttons">
+        <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Support Server" />
+          Support Server
         </a>
-
-        <!-- About Meow Bot and Patch Notes - Half Width -->
-        <div class="half-width-buttons">
-          <a href="#" class="link-button about-bot" onclick="openBotModal()">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
-            About Meow Bot
-          </a>
-          <a href="#" class="link-button patch-notes" onclick="openPatchNotesModal()">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            Patch Notes
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="manager-section">
-      <h1>✨ Meow Manager ✨</h1>
-      <div class="subtitle">Advanced Discord server management with comprehensive moderation tools and activity ranking systems. Perfect for growing Discord communities.</div>
-      <div class="links">
-        <!-- Meow Manager Invite -->
-        <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="link-button bot">
-          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Manager" />
-          Invite Meow Manager
+        
+        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
+          Support the Bots
         </a>
-
-        <!-- About Meow Manager and Manager Patch Notes - Half Width -->
-        <div class="half-width-buttons">
-          <a href="#" class="link-button about-bot" onclick="openManagerModal()">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bc.png" alt="Meow Manager" />
-            About Meow Manager
-          </a>
-          <a href="#" class="link-button patch-notes" onclick="openManagerPatchNotesModal()">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            Patch Notes
-          </a>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="server-section" id="community">
-      <h1>✨ The Secret Tunnel ✨</h1>
-      <div class="subtitle">Join our inclusive Discord gaming community. Connect with fellow gamers, share experiences, and participate in events across multiple gaming platforms.</div>
-      <div class="links">
-        <!-- About the Server -->
-        <a href="#" class="link-button about" onclick="openModal()">
-          <img src="https://cdn.discordapp.com/emojis/1398163249005985883.webp?size=96" alt="About" />
-          About The Secret Tunnel
-        </a>
+    <h1>✨ Meow Bot ✨</h1>
+    <div class="links">
+      <!-- Meow Bot Invite -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Bot" />
+        Invite Meow Bot
+      </a>
 
-        <!-- Discord Server -->
-        <a href="https://discord.com/invite/thesecrettunnel" target="_blank" class="link-button discord">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Discord" />
-          Join the Discord
+      <!-- About Meow Bot and Patch Notes - Half Width -->
+      <div class="half-width-buttons">
+        <a href="#" class="link-button about-bot" onclick="openBotModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
+          About Meow Bot
         </a>
-        <div style="margin-top:8px; font-size:0.8rem; color:#bbb; text-align:center; opacity:0.7;">
-          <span>❓ Questions, suggestions, or bugs? DM <strong>fireflyxserenity</strong> on Discord.</span>
-        </div>
+        <a href="#" class="link-button patch-notes" onclick="openPatchNotesModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
+          Patch Notes
+        </a>
       </div>
-    </section>
+    </div>
+
+    <h1 style="margin-top: 25px;">✨ Meow Manager ✨</h1>
+    <div class="links">
+      <!-- Meow Manager Invite -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="link-button bot">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Manager" />
+        Invite Meow Manager
+      </a>
+
+      <!-- About Meow Manager and Manager Patch Notes - Half Width -->
+      <div class="half-width-buttons">
+        <a href="#" class="link-button about-bot" onclick="openManagerModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bc.png" alt="Meow Manager" />
+          About Meow Manager
+        </a>
+        <a href="#" class="link-button patch-notes" onclick="openManagerPatchNotesModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
+          Patch Notes
+        </a>
+      </div>
+    </div>
+
+    <h1 style="margin-top: 25px;">✨ The Secret Tunnel ✨</h1>
+   
+
+    <div class="links">
+      <!-- About the Server -->
+      <a href="#" class="link-button about" onclick="openModal()">
+        <img src="https://cdn.discordapp.com/emojis/1398163249005985883.webp?size=96" alt="About" />
+        About The Secret Tunnel
+      </a>
+
+      <!-- Discord Server -->
+      <a href="https://discord.com/invite/thesecrettunnel" target="_blank" class="link-button discord">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Discord" />
+        Join the Discord
+      </a>
+      <div style="margin-top:8px; font-size:0.8rem; color:#bbb; text-align:center; opacity:0.7;">
+        <span>❓ Questions, suggestions, or bugs? DM <strong>fireflyxserenity</strong> on Discord.</span>
+      </div>
+    </div>
   </div>
 
   <!-- About The Secret Tunnel Modal -->
@@ -231,197 +206,72 @@
     <div class="modal-content">
       <span class="close" onclick="closeManagerModal()">&times;</span>
       <div class="about-text">
+        <h2>� Manager Meow Activity Ranking System</h2>
+        <p><em>The Complete Discord Activity & Engagement Solution</em></p>
         
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-          <button id="userManagerTab" class="tab-button active" onclick="showManagerTab('managerFeatures')">Meow Manager Features</button>
-          <button id="adminManagerTab" class="tab-button" onclick="showManagerTab('activityFeatures')">Activity Features</button>
-        </div>
-
-        <!-- Meow Manager Features Tab Content -->
-        <div id="userManagerContent" class="tab-content active">
-          <h2>🐱 Manager Meow - Complete Discord Management Suite</h2>
-          <p><em>Professional Moderation + Engagement Features in One Powerful Bot</em></p>
-          
-          <h3>�️ Moderation & Safety</h3>
-          
-          <h4>⚖️ Core Moderation Tools:</h4>
-          <ul>
-            <li>🔨 <strong>Ban/Kick/Warn:</strong> Full moderation suite with reason tracking</li>
-            <li>� <strong>Smart Timeouts:</strong> Automatic mute system with duration parsing (10m, 1h, 2d)</li>
-            <li>🧹 <strong>Message Management:</strong> Bulk delete with user/content filtering</li>
-            <li>� <strong>User Lookup:</strong> Comprehensive user info and moderation history</li>
-          </ul>
-
-          <h4>📊 Advanced Logging System:</h4>
-          <ul>
-            <li>📝 <strong>Complete Event Tracking:</strong> Messages, joins/leaves, bans, voice activity</li>
-            <li>⚙️ <strong>Customizable Logs:</strong> Toggle specific events on/off per server</li>
-            <li>📋 <strong>Compact Mode:</strong> Ultra-clean log format option</li>
-            <li>� <strong>Public/Private:</strong> Choose whether mod actions show publicly</li>
-          </ul>
-
-          <h4>🔍 Monitoring & Records:</h4>
-          <ul>
-            <li>⚠️ <strong>Warning System:</strong> Track and view user warnings</li>
-            <li>� <strong>Infraction History:</strong> Complete moderation action database</li>
-            <li>⏰ <strong>Auto-Unmute:</strong> Automatic timeout expiration handling</li>
-            <li>� <strong>Database Persistence:</strong> All data survives bot restarts</li>
-          </ul>
-
-          <h3>🚀 Essential Commands</h3>
-          
-          <h4>🛡️ For Moderators:</h4>
-          <ul>
-            <li><code>/ban</code> <code>/kick</code> <code>/warn</code> - Core moderation actions</li>
-            <li><code>/mute</code> <code>/unmute</code> - Timeout management with smart duration parsing</li>
-            <li><code>/clear</code> - Bulk message deletion with filtering</li>
-            <li><code>/userinfo</code> <code>/warnings</code> <code>/infractions</code> - User lookup and history</li>
-            <li><code>/setup</code> <code>/quickstart</code> - Easy bot configuration</li>
-            <li><code>/enablelogs</code> <code>/disablelogs</code> <code>/editlogs</code> - Logging control</li>
-          </ul>
-
-          <h4>👥 For Members:</h4>
-          <ul>
-            <li><code>/help</code> - Comprehensive bot help system</li>
-            <li><code>/userinfo</code> - View user information</li>
-          </ul>
-
-          <h3>⚙️ Setup & Customization</h3>
-          
-          <h4>🔧 Moderation Configuration:</h4>
-          <ul>
-            <li>📋 <strong>Log Channel Setup:</strong> Centralized logging with custom channel selection</li>
-            <li>🔐 <strong>Permission Control:</strong> Role-based command restrictions</li>
-            <li>�️ <strong>Public/Private Actions:</strong> Choose visibility of moderation actions</li>
-            <li>🎛️ <strong>Event Filtering:</strong> Toggle specific log events on/off</li>
-            <li>📝 <strong>Compact Logging:</strong> Ultra-clean log format option</li>
-          </ul>
-
-          <h3>🎯 Why Choose Manager Meow?</h3>
-          <ul>
-            <li>✅ <strong>Complete Moderation Suite:</strong> Professional tools with advanced features</li>
-            <li>✅ <strong>Smart Automation:</strong> Auto-unmute, duration parsing, bulk operations</li>
-            <li>✅ <strong>Comprehensive Logging:</strong> Track everything with customizable event filtering</li>
-            <li>✅ <strong>Data Persistence:</strong> All warnings, infractions, and settings survive restarts</li>
-          </ul>
-
-          <h3>📞 Perfect For Every Server Type</h3>
-          <ul>
-            <li>🎯 <strong>Gaming Communities:</strong> Reward active players and moderate efficiently</li>
-            <li>📚 <strong>Study Groups:</strong> Track participation and maintain focus</li>
-            <li>🎨 <strong>Creative Servers:</strong> Encourage collaboration with engagement rewards</li>
-            <li>� <strong>Professional Communities:</strong> Professional moderation with member recognition</li>
-            <li>🌟 <strong>Any Server:</strong> Boost engagement while maintaining order!</li>
-          </ul>
-        </div>
-
-        <!-- Activity Features Tab Content -->
-        <div id="adminManagerContent" class="tab-content" style="display: none;">
-          <h2>🎮 Activity & Engagement System</h2>
-          <p><em>Transform Your Server into an Active, Engaging Community</em></p>
-
-          <h3>📊 Smart XP System</h3>
-          <ul>
-            <li>🎯 <strong>Dual Activity Tracking:</strong> Earn XP from both messages AND voice chat</li>
-            <li>🛡️ <strong>Anti-Spam Protection:</strong> Built-in message cooldowns prevent abuse</li>
-            <li>� <strong>Random XP Variance:</strong> Natural 10-20% variation keeps it interesting</li>
-            <li>📈 <strong>Exponential Leveling:</strong> Balanced progression that rewards dedication</li>
-          </ul>
-
-          <h3>🏆 Advanced Leaderboards</h3>
-          <ul>
-            <li>⏰ <strong>Time-Filtered Rankings:</strong> View top users by Today, This Week, Month, Year, or All Time</li>
-            <li>🎛️ <strong>Interactive UI:</strong> Dropdown menus for easy time period switching</li>
-            <li>✨ <strong>Beautiful Formatting:</strong> Clean embeds with server branding and user stats</li>
-            <li>🔄 <strong>Real-Time Updates:</strong> Live tracking of messages, voice time, and XP</li>
-          </ul>
-
-          <h3>📈 Comprehensive Analytics</h3>
-          <ul>
-            <li>� <strong>Daily Activity Tracking:</strong> Detailed breakdown of user engagement patterns</li>
-            <li>🎤 <strong>Voice Time Monitoring:</strong> Track how long users spend in voice channels</li>
-            <li>💬 <strong>Message Statistics:</strong> Complete message counting with historical data</li>
-            <li>📊 <strong>Progress Visualization:</strong> Progress bars showing advancement to next level</li>
-          </ul>
-
-          <h3>🎭 Role Rewards & Progression</h3>
-          
-          <h4>🎖️ Automated Role System:</h4>
-          <ul>
-            <li>� <strong>Level-Based Roles:</strong> Automatic role assignment when users reach specific levels</li>
-            <li>🔄 <strong>Smart Role Management:</strong> Automatically removes old roles when leveling up</li>
-            <li>⚙️ <strong>Custom Role Setup:</strong> Create your own role progression system</li>
-            <li>📋 <strong>Role History Tracking:</strong> Monitor all role assignments and changes</li>
-          </ul>
-
-          <h4>🐱 Cat Theme Collection (Optional Premium Feature):</h4>
-          <ul>
-            <li>⚡ <strong>One-Click Setup:</strong> 30 pre-designed cat-themed roles with beautiful colors</li>
-            <li>� <strong>Progression Tiers:</strong> From Tiny Kitten to Eternal Cat Lord</li>
-            <li>🎨 <strong>Custom Colors:</strong> Each role includes hand-picked Discord colors</li>
-            <li>� <strong>Instant Deployment:</strong> Auto-creates and assigns all roles in seconds</li>
-          </ul>
-
-          <h3>🌈 Cat Role Preview</h3>
-          <ul>
-            <li>� <strong>Starter Cats:</strong> Tiny Kitten → Playful Kitten → Happy Cat</li>
-            <li>😸 <strong>Social Cats:</strong> Cheerful Cat → Lovely Cat → Surprised Cat</li>
-            <li>� <strong>House Cats:</strong> House Cat → Shadow Cat → Grumpy Cat</li>
-            <li>🦁 <strong>Wild Cats:</strong> Brave Lion → Wild Tiger → Swift Leopard</li>
-            <li>� <strong>Special Cats:</strong> Tech Cat → Cosmic Cat → Thunder Cat</li>
-            <li>👑 <strong>Legendary:</strong> Royal Cat → Mythical Cat → Eternal Cat Lord</li>
-          </ul>
-
-          <h3>🚀 Activity Commands</h3>
-          
-          <h4>🎮 For Activity System:</h4>
-          <ul>
-            <li><code>/activity_enable</code> - Toggle the entire engagement system</li>
-            <li><code>/activity_config</code> - Customize XP rates and settings</li>
-            <li><code>/set_level_role</code> <code>/remove_level_role</code> - Manage role rewards</li>
-            <li><code>/setup_cat_roles</code> - Deploy 30 cat-themed roles instantly</li>
-            <li><code>/level_roles</code> - View all configured rewards</li>
-          </ul>
-
-          <h4>👥 For Members:</h4>
-          <ul>
-            <li><code>/rank</code> - Check your current level, XP, and server ranking</li>
-            <li><code>/top</code> - Interactive leaderboard with time period filters</li>
-            <li><code>/leaderboard</code> - Classic top users display (1-25 users)</li>
-            <li><code>/activitylog</code> - Detailed personal activity breakdown</li>
-            <li><code>/xp_guide</code> - Complete XP system explanation</li>
-          </ul>
-
-          <h3>🎯 Activity Customization</h3>
-          <ul>
-            <li>💬 <strong>XP Per Message:</strong> Adjust points per message (default: 15)</li>
-            <li>🎤 <strong>XP Per Voice Minute:</strong> Set voice chat rewards (default: 5)</li>
-            <li>⏱️ <strong>Message Cooldown:</strong> Prevent spam with delays (default: 60s)</li>
-            <li>📢 <strong>Level-Up Announcements:</strong> Choose announcement channel or disable</li>
-            <li>🎭 <strong>Role Progression:</strong> Create unlimited custom level rewards</li>
-          </ul>
-
-          <h3>📊 Sample Progression & Timing</h3>
-          <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin: 10px 0;">
-            <table style="width: 100%; color: white; border-collapse: collapse;">
-              <tr style="border-bottom: 1px solid #444;">
-                <th style="padding: 8px; text-align: left;">Level</th>
-                <th style="padding: 8px; text-align: left;">XP Required</th>
-                <th style="padding: 8px; text-align: left;">Est. Time*</th>
-                <th style="padding: 8px; text-align: left;">Example Cat Role</th>
-              </tr>
-              <tr><td style="padding: 5px;">1</td><td>100 XP</td><td>2-3 days</td><td>🐱 Tiny Kitten</td></tr>
-              <tr><td style="padding: 5px;">5</td><td>2,500 XP</td><td>2-3 weeks</td><td>😻 Lovely Cat</td></tr>
-              <tr><td style="padding: 5px;">10</td><td>10,000 XP</td><td>6-8 weeks</td><td>🐈 House Cat</td></tr>
-              <tr><td style="padding: 5px;">20</td><td>40,000 XP</td><td>4-5 months</td><td>🐈‍⬛ Shadow Cat</td></tr>
-              <tr><td style="padding: 5px;">50</td><td>250,000 XP</td><td>2+ years</td><td>🧙 Wise Cat</td></tr>
-            </table>
-            <p style="font-size: 0.9em; color: #bbb; margin-top: 10px;">*Based on moderate daily activity (1hr voice + 50 messages)</p>
-          </div>
-        </div>
+        <h3>🌟 Core Features</h3>
         
-        <p style="color: #7ecfff; font-weight: bold; text-align: center; margin-top: 20px;">🔗 Ready to transform your Discord server? Contact us to add Manager Meow today!</p>
+        <h4>📊 Smart XP System</h4>
+        <ul>
+          <li>🎯 <strong>Dual Activity Tracking:</strong> Earn XP from both messages AND voice chat</li>
+          <li>🛡️ <strong>Anti-Spam Protection:</strong> Built-in message cooldowns prevent abuse</li>
+          <li>🎲 <strong>Random XP Variance:</strong> Natural 10-20% variation keeps it interesting</li>
+          <li>📈 <strong>Exponential Leveling:</strong> Balanced progression that rewards dedication</li>
+        </ul>
+
+        <h4>🏆 Advanced Leaderboards</h4>
+        <ul>
+          <li>⏰ <strong>Time-Filtered Rankings:</strong> View top users by Today, This Week, Month, Year, or All Time</li>
+          <li>�️ <strong>Interactive UI:</strong> Dropdown menus for easy time period switching</li>
+          <li>✨ <strong>Beautiful Formatting:</strong> Clean embeds with server branding and user stats</li>
+          <li>� <strong>Real-Time Updates:</strong> Live tracking of messages, voice time, and XP</li>
+        </ul>
+
+        <h4>🎭 Automated Role Rewards</h4>
+        <ul>
+          <li>🎖️ <strong>Level-Based Roles:</strong> Automatic role assignment when users reach specific levels</li>
+          <li>� <strong>One-Click Cat Theme:</strong> 30 pre-designed cat-themed roles with beautiful colors</li>
+          <li>⚙️ <strong>Custom Role Setup:</strong> Create your own role progression system</li>
+          <li>🔄 <strong>Smart Role Management:</strong> Automatically removes old roles when leveling up</li>
+        </ul>
+
+        <h3>🚀 Key Commands</h3>
+        
+        <h4>For Members:</h4>
+        <ul>
+          <li><code>/rank</code> - Check your current level, XP, and server ranking</li>
+          <li><code>/top</code> - Interactive leaderboard with time period filters</li>
+          <li><code>/leaderboard</code> - Classic top users display (1-25 users)</li>
+          <li><code>/activitylog</code> - Detailed personal activity breakdown</li>
+        </ul>
+
+        <h4>For Administrators:</h4>
+        <ul>
+          <li><code>/activity_enable</code> - Toggle the entire system on/off</li>
+          <li><code>/activity_config</code> - Customize XP rates and settings</li>
+          <li><code>/set_level_role</code> - Assign roles to specific levels</li>
+          <li><code>/setup_cat_roles</code> - Auto-create 30 themed roles</li>
+        </ul>
+
+        <h3>� Why Choose Manager Meow?</h3>
+        <ul>
+          <li>✅ <strong>Proven Performance:</strong> SQLite database, optimized for large servers</li>
+          <li>✅ <strong>User Engagement:</strong> Increased activity and voice chat participation</li>
+          <li>✅ <strong>Administrative Control:</strong> Granular settings and easy management</li>
+          <li>✅ <strong>Technical Excellence:</strong> Real-time processing with data integrity</li>
+        </ul>
+
+        <h3>🌈 Cat Role Theme Preview</h3>
+        <p>30 Beautiful Pre-Designed Roles:</p>
+        <ul>
+          <li>🐱 <strong>Starter Cats:</strong> Tiny Kitten → Playful Kitten → Happy Cat</li>
+          <li>😸 <strong>Social Cats:</strong> Cheerful Cat → Lovely Cat → Surprised Cat</li>
+          <li>🐈 <strong>House Cats:</strong> House Cat → Shadow Cat → Grumpy Cat</li>
+          <li>🦁 <strong>Wild Cats:</strong> Brave Lion → Wild Tiger → Swift Leopard</li>
+          <li>👑 <strong>Legendary:</strong> Royal Cat → Mythical Cat → Eternal Cat Lord</li>
+        </ul>
+        
+        <p style="color: #7ecfff; font-weight: bold;">🔗 Need help? Join our Meow Server for support with both Meow Bot and Meow Manager!</p>
       </div>
     </div>
   </div>
@@ -439,12 +289,12 @@
           <p><em>Release Date: August 15, 2025</em></p>
           <p>
             <strong>📸 Photo Support in /sendmessage:</strong> Added image attachment support to the /sendmessage command - Bot can now send messages with photos, text, or both combined<br>
-            <strong>💌 Welcome Message Control:</strong> Welcome messages now disabled by default for new servers - Servers can manually enable if desired, providing better control over bot behavior<br>
+            <strong>� Welcome Message Control:</strong> Welcome messages now disabled by default for new servers - Servers can manually enable if desired, providing better control over bot behavior<br>
             <strong>🎯 Perfect for Reaction Roles:</strong> Create visually appealing reaction role messages with images<br>
             <strong>⚙️ Existing Server Settings:</strong> Current servers maintain their welcome message preferences unchanged
           </p>
 
-          <h3>🔧 Version 2.4.2 - "Stability Update"</h3>
+          <h3>�🔧 Version 2.4.2 - "Stability Update"</h3>
           <p><em>Release Date: August 12, 2025</em></p>
           <p>
             <strong>✅ Meow Counter Fix:</strong> Meow counting now works 100% of the time - no more silent failures<br>
@@ -454,10 +304,7 @@
             <strong>🚀 Technical Upgrades:</strong> Database stability improvements, better error handling and retry logic, optimized for multi-server performance
           </p>
           <p><em>🎉 Your meows are now safe! Before this update, the bot would randomly ignore meows, especially during busy chat periods. Now every single meow gets counted and responded to reliably!</em></p>
-        </div>
 
-        <!-- Page 2 Content -->
-        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
           <h3>✨ Version 2.4.1 - "Quote System Update"</h3>
           <p><em>Release Date: August 11, 2025</em></p>
           <p>
@@ -465,7 +312,10 @@
             <strong>⏰ Reminder System Update:</strong> Simplified - Cleaner reminder embeds with better formatting<br>
             <strong>🤐 Confession Threads:</strong> Simplified - Streamlined confession thread embeds
           </p>
+        </div>
 
+        <!-- Page 2 Content -->
+        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
           <h3>✨ Version 2.4.0 - "Translation & Polish Update"</h3>
           <p><em>Release Date: August 10, 2025</em></p>
           <p>
@@ -475,7 +325,6 @@
             <strong>📊 Poll System Enhancements:</strong> Added optional image support and auto-moderation to remove invalid emoji reactions<br>
             <strong>👋 Welcome System Improvements:</strong> Bot filtering prevents welcome spam when other bots join
           </p>
-
           <h3>🔧 Version 2.3.1 - "Fixes & Polls Update"</h3>
           <p><em>Release Date: August 9, 2025</em></p>
           <p>
@@ -483,10 +332,7 @@
             <strong>📊 Poll Images:</strong> Added single image support to polls - now you can add a visual to help explain your poll!<br>
             <strong>✨ Quality of Life:</strong> Better user experience with quote notifications
           </p>
-        </div>
 
-        <!-- Page 3 Content -->
-        <div id="patchNotesPage3" class="patch-notes-page" style="display: none;">
           <h3>🎨 Version 2.3.0 - "QuoteMaker Update"</h3>
           <p><em>Release Date: August 8, 2025</em></p>
           <p>
@@ -508,7 +354,10 @@
             <strong>🗣️ Just type naturally:</strong> "60 mph to kmh", "5 kg to pounds", "100 USD to CAD"<br>
             <strong>💱 160+ currencies supported</strong> with real-time exchange rates that update hourly
           </p>
+        </div>
 
+        <!-- Page 3 Content -->
+        <div id="patchNotesPage3" class="patch-notes-page" style="display: none;">
           <h3>🎯 Version 2.1.0 - "Embed Revolution"</h3>
           <p>
             <strong>🔧 Quote System Makeover:</strong> Switched from images to Discord embeds - way faster and prettier!<br>
@@ -517,10 +366,7 @@
             <strong>🐛 Bug Fixes:</strong> Fixed emoji and name rendering issues<br>
             <strong>⚠️ Known Issues:</strong> Quotes look simpler now, still tweaking for the best balance
           </p>
-        </div>
 
-        <!-- Page 4 Content -->
-        <div id="patchNotesPage4" class="patch-notes-page" style="display: none;">
           <h3>🌍 Version 2.0.0 - "Global Expansion"</h3>
           <p>
             <strong>🚀 Multi-Server Support:</strong> Bot now works across multiple Discord servers!<br>
@@ -528,7 +374,10 @@
             <strong>⚙️ Server Independence:</strong> Each server keeps its own settings and preferences<br>
             <strong>🛠️ General Improvements:</strong> Faster response times, less lag, fewer bugs
           </p>
+        </div>
 
+        <!-- Page 4 Content -->
+        <div id="patchNotesPage4" class="patch-notes-page" style="display: none;">
           <h3>🤐 Version 1.5.0 - "Confessions & More"</h3>
           <p>
             <strong>🤐 Anonymous Confessions:</strong> /confess to send secret messages safely<br>
@@ -540,6 +389,14 @@
           <p>
             <strong>🎉 The Beginning:</strong> /meow, /barkcount, /meowboard, /randomquote, reaction roles, Twitch alerts
           </p>
+
+          <h3>🔮 Coming Soon</h3>
+          <p>
+            Fixing the quote system to be more visually appealing<br>Logging features such as users joining and leaving the server and voice chats.
+          </p>
+
+          <h3>📞 Support & Feedback</h3>
+          <p><em>Meow Bot is always getting better! Got ideas or found bugs? DM <strong>fireflyxserenity</strong> on Discord or come hang out in The Secret Tunnel! 🐱</em></p>
         </div>
 
         <!-- Pagination Controls -->
@@ -629,7 +486,7 @@
     </div>
   </div>
 
-  <!-- Simplified JavaScript -->
+  <!-- Modal Scripts -->
   <script>
     // Traffic Counter & Admin Panel
     function initTrafficCounter() {
@@ -677,7 +534,59 @@
       document.body.classList.remove('modal-open');
     }
 
-    // Modal Functions
+    // Initialize traffic counter when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initTrafficCounter();
+    });
+
+    // Patch Notes Pagination
+    let currentPatchNotesPage = 1;
+    const totalPatchNotesPages = 4;
+
+    function showPatchNotesPage(pageNumber) {
+      // Hide all pages
+      document.getElementById('patchNotesPage1').style.display = 'none';
+      document.getElementById('patchNotesPage2').style.display = 'none';
+      document.getElementById('patchNotesPage3').style.display = 'none';
+      document.getElementById('patchNotesPage4').style.display = 'none';
+
+      // Show the requested page
+      document.getElementById('patchNotesPage' + pageNumber).style.display = 'block';
+
+      // Update current page
+      currentPatchNotesPage = pageNumber;
+
+      // Update pagination controls
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const prevBtn = document.getElementById('prevPageBtn');
+      const nextBtn = document.getElementById('nextPageBtn');
+      const pageIndicator = document.getElementById('pageIndicator');
+
+      // Update page indicator
+      pageIndicator.textContent = `Page ${currentPatchNotesPage} of ${totalPatchNotesPages}`;
+
+      // Update buttons
+      prevBtn.disabled = currentPatchNotesPage === 1;
+      nextBtn.disabled = currentPatchNotesPage === totalPatchNotesPages;
+
+      // Update button styles
+      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
+      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
+
+      // Update onclick handlers
+      if (currentPatchNotesPage > 1) {
+        prevBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage - 1);
+      }
+      if (currentPatchNotesPage < totalPatchNotesPages) {
+        nextBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage + 1);
+      }
+    }
+
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
       document.body.classList.add('modal-open');
@@ -728,38 +637,11 @@
     function openManagerModal() {
       document.getElementById('managerModal').style.display = 'block';
       document.body.classList.add('modal-open');
-      showManagerTab('managerFeatures'); // Always start on Manager Features tab
     }
 
     function closeManagerModal() {
       document.getElementById('managerModal').style.display = 'none';
       document.body.classList.remove('modal-open');
-    }
-
-    // Manager Modal Tab Functions
-    function showManagerTab(tabName) {
-      // Hide all tab contents
-      document.getElementById('userManagerContent').style.display = 'none';
-      document.getElementById('adminManagerContent').style.display = 'none';
-
-      // Remove active class from all tabs
-      document.getElementById('userManagerTab').classList.remove('active');
-      document.getElementById('adminManagerTab').classList.remove('active');
-
-      // Show the selected tab content and mark tab as active
-      if (tabName === 'managerFeatures') {
-        document.getElementById('userManagerContent').style.display = 'block';
-        document.getElementById('userManagerTab').classList.add('active');
-      } else if (tabName === 'activityFeatures') {
-        document.getElementById('adminManagerContent').style.display = 'block';
-        document.getElementById('adminManagerTab').classList.add('active');
-      }
-
-      // Scroll modal content to top for a smooth experience
-      var modalContent = document.querySelector('#managerModal .modal-content');
-      if (modalContent) {
-        modalContent.scrollTo({ top: 0, behavior: 'smooth' });
-      }
     }
 
     function openManagerPatchNotesModal() {
@@ -787,58 +669,14 @@
       // Update current page
       currentManagerPatchNotesPage = pageNumber;
 
+      // Update button states
+      document.getElementById('managerPage1Btn').classList.remove('active');
+      document.getElementById('managerPage' + pageNumber + 'Btn').classList.add('active');
+
       // Scroll modal content to top
       var modalContent = document.querySelector('#managerPatchNotesModal .modal-content');
       if (modalContent) {
         modalContent.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-
-    // Patch Notes Pagination
-    let currentPatchNotesPage = 1;
-    const totalPatchNotesPages = 4;
-
-    function showPatchNotesPage(pageNumber) {
-      // Hide all pages
-      document.getElementById('patchNotesPage1').style.display = 'none';
-      document.getElementById('patchNotesPage2').style.display = 'none';
-      document.getElementById('patchNotesPage3').style.display = 'none';
-      document.getElementById('patchNotesPage4').style.display = 'none';
-
-      // Show the requested page
-      document.getElementById('patchNotesPage' + pageNumber).style.display = 'block';
-
-      // Update current page
-      currentPatchNotesPage = pageNumber;
-
-      // Update pagination controls
-      updatePaginationControls();
-    }
-
-    function updatePaginationControls() {
-      const prevBtn = document.getElementById('prevPageBtn');
-      const nextBtn = document.getElementById('nextPageBtn');
-      const pageIndicator = document.getElementById('pageIndicator');
-
-      // Update page indicator
-      pageIndicator.textContent = `Page ${currentPatchNotesPage} of ${totalPatchNotesPages}`;
-
-      // Update buttons
-      prevBtn.disabled = currentPatchNotesPage === 1;
-      nextBtn.disabled = currentPatchNotesPage === totalPatchNotesPages;
-
-      // Update button styles
-      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
-      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
-      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
-
-      // Update onclick handlers
-      if (currentPatchNotesPage > 1) {
-        prevBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage - 1);
-      }
-      if (currentPatchNotesPage < totalPatchNotesPages) {
-        nextBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage + 1);
       }
     }
 
@@ -853,7 +691,6 @@
       document.body.classList.remove('modal-open');
     }
 
-    // Close modals when clicking outside
     window.onclick = function (event) {
       const about = document.getElementById('aboutModal');
       const bot = document.getElementById('botModal');
@@ -876,39 +713,37 @@
         closeManagerPatchNotesModal();
       }
     };
-
-    // Initialize traffic counter when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      initTrafficCounter();
-    });
-
-    // ESC key functionality - Close modals and admin panel
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        // Check which modal is open and close it
-        const aboutModal = document.getElementById('aboutModal');
-        const botModal = document.getElementById('botModal');
-        const managerModal = document.getElementById('managerModal');
-        const patchNotesModal = document.getElementById('patchNotesModal');
-        const managerPatchNotesModal = document.getElementById('managerPatchNotesModal');
-        const adminPanel = document.getElementById('adminPanel');
-
-        if (aboutModal.style.display === 'block') {
-          closeModal();
-        } else if (botModal.style.display === 'block') {
-          closeBotModal();
-        } else if (managerModal.style.display === 'block') {
-          closeManagerModal();
-        } else if (patchNotesModal.style.display === 'block') {
-          closePatchNotesModal();
-        } else if (managerPatchNotesModal.style.display === 'block') {
-          closeManagerPatchNotesModal();
-        } else if (adminPanel.style.display === 'block') {
-          closeAdminPanel();
-        }
-      }
-    });
   </script>
 
+
+  <!-- Footer with legal links -->
+  <footer style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 10;">
+    <div style="font-size: 0.75rem; color: #666; opacity: 0.7; white-space: nowrap;">
+      <a href="terms.html" style="color: #888; text-decoration: none; margin: 0 8px; transition: color 0.3s;">Terms of Service</a>
+      <span style="color: #444;">•</span>
+      <a href="privacy.html" style="color: #888; text-decoration: none; margin: 0 8px; transition: color 0.3s;">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <style>
+    /* Mobile footer adjustments */
+    @media (max-width: 480px) {
+      footer {
+        bottom: 5px !important;
+        left: 50% !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+      }
+      footer div {
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+      }
+      footer a {
+        margin: 0 4px !important;
+      }
+    }
+  </style>
 </body>
 </html>

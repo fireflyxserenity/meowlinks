@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YKNC7L8DV7');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
+    crossorigin="anonymous"></script>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="bJTja6pslcTo-rd24_1JI6n2MBj3SDpIIM08e4cJjYk" />
+  <title>Community - Join Our Discord</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+  <style>
+    /* Community page specific styles */
+    body {
+      padding: 70px 20px 15px 20px;
+    }
+    
+    .community-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    
+    .page-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    
+    .page-header h1 {
+      font-size: 2rem;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+      margin-bottom: 8px;
+    }
+    
+    .page-header p {
+      color: #aaa;
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+    
+    .main-card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .main-card:hover {
+      border-color: #0ff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+    
+    .discord-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .main-card h2 {
+      color: #0ff;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    
+    .main-card .description {
+      color: #ddd;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .join-button {
+      background: linear-gradient(135deg, #5865f2, #4752c4);
+      color: white;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .join-button:hover {
+      background: linear-gradient(135deg, #6b73ff, #5865f2);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
+    }
+    
+    .server-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .stat-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 1.6rem;
+      color: #0ff;
+      font-weight: bold;
+      display: block;
+    }
+    
+    .stat-label {
+      color: #aaa;
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .features-grid:first-of-type {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .feature-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .feature-card h3 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .feature-card p {
+      color: #ccc;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    
+    .community-rules {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+    
+    .community-rules h3 {
+      color: #0ff;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .rules-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .rules-list li {
+      color: #ddd;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.4;
+      font-size: 0.9rem;
+    }
+    
+    .rules-list li::before {
+      content: "✓";
+      color: #0ff;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .support-section {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 25px;
+    }
+    
+    .support-section h3 {
+      color: #0ff;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .support-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    
+    .support-button {
+      padding: 10px 20px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+    
+    .support-button.kofi {
+      background: #29abe0;
+      color: white;
+    }
+    
+    .support-button.kofi:hover {
+      background: #1e8bb0;
+      transform: scale(1.05);
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .main-card {
+        padding: 20px 15px;
+      }
+      
+      .discord-icon {
+        font-size: 2.5rem;
+      }
+      
+      .join-button {
+        font-size: 0.95rem;
+        padding: 10px 25px;
+      }
+      
+      body {
+        padding: 60px 10px 15px 10px;
+      }
+      
+      .community-container {
+        padding: 10px;
+      }
+      
+      .support-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .feature-card {
+        padding: 15px;
+      }
+      
+      .stat-card {
+        padding: 12px;
+      }
+      
+      .stat-number {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 10px 20px; z-index: 100; backdrop-filter: blur(10px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" style="color: #0ff; font-weight: bold; font-size: 1.1rem; text-decoration: none;">🐱 Meow Links</a>
+      <div style="display: flex; gap: 20px;">
+        <a href="bots.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Bots</a>
+        <a href="community.html" style="color: #0ff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;">Community</a>
+        <a href="privacy.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Privacy</a>
+        <a href="terms.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="community-container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>💬 Join Our Community</h1>
+      <p>Connect with fellow Discord bot enthusiasts, get support, share feedback, and stay updated with the latest features and announcements.</p>
+    </div>
+
+    <!-- Main Community Cards Grid -->
+    <div class="features-grid" style="margin-bottom: 25px;">
+      <!-- Discord Server Card -->
+      <div class="feature-card" style="padding: 25px; background: rgba(0, 0, 0, 0.6); border: 2px solid rgba(0, 255, 255, 0.3);">
+        <span class="feature-icon" style="font-size: 3rem;">💜</span>
+        <h3 style="font-size: 1.6rem; color: #0ff; margin-bottom: 10px;">Official Discord Server</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 20px;">
+          Join our welcoming community where you can get instant support, test bot features, participate in events, and connect with other server owners and developers.
+        </p>
+        <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="join-button">
+          Join Discord Server
+        </a>
+        <div style="color: #888; font-size: 0.8rem; margin-top: 10px;">
+          Click the link above or use invite code: <strong style="color: #0ff;">ZejdzFXQ</strong>
+        </div>
+      </div>
+
+      <!-- Ko-fi Support Card -->
+      <div class="feature-card" style="background: rgba(41, 171, 224, 0.1); border: 2px solid rgba(41, 171, 224, 0.3);">
+        <span class="feature-icon" style="color: #29abe0; font-size: 2.5rem;">☕</span>
+        <h3 style="color: #29abe0; font-size: 1.3rem;">Support Development</h3>
+        <p style="margin-bottom: 15px; font-size: 0.85rem;">Help us continue improving and maintaining these free Discord bots for the community.</p>
+        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" style="background: #29abe0; color: white; padding: 10px 20px; border-radius: 18px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; margin-top: 10px; display: inline-block; font-size: 0.9rem;" onmouseover="this.style.background='#1e8bb0'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#29abe0'; this.style.transform='scale(1)'">
+          Buy us a Coffee
+        </a>
+        <p style="color: #888; font-size: 0.75rem; margin-top: 10px;">
+          Your support helps keep our bots running!
+        </p>
+      </div>
+    </div>
+
+    <!-- Secret Tunnel - Slim Width -->
+    <div style="margin-bottom: 25px;">
+      <div class="feature-card" style="background: rgba(30, 0, 50, 0.6); border: 2px solid rgba(150, 50, 255, 0.3); transition: all 0.3s ease; padding: 20px; text-align: center;" onmouseover="this.style.borderColor='#9632ff'; this.style.boxShadow='0 0 20px rgba(150, 50, 255, 0.3)'" onmouseout="this.style.borderColor='rgba(150, 50, 255, 0.3)'; this.style.boxShadow='none'">
+        <span class="feature-icon" style="color: #9632ff; font-size: 2rem;">🕳️</span>
+        <h3 style="color: #9632ff; font-size: 1.3rem; margin-bottom: 8px;">Secret Tunnel</h3>
+        <p style="color: #ddd; margin-bottom: 15px; font-size: 0.85rem;">
+          A mysterious passage for those who seek... something special. Only the worthy may enter.
+        </p>
+        <a href="https://discord.gg/secretlink" target="_blank" style="background: linear-gradient(135deg, #9632ff, #6a1b99); color: white; padding: 8px 20px; border-radius: 18px; text-decoration: none; font-weight: bold; font-size: 0.85rem; transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #b347ff, #9632ff)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='linear-gradient(135deg, #9632ff, #6a1b99)'; this.style.transform='scale(1)'">
+          🌟 Enter if you dare... 🌟
+        </a>
+      </div>
+    </div>
+
+    <!-- Server Stats -->
+    <div class="server-stats">
+      <div class="stat-card">
+        <span class="stat-number">200+</span>
+        <div class="stat-label">Active Members</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">24/7</span>
+        <div class="stat-label">Support Available</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">2</span>
+        <div class="stat-label">Featured Bots</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <div class="stat-label">Free to Use</div>
+      </div>
+    </div>
+
+    <!-- Community Features -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🛠️</span>
+        <h3>Bot Support</h3>
+        <p>Get help with setup, troubleshooting, and feature questions from our experienced team and community members.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">📢</span>
+        <h3>Updates & News</h3>
+        <p>Be the first to know about new features, bug fixes, and exciting developments for both Meow Bot and Meow Manager.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">💡</span>
+        <h3>Feature Requests</h3>
+        <p>Share your ideas and suggestions for new bot features. Your feedback directly influences our development roadmap.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🎉</span>
+        <h3>Community Events</h3>
+        <p>Participate in fun community events, competitions, and special activities with rewards and recognition.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🤝</span>
+        <h3>Network</h3>
+        <p>Connect with other Discord server owners, moderators, and bot enthusiasts to share experiences and tips.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🧪</span>
+        <h3>Beta Testing</h3>
+        <p>Get early access to new features and help us test upcoming releases before they go live to the public.</p>
+      </div>
+    </div>
+
+    <!-- Community Guidelines -->
+    <div class="community-rules">
+      <h3>Community Guidelines</h3>
+      <ul class="rules-list">
+        <li>Be respectful and kind to all community members</li>
+        <li>Keep discussions relevant to Discord bots and server management</li>
+        <li>Use appropriate channels for different types of discussions</li>
+        <li>No spam, advertising, or self-promotion without permission</li>
+        <li>Follow Discord's Terms of Service and Community Guidelines</li>
+        <li>Ask questions! Our community loves helping newcomers</li>
+        <li>Share constructive feedback and suggestions</li>
+        <li>Have fun and enjoy connecting with fellow Discord enthusiasts</li>
+      </ul>
+    </div>
+
+    <!-- Support Development -->
+    <div class="support-section" style="display: none;">
+      <h3>Support Development</h3>
+      <p style="color: #ddd; margin-bottom: 20px;">
+        Help us continue improving and maintaining these free Discord bots for the community.
+      </p>
+      <div class="support-buttons">
+        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="support-button kofi">
+          ☕ Buy us a Coffee
+        </a>
+      </div>
+      <p style="color: #888; font-size: 0.9rem; margin-top: 15px;">
+        Your support helps keep our bots running and enables us to add new features!
+      </p>
+    </div>
+  </div>
+</body>
+</html>
