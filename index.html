@@ -32,17 +32,23 @@
     
     <h1>✨ Meow Bot ✨</h1>
     <div class="links">
-      <!-- About Meow Bot -->
-      <a href="#" class="link-button about-bot" onclick="openBotModal()">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
-        About Meow Bot
-      </a>
-
       <!-- Meow Bot Invite -->
       <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot">
         <img src="https://cdn-icons-png.flaticon.com/512/4712/4712104.png" alt="Meow Bot" />
         Invite Meow Bot
       </a>
+
+      <!-- About Meow Bot and Support Server - Half Width -->
+      <div class="half-width-buttons">
+        <a href="#" class="link-button about-bot" onclick="openBotModal()">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f63c.png" alt="Meow Bot" />
+          About Meow Bot
+        </a>
+        <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4ac.png" alt="Support Server" />
+          Support Server
+        </a>
+      </div>
 
       <!-- Patch Notes and Support - Half Width -->
       <div class="half-width-buttons">
@@ -224,7 +230,16 @@
 
         <!-- Page 1 Content -->
         <div id="patchNotesPage1" class="patch-notes-page">
-          <h3>🔧 Version 2.4.2 - "Stability Update"</h3>
+          <h3>🎨 Version 2.4.3 - "Photo & Welcome Update"</h3>
+          <p><em>Release Date: August 15, 2025</em></p>
+          <p>
+            <strong>📸 Photo Support in /sendmessage:</strong> Added image attachment support to the /sendmessage command - Bot can now send messages with photos, text, or both combined<br>
+            <strong>� Welcome Message Control:</strong> Welcome messages now disabled by default for new servers - Servers can manually enable if desired, providing better control over bot behavior<br>
+            <strong>🎯 Perfect for Reaction Roles:</strong> Create visually appealing reaction role messages with images<br>
+            <strong>⚙️ Existing Server Settings:</strong> Current servers maintain their welcome message preferences unchanged
+          </p>
+
+          <h3>�🔧 Version 2.4.2 - "Stability Update"</h3>
           <p><em>Release Date: August 12, 2025</em></p>
           <p>
             <strong>✅ Meow Counter Fix:</strong> Meow counting now works 100% of the time - no more silent failures<br>
@@ -242,7 +257,10 @@
             <strong>⏰ Reminder System Update:</strong> Simplified - Cleaner reminder embeds with better formatting<br>
             <strong>🤐 Confession Threads:</strong> Simplified - Streamlined confession thread embeds
           </p>
+        </div>
 
+        <!-- Page 2 Content -->
+        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
           <h3>✨ Version 2.4.0 - "Translation & Polish Update"</h3>
           <p><em>Release Date: August 10, 2025</em></p>
           <p>
@@ -252,10 +270,6 @@
             <strong>📊 Poll System Enhancements:</strong> Added optional image support and auto-moderation to remove invalid emoji reactions<br>
             <strong>👋 Welcome System Improvements:</strong> Bot filtering prevents welcome spam when other bots join
           </p>
-        </div>
-
-        <!-- Page 2 Content -->
-        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
           <h3>🔧 Version 2.3.1 - "Fixes & Polls Update"</h3>
           <p><em>Release Date: August 9, 2025</em></p>
           <p>
