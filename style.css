@@ -109,6 +109,12 @@ section:first-child h1 {
   box-shadow: 0 0 6px #29abe0, 0 0 12px #c2f7ff44;
 }
 
+.patreon {
+  background: #f96854;
+  color: #fff;
+  box-shadow: 0 0 6px #f96854, 0 0 12px #f9685444;
+}
+
 .about {
   background: #fbb400;
   color: #fff;
@@ -128,6 +134,13 @@ section:first-child h1 {
   color: #fff;
   box-shadow: 0 0 8px #29abe0, 0 0 16px #29abe044;
   border: 1px solid #29abe0;
+}
+
+.main-section .patreon {
+  background: linear-gradient(135deg, #f96854, #e85a47);
+  color: #fff;
+  box-shadow: 0 0 8px #f96854, 0 0 16px #f9685444;
+  border: 1px solid #f96854;
 }
 
 /* ===== MEOW BOT SECTION COLORS (BRIGHT BUT NOT BLINDING) ===== */
