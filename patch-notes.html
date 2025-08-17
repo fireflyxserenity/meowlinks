@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patch Notes - Meow Links</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+  
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      padding: 55px 10px 20px 10px;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    .patch-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .patch-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .patch-header h1 {
+      color: #0ff;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .patch-header p {
+      color: #ddd;
+      font-size: 1rem;
+    }
+
+    /* Bot selector tabs */
+    .bot-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .bot-tab {
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 25px;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .bot-tab:hover {
+      background: rgba(0, 255, 255, 0.1);
+      border-color: #0ff;
+      color: #fff;
+    }
+
+    .bot-tab.active {
+      background: rgba(0, 255, 255, 0.2);
+      border-color: #0ff;
+      color: #fff;
+    }
+
+    /* Scrollable patch notes container */
+    .patch-notes-container {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #0ff rgba(0, 0, 0, 0.3);
+    }
+
+    /* Custom scrollbar for webkit browsers */
+    .patch-notes-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .patch-notes-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+
+    .patch-notes-container::-webkit-scrollbar-thumb {
+      background: #0ff;
+      border-radius: 4px;
+    }
+
+    .patch-notes-container::-webkit-scrollbar-thumb:hover {
+      background: #00cccc;
+    }
+
+    /* Individual patch note styling */
+    .patch-note {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border-left: 4px solid #0ff;
+    }
+
+    .patch-note:last-child {
+      margin-bottom: 0;
+    }
+
+    .patch-note h3 {
+      color: #0ff;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .patch-date {
+      color: #aaa;
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .patch-note p {
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+
+    .patch-note strong {
+      color: #fff;
+    }
+
+    .patch-note ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .patch-note li {
+      color: #ddd;
+      margin-bottom: 5px;
+    }
+
+    .patch-note code {
+      background: rgba(0, 255, 255, 0.1);
+      color: #0ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Back button */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 255, 255, 0.2);
+      border: 1px solid rgba(0, 255, 255, 0.5);
+      border-radius: 25px;
+      padding: 10px 20px;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .back-button:hover {
+      background: rgba(0, 255, 255, 0.3);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 60px 10px 20px 10px;
+      }
+
+      .patch-container {
+        padding: 10px;
+      }
+
+      .patch-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .bot-selector {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .bot-tab {
+        width: 200px;
+        text-align: center;
+      }
+
+      .patch-notes-container {
+        max-height: 60vh;
+        padding: 15px;
+      }
+
+      .patch-note {
+        padding: 15px;
+      }
+
+      .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Tab content visibility */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-button">← Back to Home</a>
+
+  <div class="patch-container">
+    <div class="patch-header">
+      <h1>📝 Patch Notes</h1>
+      <p>Stay up to date with the latest features, fixes, and improvements to our Discord bots!</p>
+    </div>
+
+    <!-- Bot Selection Tabs -->
+    <div class="bot-selector">
+      <button class="bot-tab active" onclick="showBot('meow-bot')">🐱 Meow Bot</button>
+      <button class="bot-tab" onclick="showBot('meow-manager')">🛠️ Meow Manager</button>
+    </div>
+
+    <!-- Meow Bot Patch Notes -->
+    <div id="meow-bot" class="tab-content active">
+      <div class="patch-notes-container">
+        
+        <div class="patch-note">
+          <h3>🎨 Version 2.4.3 - "Photo & Welcome Update"</h3>
+          <p class="patch-date">Release Date: August 15, 2025</p>
+          <p>
+            <strong>📸 Photo Support in /sendmessage:</strong> Added image attachment support to the /sendmessage command - Bot can now send messages with photos, text, or both combined<br>
+            <strong>💌 Welcome Message Control:</strong> Welcome messages now disabled by default for new servers - Servers can manually enable if desired, providing better control over bot behavior<br>
+            <strong>🎯 Perfect for Reaction Roles:</strong> Create visually appealing reaction role messages with images<br>
+            <strong>⚙️ Existing Server Settings:</strong> Current servers maintain their welcome message preferences unchanged
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🔧 Version 2.4.2 - "Stability Update"</h3>
+          <p class="patch-date">Release Date: August 12, 2025</p>
+          <p>
+            <strong>✅ Meow Counter Fix:</strong> Meow counting now works 100% of the time - no more silent failures<br>
+            <strong>🛠️ Database Improvements:</strong> Fixed database errors that caused bot to ignore meow messages<br>
+            <strong>⚡ Performance Boost:</strong> Better performance during busy chat periods and meow spam<br>
+            <strong>📊 Accurate Leaderboards:</strong> All meows now properly counted and saved<br>
+            <strong>🚀 Technical Upgrades:</strong> Database stability improvements, better error handling and retry logic, optimized for multi-server performance
+          </p>
+          <p><em>🎉 Your meows are now safe! Before this update, the bot would randomly ignore meows, especially during busy chat periods. Now every single meow gets counted and responded to reliably!</em></p>
+        </div>
+
+        <div class="patch-note">
+          <h3>✨ Version 2.4.1 - "Quote System Update"</h3>
+          <p class="patch-date">Release Date: August 11, 2025</p>
+          <p>
+            <strong>🎲 Quote System Update:</strong> Reroll function for /random quote feature<br>
+            <strong>⏰ Reminder System Update:</strong> Simplified - Cleaner reminder embeds with better formatting<br>
+            <strong>🤐 Confession Threads:</strong> Simplified - Streamlined confession thread embeds
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>✨ Version 2.4.0 - "Translation & Polish Update"</h3>
+          <p class="patch-date">Release Date: August 10, 2025</p>
+          <p>
+            <strong>🌐 Translation System:</strong> Added /translate command with auto language detection supporting 100+ languages<br>
+            <strong>🎨 UI Improvements:</strong> Simplified embeds with cleaner, more compact design for conversions and translations<br>
+            <strong>📝 Quote System Updates:</strong> Removed quote requester mentions for cleaner notifications<br>
+            <strong>📊 Poll System Enhancements:</strong> Added optional image support and auto-moderation to remove invalid emoji reactions<br>
+            <strong>👋 Welcome System Improvements:</strong> Bot filtering prevents welcome spam when other bots join
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🔧 Version 2.3.1 - "Fixes & Polls Update"</h3>
+          <p class="patch-date">Release Date: August 9, 2025</p>
+          <p>
+            <strong>🔧 Quote Mention Fix:</strong> Fixed quotes so users don't get @mentioned twice when using a dedicated quotes channel<br>
+            <strong>📊 Poll Images:</strong> Added single image support to polls - now you can add a visual to help explain your poll!<br>
+            <strong>✨ Quality of Life:</strong> Better user experience with quote notifications
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🎨 Version 2.3.0 - "QuoteMaker Update"</h3>
+          <p class="patch-date">Release Date: August 8, 2025</p>
+          <p>
+            <strong>🌌 New Backgrounds:</strong> Pick between Galaxy, Dark Sky, Cats, or classic Black<br>
+            <strong>😎 Emoji handling:</strong> Custom + Unicode emojis render cleaner and in-line<br>
+            <strong>📦 Quote channel support:</strong> Post straight to a dedicated quotes channel, with dual-post option<br>
+            <strong>📢 Mentions now readable:</strong> &lt;@12345&gt; becomes @Username<br>
+            <strong>✂️ Smart quote trimming:</strong> Overly long quotes get trimmed with smarter space-based truncation<br>
+            <strong>⚠️ Still working on:</strong> Unicode rendering - massively in beta, expect weirdness with ultra-fancy names
+          </p>
+          <p><em>💙 Special thanks to @RyanCAD for extensive coding and testing work, and @vrnvctss for additional testing and coding support!</em></p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🚀 Version 2.2.0 - "Universal Conversion System"</h3>
+          <p class="patch-date">Release Date: August 7, 2025</p>
+          <p>
+            <strong>🔄 New Feature:</strong> Universal Unit Conversion System - Convert between 8 different types of stuff with natural language!<br>
+            <strong>🆕 New Commands:</strong> /convert, /conversionhelp<br>
+            <strong>📏 What you can convert:</strong> Distance, weight, volume, time, data storage, speed, temperature, and currency (with live rates!)<br>
+            <strong>🗣️ Just type naturally:</strong> "60 mph to kmh", "5 kg to pounds", "100 USD to CAD"<br>
+            <strong>💱 160+ currencies supported</strong> with real-time exchange rates that update hourly
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🎯 Version 2.1.0 - "Embed Revolution"</h3>
+          <p class="patch-date">Release Date: July 2025</p>
+          <p>
+            <strong>🔧 Quote System Makeover:</strong> Switched from images to Discord embeds - way faster and prettier!<br>
+            <strong>💡 Perfect Emoji Support:</strong> Custom server emojis now work flawlessly<br>
+            <strong>🛡️ New Command:</strong> /config_meow_limits to stop meow spam<br>
+            <strong>🐛 Bug Fixes:</strong> Fixed emoji and name rendering issues<br>
+            <strong>⚠️ Known Issues:</strong> Quotes look simpler now, still tweaking for the best balance
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🌍 Version 2.0.0 - "Global Expansion"</h3>
+          <p class="patch-date">Release Date: June 2025</p>
+          <p>
+            <strong>🚀 Multi-Server Support:</strong> Bot now works across multiple Discord servers!<br>
+            <strong>🌐 Global Meow Tracking:</strong> Your meows count everywhere with /globalmeowboard<br>
+            <strong>⚙️ Server Independence:</strong> Each server keeps its own settings and preferences<br>
+            <strong>🛠️ General Improvements:</strong> Faster response times, less lag, fewer bugs
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>🤐 Version 1.5.0 - "Confessions & More"</h3>
+          <p class="patch-date">Release Date: May 2025</p>
+          <p>
+            <strong>🤐 Anonymous Confessions:</strong> /confess to send secret messages safely<br>
+            <strong>⏰ Smart Reminders:</strong> /remind with natural language like "in 10 minutes"<br>
+            <strong>🎯 Admin Stuff:</strong> /setup, /clear, /config_welcome, and activity logging
+          </p>
+        </div>
+
+        <div class="patch-note">
+          <h3>💬 Version 1.0.0 - "Foundation"</h3>
+          <p class="patch-date">Release Date: April 2025</p>
+          <p>
+            <strong>🎉 The Beginning:</strong> /meow, /barkcount, /meowboard, /randomquote, reaction roles, Twitch alerts
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Meow Manager Patch Notes -->
+    <div id="meow-manager" class="tab-content">
+      <div class="patch-notes-container">
+        
+        <div class="patch-note">
+          <h3>Version 1.0.0 - Initial Release</h3>
+          <p class="patch-date">August 16, 2025</p>
+          
+          <h4>🌟 Core Features Introduced:</h4>
+          <ul>
+            <li>📊 <strong>Smart XP System:</strong> Dual activity tracking for messages and voice chat with anti-spam protection</li>
+            <li>🏆 <strong>Advanced Leaderboards:</strong> Time-filtered rankings (Today, Week, Month, Year, All Time) with interactive UI</li>
+            <li>🎭 <strong>Automated Role Rewards:</strong> Level-based role assignment with 30 pre-designed cat-themed roles</li>
+            <li>📈 <strong>Comprehensive Analytics:</strong> Daily activity tracking and progress visualization</li>
+          </ul>
+
+          <h4>🚀 Available Commands:</h4>
+          <h5>Member Commands:</h5>
+          <ul>
+            <li><code>/rank</code> - Check current level, XP, and server ranking</li>
+            <li><code>/top</code> - Interactive leaderboard with time period filters</li>
+            <li><code>/leaderboard</code> - Classic top users display (1-25 users)</li>
+            <li><code>/activitylog</code> - Detailed personal activity breakdown</li>
+            <li><code>/xp_guide</code> - Complete XP system explanation</li>
+          </ul>
+
+          <h5>Admin Commands:</h5>
+          <ul>
+            <li><code>/activity_enable</code> - Toggle the entire system on/off</li>
+            <li><code>/activity_config</code> - Customize XP rates and settings</li>
+            <li><code>/set_level_role</code> - Assign roles to specific levels</li>
+            <li><code>/remove_level_role</code> - Remove role rewards</li>
+            <li><code>/level_roles</code> - View all current role rewards</li>
+            <li><code>/setup_cat_roles</code> - Auto-create 30 themed roles</li>
+          </ul>
+
+          <h4>⚙️ Customization Options:</h4>
+          <ul>
+            <li>🎯 <strong>XP Per Message:</strong> Adjustable points for each message (default: 15)</li>
+            <li>🎤 <strong>XP Per Voice Minute:</strong> Customizable voice chat rewards (default: 5)</li>
+            <li>⏱️ <strong>Message Cooldown:</strong> Spam prevention with adjustable delays (default: 60s)</li>
+            <li>📢 <strong>Level-Up Announcements:</strong> Choose announcement channel or disable</li>
+            <li>🎭 <strong>Role Progression:</strong> Create unlimited custom level rewards</li>
+          </ul>
+
+          <h4>🎯 Technical Features:</h4>
+          <ul>
+            <li>💾 <strong>SQLite Database:</strong> Reliable, fast, and efficient storage</li>
+            <li>⚡ <strong>Optimized Performance:</strong> Built for servers with 200+ active users</li>
+            <li>🔄 <strong>Real-Time Processing:</strong> Instant XP awards and level updates</li>
+            <li>🛡️ <strong>Data Integrity:</strong> Secure database with parameterized queries</li>
+            <li>🌍 <strong>Global Support:</strong> Works worldwide with UTC timestamps</li>
+          </ul>
+
+          <h4>🌈 Cat Role System:</h4>
+          <p>Introducing our beautiful 30-role cat theme progression:</p>
+          <ul>
+            <li>🐱 <strong>Starter Tier:</strong> Tiny Kitten → Playful Kitten → Happy Cat</li>
+            <li>😸 <strong>Social Tier:</strong> Cheerful Cat → Lovely Cat → Surprised Cat</li>
+            <li>🐈 <strong>House Tier:</strong> House Cat → Shadow Cat → Grumpy Cat</li>
+            <li>🦁 <strong>Wild Tier:</strong> Brave Lion → Wild Tiger → Swift Leopard</li>
+            <li>🚀 <strong>Special Tier:</strong> Tech Cat → Cosmic Cat → Thunder Cat</li>
+            <li>👑 <strong>Legendary Tier:</strong> Royal Cat → Mythical Cat → Eternal Cat Lord</li>
+          </ul>
+          
+          <p><strong>Ready to boost your server engagement? Manager Meow Activity System is here! 🐱✨</strong></p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showBot(botName) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.bot-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Show selected bot content
+      document.getElementById(botName).classList.add('active');
+      
+      // Add active class to the correct tab
+      const targetTab = document.querySelector(`[onclick="showBot('${botName}')"]`);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+      
+      // Scroll to top of patch notes container
+      const container = document.querySelector('.patch-notes-container');
+      if (container) {
+        container.scrollTop = 0;
+      }
+    }
+
+    // Check URL parameters on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const botParam = urlParams.get('bot');
+      
+      if (botParam === 'manager') {
+        showBot('meow-manager');
+      } else {
+        // Default to Meow Bot if no parameter or invalid parameter
+        showBot('meow-bot');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -411,9 +411,9 @@
             <span>About</span>
           </a>
           
-          <a href="#" onclick="openPatchNotesModal()" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
+          <a href="patch-notes.html" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
             <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Updates</span>
+            <span>Patch Notes</span>
           </a>
         </div>
       </div>
@@ -436,9 +436,9 @@
             <span>About</span>
           </a>
           
-          <a href="#" onclick="openManagerPatchNotesModal()" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
+          <a href="patch-notes.html?bot=manager" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
             <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Updates</span>
+            <span>Patch Notes</span>
           </a>
         </div>
       </div>
@@ -457,7 +457,6 @@
     </div>
   </div>
 
-  <!-- Keep all your original modals here -->
   <!-- About Modal -->
   <div id="aboutModal" class="modal">
     <div class="modal-content">
@@ -567,178 +566,8 @@
     </div>
   </div>
 
-  <!-- Include all your patch notes modals and JavaScript from the original -->
-  <!-- Patch Notes Modal -->
-  <div id="patchNotesModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closePatchNotesModal()">&times;</span>
-      <div class="about-text">
-        <h2>📝 Meow Bot - Patch Notes</h2>
-
-        <!-- Page 1 Content -->
-        <div id="patchNotesPage1" class="patch-notes-page">
-          <h3>🎨 Version 2.4.3 - "Photo & Welcome Update"</h3>
-          <p><em>Release Date: August 15, 2025</em></p>
-          <p><strong>New Features:</strong></p>
-          <ul>
-            <li>✨ <strong>Enhanced Photo Command:</strong> Updated photo display with improved formatting and better image handling</li>
-            <li>🎉 <strong>Welcome Message Improvements:</strong> Better welcome message customization with more formatting options</li>
-            <li>🐾 <strong>Meow Tracking Enhancements:</strong> Improved accuracy in meow counting and leaderboard updates</li>
-          </ul>
-          <p><strong>Bug Fixes:</strong></p>
-          <ul>
-            <li>🔧 Fixed occasional lag in global leaderboard updates</li>
-            <li>🔧 Resolved issue with confession system not properly anonymizing in certain cases</li>
-            <li>🔧 Improved error handling for translation commands</li>
-          </ul>
-          <p><strong>Performance:</strong></p>
-          <ul>
-            <li>⚡ 15% faster response times for core commands</li>
-            <li>⚡ Optimized database queries for better scalability</li>
-            <li>⚡ Reduced memory usage by 12%</li>
-          </ul>
-        </div>
-
-        <!-- Page 2 Content -->
-        <div id="patchNotesPage2" class="patch-notes-page" style="display: none;">
-          <h3>🚀 Version 2.4.0 - "Community Enhancement"</h3>
-          <p><em>Release Date: July 28, 2025</em></p>
-          <p><strong>Major Updates:</strong></p>
-          <ul>
-            <li>🌍 <strong>Global Leaderboards:</strong> Enhanced global competition with region filtering</li>
-            <li>📊 <strong>Advanced Stats:</strong> More detailed server and user statistics</li>
-            <li>🎭 <strong>Confession Improvements:</strong> Better moderation tools for confession channels</li>
-          </ul>
-          <p><strong>New Commands:</strong></p>
-          <ul>
-            <li><code>/currency</code> - Real-time currency conversion with 150+ currencies</li>
-            <li><code>/remind advanced</code> - Set complex recurring reminders</li>
-            <li><code>/server stats</code> - Comprehensive server activity overview</li>
-          </ul>
-          <p><strong>Quality of Life:</strong></p>
-          <ul>
-            <li>🎯 Improved command autocomplete suggestions</li>
-            <li>🎯 Better error messages with helpful tips</li>
-            <li>🎯 Enhanced mobile compatibility for web interfaces</li>
-          </ul>
-        </div>
-
-        <!-- Page 3 Content -->
-        <div id="patchNotesPage3" class="patch-notes-page" style="display: none;">
-          <h3>🔧 Version 2.3.5 - "Stability & Performance"</h3>
-          <p><em>Release Date: July 10, 2025</em></p>
-          <p><strong>Performance Improvements:</strong></p>
-          <ul>
-            <li>⚡ 30% faster command processing across all features</li>
-            <li>⚡ Optimized database connections for better reliability</li>
-            <li>⚡ Improved caching system for frequently accessed data</li>
-          </ul>
-          <p><strong>Bug Fixes:</strong></p>
-          <ul>
-            <li>🔧 Fixed rare issue with meow counting synchronization</li>
-            <li>🔧 Resolved poll creation errors in certain server configurations</li>
-            <li>🔧 Fixed translation service timeouts for longer texts</li>
-          </ul>
-          <p><strong>Security Updates:</strong></p>
-          <ul>
-            <li>🔒 Enhanced data encryption for user privacy</li>
-            <li>🔒 Improved rate limiting to prevent abuse</li>
-            <li>🔒 Updated authentication systems</li>
-          </ul>
-        </div>
-
-        <!-- Page 4 Content -->
-        <div id="patchNotesPage4" class="patch-notes-page" style="display: none;">
-          <h3>🎉 Version 2.3.0 - "Feature Expansion"</h3>
-          <p><em>Release Date: June 22, 2025</em></p>
-          <p><strong>New Features:</strong></p>
-          <ul>
-            <li>🗳️ <strong>Advanced Polling:</strong> Create polls with up to 10 options and custom emojis</li>
-            <li>🔄 <strong>Unit Converter:</strong> Convert between hundreds of units (length, weight, temperature, etc.)</li>
-            <li>🌐 <strong>Enhanced Translation:</strong> Support for 100+ languages with improved accuracy</li>
-          </ul>
-          <p><strong>Command Updates:</strong></p>
-          <ul>
-            <li><code>/poll create</code> - New advanced polling system</li>
-            <li><code>/convert</code> - Universal unit conversion tool</li>
-            <li><code>/translate detect</code> - Auto-detect source language</li>
-          </ul>
-          <p><strong>Infrastructure:</strong></p>
-          <ul>
-            <li>🏗️ Migrated to new server infrastructure for 99.9% uptime</li>
-            <li>🏗️ Implemented automated backup systems</li>
-            <li>🏗️ Enhanced monitoring and alerting</li>
-          </ul>
-        </div>
-
-        <!-- Pagination Controls -->
-        <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(0, 255, 255, 0.2);">
-          <span id="pageIndicator" style="color: #0ff; margin: 0 15px;">Page 1 of 4</span>
-          <button id="prevPageBtn" onclick="showPatchNotesPage(1)" style="margin-right: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;" disabled>◀ Previous</button>
-          <button id="nextPageBtn" onclick="showPatchNotesPage(2)" style="margin-left: 10px; padding: 8px 15px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer;">Next ▶</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Meow Manager Patch Notes Modal -->
-  <div id="managerPatchNotesModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeManagerPatchNotesModal()">&times;</span>
-      <div class="about-text">
-        <h2>📝 Meow Manager - Patch Notes</h2>
-        
-        <!-- Page 1 Content -->
-        <div id="managerPage1" class="page-content active">
-          <div class="patch-note">
-            <h3>Version 1.0.0 - Initial Release</h3>
-            <p><strong>Release Date:</strong> August 10, 2025</p>
-            
-            <h4>🎉 Launch Features:</h4>
-            <ul>
-              <li><strong>Complete Moderation Suite:</strong> Ban, kick, warn, mute with smart duration parsing</li>
-              <li><strong>XP & Leveling System:</strong> Track text and voice activity with customizable rates</li>
-              <li><strong>30 Pre-designed Cat Roles:</strong> Beautiful progression system with themed role names</li>
-              <li><strong>Advanced Logging:</strong> Comprehensive audit trails and customizable event tracking</li>
-              <li><strong>Auto-Role Management:</strong> Automatic role assignment based on activity levels</li>
-            </ul>
-
-            <h4>🛠️ Advanced Tools:</h4>
-            <ul>
-              <li><strong>Smart Timeout System:</strong> Natural language duration parsing (e.g., "1h 30m")</li>
-              <li><strong>Bulk Message Management:</strong> Delete multiple messages with advanced filtering</li>
-              <li><strong>User Lookup Tools:</strong> Comprehensive user information and moderation history</li>
-              <li><strong>Activity Analytics:</strong> Detailed statistics and progress tracking</li>
-              <li><strong>Custom Command System:</strong> Create powerful custom commands with scripting</li>
-            </ul>
-
-            <h4>⚙️ Configuration Options:</h4>
-            <ul>
-              <li><strong>Flexible XP Settings:</strong> Customize XP rates, level requirements, and rewards</li>
-              <li><strong>Logging Customization:</strong> Choose which events to log and where</li>
-              <li><strong>Role Management:</strong> Configure automatic role progression and permissions</li>
-              <li><strong>Welcome/Farewell:</strong> Custom message templates with variable support</li>
-            </ul>
-
-            <h4>🚀 Performance & Reliability:</h4>
-            <ul>
-              <li>Built on robust infrastructure for 99.9% uptime</li>
-              <li>Optimized database design for fast response times</li>
-              <li>Comprehensive error handling and recovery systems</li>
-              <li>Real-time activity tracking with minimal latency</li>
-            </ul>
-
-            <p><strong>🎯 Target Audience:</strong> Growing Discord communities (50+ members) that need professional server management, active moderation tools, and member engagement tracking.</p>
-
-            <p><strong>💡 Getting Started:</strong> Invite Meow Manager to your server and use <code>/setup</code> to configure basic settings. The bot includes helpful setup wizards and documentation to get you started quickly!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // All your original JavaScript functions
+    // Clean JavaScript functions - only keeping the modals we still use
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
       document.body.classList.add('modal-open');
@@ -769,110 +598,11 @@
       document.body.classList.remove('modal-open');
     }
 
-    function openManagerPatchNotesModal() {
-      document.getElementById('managerPatchNotesModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-      showManagerPatchNotesPage(1); // Always start on page 1
-    }
-
-    function closeManagerPatchNotesModal() {
-      document.getElementById('managerPatchNotesModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
-    // Manager Patch Notes Page Functions
-    let currentManagerPatchNotesPage = 1;
-    const totalManagerPatchNotesPages = 1;
-
-    function showManagerPatchNotesPage(pageNumber) {
-      // Hide all manager patch notes pages
-      document.getElementById('managerPage1').style.display = 'none';
-      
-      // Show the requested page
-      document.getElementById('managerPage' + pageNumber).style.display = 'block';
-
-      // Update current page
-      currentManagerPatchNotesPage = pageNumber;
-
-      // Scroll modal content to top on mobile
-      var modalContent = document.querySelector('#managerPatchNotesModal .modal-content');
-      if (modalContent) {
-        modalContent.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-
-    // Patch Notes Pagination
-    let currentPatchNotesPage = 1;
-    const totalPatchNotesPages = 4;
-
-    function showPatchNotesPage(pageNumber) {
-      // Hide all pages
-      document.getElementById('patchNotesPage1').style.display = 'none';
-      document.getElementById('patchNotesPage2').style.display = 'none';
-      document.getElementById('patchNotesPage3').style.display = 'none';
-      document.getElementById('patchNotesPage4').style.display = 'none';
-
-      // Show the requested page
-      document.getElementById('patchNotesPage' + pageNumber).style.display = 'block';
-
-      // Update current page
-      currentPatchNotesPage = pageNumber;
-
-      // Scroll modal content to top on mobile
-      var modalContent = document.querySelector('#patchNotesModal .modal-content');
-      if (modalContent) {
-        modalContent.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      // Update pagination controls
-      updatePaginationControls();
-    }
-
-    function updatePaginationControls() {
-      const prevBtn = document.getElementById('prevPageBtn');
-      const nextBtn = document.getElementById('nextPageBtn');
-      const pageIndicator = document.getElementById('pageIndicator');
-
-      // Update page indicator
-      pageIndicator.textContent = `Page ${currentPatchNotesPage} of ${totalPatchNotesPages}`;
-
-      // Update buttons
-      prevBtn.disabled = currentPatchNotesPage === 1;
-      nextBtn.disabled = currentPatchNotesPage === totalPatchNotesPages;
-
-      // Update button styles
-      prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-      nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
-      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
-      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
-
-      // Update onclick handlers
-      if (currentPatchNotesPage > 1) {
-        prevBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage - 1);
-      }
-      if (currentPatchNotesPage < totalPatchNotesPages) {
-        nextBtn.onclick = () => showPatchNotesPage(currentPatchNotesPage + 1);
-      }
-    }
-
-    function openPatchNotesModal() {
-      document.getElementById('patchNotesModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-      showPatchNotesPage(1); // Always start on page 1
-    }
-
-    function closePatchNotesModal() {
-      document.getElementById('patchNotesModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
     // Close modals when clicking outside
     window.onclick = function(event) {
       const aboutModal = document.getElementById('aboutModal');
       const botModal = document.getElementById('botModal');
       const managerModal = document.getElementById('managerModal');
-      const patchNotesModal = document.getElementById('patchNotesModal');
-      const managerPatchNotesModal = document.getElementById('managerPatchNotesModal');
       
       if (event.target == aboutModal) {
         closeModal();
@@ -880,10 +610,6 @@
         closeBotModal();
       } else if (event.target == managerModal) {
         closeManagerModal();
-      } else if (event.target == patchNotesModal) {
-        closePatchNotesModal();
-      } else if (event.target == managerPatchNotesModal) {
-        closeManagerPatchNotesModal();
       }
     }
   </script>
