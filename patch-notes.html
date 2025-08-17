@@ -184,11 +184,17 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       body {
-        padding: 60px 10px 20px 10px;
+        padding: 60px 5px 20px 5px;
       }
 
       .patch-container {
-        padding: 10px;
+        padding: 5px;
+        max-width: 100%;
+      }
+
+      .patch-header {
+        padding: 15px;
+        margin-bottom: 20px;
       }
 
       .patch-header h1 {
@@ -200,6 +206,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        margin-bottom: 15px;
       }
 
       .bot-tab {
@@ -213,11 +220,13 @@
 
       .patch-notes-container {
         max-height: 60vh;
-        padding: 15px;
+        padding: 20px;
+        margin: 0;
       }
 
       .patch-note {
-        padding: 15px;
+        padding: 15px 0;
+        margin-bottom: 15px;
       }
 
       .back-button {
@@ -230,12 +239,25 @@
 
     /* Extra small mobile screens */
     @media (max-width: 480px) {
+      body {
+        padding: 60px 3px 20px 3px;
+      }
+
       .patch-container {
-        padding: 8px;
+        padding: 3px;
+      }
+
+      .patch-header {
+        padding: 12px;
+      }
+
+      .patch-header h1 {
+        font-size: 1.3rem;
       }
 
       .bot-selector {
         gap: 6px;
+        margin-bottom: 12px;
       }
 
       .bot-tab {
@@ -245,17 +267,13 @@
         font-size: 0.85rem;
       }
 
-      .patch-header h1 {
-        font-size: 1.3rem;
-      }
-
-      .patch-header {
+      .patch-notes-container {
+        max-height: 55vh;
         padding: 15px;
       }
 
-      .patch-notes-container {
-        max-height: 55vh;
-        padding: 12px;
+      .patch-note {
+        padding: 12px 0;
       }
     }
 
