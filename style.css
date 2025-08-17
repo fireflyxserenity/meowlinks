@@ -328,14 +328,27 @@ body::before {
 
 .close {
   position: absolute;
-  right: 12px;
-  top: 8px;
-  font-size: 28px;
+  right: 20px;
+  top: 15px;
+  font-size: 32px;
   color: #fff;
   cursor: pointer;
   z-index: 100;
-  padding: 5px;
+  padding: 8px;
   line-height: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: scale(1.1);
 }
 
 .about-text p,
@@ -356,17 +369,30 @@ body::before {
 
 /* Mobile polish */
 @media (max-width: 480px) {
-  /* Hide navigation on mobile for now */
+  /* Make navigation mobile-friendly - single condensed line */
   nav {
-    display: none !important;
+    padding: 5px 10px !important;
+  }
+  
+  nav > div {
+    gap: 10px !important;
+    align-items: center !important;
+  }
+  
+  nav a {
+    font-size: 0.75rem !important;
+  }
+  
+  nav > div > div {
+    gap: 8px !important;
   }
   
   .container {
-    margin-top: 0 !important;
+    margin-top: 50px !important; /* Account for condensed nav */
   }
   
   body {
-    padding: 15px; /* Padding on all sides for mobile */
+    padding: 50px 15px 15px 15px; /* Padding on all sides for mobile with nav space */
     min-height: 100vh;
   }
 
@@ -431,10 +457,31 @@ body::before {
 
   /* Adjust close button position on mobile */
   .close {
-    right: 10px;
-    top: 10px;
-    font-size: 22px;
-    padding: 4px;
+    right: 15px;
+    top: 15px;
+    font-size: 28px;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Improve mobile modal scrolling */
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Better spacing for patch notes buttons on mobile */
+  .pagination-controls {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .pagination-controls button {
+    margin: 0 5px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
   /* Adjust modal content padding to bring everything closer */

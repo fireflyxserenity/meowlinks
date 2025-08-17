@@ -816,6 +816,12 @@
       // Update current page
       currentPatchNotesPage = pageNumber;
 
+      // Scroll modal content to top on mobile
+      var modalContent = document.querySelector('#patchNotesModal .modal-content');
+      if (modalContent) {
+        modalContent.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
       // Update pagination controls
       updatePaginationControls();
     }
