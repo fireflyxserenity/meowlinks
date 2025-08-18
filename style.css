@@ -417,12 +417,15 @@ body::before {
   }
 
   .links {
-    gap: 8px;
+    gap: 10px; /* More space between buttons on mobile */
   }
 
   .link-button {
     font-size: 0.85rem;
-    padding: 8px 12px;
+    padding: 12px 16px; /* Larger touch targets for mobile */
+    min-height: 48px; /* Ensure minimum touch target size */
+    align-items: center;
+    justify-content: center;
   }
 
   .half-width-buttons {
@@ -432,6 +435,19 @@ body::before {
   .half-width-buttons .link-button {
     font-size: 0.75rem;
     padding: 8px 10px;
+  }
+
+  /* Make half-width buttons stack on mobile for better touch targets */
+  .half-width-buttons {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .half-width-buttons .link-button {
+    flex: none !important;
+    width: 100% !important;
+    font-size: 0.8rem !important;
+    padding: 12px 14px !important;
   }
 
   .modal {
