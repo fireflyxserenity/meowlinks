@@ -393,9 +393,9 @@ body::before {
   }
 
   .container {
-    max-width: 360px; /* Fixed max width for better mobile readability */
+    max-width: 340px !important; /* Force smaller width on mobile */
     margin: 50px auto 0 auto; /* Top margin only on mobile for nav space */
-    padding: 18px; /* Maintain consistent padding */
+    padding: 15px !important; /* Reduce padding on mobile */
     box-shadow: 0 0 20px #0ff; /* Reduce glow size slightly for mobile */
   }
 
