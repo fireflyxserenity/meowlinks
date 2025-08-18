@@ -392,14 +392,14 @@ body::before {
   }
   
   body {
-    padding: 50px 15px 15px 15px; /* Padding on all sides for mobile with nav space */
+    padding: 50px 25px 15px 25px; /* More side padding for mobile to show section edges */
     min-height: 100vh;
   }
 
   .container {
     max-width: 420px; /* Wider container for better mobile fit */
     margin: 0 auto;
-    padding: 15px;
+    padding: 18px; /* Maintain consistent padding */
     box-shadow: 0 0 20px #0ff; /* Reduce glow size slightly for mobile */
   }
 
