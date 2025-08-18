@@ -387,18 +387,14 @@ body::before {
     gap: 8px !important;
   }
   
-  .container {
-    margin-top: 50px !important; /* Account for condensed nav */
-  }
-  
   body {
-    padding: 50px 10px 15px 10px; /* Minimal side padding for mobile to fit screen */
+    padding: 50px 15px 15px 15px; /* Balanced padding for glow visibility */
     min-height: 100vh;
   }
 
   .container {
-    max-width: calc(100vw - 20px); /* Use almost full screen width minus padding */
-    margin: 0 auto;
+    max-width: calc(100vw - 30px); /* More space for glow effects */
+    margin: 50px auto 0 auto; /* Top margin only on mobile for nav space */
     padding: 18px; /* Maintain consistent padding */
     box-shadow: 0 0 20px #0ff; /* Reduce glow size slightly for mobile */
   }
