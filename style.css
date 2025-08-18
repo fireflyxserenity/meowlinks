@@ -392,12 +392,12 @@ body::before {
   }
   
   body {
-    padding: 50px 25px 15px 25px; /* More side padding for mobile to show section edges */
+    padding: 50px 10px 15px 10px; /* Minimal side padding for mobile to fit screen */
     min-height: 100vh;
   }
 
   .container {
-    max-width: 420px; /* Wider container for better mobile fit */
+    max-width: calc(100vw - 20px); /* Use almost full screen width minus padding */
     margin: 0 auto;
     padding: 18px; /* Maintain consistent padding */
     box-shadow: 0 0 20px #0ff; /* Reduce glow size slightly for mobile */
