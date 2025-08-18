@@ -511,6 +511,27 @@ body::before {
   }
 }
 
+/* Larger phones (iPhone 15 Pro Max, etc.) - Better layout */
+@media (min-width: 481px) and (max-width: 600px) {
+  body {
+    padding: 50px 30px 15px 30px; /* More generous padding for larger phones */
+  }
+
+  .container {
+    max-width: 400px !important; /* Slightly wider for larger screens */
+    padding: 18px !important; /* Standard padding */
+    margin: 50px auto 0 auto;
+  }
+
+  nav {
+    padding: 8px 15px !important;
+  }
+  
+  nav a {
+    font-size: 0.8rem !important;
+  }
+}
+
 /* Pagination styles */
 .pagination-controls {
   border-top: 1px solid #444;
