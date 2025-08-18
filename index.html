@@ -36,6 +36,9 @@
   <meta name="keywords" content="Discord bot, Discord bots, server management, community engagement, moderation bot, meow bot, discord tools" />
   <meta name="author" content="Meow Links" />
   
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://meowlinks.github.io/" />
+  
   <title>Meow Links - Discord Bots & Community Hub</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
@@ -318,6 +321,16 @@
         gap: 8px;
       }
       
+      /* Stack server sections on mobile too */
+      .server-section:first-child {
+        margin-bottom: 0;
+      }
+      
+      div[style*="grid-template-columns: 1fr 1fr"]:has(.server-section) {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+      
       .hybrid-container {
         padding: 8px;
       }
@@ -494,15 +507,30 @@
       </div>
     </div>
 
-    <!-- Server Section -->
-    <div class="server-section">
-      <h2>🔒 Join The Secret Tunnel</h2>
-      
-      <div style="margin-top: 8px;">
-        <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord" style="padding: 4px 8px; font-size: 0.65rem; background: #daa520; border-color: #b8860b;">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" style="width: 20px; height: 20px;" />
-          <span>The Secret Tunnel</span>
-        </a>
+    <!-- Server Section - Split Layout -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="server-section">
+        <h2>🔒 Secret Tunnel</h2>
+        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Chaotic Energetic Server - For Everything from Social to Gaming. Join for our CULT guild tag)</p>
+        
+        <div style="margin-top: 8px;">
+          <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord" style="padding: 4px 8px; font-size: 0.65rem; background: #daa520; border-color: #b8860b;">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" style="width: 20px; height: 20px;" />
+            <span>Join Server</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="server-section">
+        <h2>🎮 Meow Clicker</h2>
+        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Alpha - Just Having Fun!)</p>
+        
+        <div style="margin-top: 8px;">
+          <a href="https://meowclicker.fireflydesigns.me/" target="_blank" class="link-button" style="padding: 4px 8px; font-size: 0.65rem; background: #ff6b6b; border-color: #ff5252;">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" alt="Game" style="width: 20px; height: 20px;" />
+            <span>Play Game</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
