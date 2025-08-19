@@ -1,53 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YKNC7L8DV7');
-  </script>
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Meow Bot</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
-  <style>
-    body {
-      display: block;
-      align-items: flex-start;
-      justify-content: flex-start;
-      height: auto;
-      min-height: 100vh;
-      padding: 20px;
-      font-size: 0.85rem; /* Smaller base font size */
-    }
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YKNC7L8DV7');
+    </script>
     
-    .container {
-      line-height: 1.4; /* Tighter line spacing */
-    }
-    
-    h1 {
-      font-size: 1.8rem; /* Smaller headings */
-      margin-bottom: 15px;
-    }
-    
-    h2 {
-      font-size: 1.3rem;
-      margin: 20px 0 10px 0;
-    }
-    
-    h3 {
-      font-size: 1.1rem;
-      margin: 15px 0 8px 0;
-    }
-    
-    p, li {
-      font-size: 0.85rem; /* Smaller paragraph and list text */
-      margin-bottom: 8px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Meow Links</title>
+    <meta name="description" content="Privacy Policy for Meow Links Discord bots and services">
+    <meta name="keywords" content="privacy policy, discord bot, meow bot, data protection">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            padding: 20px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 105, 180, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(50, 205, 50, 0.06) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500);
+            animation: rainbow-wave 4s ease-in-out infinite;
+        }
+
+        @keyframes rainbow-wave {
+            0% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+                background-size: 200% 100%;
+                background-position: 0% 50%;
+            }
+            50% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+                background-size: 200% 100%;
+                background-position: 100% 50%;
+            }
+            100% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+                background-size: 200% 100%;
+                background-position: 0% 50%;
+            }
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #00ffff, #ff69b4, #8a2be2, #32cd32);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: title-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes title-pulse {
+            0%, 100% { 
+                filter: brightness(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+                transform: scale(1);
+            }
+            50% { 
+                filter: brightness(1.2) drop-shadow(0 0 40px rgba(0, 255, 255, 0.5));
+                transform: scale(1.02);
+            }
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .nav-back:hover::before {
+            left: 100%;
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h2 {
+            color: #00ffff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #00ffff, #ff69b4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: heading-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes heading-glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            color: #8a2be2;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #8a2be2, #32cd32);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .highlight {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .contact-box {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2);
+            animation: contact-wave 3s ease-in-out infinite;
+        }
+
+        @keyframes contact-wave {
+            0% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #00ffff);
+                background-size: 200% 100%;
+                background-position: 0% 50%;
+            }
+            50% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #00ffff);
+                background-size: 200% 100%;
+                background-position: 100% 50%;
+            }
+            100% { 
+                background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #00ffff);
+                background-size: 200% 100%;
+                background-position: 0% 50%;
+            }
+        }
+
+        .contact-box a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-box a:hover {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            color: #ff69b4;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .nav-back {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.7rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .content h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-back">← Back to Home</a>
+        
+        <div class="header">
+            <h1>🔒 Privacy Policy</h1>
+            <p>How we protect and handle your data</p>
+        </div>
+
+        <div class="content">
+            <p><strong>Last Updated:</strong> August 18, 2025</p>
+
+            <h2>1. Introduction</h2>
+            <p>Welcome to Meow Links! We operate Discord bots including <span class="highlight">Meow Bot</span> and <span class="highlight">Meow Manager</span>. This Privacy Policy explains how we collect, use, and protect your information when you use our services.</p>
+
+            <h2>2. Information We Collect</h2>
+            
+            <h3>Automatically Collected Data</h3>
+            <ul>
+                <li><strong>Discord User ID:</strong> Your unique Discord identifier</li>
+                <li><strong>Server/Guild ID:</strong> The Discord server where our bot is used</li>
+                <li><strong>Message Content:</strong> Only when specifically using bot commands</li>
+                <li><strong>Usage Statistics:</strong> Command usage, interaction frequency</li>
+                <li><strong>Activity Data:</strong> XP tracking, level progression (Meow Manager only)</li>
+            </ul>
+
+            <h3>Voluntarily Provided Data</h3>
+            <ul>
+                <li><strong>Anonymous Confessions:</strong> Content you submit through confession features</li>
+                <li><strong>Reminders:</strong> Personal reminder content and timing</li>
+                <li><strong>Poll Responses:</strong> Your votes and poll interactions</li>
+                <li><strong>Meow/Bark Counts:</strong> Your participation in counting activities</li>
+            </ul>
+
+            <h2>3. How We Use Your Information</h2>
+            <ul>
+                <li><strong>Bot Functionality:</strong> To provide core bot features and commands</li>
+                <li><strong>Statistics:</strong> To display leaderboards and server analytics</li>
+                <li><strong>User Experience:</strong> To personalize your bot interactions</li>
+                <li><strong>Moderation:</strong> To track warnings and moderation actions (Meow Manager)</li>
+                <li><strong>Support:</strong> To provide technical support and troubleshooting</li>
+            </ul>
+
+            <h2>4. Data Storage and Security</h2>
+            <p>We implement appropriate security measures to protect your data:</p>
+            <ul>
+                <li>Data is stored on secure servers with encryption</li>
+                <li>Access is limited to authorized personnel only</li>
+                <li>Regular security audits and updates</li>
+                <li>Data is backed up securely to prevent loss</li>
+            </ul>
+
+            <h2>5. Data Sharing</h2>
+            <p>We <strong>DO NOT</strong> sell, trade, or share your personal data with third parties except:</p>
+            <ul>
+                <li><strong>Discord:</strong> As required for bot functionality through Discord's API</li>
+                <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+                <li><strong>Aggregated Data:</strong> Anonymous, non-identifiable statistics for improvement purposes</li>
+            </ul>
+
+            <h2>6. Data Retention</h2>
+            <ul>
+                <li><strong>Active Users:</strong> Data retained while you use our services</li>
+                <li><strong>Inactive Users:</strong> Data may be deleted after 12 months of inactivity</li>
+                <li><strong>Banned Users:</strong> Moderation data retained for security purposes</li>
+                <li><strong>Server Removal:</strong> Data deleted within 30 days of bot removal</li>
+            </ul>
+
+            <h2>7. Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of your stored data</li>
+                <li><strong>Correction:</strong> Request corrections to inaccurate data</li>
+                <li><strong>Deletion:</strong> Request deletion of your data</li>
+                <li><strong>Opt-out:</strong> Stop using our services at any time</li>
+            </ul>
+
+            <div class="contact-box">
+                <h3>Data Requests</h3>
+                <p>To exercise your rights or request data deletion, contact us:</p>
+                <p>Discord: <a href="https://discord.gg/ZejdzFXQ" target="_blank">Join our support server</a></p>
+                <p>Direct Message: <strong>fireflyxserenity</strong> on Discord</p>
+            </div>
+
+            <h2>8. Children's Privacy</h2>
+            <p>Our services are intended for users 13 years and older, in compliance with Discord's Terms of Service. We do not knowingly collect information from children under 13.</p>
+
+            <h2>9. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy periodically. Changes will be announced in our Discord server and reflected in the "Last Updated" date above.</p>
+
+            <h2>10. Contact Information</h2>
+            <p>If you have questions about this Privacy Policy:</p>
+            <ul>
+                <li>Join our Discord server: <a href="https://discord.gg/ZejdzFXQ" target="_blank">discord.gg/ZejdzFXQ</a></li>
+                <li>Direct message: <strong>fireflyxserenity</strong> on Discord</li>
+                <li>Website: <a href="https://meowlinks.fireflydesigns.me" target="_blank">meowlinks.fireflydesigns.me</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
     }
     
     ul {
