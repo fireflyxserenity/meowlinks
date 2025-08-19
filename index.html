@@ -11,7 +11,7 @@
   </script>
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/client=ca-pub-3994230437494776"
     crossorigin="anonymous"></script>
   
   <meta charset="UTF-8" />
@@ -40,7 +40,6 @@
   <link rel="canonical" href="https://fireflydesigns.me/" />
   
   <title>Meow Links - Discord Bots & Community Hub</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
   
   <!-- Structured Data for SEO -->
@@ -75,590 +74,1463 @@
   </script>
   
   <style>
-    /* Ultra-condensed hybrid styling */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      padding: 55px 10px 10px 10px;
-    }
-
-    .hybrid-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-
-    /* Ultra-compact hero section */
-    .hero-banner {
-      text-align: center;
-      margin-bottom: 15px;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .hero-banner h1 {
-      font-size: 1.3rem;
-      color: #0ff;
-      margin-bottom: 3px;
-      margin-top: 0;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-
-    .hero-banner p {
-      font-size: 0.8rem;
-      color: #ddd;
-      margin-bottom: 0;
-    }
-
-    /* Ultra-compact main links */
-    .main-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    .link-button {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      padding: 15px;
+      color: white;
+      position: relative;
+      overflow-x: hidden; /* Only hide horizontal overflow */
+      overflow-y: auto; /* Allow vertical scrolling */
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      padding: 8px 6px;
-      background: #333;
-      border: 1px solid #666;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #fff;
-      text-align: center;
     }
 
-    .link-button:hover {
-      border-color: #999;
-      background: #444;
-    }
-
-    .link-button img {
-      width: 16px;
-      height: 16px;
-    }
-
-    .link-button span {
-      font-weight: bold;
-      font-size: 0.65rem;
-    }
-
-    /* Side-by-side bot sections */
-    .bots-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    /* Ultra-compact bot sections */
-    .bot-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding: 12px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .bot-section h2 {
-      color: #0ff;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      margin-top: 0;
-    }
-
-    .bot-section p {
-      color: #ddd;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      font-size: 0.75rem;
-    }
-
-    /* Ultra-compact button layout */
-    .bot-buttons {
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .bot-buttons .link-button {
-      width: 100%;
-      padding: 6px 12px;
-      font-size: 0.7rem;
-    }
-
-    .half-width-buttons {
-      display: flex;
-      gap: 4px;
-    }
-
-    .half-width-buttons .link-button {
-      flex: 1;
-      padding: 5px 6px;
-      font-size: 0.65rem;
-    }
-
-    .half-width-buttons .link-button img {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Ultra-compact server stats */
-    .server-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding: 12px;
-      text-align: center;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .server-section h2 {
-      color: #0ff;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      margin-top: 0;
-    }
-
-    .server-section p {
-      font-size: 0.75rem;
-      margin-bottom: 8px;
-    }
-
-    /* Professional modal styling (keeping the modals you love!) */
-    .modal {
-      display: none;
+    /* Enhanced animated background with more movement */
+    body::before {
+      content: '';
       position: fixed;
-      z-index: 1000;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(5px);
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(255, 105, 180, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(50, 205, 50, 0.10) 0%, transparent 40%),
+        radial-gradient(circle at 30% 30%, rgba(255, 165, 0, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+      animation: enhanced-float 25s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .modal-content {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      margin: 5% auto;
+    @keyframes enhanced-float {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.4; 
+        filter: blur(0px);
+      }
+      25% { 
+        transform: translateY(-15px) rotate(1deg); 
+        opacity: 0.6; 
+        filter: blur(1px);
+      }
+      50% { 
+        transform: translateY(8px) rotate(-0.5deg); 
+        opacity: 0.5; 
+        filter: blur(0px);
+      }
+      75% { 
+        transform: translateY(-8px) rotate(0.8deg); 
+        opacity: 0.7; 
+        filter: blur(0.5px);
+      }
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 12px;
+      min-height: 95vh; /* Use min-height instead of fixed height */
+      max-height: none; /* Remove height restriction */
+    }
+
+    /* Enhanced hero with more personality */
+    .hero-enhanced {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(25px);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 255, 255, 0.3);
       padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-      max-height: 80vh;
-      overflow-y: auto;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 255, 255, 0.1),
+        inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffff, #667eea, #4facfe, #a8edea);
+      animation: rainbow-wave 4s ease-in-out infinite;
+    }
+
+    @keyframes rainbow-wave {
+      0% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+      }
+      50% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 100% 50%;
+      }
+      100% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+      }
+    }
+
+    .hero-enhanced h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #00ffff, #ff69b4, #8a2be2, #32cd32);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+      animation: title-pulse 3s ease-in-out infinite;
       position: relative;
     }
 
-    .close {
+    .hero-enhanced h1::after {
+      content: '✨';
       position: absolute;
-      right: 15px;
-      top: 10px;
-      font-size: 28px;
-      color: #fff;
-      cursor: pointer;
-      z-index: 100;
-      padding: 6px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
+      top: -15px;
+      right: -35px;
+      animation: magical-sparkle 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+      font-size: 1.5rem;
     }
 
-    .close:hover {
-      background: rgba(255, 0, 0, 0.3);
-      transform: scale(1.1);
-    }
-
-    /* Compact server stats */
-    .server-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .server-section h2 {
-      color: #0ff;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 5px #0ff;
-    }
-
-    .server-section p {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    /* Keep your original animations */
-    @keyframes gentlePulse {
+    @keyframes title-pulse {
       0%, 100% { 
-        opacity: 1;
+        filter: brightness(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
         transform: scale(1);
       }
       50% { 
-        opacity: 0.8;
-        transform: scale(1.01);
+        filter: brightness(1.2) drop-shadow(0 0 40px rgba(0, 255, 255, 0.5));
+        transform: scale(1.02);
       }
     }
 
-    /* Mobile responsiveness - stack bots vertically on mobile */
+    @keyframes magical-sparkle {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1); 
+        opacity: 0.8; 
+      }
+      25% { 
+        transform: translateY(-8px) rotate(90deg) scale(1.2); 
+        opacity: 1; 
+      }
+      50% { 
+        transform: translateY(3px) rotate(180deg) scale(1.4); 
+        opacity: 0.9; 
+      }
+      75% { 
+        transform: translateY(-3px) rotate(270deg) scale(1.1); 
+        opacity: 1; 
+      }
+    }
+
+    .hero-enhanced p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 15px;
+      font-weight: 400;
+      animation: text-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes text-glow {
+      from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+      to { text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+    }
+
+    /* Enhanced stats with more personality */
+    .stats-enhanced {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      padding: 10px 0; /* Add padding to prevent overlap */
+      min-height: 60px; /* Ensure minimum height for stats container */
+    }
+
+    .stat-enhanced {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      border-radius: 15px;
+      padding: 12px 18px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      min-width: 80px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(0, 255, 255, 0.2);
+    }
+
+    .stat-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .stat-enhanced:hover::before {
+      left: 100%;
+    }
+
+    .stat-enhanced:hover {
+      transform: translateY(-8px) scale(1.1) rotate(2deg);
+      border-color: rgba(0, 255, 255, 0.8);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    .stat-enhanced:nth-child(2) { 
+      border-color: rgba(255, 105, 180, 0.4); 
+      animation-delay: 0.1s;
+    }
+    .stat-enhanced:nth-child(3) { 
+      border-color: rgba(138, 43, 226, 0.4); 
+      animation-delay: 0.2s;
+    }
+    .stat-enhanced:nth-child(4) { 
+      border-color: rgba(50, 205, 50, 0.4); 
+      animation-delay: 0.3s;
+    }
+    .stat-enhanced:nth-child(5) { 
+      border-color: rgba(255, 165, 0, 0.4); 
+      animation-delay: 0.4s;
+    }
+
+    .stat-enhanced:nth-child(2):hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 105, 180, 0.4); }
+    .stat-enhanced:nth-child(3):hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 43, 226, 0.4); }
+    .stat-enhanced:nth-child(4):hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(50, 205, 50, 0.4); }
+    .stat-enhanced:nth-child(5):hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4); }
+
+    .stat-number {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #00ffff;
+      display: block;
+      text-shadow: 0 0 10px currentColor;
+      animation: number-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes number-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 3px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Enhanced quick links with more character */
+    .quick-enhanced {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .quick-link-enhanced {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .quick-link-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .quick-link-enhanced:hover::before {
+      transform: scaleX(1);
+    }
+
+    .quick-link-enhanced:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: rgba(0, 255, 255, 0.15);
+      border-color: rgba(0, 255, 255, 0.6);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .quick-icon-enhanced {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 5px;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.5));
+      animation: icon-float 3s ease-in-out infinite;
+    }
+
+    @keyframes icon-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .quick-title-enhanced {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Enhanced bot cards with more visual appeal */
+    .bots-enhanced {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      height: 100%;
+    }
+
+    .bot-enhanced {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(25px);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      padding: 20px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .bot-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffff, #667eea, #4facfe);
+      animation: bot-wave 3s ease-in-out infinite;
+    }
+
+    @keyframes bot-wave {
+      0% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+      }
+      50% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 100% 50%;
+      }
+      100% { 
+        background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500, #00ffff);
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+      }
+    }
+
+    .bot-enhanced:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .bot-header-enhanced {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .patch-notes-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: #00ffff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .patch-notes-btn:hover {
+      background: rgba(0, 255, 255, 0.2);
+      border-color: rgba(0, 255, 255, 0.6);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .bot-icon-enhanced {
+      font-size: 2.8rem;
+      margin-right: 12px;
+      padding: 12px;
+      background: rgba(0, 255, 255, 0.15);
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6));
+      animation: icon-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes icon-glow {
+      from { filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6)); }
+      to { filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.8)); }
+    }
+
+    .bot-title-enhanced {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ffff, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      margin: 0;
+      animation: title-shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes title-shimmer {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    .bot-description-enhanced {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .bot-features-enhanced {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.05);
+    }
+
+    .bot-features-enhanced h4 {
+      background: linear-gradient(135deg, #00ffff, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .feature-enhanced {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .feature-item-enhanced {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 0;
+      transition: all 0.2s ease;
+    }
+
+    .feature-item-enhanced:hover {
+      color: rgba(0, 255, 255, 0.9);
+      transform: translateX(3px);
+    }
+
+    .feature-item-enhanced::before {
+      content: '▶';
+      color: #00ffff;
+      font-size: 0.6rem;
+      animation: pulse-arrow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-arrow {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .bot-buttons-enhanced {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-enhanced {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .btn-enhanced:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary-enhanced {
+      background: linear-gradient(135deg, #00ffff, #667eea);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary-enhanced {
+      background: rgba(0, 0, 0, 0.3);
+      color: #00ffff;
+      border-color: rgba(0, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-enhanced:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .btn-primary-enhanced:hover {
+      background: linear-gradient(135deg, #00e6e6, #5a6fd8);
+      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
+    }
+
+    .btn-secondary-enhanced:hover {
+      background: rgba(0, 255, 255, 0.2);
+      border-color: rgba(0, 255, 255, 0.8);
+      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+    }
+
+    /* Floating particles for extra magic */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      color: rgba(0, 255, 255, 0.2);
+      font-size: 12px;
+      animation: float-particle 20s infinite linear;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile responsiveness - Complete rewrite for all screen sizes */
     @media (max-width: 768px) {
-      .bots-container {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-      
-      /* Stack server sections on mobile too */
-      .server-section:first-child {
-        margin-bottom: 0;
-      }
-      
-      div[style*="grid-template-columns: 1fr 1fr"]:has(.server-section) {
-        grid-template-columns: 1fr !important;
-        gap: 8px !important;
-      }
-      
-      .hybrid-container {
-        padding: 8px;
-      }
-      
-      .hero-banner h1 {
-        font-size: 1.2rem;
-      }
-      
-      .main-links {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-      }
-      
       body {
-        padding: 45px 8px 8px 8px;
+        padding: 8px;
+        min-height: 100vh;
+        align-items: flex-start; /* Align to top on mobile */
+        padding-top: 15px;
+      }
+
+      .container {
+        min-height: auto; /* Remove min-height restriction */
+        gap: 10px; /* Reduced from 15px */
+        width: 100%;
+      }
+
+      .hero-enhanced {
+        padding: 12px; /* Reduced from 15px */
+      }
+
+      .hero-enhanced h1 {
+        font-size: 1.8rem; /* Reduced from 2.2rem */
+        margin-bottom: 8px; /* Add to reduce space */
+      }
+
+      .stats-enhanced {
+        gap: 6px; /* Reduced from 8px */
+        margin-top: 20px;
+        padding: 15px 5px;
+        min-height: auto; /* Remove min-height restriction */
+      }
+
+      .bots-enhanced {
+        grid-template-columns: 1fr;
+        gap: 10px; /* Reduced from 12px */
+      }
+
+      .bot-enhanced {
+        padding: 12px; /* Add specific mobile padding */
+      }
+
+      .bot-features-enhanced {
+        margin: 8px 0; /* Reduced margins */
+      }
+
+      .feature-item-enhanced {
+        padding: 6px 8px; /* Reduced padding */
+        font-size: 0.8rem; /* Smaller text */
+        margin-bottom: 4px; /* Reduced spacing */
+      }
+
+      .bot-description-enhanced {
+        font-size: 0.85rem; /* Smaller description text */
+        margin-bottom: 10px; /* Reduced margin */
+      }
+
+      .stat-enhanced {
+        padding: 6px 10px; /* Reduced from 8px 12px */
+        min-width: 60px; /* Reduced from 65px */
+      }
+
+      .quick-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+
+      .quick-title-enhanced {
+        font-size: 0.7rem;
+      }
+
+      .footer-enhanced {
+        margin-top: 15px;
+      }
+
+      .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-link {
+        font-size: 0.7rem;
       }
     }
 
     @media (max-width: 480px) {
-      .main-links {
+      body {
+        padding: 6px; /* Further reduced */
+        padding-top: 10px; /* Further reduced */
+        align-items: flex-start;
+      }
+
+      .container {
+        gap: 8px; /* Further reduced */
+        min-height: auto;
+      }
+
+      .hero-enhanced {
+        padding: 10px; /* Further reduced */
+      }
+
+      .hero-enhanced h1 {
+        font-size: 1.6rem; /* Further reduced */
+        margin-bottom: 6px;
+      }
+
+      .bot-enhanced {
+        padding: 10px; /* Further reduced for very small screens */
+      }
+
+      .feature-item-enhanced {
+        padding: 4px 6px; /* Further reduced */
+        font-size: 0.75rem; /* Even smaller text */
+        margin-bottom: 3px;
+      }
+
+      .stats-enhanced {
+        padding: 10px 5px; /* Further reduced */
+        margin-top: 15px;
+      }
+
+      .quick-enhanced {
+        gap: 4px; /* Further reduced */
+        margin-bottom: 8px;
+      }
+
+      .hero-enhanced h1::after {
+        font-size: 1.2rem; /* Smaller sparkle on mobile */
+        right: -25px;
+        top: -10px;
+      }
+
+      .stats-enhanced {
+        gap: 6px;
+        margin-top: 15px;
+        padding: 12px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .stat-enhanced {
+        padding: 6px 10px;
+        min-width: 55px;
+        margin: 2px;
+      }
+
+      .stat-number {
+        font-size: 1.1rem;
+      }
+
+      .stat-label {
+        font-size: 0.65rem;
+      }
+
+      .quick-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin: 10px 0;
+      }
+
+      .quick-icon-enhanced {
+        font-size: 1.5rem; /* Smaller icons on mobile */
+      }
+
+      .bots-enhanced {
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .bot-enhanced {
+        padding: 15px;
+      }
+
+      .bot-icon-enhanced {
+        font-size: 2.2rem; /* Smaller bot icons */
+        padding: 8px;
+      }
+
+      .bot-title-enhanced {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 360px) {
+      body {
+        padding: 5px;
+        padding-top: 10px;
+      }
+
+      .container {
+        gap: 8px;
+      }
+
+      .hero-enhanced {
+        padding: 10px;
+      }
+
+      .hero-enhanced h1 {
+        font-size: 1.6rem;
+      }
+
+      .stats-enhanced {
         gap: 4px;
+        padding: 8px 0;
+        margin-top: 10px;
       }
-      
-      .link-button {
-        padding: 6px 4px;
+
+      .stat-enhanced {
+        padding: 4px 8px;
+        min-width: 50px;
+        margin: 1px;
       }
-      
-      .link-button img {
-        width: 20px;
-        height: 20px;
+
+      .stat-number {
+        font-size: 1rem;
       }
-      
-      .link-button span {
+
+      .stat-label {
         font-size: 0.6rem;
       }
-      
-      .bots-container {
+
+      .quick-enhanced {
+        gap: 4px;
+        margin: 8px 0;
+      }
+
+      .quick-icon-enhanced {
+        font-size: 1.3rem;
+      }
+
+      .quick-title-enhanced {
+        font-size: 0.65rem;
+      }
+
+      .bot-enhanced {
+        padding: 12px;
+      }
+
+      .bot-icon-enhanced {
+        font-size: 2rem;
+        padding: 6px;
+      }
+
+      .bot-title-enhanced {
+        font-size: 1rem;
+      }
+
+      .bot-description-enhanced {
+        font-size: 0.8rem;
+      }
+
+      .feature-enhanced {
+        font-size: 0.65rem;
+      }
+
+      .btn-enhanced {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+      }
+    }
+
+    /* Very short screens (landscape phones, etc.) */
+    @media (max-height: 500px) {
+      body {
+        align-items: flex-start;
+        padding-top: 10px;
+        min-height: auto;
+      }
+
+      .container {
+        min-height: auto;
+        gap: 8px;
+      }
+
+      .hero-enhanced {
+        padding: 8px;
+      }
+
+      .hero-enhanced h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .hero-enhanced p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .stats-enhanced {
+        margin-top: 8px;
+        padding: 6px 0;
+        gap: 4px;
+      }
+
+      .stat-enhanced {
+        padding: 4px 6px;
+        min-width: 45px;
+      }
+
+      .stat-number {
+        font-size: 0.9rem;
+      }
+
+      .stat-label {
+        font-size: 0.55rem;
+      }
+
+      .quick-enhanced {
+        gap: 3px;
+        margin: 6px 0;
+      }
+
+      .quick-link-enhanced {
+        padding: 8px;
+      }
+
+      .quick-icon-enhanced {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+      }
+
+      .quick-title-enhanced {
+        font-size: 0.6rem;
+      }
+
+      .bots-enhanced {
         gap: 6px;
       }
-      
-      body {
-        padding: 40px 6px 6px 6px;
+
+      .bot-enhanced {
+        padding: 10px;
       }
-      
-      .close {
-        right: 8px;
-        top: 6px;
-        font-size: 20px;
-        width: 26px;
-        height: 26px;
+
+      .bot-icon-enhanced {
+        font-size: 1.8rem;
+        padding: 4px;
+      }
+
+      .bot-title-enhanced {
+        font-size: 0.9rem;
+      }
+
+      .bot-description-enhanced {
+        font-size: 0.75rem;
+        line-height: 1.4;
+      }
+
+      .bot-features-enhanced {
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .feature-enhanced {
+        font-size: 0.6rem;
+        gap: 3px;
+      }
+
+      .btn-enhanced {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+      }
+
+      .footer-enhanced {
+        padding: 8px;
+        margin-top: 8px;
+      }
+
+      .footer-link {
+        font-size: 0.65rem;
+      }
+
+      .footer-copyright {
+        font-size: 0.6rem;
+      }
+    }      /* Footer styles */
+      .footer-enhanced {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(15px);
+        border-radius: 15px;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        padding: 15px;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-link:hover {
+        color: #00ffff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #00ffff, #ff69b4);
+        transition: width 0.3s ease;
+      }
+
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      .footer-copyright {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.7rem;
+        margin-top: 8px;
+      }    @media (max-width: 480px) {
+      .hero-enhanced h1 {
+        font-size: 1.8rem;
+      }
+
+      .stats-enhanced {
+        gap: 4px;
+      }
+
+      .stat-enhanced {
+        padding: 6px 10px;
+        min-width: 55px;
+      }
+
+      .stat-number {
+        font-size: 1.1rem;
+      }
+
+      .stat-label {
+        font-size: 0.65rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Header -->
-  <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 10px 20px; z-index: 100; backdrop-filter: blur(10px);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="color: #0ff; font-weight: bold; font-size: 1.1rem; text-decoration: none;">🐱 Meow Links</a>
-      <div style="display: flex; gap: 20px;">
-        <a href="bots.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Bots</a>
-        <a href="community.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Community</a>
-        <a href="privacy.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Privacy</a>
-        <a href="terms.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Terms</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="hybrid-container">
-    <!-- Hero Section with Original Charm -->
-    <div class="hero-banner">
-      <h1>🐱 Welcome to Meow Links</h1>
-      <p>Your hub for Discord bots and community resources!</p>
-      
-      <!-- Stats boxes like in the image -->
-      <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px; flex-wrap: wrap;">
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">2</div>
-          <div style="opacity: 0.8;">Active Bots</div>
-        </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">24/7</div>
-          <div style="opacity: 0.8;">Uptime</div>
-        </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">Free</div>
-          <div style="opacity: 0.8;">Service</div>
-        </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">10+</div>
-          <div style="opacity: 0.8;">Servers</div>
-        </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">400+</div>
-          <div style="opacity: 0.8;">Users Tracked</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Main Quick Links (Original Functionality, Professional Look) -->
-    <div class="main-links">
-      <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" />
-        <span>Discord Support Server</span>
-      </a>
-      
-      <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
-        <span>Buy Us A Coffee</span>
-      </a>
-      
-      <a href="https://patreon.com/fireflyxserenity" target="_blank" class="link-button patreon">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3af.png" alt="Patreon" />
-        <span>Patreon</span>
-      </a>
-    </div>
-
-    <!-- Bot Choice Explanation -->
-    <div style="background: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 10px; margin-bottom: 12px; text-align: center; border: 1px solid rgba(0, 255, 255, 0.15);">
-      <p style="color: #0ff; font-size: 0.75rem; margin: 0; font-weight: bold;">🤖 Choose Your Bot Experience</p>
-      <p style="color: #ddd; font-size: 0.7rem; margin: 4px 0 0 0; line-height: 1.3;">We've made 2 separate bots so you can choose between fun things like meow counting, polls and confessions or heavier moderation, logging features, and activity ranks - or you can add both! ✨</p>
-    </div>
-
-    <!-- Side-by-side Bot Sections -->
-    <div class="bots-container">
-      <!-- Meow Bot Section -->
-      <div class="bot-section">
-        <h2>🐱 Meow Bot</h2>
-        <p>Community engagement with global competition.</p>
-        
-        <div class="bot-buttons">
-          <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot" style="background: #e91e63; border-color: #ad1457;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f916.png" alt="Bot" />
-            <span>Add Bot</span>
-          </a>
-        </div>
-
-        <div class="half-width-buttons">
-          <a href="#" onclick="openModal()" class="link-button about-bot" style="background: #2196f3; border-color: #1976d2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png" alt="About" />
-            <span>About</span>
-          </a>
-          
-          <a href="patch-notes.html" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Patch Notes</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Meow Manager Section -->
-      <div class="bot-section">
-        <h2>🛠️ Meow Manager</h2>
-        <p>Advanced moderation and activity tracking.</p>
-        
-        <div class="bot-buttons">
-          <a href="https://discord.com/oauth2/authorize?client_id=1298373077210206299&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot" style="background: #e91e63; border-color: #ad1457;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f916.png" alt="Bot" />
-            <span>Add Bot</span>
-          </a>
-        </div>
-
-        <div class="half-width-buttons">
-          <a href="#" onclick="openManagerModal()" class="link-button about-bot" style="background: #2196f3; border-color: #1976d2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png" alt="About" />
-            <span>About</span>
-          </a>
-          
-          <a href="patch-notes.html?bot=manager" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Patch Notes</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Server Section - Split Layout -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-      <div class="server-section">
-        <h2>🔒 Secret Tunnel</h2>
-        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Chaotic Energetic Server - For Everything from Social to Gaming. Join for our CULT guild tag)</p>
-        
-        <div style="margin-top: 8px;">
-          <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord" style="padding: 4px 8px; font-size: 0.65rem; background: #daa520; border-color: #b8860b;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" style="width: 20px; height: 20px;" />
-            <span>Join Server</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="server-section">
-        <h2>🎮 Meow Clicker</h2>
-        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Alpha - Just Having Fun!)</p>
-        
-        <div style="margin-top: 8px;">
-          <a href="https://meowclicker.fireflydesigns.me/" target="_blank" class="link-button" style="padding: 4px 8px; font-size: 0.65rem; background: #ff6b6b; border-color: #ff5252;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" alt="Game" style="width: 20px; height: 20px;" />
-            <span>Play Game</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Meow Links Ad Banner -->
-    <div style="text-align: center; margin: 20px 0; padding: 10px;">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-3994230437494776"
-           data-ad-slot="4849829317"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
+    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
+    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
+    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+    <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
   </div>
 
-  <!-- About Modal -->
-  <div id="aboutModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div class="about-text">
-        <h2>🐱 About Meow Bot</h2>
-        <p>Meow Bot is our original community engagement bot designed to bring fun and interaction to Discord servers worldwide.</p>
+  <div class="container">
+    <!-- Enhanced hero -->
+    <div class="hero-enhanced">
+      <h1>🐱 MEOW LINKS</h1>
+      <p>Next-generation Discord bots engineered for modern communities</p>
+      
+      <div class="stats-enhanced">
+        <div class="stat-enhanced">
+          <span class="stat-number">2</span>
+          <div class="stat-label">Active Bots</div>
+        </div>
+        <div class="stat-enhanced">
+          <span class="stat-number">24/7</span>
+          <div class="stat-label">Uptime</div>
+        </div>
+        <div class="stat-enhanced">
+          <span class="stat-number">FREE</span>
+          <div class="stat-label">Service</div>
+        </div>
+        <div class="stat-enhanced">
+          <span class="stat-number">10+</span>
+          <div class="stat-label">Servers</div>
+        </div>
+        <div class="stat-enhanced">
+          <span class="stat-number">400+</span>
+          <div class="stat-label">Users</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced quick links -->
+    <div class="quick-enhanced">
+      <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">💬</span>
+        <div class="quick-title-enhanced">Discord Support Hub</div>
+      </a>
+      <a href="https://discord.gg/thesecrettunnel" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">🕳️</span>
+        <div class="quick-title-enhanced">The Secret Tunnel (18+)</div>
+      </a>
+      <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">☕</span>
+        <div class="quick-title-enhanced">Buy Us A Coffee</div>
+      </a>
+      <a href="https://meowclicker.fireflydesigns.me/" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">🎮</span>
+        <div class="quick-title-enhanced">Meow Clicker (Alpha)</div>
+      </a>
+    </div>
+
+    <!-- Enhanced bot cards -->
+    <div class="bots-enhanced">
+      <div class="bot-enhanced">
+        <div class="bot-header-enhanced">
+          <span class="bot-icon-enhanced">🐱</span>
+          <h2 class="bot-title-enhanced">MEOW BOT</h2>
+          <a href="patch-notes.html" class="patch-notes-btn">📋 Patch Notes</a>
+        </div>
         
-        <h3>🌟 Key Features:</h3>
-        <ul>
-          <li><strong>Meow & Bark Counting:</strong> Track and compete in global meow/bark counting with server and global leaderboards</li>
-          <li><strong>Anonymous Confessions:</strong> Safe space for community members to share thoughts anonymously</li>
-          <li><strong>Personal Reminders:</strong> Set custom reminders for important events or tasks</li>
-          <li><strong>Interactive Polls:</strong> Create engaging polls with up to 10 options for community decisions</li>
-          <li><strong>Universal Tools:</strong> Unit converter, currency rates, translation support for 100+ languages</li>
-        </ul>
+        <p class="bot-description-enhanced">
+          Turn your Discord into the most purrfect meowing paradise where members battle for glory on global leaderboards! 🐱👑✨
+        </p>
+        
+        <div class="bot-features-enhanced">
+          <h4>🎯 CORE FEATURES</h4>
+          <div class="feature-enhanced">
+            <div class="feature-item-enhanced">😸 Interactive Meow Counter Game - Gamify your server with real-time meow tracking</div>
+            <div class="feature-item-enhanced">🌐 Multi-Server Global Leaderboards - Compare your community against others across all servers</div>
+            <div class="feature-item-enhanced">🎭 Advanced Reaction Role System - Automated role assignment with whitelisting</div>
+            <div class="feature-item-enhanced">📺 Twitch Stream Integration - Auto-notifications when streamers go live</div>
+            <div class="feature-item-enhanced">👋 Smart Welcome System - Professional member onboarding</div>
+            <div class="feature-item-enhanced">💭 Anonymous Confessions - Let users share thoughts safely</div>
+          </div>
+        </div>
+        
+        <div class="bot-buttons-enhanced">
+          <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-enhanced btn-primary-enhanced">
+            🤖 Add to Discord
+          </a>
+          <a href="#" onclick="openModal()" class="btn-enhanced btn-secondary-enhanced">
+            📊 Bot Features
+          </a>
+        </div>
+      </div>
 
-        <h3>🎯 Perfect For:</h3>
-        <ul>
-          <li>Casual gaming communities</li>
-          <li>Social Discord servers</li>
-          <li>Communities wanting fun engagement features</li>
-          <li>Servers looking for easy-to-use interaction tools</li>
-        </ul>
+      <div class="bot-enhanced">
+        <div class="bot-header-enhanced">
+          <span class="bot-icon-enhanced">🛠️</span>
+          <h2 class="bot-title-enhanced">MEOW MANAGER</h2>
+          <a href="patch-notes.html?bot=manager" class="patch-notes-btn">📋 Patch Notes</a>
+        </div>
+        
+        <p class="bot-description-enhanced">
+          Professional Discord management with adorable cat theming - serious tools, playful personality!
+        </p>
+        
+        <div class="bot-features-enhanced">
+          <h4>Core Features</h4>
+          <div class="feature-enhanced">
+            <div class="feature-item-enhanced">🛡️ Complete Moderation Suite - Professional ban, kick, mute tools with full audit trails</div>
+            <div class="feature-item-enhanced">🚀 Boost Server Engagement - XP system and role rewards keep members active</div>
+            <div class="feature-item-enhanced">📊 Track Everything Important - Advanced logging catches all server activity</div>
+            <div class="feature-item-enhanced">🎭 Adorable Cat-Themed Roles - 30 unlockable roles reward member participation</div>
+            <div class="feature-item-enhanced">⚡ Setup in 60 Seconds - One command gets you professional server management</div>
+          </div>
+        </div>
+        
+        <div class="bot-buttons-enhanced">
+          <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot+applications.commands&permissions=8" target="_blank" class="btn-enhanced btn-primary-enhanced">
+            🤖 Add to Discord
+          </a>
+          <a href="#" onclick="openManagerModal()" class="btn-enhanced btn-secondary-enhanced">
+            📊 Bot Features
+          </a>
+        </div>
+      </div>
+    </div>
 
-        <h3>🚀 Easy Setup:</h3>
-        <p>Meow Bot works immediately after invitation with minimal configuration required. Most features are ready to use out-of-the-box!</p>
+    <!-- Enhanced footer -->
+    <div class="footer-enhanced">
+      <div class="footer-links">
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms of Service</a>
+        <a href="patch-notes.html" class="footer-link">Patch Notes</a>
+      </div>
+      <div class="footer-copyright">
+        © 2025 Meow Links. All rights reserved. | Made with 💜 by FireflyxSerenity
       </div>
     </div>
   </div>
 
-  <!-- Bot Modal -->
-  <div id="botModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBotModal()">&times;</span>
-      <div class="about-text">
-        <h2>🤖 Bot Features</h2>
-        <p>Here are some of the key features and capabilities of our Discord bots:</p>
-        
-        <h3>🐱 Meow Bot Highlights:</h3>
-        <ul>
-          <li><strong>Global Competition:</strong> Participate in worldwide meow counting competitions</li>
-          <li><strong>Server Customization:</strong> Configure welcome messages and bot behavior</li>
-          <li><strong>Community Tools:</strong> Confession system, polls, and reminders</li>
-          <li><strong>Utility Commands:</strong> Translation, unit conversion, currency rates</li>
+  <!-- Keep your existing modals -->
+  <div id="aboutModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+      <div class="about-text" style="color: white;">
+        <h2 style="color: #00ffff;">🐱 Multi-Server Meow Bot - Complete Feature List</h2>
+        <p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">🎯 Core Features</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Multi-Server Support - Works seamlessly across unlimited Discord servers</li>
+          <li>Per-Server Configuration - Each server gets its own customized settings</li>
+          <li>Global Slash Commands - Modern Discord slash command interface</li>
+          <li>Automatic Setup - Easy /setup command to get started quickly</li>
         </ul>
 
-        <h3>🛠️ Meow Manager Highlights:</h3>
-        <ul>
-          <li><strong>Advanced Moderation:</strong> Comprehensive ban, kick, warn, and mute systems</li>
-          <li><strong>XP & Leveling:</strong> Track user activity with customizable XP systems</li>
-          <li><strong>Auto Role Management:</strong> Automatic role assignment based on levels</li>
-          <li><strong>Detailed Logging:</strong> Track all server activities with advanced logging</li>
+        <h3 style="color: #ff69b4; margin-top: 15px;">😸 Interactive Gaming Features</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Meow Counter System - Track server-wide "meow" counts with real-time updates</li>
+          <li>Bark Counter (Anti-Feature) - Playful "hiss" responses for dog mentions</li>
+          <li>Server Leaderboards - Compare meow counts across all servers</li>
+          <li>Rate Limiting Options - Prevent spam with configurable limits per message</li>
         </ul>
 
-        <h3>📊 Combined Benefits:</h3>
-        <ul>
-          <li>24/7 uptime and reliability</li>
-          <li>Regular updates and new features</li>
-          <li>Active community support</li>
-          <li>Free to use with optional donation support</li>
+        <h3 style="color: #8a2be2;">👋 Welcome & Community Features</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Smart Welcome Messages - Greet new members with customizable messages</li>
+          <li>Duplicate Prevention - Advanced system prevents welcome message spam</li>
+          <li>Auto-Channel Detection - Finds the best channel to send welcomes</li>
+          <li>Custom Welcome Text - Personalize greetings with server/user variables</li>
         </ul>
+
+        <h3 style="color: #32cd32;">🎭 Advanced Reaction Role System</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Easy Setup Workflow - Send message → Select → Add reactions → Done!</li>
+          <li>Unlimited Reaction Roles - Up to Discord's 20-reaction limit per message</li>
+          <li>Role Whitelisting - Require specific roles before users can get others</li>
+          <li>Smart Validation - Automatically detects and cleans broken roles</li>
+          <li>Image Support - Send messages with images for reaction roles</li>
+          <li>Bulk Management - Clear all reactions, list configurations, validate setup</li>
+        </ul>
+
+        <h3 style="color: #ffa500;">📺 Twitch Integration</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Live Stream Notifications - Auto-announce when streamers go live</li>
+          <li>Multi-Streamer Support - Track unlimited Twitch streamers per server</li>
+          <li>Rich Embeds - Beautiful notifications with thumbnails and viewer counts</li>
+          <li>Smart Caching - Efficient API usage with intelligent status tracking</li>
+          <li>Per-Server Channels - Configure different notification channels per server</li>
+        </ul>
+
+        <h3 style="color: #667eea;">⏰ Reminder System</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Flexible Scheduling - Natural language time parsing ("in 2 hours", "tomorrow at 3pm")</li>
+          <li>Personal & Channel Reminders - Send to DMs or specific channels</li>
+          <li>Persistent Storage - Reminders survive bot restarts</li>
+          <li>Clean Management - List and cancel reminders easily</li>
+        </ul>
+
+        <h3 style="color: #ff1493;">💬 Anonymous Confession System</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Server Confession Channels - Let users confess anonymously</li>
+          <li>Auto-Numbering - Each confession gets a unique number</li>
+          <li>Moderation Friendly - Easy to track and manage confessions</li>
+          <li>Spam Protection - Built-in cooldowns and validation</li>
+        </ul>
+
+        <h3 style="color: #00bfff;">📊 Utility & Conversion Tools</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Unit Conversions - Temperature, weight, length, and more</li>
+          <li>Smart Calculations - Built-in conversion calculator</li>
+          <li>Multiple Format Support - Fahrenheit/Celsius, kg/lbs, etc.</li>
+        </ul>
+
+        <h3 style="color: #daa520;">🎨 Quote & Content Sharing</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Quote Creation System - Beautiful quote cards with custom styling</li>
+          <li>Image Quotes - Generate shareable quote images</li>
+          <li>Attribution Support - Proper author and source tracking</li>
+          <li>Export Options - Multiple formats for sharing</li>
+        </ul>
+
+        <h3 style="color: #dc143c;">🔧 Administration Tools</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Permission Controls - Administrator-only sensitive commands</li>
+          <li>Server Settings Management - Easy configuration per server</li>
+          <li>Database Cleanup - Automatic maintenance and validation</li>
+          <li>Error Handling - Robust error recovery and logging</li>
+          <li>Resource Management - Efficient memory and database usage</li>
+        </ul>
+
+        <h3 style="color: #228b22;">📈 Statistics & Analytics</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Server Growth Tracking - Monitor member counts across servers</li>
+          <li>Usage Statistics - Track command usage and bot activity</li>
+          <li>Performance Monitoring - Real-time status and health checks</li>
+          <li>Database Insights - View server-specific data and trends</li>
+        </ul>
+
+        <h3 style="color: #4169e1;">🛡️ Reliability Features</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>99.9% Uptime - Robust error handling and automatic recovery</li>
+          <li>Graceful Shutdowns - Clean resource cleanup on restart</li>
+          <li>Duplicate Prevention - Advanced systems prevent spam and conflicts</li>
+          <li>Rate Limiting - Built-in protection against abuse</li>
+          <li>Transaction Safety - Database operations with retry logic</li>
+        </ul>
+
+        <h3 style="color: #20b2aa;">🌐 Multi-Server Benefits</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Global Commands - Commands work immediately in new servers</li>
+          <li>Shared Infrastructure - Efficient resource usage across all servers</li>
+          <li>Cross-Server Features - Compare stats and data between communities</li>
+          <li>Centralized Updates - New features automatically available everywhere</li>
+          <li>Scalable Architecture - Handles small communities to massive servers</li>
+        </ul>
+
+        <h3 style="color: #32cd32; margin-top: 15px;">🎯 Perfect For:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Gaming Communities - Interactive features and Twitch integration</li>
+          <li>Social Servers - Welcome messages and community engagement</li>
+          <li>Role-Play Servers - Advanced reaction role system</li>
+          <li>Study Groups - Reminder system and utilities</li>
+          <li>Content Creator Communities - Quote system and Twitch notifications</li>
+          <li>Any Discord Server - Flexible enough for any community type</li>
+        </ul>
+
+        <h3 style="color: #ff6347;">📱 User Experience</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Intuitive Commands - Easy-to-use slash command interface</li>
+          <li>Rich Embeds - Beautiful, informative responses</li>
+          <li>Ephemeral Responses - Private command responses when appropriate</li>
+          <li>Helpful Error Messages - Clear guidance when things go wrong</li>
+          <li>Comprehensive Help - Built-in help system for all features</li>
+        </ul>
+
+        <h3 style="color: #9370db;">💡 Why Choose Multi-Server Meow Bot?</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>✅ No Setup Hassle - Works out of the box with sensible defaults</li>
+          <li>✅ Regular Updates - Actively maintained with new features</li>
+          <li>✅ Community Focused - Built for Discord communities by Discord users</li>
+          <li>✅ Performance Optimized - Fast responses and minimal resource usage</li>
+          <li>✅ Free to Use - Full feature set available to all servers</li>
+          <li>✅ Privacy Respected - Minimal data collection, maximum functionality</li>
+        </ul>
+
+        <p style="margin-top: 15px; font-size: 0.9em; text-align: center; color: #4facfe; font-weight: bold;">Ready to transform your Discord server? Add Multi-Server Meow Bot today and watch your community engagement soar! 🚀</p>
+
+        <div style="background: linear-gradient(135deg, #ff69b4, #00ffff); border-radius: 8px; padding: 12px; margin: 15px 0; text-align: center;">
+          <p style="color: #000; font-weight: bold; margin: 0;">🚀 Transform your Discord server with engagement features! 🐱✨</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Manager Modal -->
-  <div id="managerModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeManagerModal()">&times;</span>
-      <div class="about-text">
-        <h2>🛠️ About Meow Manager</h2>
-        <p>Meow Manager is our advanced server management bot designed for growing Discord communities that need professional-grade moderation and engagement tools.</p>
+  <div id="managerModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeManagerModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+      <div class="about-text" style="color: white;">
+        <h2 style="color: #00ffff;">🐱 Manager Meow - Complete Discord Management Suite</h2>
+        <p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">Professional moderation and engagement system with adorable cat theming</p>
         
-        <h3>🛡️ Moderation Features:</h3>
-        <ul>
-          <li><strong>Complete Moderation Suite:</strong> Ban, kick, warn, mute, and timeout systems with duration parsing</li>
-          <li><strong>Auto-Moderation:</strong> Automatic spam detection, excessive caps filtering, and unwanted link removal</li>
-          <li><strong>Advanced Logging:</strong> Comprehensive audit trails and customizable logging channels</li>
-          <li><strong>User Management:</strong> Bulk message deletion, user lookup with moderation history</li>
+        <p style="margin-bottom: 15px;">Manager Meow combines powerful server management tools with an engaging activity system, all wrapped in cute cat-themed design. Perfect for communities of any size looking for comprehensive moderation and member engagement.</p>
+        
+        <h3 style="color: #ff69b4; margin-top: 20px; margin-bottom: 10px;">Key Features:</h3>
+        
+        <h4 style="color: #ff69b4; margin-top: 15px;">🛡️ Advanced Moderation System</h4>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Ban, kick, mute, warn with custom reasons</li>
+          <li>Smart tracking with server-wide overviews</li>
+          <li>Complete audit trails and user history</li>
+          <li>Bulk message deletion and management</li>
         </ul>
 
-        <h3>📈 Engagement & Activity:</h3>
-        <ul>
-          <li><strong>Smart XP System:</strong> Track both text and voice activity with customizable rates</li>
-          <li><strong>30 Pre-designed Roles:</strong> Beautiful cat-themed roles for level progression</li>
-          <li><strong>Activity Analytics:</strong> Detailed statistics and progress tracking for users</li>
-          <li><strong>Time-filtered Leaderboards:</strong> View top users by different time periods</li>
+        <h4 style="color: #8a2be2;">📊 Comprehensive Logging</h4>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Track message edits, deletions, and member activity</li>
+          <li>Monitor role changes and voice channel usage</li>
+          <li>Customizable event logging with interactive controls</li>
+          <li>Professional audit trails for compliance</li>
         </ul>
 
-        <h3>⚙️ Advanced Configuration:</h3>
-        <ul>
-          <li><strong>Custom Commands:</strong> Create advanced custom commands with scripting</li>
-          <li><strong>Reaction Roles:</strong> Dynamic reaction role systems with unlimited configurations</li>
-          <li><strong>Scheduled Events:</strong> Set up recurring events and reminders</li>
-          <li><strong>Welcome/Farewell:</strong> Customizable message templates for member events</li>
+        <h4 style="color: #32cd32;">🎮 Activity & Engagement System</h4>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>XP and leveling with word-count bonuses</li>
+          <li>Voice activity rewards and anti-spam protection</li>
+          <li>Time-based leaderboards (daily, weekly, monthly)</li>
+          <li>Automatic role rewards and 30 cat-themed roles</li>
         </ul>
 
-        <h3>🎯 Ideal For:</h3>
-        <ul>
-          <li>Growing Discord communities (50+ members)</li>
-          <li>Servers requiring active moderation</li>
-          <li>Communities wanting member engagement tracking</li>
-          <li>Servers needing professional administration tools</li>
+        <h4 style="color: #ffa500;">⚙️ Easy Setup & Management</h4>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>One-command server setup</li>
+          <li>Interactive configuration menus</li>
+          <li>Multi-server database isolation</li>
+          <li>Enterprise-grade data persistence</li>
         </ul>
+
+        <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Bot Stats:</h3>
+        <div style="background: rgba(0, 255, 255, 0.05); border-radius: 8px; padding: 12px; margin: 12px 0; border-left: 3px solid #0ff;">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 4px; font-size: 0.8rem;">
+            <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">31 Slash Commands:</span> <span style="color: #ddd;">Complete functionality</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Multi-Server Ready:</span> <span style="color: #ddd;">Perfect for hosting services</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Enterprise Database:</span> <span style="color: #ddd;">SQLite with automatic backups</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Beautiful UI:</span> <span style="color: #ddd;">Consistent cat-themed embeds</span></div>
+          </div>
+        </div>
+
+        <h3 style="color: #32cd32; margin-top: 20px; margin-bottom: 10px;">Perfect For:</h3>
+        <p style="margin-bottom: 15px; font-size: 0.85em;">Gaming communities, educational servers, business Discord, content creators, and any server wanting professional moderation with engaging member activities.</p>
+
+        <h3 style="color: #4facfe; margin-top: 20px; margin-bottom: 10px;">Invite Link:</h3>
+        <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot+applications.commands&permissions=8" target="_blank" style="color: #00ffff; text-decoration: none; font-weight: bold;">https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot+applications.commands&permissions=8</a>
+
+        </div>
+
+        <div style="background: linear-gradient(135deg, #ff69b4, #00ffff); border-radius: 8px; padding: 12px; margin: 15px 0; text-align: center;">
+          <p style="color: #000; font-weight: bold; margin: 0;">🎉 The last Discord bot you'll ever need to install. 🐱✨</p>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Clean JavaScript functions - only keeping the modals we still use
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
       document.body.classList.add('modal-open');
@@ -666,16 +1538,6 @@
 
     function closeModal() {
       document.getElementById('aboutModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
-    function openBotModal() {
-      document.getElementById('botModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-    }
-
-    function closeBotModal() {
-      document.getElementById('botModal').style.display = 'none';
       document.body.classList.remove('modal-open');
     }
 
@@ -689,51 +1551,16 @@
       document.body.classList.remove('modal-open');
     }
 
-    // Close modals when clicking outside
     window.onclick = function(event) {
       const aboutModal = document.getElementById('aboutModal');
-      const botModal = document.getElementById('botModal');
       const managerModal = document.getElementById('managerModal');
       
       if (event.target == aboutModal) {
         closeModal();
-      } else if (event.target == botModal) {
-        closeBotModal();
       } else if (event.target == managerModal) {
         closeManagerModal();
       }
     }
   </script>
-
-  <style>
-    /* Mobile navigation adjustments */
-    @media (max-width: 480px) {
-      nav {
-        padding: 5px 10px !important;
-      }
-      
-      nav a {
-        font-size: 0.75rem !important;
-      }
-      
-      nav > div > div {
-        gap: 8px !important;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 5px 10px !important;
-      }
-      
-      nav a {
-        font-size: 0.75rem !important;
-      }
-      
-      nav > div > div {
-        gap: 8px !important;
-      }
-    }
-  </style>
 </body>
 </html>
