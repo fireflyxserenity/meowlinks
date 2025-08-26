@@ -24,336 +24,8 @@
   <title>Patch Notes - Meow Links</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
-  
-  <style>
-    body {
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      padding: 55px 10px 20px 10px;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-    }
-
-    .patch-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .patch-header {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .patch-header h1 {
-      color: #0ff;
-      font-size: 2rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px #0ff;
-    }
-
-    .patch-header p {
-      color: #ddd;
-      font-size: 1rem;
-    }
-
-    /* Bot selector tabs */
-    .bot-selector {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
-
-    .bot-tab {
-      padding: 12px 24px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 25px;
-      color: #0ff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .bot-tab:hover {
-      background: rgba(0, 255, 255, 0.1);
-      border-color: #0ff;
-      color: #fff;
-    }
-
-    .bot-tab.active {
-      background: rgba(0, 255, 255, 0.2);
-      border-color: #0ff;
-      color: #fff;
-    }
-
-    /* Scrollable patch notes container */
-    .patch-notes-container {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      border-radius: 12px;
-      padding: 20px;
-      max-height: 70vh;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: #0ff rgba(0, 0, 0, 0.3);
-    }
-
-    /* Custom scrollbar for webkit browsers */
-    .patch-notes-container::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .patch-notes-container::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 4px;
-    }
-
-    .patch-notes-container::-webkit-scrollbar-thumb {
-      background: #0ff;
-      border-radius: 4px;
-    }
-
-    .patch-notes-container::-webkit-scrollbar-thumb:hover {
-      background: #00cccc;
-    }
-
-    /* Individual patch note styling */
-    .patch-note {
-      margin-bottom: 30px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      border-left: 4px solid #0ff;
-      text-align: left;
-    }
-
-    .patch-note:last-child {
-      margin-bottom: 0;
-    }
-
-    .patch-note h3 {
-      color: #0ff;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .patch-date {
-      color: #aaa;
-      font-style: italic;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .patch-note p {
-      color: #ddd;
-      margin-bottom: 12px;
-      text-align: left;
-    }
-
-    .patch-note strong {
-      color: #fff;
-    }
-
-    .patch-note ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    .patch-note li {
-      color: #ddd;
-      margin-bottom: 6px;
-      text-align: left;
-    }
-
-    .patch-note code {
-      background: rgba(0, 255, 255, 0.1);
-      color: #0ff;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-    }
-
-    /* Back button */
-    .back-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(0, 255, 255, 0.2);
-      border: 1px solid rgba(0, 255, 255, 0.5);
-      border-radius: 25px;
-      padding: 10px 20px;
-      color: #0ff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-
-    .back-button:hover {
-      background: rgba(0, 255, 255, 0.3);
-      color: #fff;
-      transform: scale(1.05);
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      body {
-        padding: 60px 5px 20px 5px;
-      }
-
-      .patch-container {
-        padding: 5px;
-        max-width: 100%;
-      }
-
-      .patch-header {
-        padding: 15px;
-        margin-bottom: 20px;
-      }
-
-      .patch-header h1 {
-        font-size: 1.5rem;
-      }
-
-      .bot-selector {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 15px;
-      }
-
-      .bot-tab {
-        flex: 1;
-        min-width: 120px;
-        max-width: 180px;
-        text-align: center;
-        padding: 10px 16px;
-        font-size: 0.9rem;
-      }
-
-      .patch-notes-container {
-        max-height: 60vh;
-        padding: 15px;
-        margin: 0;
-      }
-
-      .patch-note {
-        padding: 15px;
-        margin-bottom: 20px;
-      }
-
-      .patch-note p {
-        padding: 0 5px;
-        margin-bottom: 12px;
-      }
-
-      .patch-note ul {
-        margin-left: 25px;
-        padding-right: 10px;
-        margin-bottom: 15px;
-      }
-
-      .patch-note li {
-        padding-left: 5px;
-        margin-bottom: 8px;
-      }
-
-      .back-button {
-        top: 10px;
-        left: 10px;
-        padding: 8px 16px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Extra small mobile screens */
-    @media (max-width: 480px) {
-      body {
-        padding: 60px 3px 20px 3px;
-      }
-
-      .patch-container {
-        padding: 3px;
-      }
-
-      .patch-header {
-        padding: 12px;
-      }
-
-      .patch-header h1 {
-        font-size: 1.3rem;
-      }
-
-      .bot-selector {
-        gap: 6px;
-        margin-bottom: 12px;
-      }
-
-      .bot-tab {
-        min-width: 100px;
-        max-width: 150px;
-        padding: 8px 12px;
-        font-size: 0.85rem;
-      }
-
-      .patch-notes-container {
-        max-height: 55vh;
-        padding: 12px;
-      }
-
-      .patch-note {
-        padding: 12px;
-        margin-bottom: 15px;
-      }
-
-      .patch-note p {
-        padding: 0 8px;
-        margin-bottom: 10px;
-      }
-
-      .patch-note ul {
-        margin-left: 30px;
-        padding-right: 12px;
-        margin-bottom: 12px;
-      }
-
-      .patch-note li {
-        padding-left: 8px;
-        margin-bottom: 6px;
-      }
-
-      .patch-note h3 {
-        padding: 0 8px;
-        font-size: 1.1rem;
-      }
-
-      .patch-date {
-        padding: 0 8px;
-      }
-    }
-
-    /* Tab content visibility */
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-  </style>
 </head>
-<body>
+<body class="patch-notes-page">
   <a href="index.html" class="back-button">← Back to Home</a>
 
   <div class="patch-container">
@@ -372,6 +44,30 @@
     <div id="meow-bot" class="tab-content active">
       <div class="patch-notes-container">
         
+        <div class="patch-note">
+          <h3>🔧 Version 2.5.1 - "Command Removal"</h3>
+          <p class="patch-date">Release Date: August 26, 2025</p>
+          <p>
+            <strong>🗑️ Command Removal:</strong> The /clear command has been completely removed from the bot<br>
+            <strong>🎯 Bot Focus Shift:</strong> As part of our bot ecosystem evolution, Meow Bot will focus on fun, community features while Meow Manager will handle administrative and moderation tasks<br>
+            <strong>🛠️ Administrative Features:</strong> For message clearing and other moderation needs, please use Meow Manager
+          </p>
+          <p><em>🐱 This change helps create a clearer distinction between our fun community bot (Meow Bot) and our administrative bot (Meow Manager)!</em></p>
+        </div>
+        
+        <div class="patch-note">
+          <h3>🔧🚀 Version 2.5.0 - "Command Cleanup & Privacy Update"</h3>
+          <p class="patch-date">Release Date: August 25, 2025</p>
+          <p>
+            <strong>🧹 Cleaner Commands:</strong> Simplified from 39 → 30 commands for easier use with better organization and grouped commands - same features, cleaner interface<br>
+            <strong>🎭 Reaction Roles Easier to Use:</strong> All reaction role commands merged into single /reactionrole command with simpler setup and step-by-step subcommands - all existing reaction roles still work perfectly<br>
+            <strong>🛡️ Better Security:</strong> Fixed bug where role restrictions weren't working properly - whitelisted roles now work correctly<br>
+            <strong>🏆 Global Leaderboard Privacy Update:</strong> New servers have global leaderboard turned OFF by default (existing servers keep current settings) - use /admin toggle global_leaderboard to opt-in<br>
+            <strong>🛠️ Other Improvements:</strong> Streamlined admin commands with /streamer handling all streamer management, updated help system, better error messages and faster response times
+          </p>
+          <p><em>🐱 All your data is safe - nothing was lost in the update. Some commands have new names but do the same things. Reaction roles work better now, especially role restrictions!</em></p>
+        </div>
+
         <div class="patch-note">
           <h3>🎨 Version 2.4.3 - "Photo & Welcome Update"</h3>
           <p class="patch-date">Release Date: August 15, 2025</p>
@@ -502,6 +198,18 @@
     <div id="meow-manager" class="tab-content">
       <div class="patch-notes-container">
         
+        <div class="patch-note">
+          <h3>🛠️ Version 1.1.0 - "Bug Fixes & Logging Improvements"</h3>
+          <p class="patch-date">Release Date: August 26, 2025</p>
+          <p>
+            <strong>🖼️ Avatar Logging Enhanced:</strong> Fixed avatar change detection not working properly, added username display to avatar logs for better visibility on mobile devices, simplified avatar change embeds (removed duplicate images and unnecessary fields)<br>
+            <strong>🧹 System Cleanup:</strong> Reduced Discord gateway spam in console logs, added comprehensive error handling to prevent crashes, improved logging stability across all event handlers, fixed audit log permission errors with better error messages<br>
+            <strong>📊 Logging Improvements:</strong> Simplified verbose embeds across all logging events, channel creation logs now show clean format with ID and Category only, voice/role/moderation logs condensed for better readability, removed redundant fields from logging embeds<br>
+            <strong>🌍 Multi-Server Ready:</strong> Confirmed full server isolation and privacy protection, optimized for global deployment across 100+ servers, zero cross-server data contamination, no direct user messaging - all communications stay in server channels
+          </p>
+          <p><em>🐾 Manager Meow continues to provide reliable, cute moderation with enhanced stability and cleaner logging!</em></p>
+        </div>
+
         <div class="patch-note">
           <h3>Version 1.0.0 - Initial Release</h3>
           <p class="patch-date">August 16, 2025</p>

@@ -40,8 +40,8 @@
   <link rel="canonical" href="https://fireflydesigns.me/" />
   
   <title>Meow Links - Discord Bots & Community Hub</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+  <link rel="stylesheet" href="style.css" />
   
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
@@ -74,591 +74,390 @@
   }
   </script>
   
-  <style>
-    /* Ultra-condensed hybrid styling */
-    body {
-      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-      padding: 55px 10px 10px 10px;
-    }
-
-    .hybrid-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-
-    /* Ultra-compact hero section */
-    .hero-banner {
-      text-align: center;
-      margin-bottom: 15px;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .hero-banner h1 {
-      font-size: 1.3rem;
-      color: #0ff;
-      margin-bottom: 3px;
-      margin-top: 0;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-
-    .hero-banner p {
-      font-size: 0.8rem;
-      color: #ddd;
-      margin-bottom: 0;
-    }
-
-    /* Ultra-compact main links */
-    .main-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    .link-button {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      padding: 8px 6px;
-      background: #333;
-      border: 1px solid #666;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #fff;
-      text-align: center;
-    }
-
-    .link-button:hover {
-      border-color: #999;
-      background: #444;
-    }
-
-    .link-button img {
-      width: 16px;
-      height: 16px;
-    }
-
-    .link-button span {
-      font-weight: bold;
-      font-size: 0.65rem;
-    }
-
-    /* Side-by-side bot sections */
-    .bots-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    /* Ultra-compact bot sections */
-    .bot-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding: 12px;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .bot-section h2 {
-      color: #0ff;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      margin-top: 0;
-    }
-
-    .bot-section p {
-      color: #ddd;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      font-size: 0.75rem;
-    }
-
-    /* Ultra-compact button layout */
-    .bot-buttons {
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .bot-buttons .link-button {
-      width: 100%;
-      padding: 6px 12px;
-      font-size: 0.7rem;
-    }
-
-    .half-width-buttons {
-      display: flex;
-      gap: 4px;
-    }
-
-    .half-width-buttons .link-button {
-      flex: 1;
-      padding: 5px 6px;
-      font-size: 0.65rem;
-    }
-
-    .half-width-buttons .link-button img {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Ultra-compact server stats */
-    .server-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding: 12px;
-      text-align: center;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .server-section h2 {
-      color: #0ff;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      margin-top: 0;
-    }
-
-    .server-section p {
-      font-size: 0.75rem;
-      margin-bottom: 8px;
-    }
-
-    /* Professional modal styling (keeping the modals you love!) */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(5px);
-    }
-
-    .modal-content {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-      max-height: 80vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      font-size: 28px;
-      color: #fff;
-      cursor: pointer;
-      z-index: 100;
-      padding: 6px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .close:hover {
-      background: rgba(255, 0, 0, 0.3);
-      transform: scale(1.1);
-    }
-
-    /* Compact server stats */
-    .server-section {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
-      border: 1px solid rgba(0, 255, 255, 0.2);
-    }
-
-    .server-section h2 {
-      color: #0ff;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 5px #0ff;
-    }
-
-    .server-section p {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    /* Keep your original animations */
-    @keyframes gentlePulse {
-      0%, 100% { 
-        opacity: 1;
-        transform: scale(1);
-      }
-      50% { 
-        opacity: 0.8;
-        transform: scale(1.01);
-      }
-    }
-
-    /* Mobile responsiveness - stack bots vertically on mobile */
-    @media (max-width: 768px) {
-      .bots-container {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-      
-      /* Stack server sections on mobile too */
-      .server-section:first-child {
-        margin-bottom: 0;
-      }
-      
-      div[style*="grid-template-columns: 1fr 1fr"]:has(.server-section) {
-        grid-template-columns: 1fr !important;
-        gap: 8px !important;
-      }
-      
-      .hybrid-container {
-        padding: 8px;
-      }
-      
-      .hero-banner h1 {
-        font-size: 1.2rem;
-      }
-      
-      .main-links {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-      }
-      
-      body {
-        padding: 45px 8px 8px 8px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .main-links {
-        gap: 4px;
-      }
-      
-      .link-button {
-        padding: 6px 4px;
-      }
-      
-      .link-button img {
-        width: 20px;
-        height: 20px;
-      }
-      
-      .link-button span {
-        font-size: 0.6rem;
-      }
-      
-      .bots-container {
-        gap: 6px;
-      }
-      
-      body {
-        padding: 40px 6px 6px 6px;
-      }
-      
-      .close {
-        right: 8px;
-        top: 6px;
-        font-size: 20px;
-        width: 26px;
-        height: 26px;
-      }
-    }
-  </style>
+  
 </head>
 <body>
-  <!-- Navigation Header -->
-  <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 10px 20px; z-index: 100; backdrop-filter: blur(10px);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="color: #0ff; font-weight: bold; font-size: 1.1rem; text-decoration: none;">🐱 Meow Links</a>
-      <div style="display: flex; gap: 20px;">
-        <a href="bots.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Bots</a>
-        <a href="community.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Community</a>
-        <a href="privacy.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Privacy</a>
-        <a href="terms.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#0ff'" onmouseout="this.style.color='#fff'">Terms</a>
-      </div>
-    </div>
-  </nav>
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
+    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
+    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
+    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+    <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
+  </div>
 
-  <div class="hybrid-container">
-    <!-- Hero Section with Original Charm -->
-    <div class="hero-banner">
-      <h1>🐱 Welcome to Meow Links</h1>
-      <p>Your hub for Discord bots and community resources!</p>
+  <div class="container">
+    <!-- Enhanced hero -->
+    <div class="hero-enhanced">
+      <h1>🐱 MEOW LINKS</h1>
+      <p>Discord bots for fun interactions and server management</p>
       
-      <!-- Stats boxes like in the image -->
-      <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px; flex-wrap: wrap;">
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">2</div>
-          <div style="opacity: 0.8;">Active Bots</div>
+      <div class="stats-enhanced">
+        <div class="stat-enhanced">
+          <span class="stat-number">2</span>
+          <div class="stat-label">Active Bots</div>
         </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">24/7</div>
-          <div style="opacity: 0.8;">Uptime</div>
+        <div class="stat-enhanced">
+          <span class="stat-number">24/7</span>
+          <div class="stat-label">Uptime</div>
         </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">Free</div>
-          <div style="opacity: 0.8;">Service</div>
+        <div class="stat-enhanced">
+          <span class="stat-number">FREE</span>
+          <div class="stat-label">Service</div>
         </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">10+</div>
-          <div style="opacity: 0.8;">Servers</div>
+        <div class="stat-enhanced">
+          <span class="stat-number">10+</span>
+          <div class="stat-label">Servers</div>
         </div>
-        <div style="background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.3); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #0ff; text-align: center; min-width: 50px;">
-          <div style="font-weight: bold; font-size: 0.7rem;">400+</div>
-          <div style="opacity: 0.8;">Users Tracked</div>
+        <div class="stat-enhanced">
+          <span class="stat-number">400+</span>
+          <div class="stat-label">Users</div>
         </div>
       </div>
     </div>
 
-    <!-- Main Quick Links (Original Functionality, Professional Look) -->
-    <div class="main-links">
-      <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" />
-        <span>Discord Support Server</span>
+    <!-- Enhanced quick links -->
+    <div class="quick-enhanced">
+      <a href="https://discord.gg/bF8ZaYQa" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">💬</span>
+        <div class="quick-title-enhanced">Discord Support Hub</div>
       </a>
-      
-      <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="link-button kofi">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="Ko-fi" />
-        <span>Buy Us A Coffee</span>
+      <a href="https://discord.gg/thesecrettunnel" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">🕳️</span>
+        <div class="quick-title-enhanced">The Secret Tunnel (18+)</div>
       </a>
-      
-      <a href="https://patreon.com/fireflyxserenity" target="_blank" class="link-button patreon">
-        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3af.png" alt="Patreon" />
-        <span>Patreon</span>
+      <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">☕</span>
+        <div class="quick-title-enhanced">Buy Us A Coffee</div>
+      </a>
+      <a href="https://meowclicker.fireflydesigns.me/" target="_blank" class="quick-link-enhanced">
+        <span class="quick-icon-enhanced">🎮</span>
+        <div class="quick-title-enhanced">Meow Clicker (Alpha)</div>
       </a>
     </div>
 
-    <!-- Bot Choice Explanation -->
-    <div style="background: rgba(0, 0, 0, 0.2); border-radius: 6px; padding: 10px; margin-bottom: 12px; text-align: center; border: 1px solid rgba(0, 255, 255, 0.15);">
-      <p style="color: #0ff; font-size: 0.75rem; margin: 0; font-weight: bold;">🤖 Choose Your Bot Experience</p>
-      <p style="color: #ddd; font-size: 0.7rem; margin: 4px 0 0 0; line-height: 1.3;">We've made 2 separate bots so you can choose between fun things like meow counting, polls and confessions or heavier moderation, logging features, and activity ranks - or you can add both! ✨</p>
-    </div>
-
-    <!-- Side-by-side Bot Sections -->
-    <div class="bots-container">
-      <!-- Meow Bot Section -->
-      <div class="bot-section">
-        <h2>🐱 Meow Bot</h2>
-        <p>Community engagement with global competition.</p>
-        
-        <div class="bot-buttons">
-          <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot" style="background: #e91e63; border-color: #ad1457;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f916.png" alt="Bot" />
-            <span>Add Bot</span>
-          </a>
+    <!-- Enhanced bot cards -->
+    <div class="bots-enhanced">
+      <div class="bot-enhanced">
+        <div class="bot-header-enhanced">
+          <span class="bot-icon-enhanced">🐱</span>
+          <h2 class="bot-title-enhanced">MEOW BOT</h2>
         </div>
+        
+        <p class="bot-description-enhanced">
+          Turn your Discord into the most purrfect meowing paradise where members battle for glory on global leaderboards! 🐱👑✨
+        </p>
 
-        <div class="half-width-buttons">
-          <a href="#" onclick="openModal()" class="link-button about-bot" style="background: #2196f3; border-color: #1976d2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png" alt="About" />
-            <span>About</span>
+        <div class="patch-link-description">
+          <a href="patch-notes.html">📋 View patch notes and updates</a>
+        </div>
+        
+        <div class="bot-features-enhanced">
+          <h4>🎯 CORE FEATURES</h4>
+     <div class="feature-enhanced">
+            <div class="feature-item-enhanced">😸 Interactive Meow Counter Game - Gamify your server with real-time meow tracking and leaderboards</div>
+            <div class="feature-item-enhanced">🌐 Optional Global Competition - Opt into cross-server leaderboards to compete with other communities</div>
+            <div class="feature-item-enhanced">🎭 One-Click Reaction Roles - Easy role assignment with emoji reactions and role requirements</div>
+            <div class="feature-item-enhanced">📺 Live Twitch Notifications - Auto-alerts when your tracked streamers go live</div>
+            <div class="feature-item-enhanced">👋 Smart Welcome Messages - Automatic member greetings with custom messages</div>
+            <div class="feature-item-enhanced">💭 Anonymous Confessions - Let users share thoughts safely with numbered posts</div>
+          </div>
+        </div>
+        
+        <div class="bot-buttons-enhanced">
+          <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-enhanced btn-primary-enhanced">
+            🤖 Add to Discord
           </a>
-          
-          <a href="patch-notes.html" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Patch Notes</span>
+          <a href="#" onclick="openModal()" class="btn-enhanced btn-secondary-enhanced">
+            📊 Bot Features
           </a>
         </div>
       </div>
 
-      <!-- Meow Manager Section -->
-      <div class="bot-section">
-        <h2>🛠️ Meow Manager</h2>
-        <p>Advanced moderation and activity tracking.</p>
-        
-        <div class="bot-buttons">
-          <a href="https://discord.com/oauth2/authorize?client_id=1298373077210206299&scope=bot+applications.commands&permissions=8" target="_blank" class="link-button bot" style="background: #e91e63; border-color: #ad1457;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f916.png" alt="Bot" />
-            <span>Add Bot</span>
-          </a>
+      <div class="bot-enhanced">
+        <div class="bot-header-enhanced">
+          <span class="bot-icon-enhanced">🛠️</span>
+          <h2 class="bot-title-enhanced">MEOW MANAGER</h2>
         </div>
-
-        <div class="half-width-buttons">
-          <a href="#" onclick="openManagerModal()" class="link-button about-bot" style="background: #2196f3; border-color: #1976d2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png" alt="About" />
-            <span>About</span>
-          </a>
-          
-          <a href="patch-notes.html?bot=manager" class="link-button patch-notes" style="background: #9c27b0; border-color: #7b1fa2;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png" alt="Patch Notes" />
-            <span>Patch Notes</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Server Section - Split Layout -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-      <div class="server-section">
-        <h2>🔒 Secret Tunnel</h2>
-        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Chaotic Energetic Server - For Everything from Social to Gaming. Join for our CULT guild tag)</p>
         
-        <div style="margin-top: 8px;">
-          <a href="https://discord.gg/ZejdzFXQ" target="_blank" class="link-button discord" style="padding: 4px 8px; font-size: 0.65rem; background: #daa520; border-color: #b8860b;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f30e.png" alt="Discord" style="width: 20px; height: 20px;" />
-            <span>Join Server</span>
-          </a>
-        </div>
-      </div>
+        <p class="bot-description-enhanced">
+          Professional Discord management with adorable cat theming - serious tools, playful personality!
+        </p>
 
-      <div class="server-section">
-        <h2>🎮 Meow Clicker</h2>
-        <p style="font-size: 0.65rem; color: #aaa; margin-bottom: 8px;">(Alpha - Just Having Fun!)</p>
+        <div class="patch-link-description">
+          <a href="patch-notes.html?bot=manager">📋 View patch notes and updates</a>
+        </div>
         
-        <div style="margin-top: 8px;">
-          <a href="https://meowclicker.fireflydesigns.me/" target="_blank" class="link-button" style="padding: 4px 8px; font-size: 0.65rem; background: #ff6b6b; border-color: #ff5252;">
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" alt="Game" style="width: 20px; height: 20px;" />
-            <span>Play Game</span>
+        <div class="bot-features-enhanced">
+          <h4>Core Features</h4>
+          <div class="feature-enhanced">
+            <div class="feature-item-enhanced">🛡️ Complete Moderation Suite - Professional ban, kick, mute tools with full audit trails</div>
+            <div class="feature-item-enhanced">📊 Track Everything Important - Advanced logging catches all server activity and changes</div>
+            <div class="feature-item-enhanced">⚙️ Interactive Setup System - Smart configuration menus for easy server customization</div>
+            <div class="feature-item-enhanced">🔊 Voice Activity Monitoring - Track who joins, leaves, and moves between voice channels</div>
+            <div class="feature-item-enhanced">🎭 Adorable Cat-Themed Design - Cute embeds and professional interface in o</div>
+            <div class="feature-item-enhanced">⚡ Setup in 60 Seconds - One command gets you professional server management</div>
+          </div>
+        </div>
+        
+        <div class="bot-buttons-enhanced">
+          <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-enhanced btn-primary-enhanced">
+            🤖 Add to Discord
+          </a>
+          <a href="#" onclick="openManagerModal()" class="btn-enhanced btn-secondary-enhanced">
+            📊 Bot Features
           </a>
         </div>
       </div>
     </div>
-    
-    <!-- Meow Links Ad Banner -->
-    <div style="text-align: center; margin: 20px 0; padding: 10px;">
+
+    <!-- Google AdSense Ad Unit -->
+    <div style="width:100%;display:flex;justify-content:center;margin-bottom:20px;">
+      <!-- Meow Links AdSense -->
       <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-3994230437494776"
-           data-ad-slot="4849829317"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+        style="display:block"
+        data-ad-client="ca-pub-3994230437494776"
+        data-ad-slot="4849829317"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
       <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
-  </div>
-
-  <!-- About Modal -->
-  <div id="aboutModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div class="about-text">
-        <h2>🐱 About Meow Bot</h2>
-        <p>Meow Bot is our original community engagement bot designed to bring fun and interaction to Discord servers worldwide.</p>
-        
-        <h3>🌟 Key Features:</h3>
-        <ul>
-          <li><strong>Meow & Bark Counting:</strong> Track and compete in global meow/bark counting with server and global leaderboards</li>
-          <li><strong>Anonymous Confessions:</strong> Safe space for community members to share thoughts anonymously</li>
-          <li><strong>Personal Reminders:</strong> Set custom reminders for important events or tasks</li>
-          <li><strong>Interactive Polls:</strong> Create engaging polls with up to 10 options for community decisions</li>
-          <li><strong>Universal Tools:</strong> Unit converter, currency rates, translation support for 100+ languages</li>
-        </ul>
-
-        <h3>🎯 Perfect For:</h3>
-        <ul>
-          <li>Casual gaming communities</li>
-          <li>Social Discord servers</li>
-          <li>Communities wanting fun engagement features</li>
-          <li>Servers looking for easy-to-use interaction tools</li>
-        </ul>
-
-        <h3>🚀 Easy Setup:</h3>
-        <p>Meow Bot works immediately after invitation with minimal configuration required. Most features are ready to use out-of-the-box!</p>
+    <!-- Enhanced footer -->
+    <div class="footer-enhanced">
+      <div class="footer-links">
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms of Service</a>
+        <a href="patch-notes.html" class="footer-link">Patch Notes</a>
+      </div>
+      <div class="footer-copyright">
+        © 2025 Meow Links. All rights reserved. | Made with 💜 by FireflyxSerenity
       </div>
     </div>
   </div>
 
-  <!-- Bot Modal -->
-  <div id="botModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBotModal()">&times;</span>
-      <div class="about-text">
-        <h2>🤖 Bot Features</h2>
-        <p>Here are some of the key features and capabilities of our Discord bots:</p>
-        
-        <h3>🐱 Meow Bot Highlights:</h3>
-        <ul>
-          <li><strong>Global Competition:</strong> Participate in worldwide meow counting competitions</li>
-          <li><strong>Server Customization:</strong> Configure welcome messages and bot behavior</li>
-          <li><strong>Community Tools:</strong> Confession system, polls, and reminders</li>
-          <li><strong>Utility Commands:</strong> Translation, unit conversion, currency rates</li>
+  <!-- Keep your existing modals -->
+  <div id="aboutModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+      <div class="about-text" style="color: white;">
+        <h2 style="color: #00ffff;">🐱 Multi-Server Meow Bot - What Can I Do?</h2>
+        <p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">🎯 The Basics</p>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Works in unlimited Discord servers at once</li>
+          <li>Each server gets its own settings and data</li>
+          <li>Uses modern slash commands (type / to see them)</li>
+          <li>Easy setup with `/setup` command</li>
         </ul>
 
-        <h3>🛠️ Meow Manager Highlights:</h3>
-        <ul>
-          <li><strong>Advanced Moderation:</strong> Comprehensive ban, kick, warn, and mute systems</li>
-          <li><strong>XP & Leveling:</strong> Track user activity with customizable XP systems</li>
-          <li><strong>Auto Role Management:</strong> Automatic role assignment based on levels</li>
-          <li><strong>Detailed Logging:</strong> Track all server activities with advanced logging</li>
+        <h3 style="color: #ff69b4; margin-top: 15px;">😸 Fun & Games</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Count "meows" in chat - see who's the most cat-like!</li>
+          <li>Server leaderboards to compete with friends</li>
+          <li>Optional global leaderboards across all servers</li>
+          <li>Anti-dog feature - get "hissed" at for saying "woof"</li>
+          <li>Spam protection to keep things fair</li>
         </ul>
 
-        <h3>📊 Combined Benefits:</h3>
-        <ul>
-          <li>24/7 uptime and reliability</li>
-          <li>Regular updates and new features</li>
-          <li>Active community support</li>
-          <li>Free to use with optional donation support</li>
+        <h3 style="color: #8a2be2;">👋 Welcome New Members</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Automatic welcome messages for new members</li>
+          <li>Customize messages with your own text</li>
+          <li>Smart channel detection - finds the right place to post</li>
+          <li>No spam - prevents duplicate welcomes</li>
         </ul>
+
+        <h3 style="color: #32cd32;">🎭 Reaction Roles Made Easy</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Let users pick roles by clicking reactions</li>
+          <li>Simple setup: Send message → Add reactions → Done!</li>
+          <li>Require certain roles before getting others</li>
+          <li>Works with any emoji (even custom server ones)</li>
+          <li>Easy management - list, clear, or fix broken setups</li>
+        </ul>
+
+        <h3 style="color: #ffa500;">📺 Twitch Notifications</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Get notified when streamers go live</li>
+          <li>Each server can track different streamers</li>
+          <li>Shows stream title, game, and viewer count</li>
+          <li>Check who's live with `/twitch` command</li>
+          <li>Easy to add/remove streamers</li>
+        </ul>
+
+        <h3 style="color: #667eea;">⏰ Personal Reminders</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Set reminders in plain English ("remind me in 2 hours")</li>
+          <li>Get reminded in DMs or specific channels</li>
+          <li>Reminders work even if bot restarts</li>
+          <li>See and cancel your reminders anytime</li>
+        </ul>
+
+        <h3 style="color: #ff1493;">💬 Anonymous Confessions</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Let members confess things anonymously</li>
+          <li>Each confession gets a number for organization</li>
+          <li>Optional private logs for moderators</li>
+          <li>Simple to set up confession channels</li>
+        </ul>
+
+        <h3 style="color: #00bfff;">📊 Polls & Voting</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Create polls with up to 10 options</li>
+          <li>Add images to make polls more engaging</li>
+          <li>Automatic number reactions for voting</li>
+          <li>Removes invalid reactions to keep voting clean</li>
+        </ul>
+
+        <h3 style="color: #daa520;">🎨 Quote Sharing</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Right-click any message to turn it into a quote</li>
+          <li>Get random quotes from your quote collection</li>
+          <li>Choose where quotes get posted</li>
+          <li>Refresh button to get different random quotes</li>
+        </ul>
+
+        <h3 style="color: #9370db;">🔄 Helpful Tools</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Convert anything: "60 mph to kmh", "32°F to °C", "$100 USD to CAD"</li>
+          <li>Translate any language to English automatically</li>
+          <li>Just type naturally - no need to learn complicated formats</li>
+          <li>Live currency rates updated every hour</li>
+        </ul>
+
+        <h3 style="color: #dc143c;">🔧 For Server Admins</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Interactive setup menu guides you through everything</li>
+          <li>View all your server settings in one place</li>
+          <li>Transfer user stats between accounts if needed</li>
+          <li>Helpful error messages when things go wrong</li>
+          <li>Sync commands manually if they don't appear</li>
+        </ul>
+
+        <h3 style="color: #4169e1;">🛡️ Reliable & Safe</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Handles errors gracefully - won't break your server</li>
+          <li>Protects against spam and abuse automatically</li>
+          <li>Efficient - won't slow down your server</li>
+          <li>Clean restarts when updates happen</li>
+          <li>Your data stays safe and separate per server</li>
+        </ul>
+
+        <h3 style="color: #20b2aa;">🌐 Multi-Server Magic</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Commands work immediately in any new server</li>
+          <li>Optional cross-server features (you choose!)</li>
+          <li>Updates happen automatically everywhere</li>
+          <li>Works great for small and large servers alike</li>
+          <li>Your server's data stays private unless you opt in</li>
+        </ul>
+
+        <h3 style="color: #32cd32; margin-top: 15px;">🎯 Great For Any Server:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Gaming communities - Twitch alerts and fun competitions</li>
+          <li>Social hangouts - Welcome messages and community tools</li>
+          <li>International servers - Translation and conversion tools</li>
+          <li>Role-play servers - Advanced role assignment system</li>
+          <li>Any community - Flexible enough for everyone!</li>
+        </ul>
+
+        <h3 style="color: #ff6347;">📱 Easy to Use</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>Modern slash commands - just type / and pick what you want</li>
+          <li>Beautiful responses with colors and formatting</li>
+          <li>Buttons and menus you can click instead of typing</li>
+          <li>Built-in help explains everything clearly</li>
+          <li>Private responses when needed - won't spam your chat</li>
+        </ul>
+
+        <h3 style="color: #9370db;">💡 Why People Love This Bot:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+          <li>✅ Tons of features - Over 30 commands for everything you need</li>
+          <li>✅ Always improving - Regular updates with new cool stuff</li>
+          <li>✅ Made for communities - Built by Discord users who get it</li>
+          <li>✅ Fast and smooth - Quick responses, no lag</li>
+          <li>✅ Completely free - All features available to everyone</li>
+          <li>✅ Respects privacy - Only collects what's needed for features</li>
+        </ul>
+
+        <p style="margin-top: 15px; font-size: 0.9em; text-align: center; color: #4facfe; font-weight: bold;">Ready to make your Discord server more awesome? Add Multi-Server Meow Bot and start exploring! 🚀</p>
+        <div style="background: linear-gradient(135deg, #ff69b4, #00ffff); border-radius: 8px; padding: 12px; margin: 15px 0; text-align: center;">
+          <p style="color: #000; font-weight: bold; margin: 0;">🚀 Transform your Discord server with engagement features! 🐱✨</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Manager Modal -->
-  <div id="managerModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeManagerModal()">&times;</span>
-      <div class="about-text">
-        <h2>🛠️ About Meow Manager</h2>
-        <p>Meow Manager is our advanced server management bot designed for growing Discord communities that need professional-grade moderation and engagement tools.</p>
-        
-        <h3>🛡️ Moderation Features:</h3>
-        <ul>
-          <li><strong>Complete Moderation Suite:</strong> Ban, kick, warn, mute, and timeout systems with duration parsing</li>
-          <li><strong>Auto-Moderation:</strong> Automatic spam detection, excessive caps filtering, and unwanted link removal</li>
-          <li><strong>Advanced Logging:</strong> Comprehensive audit trails and customizable logging channels</li>
-          <li><strong>User Management:</strong> Bulk message deletion, user lookup with moderation history</li>
-        </ul>
+  <div id="managerModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeManagerModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+      <div class="about-text" style="color: white;">
+ <h2 style="color: #00ffff;">🐱 Manager Meow - Complete Discord Management Suite</h2>
+<p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">Professional moderation and logging system with adorable cat theming</p>
 
-        <h3>📈 Engagement & Activity:</h3>
-        <ul>
-          <li><strong>Smart XP System:</strong> Track both text and voice activity with customizable rates</li>
-          <li><strong>30 Pre-designed Roles:</strong> Beautiful cat-themed roles for level progression</li>
-          <li><strong>Activity Analytics:</strong> Detailed statistics and progress tracking for users</li>
-          <li><strong>Time-filtered Leaderboards:</strong> View top users by different time periods</li>
-        </ul>
+<p style="margin-bottom: 15px;">Manager Meow combines powerful server management tools with comprehensive logging, all wrapped in cute cat-themed design. Perfect for communities of any size looking for reliable moderation and detailed activity tracking.</p>
 
-        <h3>⚙️ Advanced Configuration:</h3>
-        <ul>
-          <li><strong>Custom Commands:</strong> Create advanced custom commands with scripting</li>
-          <li><strong>Reaction Roles:</strong> Dynamic reaction role systems with unlimited configurations</li>
-          <li><strong>Scheduled Events:</strong> Set up recurring events and reminders</li>
-          <li><strong>Welcome/Farewell:</strong> Customizable message templates for member events</li>
-        </ul>
+<h3 style="color: #ff69b4; margin-top: 20px; margin-bottom: 10px;">Key Features:</h3>
 
-        <h3>🎯 Ideal For:</h3>
-        <ul>
-          <li>Growing Discord communities (50+ members)</li>
-          <li>Servers requiring active moderation</li>
-          <li>Communities wanting member engagement tracking</li>
-          <li>Servers needing professional administration tools</li>
-        </ul>
+<h4 style="color: #ff69b4; margin-top: 15px;">🛡️ Advanced Moderation System</h4>
+<ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+  <li>Ban, kick, mute, warn with custom reasons and durations</li>
+  <li>Smart auto-unmute with expiration tracking</li>
+  <li>Complete audit trails and user history</li>
+  <li>Bulk message deletion and management</li>
+</ul>
+
+<h4 style="color: #8a2be2;">📊 Comprehensive Logging</h4>
+<ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+  <li>Track message edits, deletions, and member activity</li>
+  <li>Monitor role changes, voice activity, and server events</li>
+  <li>Avatar and username change detection</li>
+  <li>Interactive logging controls with per-server customization</li>
+</ul>
+
+<h4 style="color: #32cd32;">🎮 Activity & Engagement System</h4>
+<ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+  <li>XP and leveling with word-count bonuses</li>
+  <li>Voice activity rewards and anti-spam protection</li>
+  <li>Time-based leaderboards (daily, weekly, monthly)</li>
+  <li>Automatic role rewards and 30 cat-themed roles</li>
+</ul>
+
+<h4 style="color: #ffa500;">⚙️ Easy Setup & Management</h4>
+<ul style="margin-left: 20px; margin-bottom: 12px; font-size: 0.85em;">
+  <li>One-command server setup with interactive menus</li>
+  <li>Customizable logging categories and channels</li>
+  <li>Multi-server database isolation</li>
+  <li>Enterprise-grade data persistence</li>
+</ul>
+
+<h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Bot Stats:</h3>
+<div style="background: rgba(0, 255, 255, 0.05); border-radius: 8px; padding: 12px; margin: 12px 0; border-left: 3px solid #0ff;">
+  <div style="display: grid; grid-template-columns: 1fr; gap: 4px; font-size: 0.8rem;">
+    <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">14 Slash Commands:</span> <span style="color: #ddd;">Complete functionality</span></div>
+    <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Multi-Server Ready:</span> <span style="color: #ddd;">Perfect for hosting services</span></div>
+    <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Enterprise Database:</span> <span style="color: #ddd;">SQLite with automatic backups</span></div>
+    <div style="display: flex; justify-content: space-between;"><span style="color: #aaa; font-weight: bold;">Beautiful UI:</span> <span style="color: #ddd;">Consistent cat-themed embeds</span></div>
+  </div>
+</div>
+
+<h3 style="color: #32cd32; margin-top: 20px; margin-bottom: 10px;">Perfect For:</h3>
+<p style="margin-bottom: 15px; font-size: 0.85em;">Gaming communities, educational servers, business Discord, content creators, and any server wanting professional moderation with engaging member activities.</p>
+
+<h3 style="color: #4facfe; margin-top: 20px; margin-bottom: 10px;">Invite Link:</h3>
+<a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" style="color: #00ffff; text-decoration: none; font-weight: bold;">https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8</a>
+
+</div>
+
+<div style="background: linear-gradient(135deg, #ff69b4, #00ffff); border-radius: 8px; padding: 12px; margin: 15px 0; text-align: center;">
+  <p style="color: #000; font-weight: bold; margin: 0;">🎉 The last Discord bot you'll ever need to install. 🐱✨</p>
+</div>
       </div>
     </div>
   </div>
 
   <script>
-    // Clean JavaScript functions - only keeping the modals we still use
     function openModal() {
       document.getElementById('aboutModal').style.display = 'block';
       document.body.classList.add('modal-open');
@@ -666,16 +465,6 @@
 
     function closeModal() {
       document.getElementById('aboutModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
-    function openBotModal() {
-      document.getElementById('botModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-    }
-
-    function closeBotModal() {
-      document.getElementById('botModal').style.display = 'none';
       document.body.classList.remove('modal-open');
     }
 
@@ -689,51 +478,16 @@
       document.body.classList.remove('modal-open');
     }
 
-    // Close modals when clicking outside
     window.onclick = function(event) {
       const aboutModal = document.getElementById('aboutModal');
-      const botModal = document.getElementById('botModal');
       const managerModal = document.getElementById('managerModal');
       
       if (event.target == aboutModal) {
         closeModal();
-      } else if (event.target == botModal) {
-        closeBotModal();
       } else if (event.target == managerModal) {
         closeManagerModal();
       }
     }
   </script>
-
-  <style>
-    /* Mobile navigation adjustments */
-    @media (max-width: 480px) {
-      nav {
-        padding: 5px 10px !important;
-      }
-      
-      nav a {
-        font-size: 0.75rem !important;
-      }
-      
-      nav > div > div {
-        gap: 8px !important;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 5px 10px !important;
-      }
-      
-      nav a {
-        font-size: 0.75rem !important;
-      }
-      
-      nav > div > div {
-        gap: 8px !important;
-      }
-    }
-  </style>
 </body>
 </html>
