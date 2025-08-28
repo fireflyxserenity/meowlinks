@@ -61,28 +61,30 @@
           <h3>🎭 Version 2.6.0 - "Reaction Roles Update"</h3>
           <p class="patch-date">Release Date: August 28, 2025</p>
           <p>
-            <strong>🚀 What's New:</strong><br>
-            Completely redesigned reaction role system with simplified commands!<br><br>
-            <strong>✨ New Commands:</strong><br>
-            • /sendmessage - Send messages as the bot<br>
-            • /messageset - Set up a message for reaction roles<br>
-            • /addreaction - Add reaction roles (🎮 → @Gamer)<br>
-            • /addwhitelist - Add role requirements<br>
-            • /listreactionroles - View all configured roles<br>
+            <strong>🚀 Major System Overhaul:</strong><br>
+            Complete redesign of the reaction role system with streamlined commands and improved user experience.<br><br>
+            <strong>✨ New Command Structure:</strong><br>
+            <strong>Setup Commands:</strong><br>
+            • /createreactionmessage - Create messages specifically for reaction roles (renamed from /sendmessage)<br>
+            • /selectmessage - Select a message for reaction role configuration (renamed from /messageset)<br>
+            <strong>Role Management:</strong><br>
+            • /addreaction - Add reaction roles with integrated whitelist support<br>
+            &nbsp;&nbsp;Basic: /addreaction 🎮 @Gamer<br>
+            &nbsp;&nbsp;With whitelist: /addreaction 🎮 @Gamer @VIP<br>
             • /removereaction - Remove specific reaction roles<br>
-            • /clearallreactions - Clear all reactions from a message<br>
-            • /validatereactions - Check setup health<br>
-            • /reactionrolehelp - Get help and examples<br><br>
-            <strong>🎯 Improvements:</strong><br>
-            <strong>Easier Setup:</strong> Simple 3-step process instead of complex parameters<br>
-            <strong>Better Memory:</strong> Bot remembers your selected message per server<br>
-            <strong>Role Requirements:</strong> Add VIP-only reaction roles with whitelisting<br>
-            <strong>Multi-Server Ready:</strong> Works seamlessly across all servers<br>
-            <strong>Preserved Data:</strong> All existing reaction roles continue working<br><br>
-            <strong>🔧 Technical:</strong><br>
-            Migrated to dedicated reaction role database - Enhanced error handling and validation - Improved performance for large servers - Full backward compatibility maintained
+            • /listreactionroles - View all configured roles for selected message<br>
+            • /clearallreactions - Remove all reaction roles from message<br>
+            • /validatereactions - Health check and troubleshooting<br>
+            • /reactionrolehelp - Complete command guide<br><br>
+            <strong>🎯 Key Improvements:</strong><br>
+            <strong>Simplified Workflow:</strong> 25% fewer commands needed for setup - Integrated whitelist (no separate command required) - Clearer command names that describe their purpose - Guild-based memory (bot remembers selected message per server)<br>
+            <strong>Enhanced User Experience:</strong> One-step whitelist setup instead of two separate commands - Better error messages with helpful suggestions - Improved help documentation with clear examples - Visual feedback showing whitelist status<br><br>
+            <strong>🔧 Technical Enhancements:</strong><br>
+            Backward compatibility (existing reaction roles continue working) - Database optimization with separate reaction role database - Multi-server support - Enhanced validation with better error detection - Performance improvements with faster command execution<br><br>
+            <strong>🌟 Live Status:</strong><br>
+            ✅ Deployed across all 13+ servers - ✅ Preserves existing 64 reaction role configurations - ✅ Ready for immediate use with no downtime required
           </p>
-          <p><em>🎉 Setting up reaction roles is now easier than ever! Follow the simple 3-step process: send a message, select it, then add your reactions!</em></p>
+          <p><em>🎉 The new streamlined system reduces setup complexity by 25% while adding powerful new features like integrated whitelist support!</em></p>
         </div>
         
         <div class="patch-note">
