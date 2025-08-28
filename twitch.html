@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YKNC7L8DV7');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
+         crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 Meow Bot - Twitch Chat Enhancement | Meow Links</title>
+    <meta name="description" content="Add Meow Bot to your Twitch channel for automatic meow counting and global leaderboard competition">
+    <meta name="keywords" content="twitch bot, meow bot, chat bot, twitch counter, global leaderboard">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <style>
+        .twitch-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 15px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+            color: white;
+            line-height: 1.4;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .twitch-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .twitch-header h1 { 
+            font-size: 2.5em; 
+            margin-bottom: 5px; 
+            background: linear-gradient(45deg, #00ffff, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+        
+        .twitch-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .price { 
+            font-size: 2.8em; 
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 15px 0; 
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .features-box {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .features-box h3 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .features-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .features-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            font-size: 0.95em;
+        }
+        
+        .features-box li:last-child {
+            border-bottom: none;
+        }
+        
+        .paypal-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.2);
+        }
+        
+        .paypal-section h2 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .instructions-box {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .instructions-box h3 {
+            color: #8a2be2;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .step {
+            margin: 8px 0;
+            font-size: 0.95em;
+            padding: 4px 0;
+        }
+        
+        .step strong {
+            color: #00ffff;
+        }
+        
+        code {
+            background: rgba(0, 0, 0, 0.5);
+            color: #00ffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            font-size: 0.9em;
+        }
+        
+        .demo-section {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .demo-section h3 {
+            color: #00ffff;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .demo-section p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .contact-section p {
+            margin: 3px 0;
+            font-size: 0.9em;
+        }
+        
+        .contact-section strong {
+            color: #ff69b4;
+        }
+        
+        .compact-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .compact-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+        <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
+        <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
+        <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
+        <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+        <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        
+        <div class="twitch-container">
+            <div class="twitch-header">
+                <h1>🐱 Meow Bot</h1>
+                <div class="twitch-subtitle">Twitch Chat Meow Counter & Global Leaderboard</div>
+            </div>
+            
+            <div class="demo-section">
+                <h3>🎮 How It Works</h3>
+                <p>Add Meow Bot to your Twitch channel to automatically count every "meow" in chat! Compete with other streamers on the global leaderboard.</p>
+                
+                <div style="margin: 30px 0; padding: 25px; background: rgba(138, 43, 226, 0.3); backdrop-filter: blur(15px); border-radius: 15px; border: 1px solid rgba(138, 43, 226, 0.4);">
+                    <h3 style="color: #8a2be2; margin-bottom: 15px;">🤖 Add Free Bot to Your Channel</h3>
+                    <p style="font-size: 1.1em; margin: 15px 0; color: rgba(255, 255, 255, 0.9);">
+                        <strong>Method 1:</strong> Go to any channel that already has Meow Bot and type:
+                    </p>
+                    <div style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid rgba(0, 255, 255, 0.3);">
+                        <code style="font-size: 1.3em; color: #00ffff; background: transparent; border: none; padding: 0;">!requestbot your_channel_name</code>
+                    </div>
+                    <p style="font-size: 0.9em; margin: 5px 0; color: rgba(255, 255, 255, 0.8);">
+                        <em style="color: #ff69b4;">Find channels with Meow Bot by searching "meow bot" on Twitch</em>
+                    </p>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(255, 105, 180, 0.3);">
+                        <p style="font-size: 1.1em; margin: 0; color: rgba(255, 255, 255, 0.9);">
+                            <strong>Method 2:</strong> Message <span style="color: #ff69b4; font-weight: bold;">fireflyxserenity</span> on Discord to be added
+                        </p>
+                    </div>
+                    
+                    <p style="font-size: 0.9em; margin-top: 15px; color: rgba(255, 255, 255, 0.8);">
+                        Bot will join your channel within minutes with either method!
+                    </p>
+                </div>
+            </div>
+
+            <div class="features-box">
+                <h3>🆓 Free Features (Always Included):</h3>
+                <ul>
+                    <li>🐱 <strong>Automatic Meow Detection</strong> - Counts every "meow" in your chat</li>
+                    <li>📊 <strong>Personal Stats</strong> - <code>!meow</code> command for viewers</li>
+                    <li>� <strong>Stream Totals</strong> - <code>!streammeows</code> for daily counts</li>
+                    <li>📈 <strong>All-Time Stats</strong> - <code>!totalmeows</code> for channel history</li>
+                    <li>� <strong>Easy Setup</strong> - Type <code>!requestbot your_channel</code> anywhere</li>
+                </ul>
+            </div>
+
+            <!-- In-Feed Ad -->
+            <div style="margin: 30px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
+                <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-3994230437494776"
+                     data-ad-slot="4306564524"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="paypal-section">
+                <h2>🏆 Premium: Global Leaderboard</h2>
+                <div class="price">$5 <small>one-time</small></div>
+                
+                <div class="features-box" style="margin: 20px 0;">
+                    <h3>✨ Premium Features:</h3>
+                    <ul>
+                        <li>🏆 <strong>Global Leaderboard Access</strong> - See how your channel ranks!</li>
+                        <li>📊 <strong>Compare with Other Streamers</strong> - Who has the most meows?</li>
+                        <li>🎖️ <strong>Top 5 Rankings</strong> - <code>!globalmewers</code> command</li>
+                        <li>⚡ <strong>Automatic Activation</strong> - Instant email with code</li>
+                        <li>🔒 <strong>Lifetime Access</strong> - One payment, permanent feature</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0; padding: 15px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                    <label for="twitch-username" style="color: #00ffff; font-size: 1.1em;">Your Twitch Username (for automatic setup):</label><br>
+                    <input type="text" id="twitch-username" placeholder="your_twitch_name" style="
+                        width: 200px;
+                        padding: 8px 12px;
+                        border: 2px solid rgba(0, 255, 255, 0.3);
+                        border-radius: 8px;
+                        font-size: 1.1em;
+                        background: rgba(0, 0, 0, 0.5);
+                        color: white;
+                        margin-top: 10px;
+                        backdrop-filter: blur(5px);
+                    ">
+                </div>
+                
+                <!-- PayPal Button -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="fireflyxxserenity@gmail.com">
+                    <input type="hidden" name="item_name" value="Meow Bot Global Leaderboard Access - Lifetime">
+                    <input type="hidden" name="amount" value="5.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="custom" value="" id="custom-field">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="https://fireflydesigns.me/twitch-success.html">
+                    <input type="hidden" name="cancel_return" value="https://fireflydesigns.me/twitch.html">
+                    <input type="hidden" name="notify_url" value="https://fireflydesigns.me/paypal-ipn">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="margin: 20px 0;" onclick="updateUsername()">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
+
+            <div class="instructions-box">
+                <h3>🚀 Setup Instructions:</h3>
+                
+                <div class="step"><strong>To Add Free Bot:</strong></div>
+                <div class="step">• Go to any channel with Meow Bot and type: <code>!requestbot your_channel_name</code></div>
+                <div class="step">• OR message <strong style="color: #ff69b4;">fireflyxserenity</strong> on Discord to be added</div>
+                <div class="step">Bot joins your channel within minutes!</div>
+                
+                <div class="step" style="margin-top: 25px;"><strong>To Get Global Leaderboard:</strong></div>
+                <div class="step">1️⃣ Enter your Twitch username above</div>
+                <div class="step">2️⃣ Click PayPal button and pay $5</div>
+                <div class="step">3️⃣ Check email for automatic redemption code</div>
+                <div class="step">4️⃣ In Twitch chat: <code>!redeem YOURCODE</code></div>
+                <div class="step">5️⃣ ✅ Global leaderboard activated!</div>
+                
+                <p style="margin-top: 20px; text-align: center; font-size: 0.9em; color: rgba(255, 255, 255, 0.8);">
+                    <strong>🤖 Fully Automated:</strong> Code generated and emailed within minutes!
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <p><strong>Questions?</strong></p>
+                <p>Discord: <strong>fireflyxserenity</strong> | Website: <strong>fireflydesigns.me</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateUsername() {
+            const username = document.getElementById('twitch-username').value.trim();
+            document.getElementById('custom-field').value = username;
+        }
+    </script>
+</body>
+</html>
