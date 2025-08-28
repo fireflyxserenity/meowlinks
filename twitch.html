@@ -253,23 +253,14 @@
                 <div style="margin: 30px 0; padding: 25px; background: rgba(138, 43, 226, 0.3); backdrop-filter: blur(15px); border-radius: 15px; border: 1px solid rgba(138, 43, 226, 0.4);">
                     <h3 style="color: #8a2be2; margin-bottom: 15px;">🤖 Add Free Bot to Your Channel</h3>
                     <p style="font-size: 1.1em; margin: 15px 0; color: rgba(255, 255, 255, 0.9);">
-                        <strong>Method 1:</strong> Go to any channel that already has Meow Bot and type:
+                        <strong>Easy Method:</strong> Go to any channel that already has Meow Bot and type:
                     </p>
                     <div style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid rgba(0, 255, 255, 0.3);">
                         <code style="font-size: 1.3em; color: #00ffff; background: transparent; border: none; padding: 0;">!requestbot your_channel_name</code>
                     </div>
-                    <p style="font-size: 0.9em; margin: 5px 0; color: rgba(255, 255, 255, 0.8);">
-                        <em style="color: #ff69b4;">Find channels with Meow Bot by searching "meow bot" on Twitch</em>
-                    </p>
-                    
-                    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(255, 105, 180, 0.3);">
-                        <p style="font-size: 1.1em; margin: 0; color: rgba(255, 255, 255, 0.9);">
-                            <strong>Method 2:</strong> Message <span style="color: #ff69b4; font-weight: bold;">fireflyxserenity</span> on Discord to be added
-                        </p>
-                    </div>
-                    
                     <p style="font-size: 0.9em; margin-top: 15px; color: rgba(255, 255, 255, 0.8);">
-                        Bot will join your channel within minutes with either method!
+                        Bot will join your channel within minutes!<br>
+                        <em style="color: #ff69b4;">Find channels with Meow Bot by searching "meow bot" on Twitch</em>
                     </p>
                 </div>
             </div>
@@ -309,15 +300,15 @@
                         <li>🏆 <strong>Global Leaderboard Access</strong> - See how your channel ranks!</li>
                         <li>📊 <strong>Compare with Other Streamers</strong> - Who has the most meows?</li>
                         <li>🎖️ <strong>Top 5 Rankings</strong> - <code>!globalmewers</code> command</li>
-                        <li>⚡ <strong>Automatic Activation</strong> - Instant email with code</li>
+                        <li>⚡ <strong>Manual Activation</strong> - Contact me after payment</li>
                         <li>🔒 <strong>Lifetime Access</strong> - One payment, permanent feature</li>
                     </ul>
                 </div>
 
                 <div style="margin: 20px 0; padding: 15px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                    <label for="twitch-username" style="color: #00ffff; font-size: 1.1em;">Your Twitch Username (for automatic setup):</label><br>
-                    <input type="text" id="twitch-username" placeholder="your_twitch_name" style="
-                        width: 200px;
+                    <label for="payment-message" style="color: #00ffff; font-size: 1.1em;">Payment Message (include your Discord username):</label><br>
+                    <input type="text" id="payment-message" placeholder="Discord: your_username | Twitch: your_channel" style="
+                        width: 300px;
                         padding: 8px 12px;
                         border: 2px solid rgba(0, 255, 255, 0.3);
                         border-radius: 8px;
@@ -329,20 +320,17 @@
                     ">
                 </div>
                 
-                <!-- PayPal Button -->
+                <!-- Manual PayPal Button -->
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
                     <input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="fireflyxxserenity@gmail.com">
-                    <input type="hidden" name="item_name" value="Meow Bot Global Leaderboard Access - Lifetime">
+                    <input type="hidden" name="item_name" value="Meow Bot Global Leaderboard Access">
                     <input type="hidden" name="amount" value="5.00">
                     <input type="hidden" name="currency_code" value="USD">
                     <input type="hidden" name="custom" value="" id="custom-field">
-                    <input type="hidden" name="no_shipping" value="1">
-                    <input type="hidden" name="return" value="https://fireflydesigns.me/twitch-success.html">
+                    <input type="hidden" name="return" value="https://fireflydesigns.me/twitch.html">
                     <input type="hidden" name="cancel_return" value="https://fireflydesigns.me/twitch.html">
-                    <input type="hidden" name="notify_url" value="https://fireflydesigns.me/paypal-ipn">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="margin: 20px 0;" onclick="updateUsername()">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Buy Now" onclick="updateMessage()">
                 </form>
             </div>
 
@@ -350,19 +338,18 @@
                 <h3>🚀 Setup Instructions:</h3>
                 
                 <div class="step"><strong>To Add Free Bot:</strong></div>
-                <div class="step">• Go to any channel with Meow Bot and type: <code>!requestbot your_channel_name</code></div>
-                <div class="step">• OR message <strong style="color: #ff69b4;">fireflyxserenity</strong> on Discord to be added</div>
+                <div class="step">Go to any channel with Meow Bot and type: <code>!requestbot your_channel_name</code></div>
                 <div class="step">Bot joins your channel within minutes!</div>
                 
                 <div class="step" style="margin-top: 25px;"><strong>To Get Global Leaderboard:</strong></div>
-                <div class="step">1️⃣ Enter your Twitch username above</div>
+                <div class="step">1️⃣ Enter your Discord username and Twitch channel above</div>
                 <div class="step">2️⃣ Click PayPal button and pay $5</div>
-                <div class="step">3️⃣ Check email for automatic redemption code</div>
-                <div class="step">4️⃣ In Twitch chat: <code>!redeem YOURCODE</code></div>
-                <div class="step">5️⃣ ✅ Global leaderboard activated!</div>
+                <div class="step">3️⃣ Message me on Discord: <strong style="color: #ff69b4;">fireflyxserenity</strong></div>
+                <div class="step">4️⃣ I'll enable global leaderboard for your channel</div>
+                <div class="step">5️⃣ ✅ Use <code>!globalmewers</code> command!</div>
                 
                 <p style="margin-top: 20px; text-align: center; font-size: 0.9em; color: rgba(255, 255, 255, 0.8);">
-                    <strong>🤖 Fully Automated:</strong> Code generated and emailed within minutes!
+                    <strong>💬 Personal Service:</strong> I'll enable it within 24 hours!
                 </p>
             </div>
 
@@ -374,9 +361,9 @@
     </div>
 
     <script>
-        function updateUsername() {
-            const username = document.getElementById('twitch-username').value.trim();
-            document.getElementById('custom-field').value = username;
+        function updateMessage() {
+            const message = document.getElementById('payment-message').value.trim();
+            document.getElementById('custom-field').value = message;
         }
     </script>
 </body>
