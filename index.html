@@ -450,9 +450,6 @@
 <h3 style="color: #32cd32; margin-top: 20px; margin-bottom: 10px;">Perfect For:</h3>
 <p style="margin-bottom: 15px; font-size: 0.85em;">Gaming communities, educational servers, business Discord, content creators, and any server wanting professional moderation with engaging member activities.</p>
 
-<h3 style="color: #4facfe; margin-top: 20px; margin-bottom: 10px;">Invite Link:</h3>
-<a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" style="color: #00ffff; text-decoration: none; font-weight: bold;">https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8</a>
-
 </div>
 
 <div style="background: linear-gradient(135deg, #ff69b4, #00ffff); border-radius: 8px; padding: 12px; margin: 15px 0; text-align: center;">
@@ -493,6 +490,20 @@
         closeManagerModal();
       }
     }
+
+    // Add ESC key functionality to close modals
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const aboutModal = document.getElementById('aboutModal');
+        const managerModal = document.getElementById('managerModal');
+        
+        if (aboutModal.style.display === 'block') {
+          closeModal();
+        } else if (managerModal.style.display === 'block') {
+          closeManagerModal();
+        }
+      }
+    });
   </script>
 </body>
 </html>
