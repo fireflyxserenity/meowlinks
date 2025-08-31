@@ -1,183 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Meow Bot - Add to Your Channel</title>
-	<style>
-		body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			margin: 0;
-			padding: 0;
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.container {
-			background: white;
-			padding: 40px;
-			border-radius: 20px;
-			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-			text-align: center;
-			max-width: 500px;
-		}
-		h1 {
-			color: #333;
-			margin-bottom: 20px;
-		}
-		p {
-			color: #666;
-			margin-bottom: 30px;
-			line-height: 1.6;
-		}
-		.add-bot-btn {
-			display: inline-block;
-			padding: 20px 40px;
-			font-size: 1.2em;
-			background: #9146ff;
-			color: white;
-			border: none;
-			border-radius: 10px;
-			cursor: pointer;
-			text-decoration: none;
-			transition: background 0.3s ease;
-		}
-		.add-bot-btn:hover {
-			background: #7928ca;
-		}
-		.features {
-			margin-top: 30px;
-			text-align: left;
-		}
-		.feature {
-			margin: 10px 0;
-			padding: 10px;
-			background: #f8f9fa;
-			border-radius: 5px;
-		}
-		.loading {
-			color: #9146ff;
-		}
-		.success {
-			color: #28a745;
-		}
-		.error {
-			color: #dc3545;
-		}
-		.spinner {
-			border: 4px solid #f3f3f3;
-			border-top: 4px solid #9146ff;
-			border-radius: 50%;
-			width: 40px;
-			height: 40px;
-			animation: spin 1s linear infinite;
-			margin: 20px auto;
-		}
-		@keyframes spin {
-			0% { transform: rotate(0deg); }
-			100% { transform: rotate(360deg); }
-		}
-		.hidden {
-			display: none;
-		}
-	</style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YKNC7L8DV7');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
+         crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 Meow Bot - Twitch Chat Enhancement | Meow Links</title>
+    <meta name="description" content="Add Meow Bot to your Twitch channel for automatic meow counting and global leaderboard competition">
+    <meta name="keywords" content="twitch bot, meow bot, chat bot, twitch counter, global leaderboard">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <style>
+        /* Twitch page specific responsive fixes */
+        .container {
+            max-width: 900px !important; /* Smaller max width for this page */
+            padding: 10px !important;
+        }
+        
+        .hero-enhanced {
+            padding: 15px !important;
+        }
+        
+        .hero-enhanced h1 {
+            font-size: 2.2rem !important;
+        }
+        
+        .add-bot-section {
+            margin: 15px 0 !important;
+            padding: 20px !important;
+        }
+        
+        .bot-enhanced {
+            padding: 15px !important;
+        }
+        
+        .bots-enhanced {
+            margin: 15px 0 !important;
+        }
+        
+        /* Better responsive breakpoints */
+        @media (max-width: 1000px) {
+            .container {
+                max-width: 95% !important;
+            }
+            
+            .hero-enhanced h1 {
+                font-size: 2rem !important;
+            }
+            
+            .add-bot-section {
+                padding: 18px !important;
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .container {
+                max-width: 98% !important;
+                padding: 8px !important;
+            }
+            
+            .hero-enhanced {
+                padding: 12px !important;
+            }
+            
+            .hero-enhanced h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .add-bot-section {
+                padding: 15px !important;
+                margin: 12px 0 !important;
+            }
+            
+            .bot-enhanced {
+                padding: 12px !important;
+            }
+            
+            .twitch-announcement {
+                flex-direction: column !important;
+                gap: 5px !important;
+                text-align: center !important;
+            }
+            
+            .twitch-announcement .twitch-text,
+            .twitch-announcement .twitch-highlight {
+                white-space: normal !important;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 5px !important;
+            }
+            
+            .hero-enhanced {
+                padding: 10px !important;
+            }
+            
+            .hero-enhanced h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            .add-bot-section {
+                padding: 12px !important;
+            }
+            
+            .add-bot-section h2 {
+                font-size: 1.4rem !important;
+            }
+            
+            .btn-primary-enhanced {
+                padding: 15px 20px !important;
+                font-size: 1rem !important;
+            }
+            
+            .bot-enhanced {
+                padding: 10px !important;
+            }
+            
+            .bot-title-enhanced {
+                font-size: 1.1rem !important;
+            }
+            
+            .bot-features-enhanced {
+                padding: 10px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-enhanced h1 {
+                font-size: 1.4rem !important;
+            }
+            
+            .add-bot-section h2 {
+                font-size: 1.2rem !important;
+            }
+            
+            .add-bot-section div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<!-- Initial Add Bot Screen -->
-		<div id="add-bot-screen">
-			<h1>🐱 Add Meow Bot to Your Channel</h1>
-			<p>The easiest way to count meows in your Twitch chat! Click below to authorize and the bot will join automatically.</p>
-			
-			<a href="https://id.twitch.tv/oauth2/authorize?client_id=i8doijnvc4wkt0q5et2fb7ucb7mng7&redirect_uri=https://fireflydesigns.me/twitch.html&response_type=code&scope=chat:read+chat:edit+channel:moderate" class="add-bot-btn">
-				Add Bot to Channel
-			</a>
-			
-			<div class="features">
-				<h3>Features:</h3>
-				<div class="feature">🎯 Automatic meow counting</div>
-				<div class="feature">📊 Global leaderboards</div>
-				<div class="feature">💬 Fun chat commands</div>
-				<div class="feature">⚡ Instant setup - no configuration needed!</div>
-			</div>
-		</div>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+        <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
+        <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
+        <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
+        <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+        <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
+    </div>
 
-		<!-- OAuth Processing Screen -->
-		<div id="oauth-screen" class="hidden">
-			<h1>🐱 Meow Bot Authorization</h1>
-			<div id="status">
-				<div class="spinner"></div>
-				<p class="loading">Setting up your bot...</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <!-- Enhanced hero section -->
+        <div class="hero-enhanced">
+            <div style="text-align: left; margin-bottom: 15px;">
+                <a href="index.html" style="color: #00ffff; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+                    ← Back to Home
+                </a>
+            </div>
+            <h1>🐱 Meow Bot</h1>
+            <p>Automatic Meow Counter for Twitch</p>
+            <div class="twitch-announcement">
+                <span class="twitch-icon">🎮</span>
+                <span class="twitch-text">Turn your chat into a</span>
+                <span class="twitch-highlight">meow-counting paradise!</span>
+                <span class="twitch-text">Track every "meow" and compete for the top spot.</span>
+            </div>
+        </div>
 
-	<script>
-		// Check if this is an OAuth callback
-		const urlParams = new URLSearchParams(window.location.search);
-		const code = urlParams.get('code');
-		const error = urlParams.get('error');
+        <!-- Add Bot to Channel Section - Top Priority -->
+        <div class="add-bot-section" style="background: rgba(145, 70, 255, 0.1); border: 1px solid rgba(145, 70, 255, 0.3); border-radius: 20px; padding: 25px; margin: 20px 0; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(145, 70, 255, 0.2);">
+            <h2 style="color: #9146ff; margin-bottom: 15px; font-family: 'Orbitron', monospace; font-size: 1.8rem; background: linear-gradient(135deg, #9146ff, #667eea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🤖 Add Bot to Your Channel</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: rgba(255, 255, 255, 0.9);">Ready to start counting meows? Add the bot now!</p>
+            
+            <a href="https://id.twitch.tv/oauth2/authorize?client_id=i8doijnvc4wkt0q5et2fb7ucb7mng7&redirect_uri=https://fireflydesigns.me/twitch.html&response_type=code&scope=chat:read+chat:edit+channel:moderate" class="btn-primary-enhanced" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; padding: 18px 30px; border-radius: 15px; font-size: 1.1rem; margin: 10px;">
+                <img src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" style="width: 24px; height: 24px;">
+                Add Bot to Channel
+            </a>
+            
+            <div style="margin-top: 20px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div>✅ Secure Twitch authorization</div>
+                <div>✅ Bot joins instantly</div>
+            </div>
 
-		if (code || error) {
-			// Hide add bot screen and show OAuth processing
-			document.getElementById('add-bot-screen').classList.add('hidden');
-			document.getElementById('oauth-screen').classList.remove('hidden');
+            <div style="margin-top: 20px; padding: 15px; background: rgba(0, 255, 255, 0.1); border-radius: 12px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                <div style="font-weight: 600; margin-bottom: 8px; color: #00ffff;">Quick Setup:</div>
+                <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
+                    1. Click button above → 2. Login to Twitch → 3. Authorize → Done!
+                </div>
+            </div>
+        </div>
 
-			const statusDiv = document.getElementById('status');
+        <!-- Bot description section -->
+        <div class="bots-enhanced" style="grid-template-columns: 1fr;">
+            <div class="bot-enhanced">
+                <div class="bot-header-enhanced">
+                    <div class="bot-icon-enhanced">🐱</div>
+                    <div>
+                        <h2 class="bot-title-enhanced">Meow Bot - Twitch Counter Features</h2>
+                    </div>
+                </div>
+                
+                <div class="bot-description-enhanced">
+                    This bot automatically tracks every "meow" in your stream and lets viewers compete for the top meower spot.
+                </div>
 
-			if (error) {
-				console.log('OAuth error:', error);
-				statusDiv.innerHTML = `
-					<h2 class="error">❌ Authorization Failed</h2>
-					<p>Error: ${error}</p>
-					<p>Please try again or contact support.</p>
-				`;
-			} else if (code) {
-				console.log('Got authorization code:', code);
-				console.log('Attempting to contact Railway server...');
+                <div class="bot-features-enhanced">
+                    <h4>What the Bot Does:</h4>
+                    <div style="display: grid; gap: 8px; margin-top: 10px;">
+                        <div class="feature-item-enhanced">Counts every "meow" typed in chat (works with meow, MEOW, meoooow, etc.)</div>
+                        <div class="feature-item-enhanced">Tracks personal and channel statistics</div>
+                        <div class="feature-item-enhanced">Creates leaderboards for your channel and across all channels</div>
+                        <div class="feature-item-enhanced">Remembers all meow data permanently</div>
+                        <div class="feature-item-enhanced">Works 24/7, even when you're offline</div>
+                    </div>
+                </div>
 
-				// Send authorization code to Railway OAuth server
-				fetch('https://oauthmeow-production.up.railway.app/api/authorize-bot', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						code: code
-					})
-				})
-				.then(response => {
-					console.log('Railway response status:', response.status);
-					console.log('Railway response ok:', response.ok);
-					return response.json();
-				})
-				.then(data => {
-					console.log('Railway response data:', data);
-					if (data.success) {
-						statusDiv.innerHTML = `
-							<h2 class="success">✅ Success!</h2>
-							<p>Meow Bot has been added to <strong>${data.channel}</strong>!</p>
-							<p>The bot is now counting meows in your chat. Try typing "meow" to test it!</p>
-							<p>Use <strong>!meowstats</strong> to see your meow count.</p>
-						`;
-					} else {
-						throw new Error(data.error || 'Unknown error occurred');
-					}
-				})
-				.catch(error => {
-					console.error('Fetch error:', error);
-					statusDiv.innerHTML = `
-						<h2 class="error">❌ Setup Failed</h2>
-						<p>There was an error setting up the bot: ${error.message}</p>
-						<p>Please try again or contact support.</p>
-						<p><small>Check browser console (F12) for details.</small></p>
-					`;
-				});
-			}
-		}
-		// If no OAuth parameters, just show the add bot screen (default)
-	</script>
+                <div class="bot-features-enhanced">
+                    <h4>Chat Commands:</h4>
+                    <div style="display: grid; gap: 8px; margin-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85rem;">
+                        <div><code>!meow</code> - Shows your total meow count (all time) in the current channel</div>
+                        <div><code>!top</code> - Shows the top 5 meowers of all time in the current channel</div>
+                        <div><code>!global</code> - Shows the global leaderboard of streamers across all channels</div>
+                        <div><code>!requestbot</code> - Provides instructions for adding the bot to a channel</div>
+                        <div><code>!optinglobal</code> - Opts the channel into the global leaderboard (broadcaster only)</div>
+                        <div><code>!botinfo</code> - Shows bot creator information and contact details</div>
+                        <div><code>!help</code> - Shows all available commands</div>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 12px; background: rgba(0, 255, 255, 0.05); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #00ffff; font-size: 0.9rem;">Command Details:</div>
+                        <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.8); line-height: 1.4;">
+                            <div style="margin-bottom: 6px;">• <strong>!meow</strong> response: "🐱 {username}: {count} total meows in {channel}!"</div>
+                            <div style="margin-bottom: 6px;">• <strong>!global</strong> only works if channel has opted into global access</div>
+                            <div style="margin-bottom: 6px;">• <strong>!requestbot</strong> instantly adds bot for broadcasters, directs others to setup</div>
+                            <div>• <strong>!optinglobal</strong> can only be used by the channel broadcaster</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bot-features-enhanced">
+                    <h4>How to Add the Bot:</h4>
+                    <div style="display: grid; gap: 8px; margin-top: 10px;">
+                        <div><strong>1.</strong> Click the "Add Bot to Channel" button above</div>
+                        <div><strong>2.</strong> Log in to Twitch and authorize the bot</div>
+                        <div><strong>3.</strong> Done! The bot joins your channel automatically</div>
+                    </div>
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                        <strong>💡 Test it out:</strong> The bot starts working immediately - no setup required. Test it by typing "meow" in your chat, then use <code>!meow</code> to see your count!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advertisement Section -->
+        <div style="margin: 40px 0; text-align: center; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
+            <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
+            <ins class="adsbygoogle"
+                 style="display:block;"
+                 data-ad-client="ca-pub-3994230437494776"
+                 data-ad-slot="9641801623"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Enhanced footer with credit -->
+        <div class="footer-enhanced">
+            <div class="footer-links">
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+                <a href="patch-notes.html" class="footer-link">Patch Notes</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Meow Links. All rights reserved. | Made with 💜 by FireflyxSerenity
+            </div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.75rem; color: rgba(255, 255, 255, 0.6);">
+                💡 <strong>Original Concept:</strong> SnorlaxBuffet
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user just came back from authorization
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+            
+            if (code) {
+                // Success - show a success message or handle the authorization
+                alert('Bot successfully added to your channel! 🐱 Start typing "meow" in your chat and use !meow to see your count!');
+                // Clean up the URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (error) {
+                // Error occurred during authorization
+                alert('There was an issue adding the bot. Please try again or contact support.');
+                // Clean up the URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
 </body>
 </html>
