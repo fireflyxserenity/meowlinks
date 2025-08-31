@@ -208,8 +208,8 @@
                 
                 // Step 5: Show success
                 showStatus(
-                    '✅ Bot Successfully Added!', 
-                    `Meow Bot has been authorized for channel: ${userInfo.display_name}`,
+                    '✅ Authorization Successful!', 
+                    `You've authorized Meow Bot for channel: ${userInfo.display_name}. The bot will be added to your channel within 24 hours.`,
                     'success'
                 );
                 
@@ -235,18 +235,37 @@
         }
         
         async function exchangeCodeForToken(code) {
-            // Since we can't make the token exchange from frontend (CORS + client secret needed),
-            // we'll simulate success and log the code for manual processing
-            console.log('Authorization code for manual processing:', code);
-            
-            // In a real implementation, this would call your backend:
-            // const response = await fetch('/api/exchange-token', { ... });
-            
-            // For now, return a mock token for UI flow
-            return {
-                access_token: 'mock_token_' + Math.random().toString(36).substr(2, 9),
-                scope: 'channel:bot chat:read chat:edit channel:moderate'
-            };
+            try {
+                // Call your backend API to process the authorization
+                const response = await fetch('https://your-backend-url.vercel.app/api/authorize-bot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        redirect_uri: 'https://fireflydesigns.me/twitch-auth.html'
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                console.log('Backend response:', result);
+                
+                return {
+                    access_token: 'processed_by_backend',
+                    success: result.success,
+                    channel: result.channel
+                };
+            } catch (error) {
+                console.error('Backend processing failed:', error);
+                // Fallback to manual processing
+                console.log('Authorization code for manual processing:', code);
+                throw error;
+            }
         }
         
         async function getUserInfo(accessToken) {
