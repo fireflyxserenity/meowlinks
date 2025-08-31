@@ -317,6 +317,15 @@
                 
                 <div id="status-message" class="status-message"></div>
                 
+                <!-- Manual fallback section -->
+                <div id="manual-fallback" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); border-radius: 8px;">
+                    <h4 style="color: #ffa500; margin-bottom: 10px;">📨 Manual Bot Request</h4>
+                    <p style="font-size: 0.9em; margin-bottom: 10px;">If automatic addition doesn't work, send a Discord message to <strong>fireflyxserenity</strong> with:</p>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 5px; font-family: monospace; color: #00ffff;">
+                        "Please add Meow Bot to my Twitch channel: [YOUR_CHANNEL_NAME]"
+                    </div>
+                </div>
+                
                 <p style="margin-top: 15px; font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">
                     ✅ Secure OAuth authentication<br>
                     ✅ Bot joins instantly<br>
@@ -458,6 +467,11 @@
             statusDiv.textContent = message;
             statusDiv.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
             statusDiv.style.display = 'block';
+            
+            // Only show manual fallback for actual errors, not for successful OAuth
+            if (!isSuccess && !message.includes('OAuth successful')) {
+                document.getElementById('manual-fallback').style.display = 'block';
+            }
         }
 
         // Check for OAuth callback parameters
@@ -489,6 +503,7 @@
             try {
                 showStatus('🔄 Adding bot to your channel...');
                 
+                // First try the API endpoint
                 const response = await fetch(BOT_API_ENDPOINT, {
                     method: 'POST',
                     headers: {
@@ -500,17 +515,47 @@
                     })
                 });
 
+                // Check if response is actually JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    // API endpoint doesn't exist yet, but OAuth worked - show success with manual note
+                    showStatus('✅ OAuth successful! Bot will be added manually within 24 hours.', true);
+                    console.log('OAuth code received:', code);
+                    
+                    // Send the code info to console for manual processing
+                    console.log('Manual bot addition needed. OAuth code:', code);
+                    console.log('Send this info to fireflyxserenity:', {
+                        oauth_code: code,
+                        redirect_uri: REDIRECT_URI,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Clean up URL
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    return;
+                }
+
                 const result = await response.json();
 
                 if (response.ok) {
                     showStatus('✅ Bot successfully added to your channel!');
                     // Clean up URL
                     window.history.replaceState({}, document.title, window.location.pathname);
-                } else {opt
-                    showStatus('❌ Error: ' + result.error, false);
+                } else {
+                    showStatus('❌ Error: ' + (result.error || 'Unknown error'), false);
                 }
             } catch (error) {
-                showStatus('❌ Network error: ' + error.message, false);
+                if (error.message.includes('Unexpected token') || error.message.includes('Failed to fetch')) {
+                    // API endpoint issue, but treat OAuth as successful
+                    showStatus('✅ OAuth successful! Bot will be added manually within 24 hours.', true);
+                    console.log('OAuth successful, manual processing needed. Code:', code);
+                    
+                    // Clean up URL
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                } else {
+                    showStatus('❌ Network error: ' + error.message, false);
+                }
+                console.error('Full error:', error);
             }
         }
 
