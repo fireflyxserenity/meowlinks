@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YKNC7L8DV7');
-    </script>
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
-         crossorigin="anonymous"></script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐱 Meow Bot - Twitch Chat Enhancement | Meow Links</title>
@@ -220,6 +208,65 @@
             margin: 15px 0;
         }
         
+        /* OAuth Button Styles */
+        .oauth-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #9146ff, #772ce8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
+            margin: 10px;
+        }
+        
+        .oauth-button:hover {
+            background: linear-gradient(45deg, #772ce8, #5c1a9b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(145, 70, 255, 0.4);
+        }
+        
+        .oauth-section {
+            background: rgba(145, 70, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 2px solid rgba(145, 70, 255, 0.3);
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .oauth-section h3 {
+            color: #9146ff;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .status-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .status-success {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+        }
+        
+        .status-error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff6b6b;
+        }
+        
         @media (max-width: 600px) {
             .compact-features {
                 grid-template-columns: 1fr;
@@ -246,33 +293,42 @@
                 <div class="twitch-subtitle">Twitch Chat Meow Counter & Global Leaderboard</div>
             </div>
             
+            <!-- NEW: OAuth Bot Addition Section -->
+            <div class="oauth-section">
+                <h3>🤖 Add Bot to Your Channel</h3>
+                <p style="margin-bottom: 20px; font-size: 1.1em;">Click below to instantly add Meow Bot to your Twitch channel!</p>
+                
+                <button class="oauth-button" onclick="initiateOAuth()">
+                    <img src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+                    Add Bot to Channel
+                </button>
+                
+                <div id="status-message" class="status-message"></div>
+                
+                <p style="margin-top: 15px; font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">
+                    ✅ Secure OAuth authentication<br>
+                    ✅ Bot joins instantly<br>
+                    ✅ No manual setup required
+                </p>
+            </div>
+
             <div class="demo-section">
                 <h3>🎮 How It Works</h3>
-                <p>Add Meow Bot to your Twitch channel to automatically count every "meow" in chat! Compete with other streamers on the global leaderboard.</p>
-                
-                <div style="margin: 30px 0; padding: 25px; background: rgba(138, 43, 226, 0.3); backdrop-filter: blur(15px); border-radius: 15px; border: 1px solid rgba(138, 43, 226, 0.4);">
-                    <h3 style="color: #8a2be2; margin-bottom: 15px;">🤖 Add Free Bot to Your Channel</h3>
-                    <p style="font-size: 1.1em; margin: 15px 0; color: rgba(255, 255, 255, 0.9);">
-                        <strong>Easy Method:</strong> Go to any channel that already has Meow Bot and type:
-                    </p>
-                    <div style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid rgba(0, 255, 255, 0.3);">
-                        <code style="font-size: 1.3em; color: #00ffff; background: transparent; border: none; padding: 0;">!requestbot your_channel_name</code>
-                    </div>
-                    <p style="font-size: 0.9em; margin-top: 15px; color: rgba(255, 255, 255, 0.8);">
-                        Bot will join your channel within minutes!<br>
-                        <em style="color: #ff69b4;">Find channels with Meow Bot by searching "meow bot" on Twitch</em>
-                    </p>
-                </div>
+                <p>Meow Bot automatically counts every "meow" in your chat and lets viewers compete on a global leaderboard!</p>
             </div>
 
             <div class="features-box">
-                <h3>🆓 Free Features (Always Included):</h3>
+                <h3>🆓 All Features (Completely Free!):</h3>
                 <ul>
-                    <li>🐱 <strong>Automatic Meow Detection</strong> - Counts every "meow" in your chat</li>
-                    <li>📊 <strong>Personal Stats</strong> - <code>!meow</code> command for viewers</li>
-                    <li>� <strong>Stream Totals</strong> - <code>!streammeows</code> for daily counts</li>
-                    <li>📈 <strong>All-Time Stats</strong> - <code>!totalmeows</code> for channel history</li>
-                    <li>� <strong>Easy Setup</strong> - Type <code>!requestbot your_channel</code> anywhere</li>
+                    <li>🐱 <strong>Automatic Meow Detection</strong> - Counts every "meow" in your chat (even overlapping ones!)</li>
+                    <li>📊 <strong>Personal Stats</strong> - !meow command shows your total meows in that channel</li>
+                    <li>🏆 <strong>Channel Leaderboard</strong> - !top command shows top 5 meowers in the channel</li>
+                    <li>🌍 <strong>Global Leaderboard</strong> - !global command shows top channels across the platform</li>
+                    <li>⚡ <strong>Easy OAuth Setup</strong> - One-click bot addition through secure Twitch authentication</li>
+                    <li>🎯 <strong>Opt-in Global Rankings</strong> - !optinglobal for broadcasters to join global leaderboards</li>
+                    <li>📈 <strong>Real-time Updates</strong> - Bot announces meow counts as they happen</li>
+                    <li>🤖 <strong>Smart Detection</strong> - Counts "meow" in any word.</li>
+                    <li>ℹ️ <strong>Help Commands</strong> - !botinfo and !help commands for information</li>
                 </ul>
             </div>
 
@@ -291,32 +347,24 @@
             </div>
 
             <div class="paypal-section">
-                <h2>🏆 Premium: Global Leaderboard</h2>
-                <div class="price">$5 <small>one-time</small></div>
+                <h2 style="font-size: 1.2em;">💜 Support the Bot (Optional)</h2>
+                <div class="price" style="font-size: 1.8em;">$5 <small>donation</small></div>
                 
-                <div class="features-box" style="margin: 20px 0;">
-                    <h3>✨ Premium Features:</h3>
-                    <ul>
-                        <li>🏆 <strong>Global Leaderboard Access</strong> - See how your channel ranks!</li>
-                        <li>📊 <strong>Compare with Other Streamers</strong> - Who has the most meows?</li>
-                        <li>🎖️ <strong>Top 5 Rankings</strong> - <code>!globalmewers</code> command</li>
-                        <li>⚡ <strong>Manual Activation</strong> - Contact me after payment</li>
-                        <li>🔒 <strong>Lifetime Access</strong> - One payment, permanent feature</li>
-                    </ul>
-                </div>
+                <p style="margin: 15px 0; font-size: 0.95em; color: rgba(255, 255, 255, 0.8);">
+                    Help keep the bot running 24/7! All features remain completely free.
+                </p>
 
-                <div style="margin: 20px 0; padding: 15px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                    <label for="payment-message" style="color: #00ffff; font-size: 1.1em;">Payment Message (include your Discord username):</label><br>
-                    <input type="text" id="payment-message" placeholder="Discord: your_username | Twitch: your_channel" style="
-                        width: 300px;
-                        padding: 8px 12px;
-                        border: 2px solid rgba(0, 255, 255, 0.3);
-                        border-radius: 8px;
-                        font-size: 1.1em;
+                <div style="margin: 15px 0; padding: 12px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                    <label for="payment-message" style="color: #00ffff; font-size: 1em;">Optional Message:</label><br>
+                    <input type="text" id="payment-message" placeholder="Twitch: your_channel_name - Thanks!" style="
+                        width: 280px;
+                        padding: 6px 10px;
+                        border: 1px solid rgba(0, 255, 255, 0.3);
+                        border-radius: 6px;
+                        font-size: 1em;
                         background: rgba(0, 0, 0, 0.5);
                         color: white;
-                        margin-top: 10px;
-                        backdrop-filter: blur(5px);
+                        margin-top: 8px;
                     ">
                 </div>
                 
@@ -324,43 +372,145 @@
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
                     <input type="hidden" name="cmd" value="_xclick">
                     <input type="hidden" name="business" value="fireflyxxserenity@gmail.com">
-                    <input type="hidden" name="item_name" value="Meow Bot Global Leaderboard Access">
+                    <input type="hidden" name="item_name" value="Meow Bot Support Donation">
                     <input type="hidden" name="amount" value="5.00">
                     <input type="hidden" name="currency_code" value="USD">
                     <input type="hidden" name="custom" value="" id="custom-field">
                     <input type="hidden" name="return" value="https://fireflydesigns.me/twitch.html">
                     <input type="hidden" name="cancel_return" value="https://fireflydesigns.me/twitch.html">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Buy Now" onclick="updateMessage()">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Donate Now" onclick="updateMessage()">
                 </form>
             </div>
 
             <div class="instructions-box">
-                <h3>🚀 Setup Instructions:</h3>
+                <h3>🐱 How to Use Meow Bot - 100% FREE!</h3>
                 
-                <div class="step"><strong>To Add Free Bot:</strong></div>
-                <div class="step">Go to any channel with Meow Bot and type: <code>!requestbot your_channel_name</code></div>
-                <div class="step">Bot joins your channel within minutes!</div>
+                <h4 style="color: #00ffff; margin: 20px 0 10px 0; font-size: 1.1em;">🆓 Add Bot to Your Channel (Completely Free!)</h4>
+                <div class="step">1. Click the "Add Bot to Channel" button above</div>
+                <div class="step">2. Authorize with your Twitch account</div>
+                <div class="step">3. Bot joins your channel instantly and starts counting meows!</div>
                 
-                <div class="step" style="margin-top: 25px;"><strong>To Get Global Leaderboard:</strong></div>
-                <div class="step">1️⃣ Enter your Discord username and Twitch channel above</div>
-                <div class="step">2️⃣ Click PayPal button and pay $5</div>
-                <div class="step">3️⃣ Message me on Discord: <strong style="color: #ff69b4;">fireflyxserenity</strong></div>
-                <div class="step">4️⃣ I'll enable global leaderboard for your channel</div>
-                <div class="step">5️⃣ ✅ Use <code>!globalmewers</code> command!</div>
+                <h4 style="color: #00ffff; margin: 20px 0 10px 0; font-size: 1.1em;">✨ All Features and Commands:</h4>
+                <div class="step">• <strong>Automatic meow counting</strong> - Counts every "meow"</div>
+                <div class="step">• <strong>!meow</strong> - Check your personal meow count in the channel</div>
+                <div class="step">• <strong>!top</strong> - See top 5 meowers in your channel (all-time)</div>
+                <div class="step">• <strong>!global</strong> - View global leaderboard across ALL channels</div>
+                <div class="step">• <strong>!optinglobal</strong> - Opt your channel into the global leaderboard system</div>
+                <div class="step">• <strong>!requestbot</strong> - Get bot setup instructions</div>
+                <div class="step">• <strong>!botinfo</strong> - Bot creator information</div>
+                <div class="step">• <strong>!help</strong> - View all available commands</div>
+        
                 
-                <p style="margin-top: 20px; text-align: center; font-size: 0.9em; color: rgba(255, 255, 255, 0.8);">
-                    <strong>💬 Personal Service:</strong> I'll enable it within 24 hours!
+                <p style="margin-top: 20px; text-align: center; font-size: 0.95em; color: rgba(255, 255, 255, 0.9);">
+                    <strong>⚡ Fully Automated Setup</strong> - Everything happens instantly with OAuth!
                 </p>
+                
             </div>
 
             <div class="contact-section">
                 <p><strong>Questions?</strong></p>
                 <p>Discord: <strong>fireflyxserenity</strong> | Website: <strong>fireflydesigns.me</strong></p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: rgba(255, 255, 255, 0.6);">
+                    💡 <strong>Original Concept:</strong> SnorlaxBuffet
+                </p>
             </div>
         </div>
     </div>
 
     <script>
+        // Configuration - Your actual Twitch credentials
+        const TWITCH_CLIENT_ID = 'i8doijnvc4wkt0q5et2fb7ucb7mng7'; // Your correct Twitch app Client ID
+        const REDIRECT_URI = 'https://fireflydesigns.me/twitch-auth.html'; // Your OAuth redirect URL
+        const BOT_API_ENDPOINT = 'https://fireflydesigns.me/api/add-bot'; // Your backend API endpoint
+
+        function initiateOAuth() {
+            const scopes = [
+                'user:read:email',
+                'channel:moderate',
+                'chat:read',
+                'chat:edit'
+            ].join('+');
+            
+            const state = generateRandomState();
+            const authUrl = `https://id.twitch.tv/oauth2/authorize?` +
+                `client_id=${TWITCH_CLIENT_ID}&` +
+                `redirect_uri=${encodeURIComponent(REDIRECT_URI)}&` +
+                `response_type=code&` +
+                `scope=${scopes}&` +
+                `state=${state}`;
+            
+            // Store state for verification
+            localStorage.setItem('oauth_state', state);
+            
+            // Redirect to Twitch OAuth
+            window.location.href = authUrl;
+        }
+
+        function generateRandomState() {
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+
+        function showStatus(message, isSuccess = true) {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
+            statusDiv.style.display = 'block';
+        }
+
+        // Check for OAuth callback parameters
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const state = urlParams.get('state');
+            const error = urlParams.get('error');
+
+            if (error) {
+                showStatus('❌ Authorization failed: ' + error, false);
+                return;
+            }
+
+            if (code && state) {
+                // Verify state matches
+                const storedState = localStorage.getItem('oauth_state');
+                if (state !== storedState) {
+                    showStatus('❌ Security error: Invalid state', false);
+                    return;
+                }
+
+                // Send code to your backend for processing
+                handleOAuthCode(code);
+            }
+        });
+
+        async function handleOAuthCode(code) {
+            try {
+                showStatus('🔄 Adding bot to your channel...');
+                
+                const response = await fetch(BOT_API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        redirect_uri: REDIRECT_URI
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    showStatus('✅ Bot successfully added to your channel!');
+                    // Clean up URL
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                } else {opt
+                    showStatus('❌ Error: ' + result.error, false);
+                }
+            } catch (error) {
+                showStatus('❌ Network error: ' + error.message, false);
+            }
+        }
+
         function updateMessage() {
             const message = document.getElementById('payment-message').value.trim();
             document.getElementById('custom-field').value = message;
