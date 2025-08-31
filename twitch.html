@@ -306,10 +306,8 @@
             const error = urlParams.get('error');
             
             if (code) {
-                // Success - show a success message or handle the authorization
-                alert('Bot successfully added to your channel! 🐱 Start typing "meow" in your chat and use !meow to see your count!');
-                // Clean up the URL
-                window.history.replaceState({}, document.title, window.location.pathname);
+                // Send the authorization code to our backend
+                handleAuthorization(code);
             } else if (error) {
                 // Error occurred during authorization
                 alert('There was an issue adding the bot. Please try again or contact support.');
@@ -317,6 +315,61 @@
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
         });
+
+        async function handleAuthorization(code) {
+            try {
+                // Show loading message
+                const loadingMsg = document.createElement('div');
+                loadingMsg.id = 'loading-msg';
+                loadingMsg.style.cssText = `
+                    position: fixed; top: 20px; right: 20px; z-index: 10000;
+                    background: rgba(145, 70, 255, 0.9); color: white;
+                    padding: 15px 20px; border-radius: 10px;
+                    font-family: Arial, sans-serif; font-size: 14px;
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(145, 70, 255, 0.3);
+                `;
+                loadingMsg.innerHTML = '🤖 Adding bot to your channel...';
+                document.body.appendChild(loadingMsg);
+
+                // Send to Railway OAuth server
+                const response = await fetch('https://oauthmeow-production.up.railway.app/api/authorize-bot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        redirect_uri: 'https://fireflydesigns.me/twitch.html'
+                    })
+                });
+
+                const result = await response.json();
+                
+                // Remove loading message
+                document.body.removeChild(loadingMsg);
+
+                if (result.success) {
+                    // Success
+                    alert(`🎉 Bot successfully added to ${result.channel}'s channel! 🐱\n\nStart typing "meow" in your chat and use !meow to see your count!`);
+                } else {
+                    // Error from backend
+                    alert(`❌ Error adding bot: ${result.error || 'Unknown error'}\n\nPlease try again or contact support.`);
+                }
+            } catch (error) {
+                // Network or other error
+                console.error('Authorization error:', error);
+                
+                // Remove loading message if it exists
+                const loadingMsg = document.getElementById('loading-msg');
+                if (loadingMsg) document.body.removeChild(loadingMsg);
+                
+                alert('❌ Network error while adding bot. Please check your connection and try again.');
+            }
+
+            // Clean up the URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     </script>
 </body>
 </html>

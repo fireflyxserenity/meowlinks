@@ -1852,21 +1852,67 @@ body.legal-page {
 /* Large screen constraints - keep content at reasonable size */
 @media (min-width: 1400px) {
   .container {
-    max-width: 1300px; /* Prevent content from getting too wide */
+    max-width: 1200px; /* More aggressive constraint */
   }
   
   body {
     align-items: flex-start; /* Keep content at top */
     padding-top: 60px;
   }
+  
+  .particles {
+    max-width: 1200px; /* Match container width */
+    left: 50%; /* Center the particles container */
+    transform: translateX(-50%); /* Perfect centering */
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 2.5rem; /* Reduce font size on large screens */
+  }
+  
+  .hero-enhanced p {
+    font-size: 1.1rem; /* Control paragraph sizing */
+  }
 }
 
 @media (min-width: 1800px) {
   .container {
-    max-width: 1400px; /* Even larger screens stay reasonable */
+    max-width: 1200px; /* Keep it even smaller on huge screens */
   }
   
   .hero-enhanced h1 {
-    font-size: 3.5rem; /* Don't let text get too huge */
+    font-size: 2.2rem; /* Even smaller font on huge screens */
+  }
+  
+  .particles {
+    max-width: 1200px; /* Match container width */
+  }
+  
+  /* Control other large text elements */
+  .bot-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* Ultra-wide screen constraints */
+@media (min-width: 2400px) {
+  .container {
+    max-width: 1000px; /* Even more aggressive on ultra-wide */
+  }
+  
+  .particles {
+    max-width: 1000px;
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 2rem; /* Cap the title size */
+  }
+  
+  body {
+    font-size: 14px; /* Reduce base font size */
   }
 }
