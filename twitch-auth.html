@@ -1,333 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Authorization - Meow Links</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
-    <link rel="stylesheet" href="style.css" />
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0e0e23, #1a1a2e);
-            color: white;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        .auth-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-            color: white;
-            text-align: center;
-        }
-        
-        .auth-header h1 {
-            background: linear-gradient(45deg, #00ffff, #ff69b4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2.2em;
-            margin-bottom: 10px;
-        }
-        
-        .loading {
-            margin: 30px 0;
-        }
-        
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #9146ff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .status-box {
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 1.1em;
-            display: none;
-        }
-        
-        .status-success {
-            background: rgba(0, 255, 0, 0.1);
-            border: 2px solid rgba(0, 255, 0, 0.3);
-            color: #00ff88;
-        }
-        
-        .status-error {
-            background: rgba(255, 0, 0, 0.1);
-            border: 2px solid rgba(255, 0, 0, 0.3);
-            color: #ff6b6b;
-        }
-        
-        .status-warning {
-            background: rgba(255, 165, 0, 0.1);
-            border: 2px solid rgba(255, 165, 0, 0.3);
-            color: #ffa500;
-        }
-        
-        .back-button-bottom {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 24px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            color: #00ffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1em;
-        }
-        
-        .back-button-bottom:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-            color: #00ffff;
-        }
-        
-        .channel-info {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-        
-        .instructions {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 15px;
-            line-height: 1.5;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bot Authorization - Meow Bot</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.container {
+			background: white;
+			padding: 40px;
+			border-radius: 20px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+			text-align: center;
+			max-width: 500px;
+		}
+		.loading {
+			color: #9146ff;
+		}
+		.success {
+			color: #28a745;
+		}
+		.error {
+			color: #dc3545;
+		}
+		.spinner {
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #9146ff;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			animation: spin 1s linear infinite;
+			margin: 20px auto;
+		}
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+	</style>
 </head>
 <body>
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-        <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
-        <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
-        <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
-        <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
-    </div>
+	<div class="container">
+		<h1>🐱 Meow Bot Authorization</h1>
+		<div id="status">
+			<div class="spinner"></div>
+			<p class="loading">Setting up your bot...</p>
+		</div>
+	</div>
 
-    <div class="auth-container">
-            <div class="auth-header">
-                <h1>🤖 Meow Bot Authorization</h1>
-            </div>
-            
-            <div id="loading-section" class="loading">
-                <div class="spinner"></div>
-                <p>Processing authorization and adding bot to your channel...</p>
-                <p style="font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">This may take a few moments</p>
-            </div>
-            
-            <div id="status-message" class="status-box"></div>
-            
-            <div id="channel-info" class="channel-info" style="display: none;">
-                <h3 style="color: #00ffff; margin-bottom: 10px;">📺 Channel Information</h3>
-                <div id="channel-details"></div>
-            </div>
-            
-            <div id="next-steps" style="display: none;">
-                <div class="instructions">
-                    <h4 style="color: #ff69b4; margin-bottom: 10px;">🎉 What's Next?</h4>
-                    <p>• Check your Twitch channel - Meow Bot should now be in your chat</p>
-                    <p>• Type <code style="background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px; color: #00ffff;">!help</code> to see all available commands</p>
-                    <p>• Your viewers can now compete on the global meow leaderboard!</p>
-                </div>
-            </div>
-            
-            <a href="twitch.html" class="back-button-bottom">← Back to Meow Bot</a>
-        </div>
-    </div>
+	<script>
+		// Get authorization code from URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const code = urlParams.get('code');
+		const error = urlParams.get('error');
 
-    <script>
-        // Twitch API configuration
-        const CLIENT_ID = 'i8doijnvc4wkt0q5et2fb7ucb7mng7';
-        
-        async function processAuthorization() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
-            const error = urlParams.get('error');
-            const state = urlParams.get('state');
-            
-            const loadingSection = document.getElementById('loading-section');
-            const statusMessage = document.getElementById('status-message');
-            const channelInfo = document.getElementById('channel-info');
-            const nextSteps = document.getElementById('next-steps');
-            
-            if (error) {
-                showStatus('❌ Authorization Failed', `Error: ${error}`, 'error');
-                return;
-            }
-            
-            if (!code) {
-                showStatus('❌ No Authorization Code', 'No authorization code received from Twitch.', 'error');
-                return;
-            }
-            
-            try {
-                // Step 1: Exchange code for access token
-                showLoadingMessage('Exchanging authorization code...');
-                const tokenData = await exchangeCodeForToken(code);
-                
-                if (!tokenData.access_token) {
-                    throw new Error('No access token received');
-                }
-                
-                // Step 2: Get user information
-                showLoadingMessage('Getting your channel information...');
-                const userInfo = await getUserInfo(tokenData.access_token);
-                
-                // Step 3: Display channel info
-                displayChannelInfo(userInfo);
-                
-                // Step 4: Simulate bot joining (since we can't actually verify without backend)
-                showLoadingMessage('Adding Meow Bot to your channel...');
-                await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay for effect
-                
-                // Step 5: Show success
-                showStatus(
-                    '✅ Authorization Successful!', 
-                    `You've authorized Meow Bot for channel: ${userInfo.display_name}. The bot will be added to your channel within 24 hours.`,
-                    'success'
-                );
-                
-                nextSteps.style.display = 'block';
-                
-                // Log the authorization for manual processing
-                console.log('Bot Authorization Complete:', {
-                    channel: userInfo.display_name,
-                    user_id: userInfo.id,
-                    access_token: tokenData.access_token,
-                    timestamp: new Date().toISOString()
-                });
-                
-            } catch (error) {
-                console.error('Authorization error:', error);
-                showStatus(
-                    '⚠️ Authorization Completed with Issues', 
-                    `Your authorization was successful, but we couldn't verify the bot joined automatically. The bot should still be added to your channel within a few minutes.`,
-                    'warning'
-                );
-                nextSteps.style.display = 'block';
-            }
-        }
-        
-        async function exchangeCodeForToken(code) {
-            try {
-                // Call your backend API to process the authorization
-                const response = await fetch('http://78.108.218.40:3000/api/authorize-bot', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        code: code,
-                        redirect_uri: 'https://fireflydesigns.me/twitch-auth.html'
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
-                const result = await response.json();
-                console.log('Backend response:', result);
-                
-                return {
-                    access_token: 'processed_by_backend',
-                    success: result.success,
-                    channel: result.channel
-                };
-            } catch (error) {
-                console.error('Backend processing failed:', error);
-                // Fallback to manual processing
-                console.log('Authorization code for manual processing:', code);
-                throw error;
-            }
-        }
-        
-        async function getUserInfo(accessToken) {
-            try {
-                const response = await fetch('https://api.twitch.tv/helix/users', {
-                    headers: {
-                        'Authorization': `Bearer ${accessToken}`,
-                        'Client-Id': CLIENT_ID
-                    }
-                });
-                
-                if (!response.ok) {
-                    throw new Error('Failed to get user info');
-                }
-                
-                const data = await response.json();
-                return data.data[0];
-            } catch (error) {
-                // Fallback for demo purposes
-                return {
-                    id: 'unknown',
-                    display_name: 'Your Channel',
-                    profile_image_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/default-profile-image-300x300.png'
-                };
-            }
-        }
-        
-        function showLoadingMessage(message) {
-            const loadingSection = document.getElementById('loading-section');
-            loadingSection.querySelector('p').textContent = message;
-        }
-        
-        function showStatus(title, message, type) {
-            const loadingSection = document.getElementById('loading-section');
-            const statusMessage = document.getElementById('status-message');
-            
-            loadingSection.style.display = 'none';
-            statusMessage.style.display = 'block';
-            statusMessage.className = `status-box status-${type}`;
-            statusMessage.innerHTML = `<strong>${title}</strong><br>${message}`;
-        }
-        
-        function displayChannelInfo(userInfo) {
-            const channelInfo = document.getElementById('channel-info');
-            const channelDetails = document.getElementById('channel-details');
-            
-            channelDetails.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-                    <img src="${userInfo.profile_image_url}" alt="${userInfo.display_name}" 
-                         style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00ffff;">
-                    <div>
-                        <div style="font-size: 1.2em; font-weight: bold; color: #ff69b4;">${userInfo.display_name}</div>
-                        <div style="font-size: 0.9em; color: rgba(255,255,255,0.7);">Twitch Channel</div>
-                    </div>
-                </div>
-            `;
-            
-            channelInfo.style.display = 'block';
-        }
-        
-        // Start the authorization process when page loads
-        window.addEventListener('load', processAuthorization);
-    </script>
+		const statusDiv = document.getElementById('status');
+
+		if (error) {
+			statusDiv.innerHTML = `
+				<h2 class="error">❌ Authorization Failed</h2>
+				<p>Error: ${error}</p>
+				<p>Please try again or contact support.</p>
+			`;
+		} else if (code) {
+			// Send authorization code to Railway OAuth server
+			fetch('https://meowbot-oauth.up.railway.app/api/authorize-bot', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					code: code
+				})
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					statusDiv.innerHTML = `
+						<h2 class="success">✅ Success!</h2>
+						<p>Meow Bot has been added to <strong>${data.channel}</strong>!</p>
+						<p>The bot is now counting meows in your chat. Try typing "meow" to test it!</p>
+						<p>Use <strong>!meowstats</strong> to see your meow count.</p>
+					`;
+				} else {
+					throw new Error(data.error || 'Unknown error occurred');
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				statusDiv.innerHTML = `
+					<h2 class="error">❌ Setup Failed</h2>
+					<p>There was an error setting up the bot: ${error.message}</p>
+					<p>Please try again or contact support.</p>
+				`;
+			});
+		} else {
+			statusDiv.innerHTML = `
+				<h2 class="error">❌ No Authorization Code</h2>
+				<p>No authorization code was received. Please try again.</p>
+			`;
+		}
+	</script>
 </body>
 </html>
