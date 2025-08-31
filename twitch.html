@@ -290,5 +290,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Check if user just came back from authorization and redirect to auth page
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+            
+            if (code || error) {
+                // Redirect to auth page with all the parameters
+                window.location.href = 'twitch-auth.html' + window.location.search;
+            }
+        });
+    </script>
 </body>
 </html>
