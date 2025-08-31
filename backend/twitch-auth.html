@@ -237,7 +237,7 @@
         async function exchangeCodeForToken(code) {
             try {
                 // Call your backend API to process the authorization
-                const response = await fetch('http://78.108.218.40:3000/api/authorize-bot', {
+                const response = await fetch('https://your-backend-url.vercel.app/api/authorize-bot', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
