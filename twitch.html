@@ -59,15 +59,41 @@
             color: rgba(255, 255, 255, 0.8);
         }
         
-        .price { 
-            font-size: 2.8em; 
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 15px 0; 
+        .add-bot-section {
+            background: rgba(145, 70, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 2px solid rgba(145, 70, 255, 0.3);
+            padding: 25px;
+            margin: 20px 0;
             text-align: center;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .add-bot-section h3 {
+            color: #9146ff;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .twitch-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #9146ff, #772ce8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
+            margin: 10px;
+        }
+        
+        .twitch-btn:hover {
+            background: linear-gradient(45deg, #772ce8, #5c1a9b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(145, 70, 255, 0.4);
+            color: white;
         }
         
         .features-box {
@@ -99,23 +125,6 @@
         
         .features-box li:last-child {
             border-bottom: none;
-        }
-        
-        .paypal-section {
-            text-align: center;
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            border: 2px solid rgba(255, 105, 180, 0.3);
-            box-shadow: 0 0 25px rgba(255, 105, 180, 0.2);
-        }
-        
-        .paypal-section h2 {
-            color: #ff69b4;
-            margin-bottom: 10px;
-            font-size: 1.4em;
         }
         
         .instructions-box {
@@ -153,27 +162,6 @@
             font-size: 0.9em;
         }
         
-        .demo-section {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        
-        .demo-section h3 {
-            color: #00ffff;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        
-        .demo-section p {
-            margin: 0;
-            font-size: 0.95em;
-        }
-        
         .back-button {
             display: inline-block;
             margin-bottom: 15px;
@@ -192,6 +180,7 @@
             background: rgba(0, 255, 255, 0.1);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+            color: #00ffff;
         }
         
         .contact-section {
@@ -213,75 +202,23 @@
             color: #ff69b4;
         }
         
-        .compact-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 15px 0;
-        }
-        
-        /* OAuth Button Styles */
-        .oauth-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #9146ff, #772ce8);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
-            margin: 10px;
-        }
-        
-        .oauth-button:hover {
-            background: linear-gradient(45deg, #772ce8, #5c1a9b);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(145, 70, 255, 0.4);
-        }
-        
-        .oauth-section {
-            background: rgba(145, 70, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            border: 2px solid rgba(145, 70, 255, 0.3);
-            padding: 25px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .oauth-section h3 {
-            color: #9146ff;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-        
-        .status-message {
+        .manual-option {
+            margin-top: 20px;
             padding: 15px;
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
             border-radius: 8px;
-            margin: 15px 0;
-            font-weight: bold;
-            display: none;
         }
         
-        .status-success {
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            color: #00ff00;
-        }
-        
-        .status-error {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            color: #ff6b6b;
+        .manual-option h4 {
+            color: #ffa500;
+            margin-bottom: 10px;
         }
         
         @media (max-width: 600px) {
-            .compact-features {
-                grid-template-columns: 1fr;
+            .twitch-btn {
+                display: block;
+                margin: 10px 0;
             }
         }
     </style>
@@ -305,41 +242,25 @@
                 <div class="twitch-subtitle">Twitch Chat Meow Counter & Global Leaderboard</div>
             </div>
             
-            <!-- NEW: OAuth Bot Addition Section -->
-            <div class="oauth-section">
+            <!-- Add Bot Section -->
+            <div class="add-bot-section">
                 <h3>🤖 Add Bot to Your Channel</h3>
-                <p style="margin-bottom: 20px; font-size: 1.1em;">Click below to instantly add Meow Bot to your Twitch channel!</p>
+                <p style="margin-bottom: 20px; font-size: 1.1em;">Click below to add Meow Bot to your Twitch channel!</p>
                 
-                <button class="oauth-button" onclick="initiateOAuth()">
+                <a href="https://id.twitch.tv/oauth2/authorize?client_id=i8doijnvc4wkt0q5et2fb7ucb7mng7&redirect_uri=https://fireflydesigns.me/twitch.html&response_type=code&scope=user:read:email+channel:moderate+chat:read+chat:edit" class="twitch-btn">
                     <img src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
                     Add Bot to Channel
-                </button>
-                
-                <div id="status-message" class="status-message"></div>
-                
-                <!-- Manual fallback section -->
-                <div id="manual-fallback" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); border-radius: 8px;">
-                    <h4 style="color: #ffa500; margin-bottom: 10px;">📨 Manual Bot Request</h4>
-                    <p style="font-size: 0.9em; margin-bottom: 10px;">If automatic addition doesn't work, send a Discord message to <strong>fireflyxserenity</strong> with:</p>
-                    <div style="background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 5px; font-family: monospace; color: #00ffff;">
-                        "Please add Meow Bot to my Twitch channel: [YOUR_CHANNEL_NAME]"
-                    </div>
-                </div>
+                </a>
                 
                 <p style="margin-top: 15px; font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">
-                    ✅ Secure OAuth authentication<br>
-                    ✅ Bot joins instantly<br>
-                    ✅ No manual setup required
+                    ✅ Completely FREE forever<br>
+                    ✅ Secure Twitch authorization<br>
+                    ✅ Bot joins your channel instantly
                 </p>
             </div>
 
-            <div class="demo-section">
-                <h3>🎮 How It Works</h3>
-                <p>Meow Bot automatically counts every "meow" in your chat and lets viewers compete on a global leaderboard!</p>
-            </div>
-
             <div class="features-box">
-                <h3>🆓 All Features:</h3>
+                <h3>🆓 All Features (100% Free):</h3>
                 <ul>
                     <li>🐱 <strong>Automatic Meow Detection</strong> - Counts every "meow" in your chat</li>
                     <li>🏆 <strong>Channel Leaderboards</strong> - Track top meowers in your specific channel</li>
@@ -349,78 +270,19 @@
                 </ul>
             </div>
 
-            <!-- In-Feed Ad -->
-            <div style="margin: 20px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 15px; max-width: 100%; overflow: hidden;">
-                <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
-                <ins class="adsbygoogle"
-                     style="display:block; text-align:center; max-width: 100%; min-height: 200px;"
-                     data-ad-layout="in-article"
-                     data-ad-format="fluid"
-                     data-ad-client="ca-pub-3994230437494776"
-                     data-ad-slot="4306564524"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-
-            <div class="paypal-section">
-                <h2 style="font-size: 1.2em;">💜 Support the Bot (Optional)</h2>
-                <div class="price" style="font-size: 1.8em;">$5 <small>donation</small></div>
-                
-                <p style="margin: 15px 0; font-size: 0.95em; color: rgba(255, 255, 255, 0.8);">
-                    Help keep the bot running 24/7! All features remain completely free.
-                </p>
-
-                <div style="margin: 15px 0; padding: 12px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                    <label for="payment-message" style="color: #00ffff; font-size: 1em;">Optional Message:</label><br>
-                    <input type="text" id="payment-message" placeholder="Twitch: your_channel_name - Thanks!" style="
-                        width: 280px;
-                        padding: 6px 10px;
-                        border: 1px solid rgba(0, 255, 255, 0.3);
-                        border-radius: 6px;
-                        font-size: 1em;
-                        background: rgba(0, 0, 0, 0.5);
-                        color: white;
-                        margin-top: 8px;
-                    ">
-                </div>
-                
-                <!-- Manual PayPal Button -->
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="fireflyxxserenity@gmail.com">
-                    <input type="hidden" name="item_name" value="Meow Bot Support Donation">
-                    <input type="hidden" name="amount" value="5.00">
-                    <input type="hidden" name="currency_code" value="USD">
-                    <input type="hidden" name="custom" value="" id="custom-field">
-                    <input type="hidden" name="return" value="https://fireflydesigns.me/twitch.html">
-                    <input type="hidden" name="cancel_return" value="https://fireflydesigns.me/twitch.html">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Donate Now" onclick="updateMessage()">
-                </form>
-            </div>
-
             <div class="instructions-box">
-                <h3>🐱 How to Use Meow Bot - 100% FREE!</h3>
+                <h3>🐱 How to Use Meow Bot Commands:</h3>
                 
-                <h4 style="color: #00ffff; margin: 20px 0 10px 0; font-size: 1.1em;">🆓 Add Bot to Your Channel (Completely Free!)</h4>
-                <div class="step">1. Click the "Add Bot to Channel" button above</div>
-                <div class="step">2. Authorize with your Twitch account</div>
-                <div class="step">3. Bot joins your channel instantly and starts counting meows!</div>
-                
-                <h4 style="color: #00ffff; margin: 20px 0 10px 0; font-size: 1.1em;">✨ All Features and Commands:</h4>
-                <div class="step">• <strong>Automatic meow counting</strong> - Counts every "meow"</div>
                 <div class="step">• <strong>!meow</strong> - Check your personal meow count in the channel</div>
                 <div class="step">• <strong>!top</strong> - See top 5 meowers in your channel (all-time)</div>
                 <div class="step">• <strong>!global</strong> - View global leaderboard across ALL channels</div>
                 <div class="step">• <strong>!optinglobal</strong> - Opt your channel into the global leaderboard system</div>
                 <div class="step">• <strong>!botinfo</strong> - Bot creator information</div>
                 <div class="step">• <strong>!help</strong> - View all available commands</div>
-        
-                
             </div>
 
             <div class="contact-section">
-                <p><strong>Questions?</strong></p>
+                <p><strong>Questions or Issues?</strong></p>
                 <p>Discord: <strong>fireflyxserenity</strong> | Website: <strong>fireflydesigns.me</strong></p>
                 <p style="margin-top: 15px; font-size: 0.85em; color: rgba(255, 255, 255, 0.6);">
                     💡 <strong>Original Concept:</strong> SnorlaxBuffet
@@ -428,141 +290,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Configuration - Your actual Twitch credentials
-        const TWITCH_CLIENT_ID = 'i8doijnvc4wkt0q5et2fb7ucb7mng7'; // Your correct Twitch app Client ID
-        const REDIRECT_URI = 'https://fireflydesigns.me/twitch-auth.html'; // Your OAuth redirect URL
-        const BOT_API_ENDPOINT = 'https://fireflydesigns.me/api/add-bot'; // Your backend API endpoint
-
-        function initiateOAuth() {
-            const scopes = [
-                'user:read:email',
-                'channel:moderate',
-                'chat:read',
-                'chat:edit'
-            ].join('+');
-            
-            const state = generateRandomState();
-            const authUrl = `https://id.twitch.tv/oauth2/authorize?` +
-                `client_id=${TWITCH_CLIENT_ID}&` +
-                `redirect_uri=${encodeURIComponent(REDIRECT_URI)}&` +
-                `response_type=code&` +
-                `scope=${scopes}&` +
-                `state=${state}`;
-            
-            // Store state for verification
-            localStorage.setItem('oauth_state', state);
-            
-            // Redirect to Twitch OAuth
-            window.location.href = authUrl;
-        }
-
-        function generateRandomState() {
-            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        }
-
-        function showStatus(message, isSuccess = true) {
-            const statusDiv = document.getElementById('status-message');
-            statusDiv.textContent = message;
-            statusDiv.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
-            statusDiv.style.display = 'block';
-            
-            // Only show manual fallback for actual errors, not for successful OAuth
-            if (!isSuccess && !message.includes('OAuth successful')) {
-                document.getElementById('manual-fallback').style.display = 'block';
-            }
-        }
-
-        // Check for OAuth callback parameters
-        window.addEventListener('load', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
-            const state = urlParams.get('state');
-            const error = urlParams.get('error');
-
-            if (error) {
-                showStatus('❌ Authorization failed: ' + error, false);
-                return;
-            }
-
-            if (code && state) {
-                // Verify state matches
-                const storedState = localStorage.getItem('oauth_state');
-                if (state !== storedState) {
-                    showStatus('❌ Security error: Invalid state', false);
-                    return;
-                }
-
-                // Send code to your backend for processing
-                handleOAuthCode(code);
-            }
-        });
-
-        async function handleOAuthCode(code) {
-            try {
-                showStatus('🔄 Adding bot to your channel...');
-                
-                // First try the API endpoint
-                const response = await fetch(BOT_API_ENDPOINT, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        code: code,
-                        redirect_uri: REDIRECT_URI
-                    })
-                });
-
-                // Check if response is actually JSON
-                const contentType = response.headers.get('content-type');
-                if (!contentType || !contentType.includes('application/json')) {
-                    // API endpoint doesn't exist yet, but OAuth worked - show success with manual note
-                    showStatus('✅ OAuth successful! Bot will be added manually within 24 hours.', true);
-                    console.log('OAuth code received:', code);
-                    
-                    // Send the code info to console for manual processing
-                    console.log('Manual bot addition needed. OAuth code:', code);
-                    console.log('Send this info to fireflyxserenity:', {
-                        oauth_code: code,
-                        redirect_uri: REDIRECT_URI,
-                        timestamp: new Date().toISOString()
-                    });
-                    
-                    // Clean up URL
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    return;
-                }
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    showStatus('✅ Bot successfully added to your channel!');
-                    // Clean up URL
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                } else {
-                    showStatus('❌ Error: ' + (result.error || 'Unknown error'), false);
-                }
-            } catch (error) {
-                if (error.message.includes('Unexpected token') || error.message.includes('Failed to fetch')) {
-                    // API endpoint issue, but treat OAuth as successful
-                    showStatus('✅ OAuth successful! Bot will be added manually within 24 hours.', true);
-                    console.log('OAuth successful, manual processing needed. Code:', code);
-                    
-                    // Clean up URL
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                } else {
-                    showStatus('❌ Network error: ' + error.message, false);
-                }
-                console.error('Full error:', error);
-            }
-        }
-
-        function updateMessage() {
-            const message = document.getElementById('payment-message').value.trim();
-            document.getElementById('custom-field').value = message;
-        }
-    </script>
 </body>
 </html>
