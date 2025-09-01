@@ -938,73 +938,78 @@ body::before {
 /* Mobile responsiveness - Complete rewrite for all screen sizes */
 @media (max-width: 768px) {
   * {
-    max-width: 100vw;
-    box-sizing: border-box;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   html {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
   }
 
   body {
-    padding: 8px;
-    padding-bottom: 20px; /* Add bottom padding */
+    padding: 5px !important;
+    padding-bottom: 20px !important;
     min-height: 100vh;
-    align-items: flex-start; /* Align to top on mobile */
-    padding-top: 10px;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    overflow-y: auto; /* Ensure scrolling works */
-    width: 100%;
-    max-width: 100vw;
+    align-items: flex-start !important;
+    padding-top: 5px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
   }
 
   .container {
-    min-height: auto; /* Remove min-height restriction */
-    gap: 10px; /* Reduced from 15px */
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0; /* Remove all padding that could cause overflow */
-    padding-bottom: 15px; /* Only bottom padding */
-    overflow-x: hidden;
-    box-sizing: border-box;
+    min-height: auto !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
   }
 
   .hero-enhanced, .bots-enhanced, .quick-enhanced, .footer-enhanced {
-    max-width: 100%;
-    overflow-x: hidden;
-    width: 100%;
-    box-sizing: border-box;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
   }
 
   .hero-enhanced {
-    padding: 12px; /* Reduced from 15px */
-    box-sizing: border-box;
-    margin: 0 8px; /* Add small side margins */
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
 
   .bots-enhanced {
-    grid-template-columns: 1fr;
-    gap: 10px; /* Reduced from 12px */
-    width: 100%;
-    margin: 0 8px; /* Add small side margins */
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .bot-enhanced {
-    padding: 12px; /* Add specific mobile padding */
-    max-width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
+    padding: 10px !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    margin: 0 0 8px 0 !important;
+    width: 100% !important;
   }
 
   .quick-enhanced {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin: 10px 8px; /* Add side margins, reduce bottom */
-    width: calc(100% - 16px); /* Account for margins */
-    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 5px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
   }
 
   .quick-link-enhanced {
@@ -1117,10 +1122,10 @@ body::before {
 
   .container {
     gap: 20px; /* Much more generous spacing */
-    max-width: calc(100vw - 24px);
+    max-width: 100vw;
     min-height: auto;
     width: 100%;
-    padding: 0;
+    padding: 5px;
     padding-bottom: 20px;
     overflow-x: hidden;
   }
@@ -1267,8 +1272,8 @@ body::before {
 
   .container {
     gap: 10px; /* Just slightly less than 480px (12px) */
-    max-width: calc(100vw - 12px);
-    padding: 0 3px; /* Safe internal padding */
+    max-width: 100vw;
+    padding: 2px; /* Safe internal padding */
     overflow-x: hidden;
     width: 100%;
   }
