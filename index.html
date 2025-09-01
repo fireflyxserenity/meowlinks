@@ -104,7 +104,7 @@
       box-sizing: border-box !important;
     }
     
-    /* Mobile aggressive fixes */
+    /* Mobile ultra-precise fixes */
     @media (max-width: 768px) {
       html, body {
         width: 100vw !important;
@@ -117,14 +117,14 @@
       .container {
         width: 100vw !important;
         max-width: 100vw !important;
-        padding: 3px !important;
+        padding: 0 !important;
         margin: 0 !important;
         overflow-x: hidden !important;
       }
       
       .hero-enhanced, .bots-enhanced, .quick-enhanced, .footer-enhanced {
         margin: 0 !important;
-        padding: 8px !important;
+        padding: 5px !important;
         width: 100% !important;
         max-width: 100% !important;
         overflow-x: hidden !important;
@@ -602,9 +602,9 @@
       }
     });
 
-    // SUPER AGGRESSIVE MOBILE OVERFLOW FIX
+    // ULTRA-PRECISE MOBILE OVERFLOW FIX
     function fixOverflow() {
-      // Force everything to stay within viewport with more aggressive approach
+      // Force everything to stay within viewport with pixel-perfect precision
       const allElements = document.querySelectorAll('*');
       const viewportWidth = window.innerWidth;
       
@@ -618,6 +618,9 @@
           el.style.overflow = 'hidden';
           el.style.wordWrap = 'break-word';
           el.style.boxSizing = 'border-box';
+          el.style.margin = '0';
+          el.style.paddingLeft = '0';
+          el.style.paddingRight = '0';
         }
         
         // Fix elements positioned off-screen
@@ -625,13 +628,23 @@
           el.style.left = '0';
           el.style.marginLeft = '0';
         }
+        
+        // Ensure perfect viewport alignment
+        if (rect.right > viewportWidth) {
+          el.style.transform = 'translateX(0)';
+          el.style.marginRight = '0';
+        }
       });
       
-      // Ensure body and html don't exceed viewport
+      // Ensure body and html are perfectly aligned
       document.body.style.maxWidth = '100vw';
       document.body.style.overflowX = 'hidden';
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
       document.documentElement.style.maxWidth = '100vw';
       document.documentElement.style.overflowX = 'hidden';
+      document.documentElement.style.margin = '0';
+      document.documentElement.style.padding = '0';
     }
 
     // Run on load and resize

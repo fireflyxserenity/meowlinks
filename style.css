@@ -949,11 +949,11 @@ body::before {
   }
 
   body {
-    padding: 5px !important;
-    padding-bottom: 20px !important;
+    padding: 0 !important;
+    padding-bottom: 15px !important;
     min-height: 100vh;
     align-items: flex-start !important;
-    padding-top: 5px !important;
+    padding-top: 0 !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     width: 100% !important;
@@ -963,10 +963,10 @@ body::before {
   .container {
     min-height: auto !important;
     gap: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     margin: 0 !important;
-    padding: 5px !important;
+    padding: 0 !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
   }
@@ -980,7 +980,7 @@ body::before {
   }
 
   .hero-enhanced {
-    padding: 10px !important;
+    padding: 5px !important;
     box-sizing: border-box !important;
     margin: 0 !important;
     width: 100% !important;
@@ -988,24 +988,24 @@ body::before {
 
   .bots-enhanced {
     grid-template-columns: 1fr !important;
-    gap: 8px !important;
+    gap: 5px !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .bot-enhanced {
-    padding: 10px !important;
+    padding: 5px !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 5px 0 !important;
     width: 100% !important;
   }
 
   .quick-enhanced {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 5px !important;
+    gap: 3px !important;
     margin: 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
