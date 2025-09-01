@@ -80,10 +80,11 @@ body::before {
   z-index: 1;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  gap: 12px;
+  gap: 20px;
   min-height: 95vh; /* Use min-height instead of fixed height */
   max-height: none; /* Remove height restriction */
   overflow-x: hidden;
+  padding: 0 20px; /* Add horizontal padding for better spacing */
 }
 
 /* Enhanced hero with more personality */
@@ -748,6 +749,164 @@ body::before {
   margin-top: 8px;
 }
 
+/* Wide screens and laptops */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+    gap: 18px;
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 2.4rem;
+  }
+  
+  .bots-enhanced {
+    gap: 25px;
+  }
+}
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+    padding: 0 10px;
+    gap: 16px;
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 2.2rem;
+  }
+  
+  .bots-enhanced {
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr); /* Ensure 2 columns */
+  }
+  
+  .bot-enhanced {
+    padding: 18px;
+  }
+  
+  .stats-enhanced {
+    gap: 8px;
+  }
+  
+  .stat-enhanced {
+    padding: 7px 10px;
+    min-width: 68px;
+  }
+  
+  .quick-enhanced {
+    gap: 8px;
+  }
+}
+
+/* Medium tablets */
+@media (max-width: 900px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    max-width: 100%;
+    gap: 15px;
+    padding: 0 5px;
+  }
+  
+  .hero-enhanced {
+    padding: 18px;
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 2.0rem;
+  }
+  
+  .bots-enhanced {
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns for medium tablets */
+    gap: 12px;
+  }
+  
+  .bot-enhanced {
+    padding: 15px; /* Reduce padding for better fit */
+  }
+  
+  .quick-enhanced {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .stat-enhanced {
+    padding: 6px 8px; /* Reduce stat padding */
+    min-width: 60px;
+    font-size: 0.85rem; /* Slightly smaller text */
+  }
+  
+  .stats-enhanced {
+    gap: 6px;
+  }
+  
+  .bot-title-enhanced {
+    font-size: 1.1rem; /* Reduce bot title size */
+  }
+  
+  .bot-description-enhanced {
+    font-size: 0.9rem; /* Smaller description */
+  }
+}
+
+/* Small tablets - Switch to single column */
+@media (max-width: 700px) {
+  body {
+    padding: 8px;
+  }
+  
+  .container {
+    gap: 15px; /* Better spacing */
+    padding: 0 5px; /* More breathing room */
+  }
+  
+  .bots-enhanced {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    gap: 15px; /* Better gap between bot cards */
+  }
+  
+  .hero-enhanced {
+    padding: 16px; /* Better padding */
+  }
+  
+  .hero-enhanced h1 {
+    font-size: 1.95rem; /* Slightly larger */
+  }
+  
+  .stats-enhanced {
+    gap: 7px; /* Better stat spacing */
+    padding: 12px 5px;
+  }
+  
+  .stat-enhanced {
+    padding: 7px 9px; /* More comfortable padding */
+    min-width: 58px;
+    font-size: 0.82rem; /* Slightly larger text */
+  }
+  
+  .bot-enhanced {
+    padding: 16px; /* Better bot card padding */
+  }
+  
+  .bot-title-enhanced {
+    font-size: 1.15rem; /* Better title size */
+  }
+  
+  .bot-description-enhanced {
+    font-size: 0.92rem; /* More readable */
+    line-height: 1.4;
+  }
+  
+  .quick-enhanced {
+    gap: 8px; /* Better quick link spacing */
+  }
+}
+
 /* Mobile responsiveness - Complete rewrite for all screen sizes */
 @media (max-width: 768px) {
   * {
@@ -755,11 +914,20 @@ body::before {
     box-sizing: border-box;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     padding: 5px;
+    padding-bottom: 20px; /* Add bottom padding */
     min-height: 100vh;
     align-items: flex-start; /* Align to top on mobile */
     padding-top: 10px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Ensure scrolling works */
+    width: 100%;
+    max-width: 100vw;
   }
 
   .container {
@@ -768,15 +936,46 @@ body::before {
     width: 100%;
     max-width: calc(100vw - 10px);
     margin: 0 auto;
+    padding: 0 5px; /* Add internal padding */
+    padding-bottom: 15px; /* Extra bottom space */
+    overflow-x: hidden;
   }
 
   .hero-enhanced, .bots-enhanced, .quick-enhanced, .footer-enhanced {
     max-width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   .hero-enhanced {
     padding: 12px; /* Reduced from 15px */
+    box-sizing: border-box;
+  }
+
+  .bots-enhanced {
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reduced from 12px */
+    width: 100%;
+  }
+
+  .bot-enhanced {
+    padding: 12px; /* Add specific mobile padding */
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .quick-enhanced {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .quick-link-enhanced {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .hero-enhanced h1 {
@@ -791,15 +990,6 @@ body::before {
     min-height: auto; /* Remove min-height restriction */
   }
 
-  .bots-enhanced {
-    grid-template-columns: 1fr;
-    gap: 10px; /* Reduced from 12px */
-  }
-
-  .bot-enhanced {
-    padding: 12px; /* Add specific mobile padding */
-  }
-
   .bot-features-enhanced {
     margin: 8px 0; /* Reduced margins */
   }
@@ -808,22 +998,19 @@ body::before {
     padding: 6px 8px; /* Reduced padding */
     font-size: 0.8rem; /* Smaller text */
     margin-bottom: 4px; /* Reduced spacing */
+    overflow-wrap: break-word; /* Prevent text overflow */
   }
 
   .bot-description-enhanced {
     font-size: 0.85rem; /* Smaller description text */
     margin-bottom: 10px; /* Reduced margin */
+    overflow-wrap: break-word; /* Prevent text overflow */
   }
 
   .stat-enhanced {
     padding: 6px 10px; /* Reduced from 8px 12px */
     min-width: 60px; /* Reduced from 65px */
-  }
-
-  .quick-enhanced {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin-bottom: 10px;
+    box-sizing: border-box;
   }
 
   .quick-title-enhanced {
@@ -876,211 +1063,222 @@ body::before {
     box-sizing: border-box;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
-    padding: 3px; /* Further reduced */
-    padding-top: 8px; /* Further reduced */
+    padding: 12px; /* More generous padding */
+    padding-top: 16px;
+    padding-bottom: 30px;
     align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 100vw;
   }
 
   .container {
-    gap: 8px; /* Further reduced */
-    max-width: calc(100vw - 6px);
+    gap: 20px; /* Much more generous spacing */
+    max-width: calc(100vw - 24px);
     min-height: auto;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 20px;
+    overflow-x: hidden;
   }
 
   .hero-enhanced {
-    padding: 10px; /* Further reduced */
+    padding: 20px; /* More generous padding */
   }
 
   .hero-enhanced h1 {
-    font-size: 1.6rem; /* Further reduced */
-    margin-bottom: 6px;
-  }
-
-  .bot-enhanced {
-    padding: 10px; /* Further reduced for very small screens */
-  }
-
-  .feature-item-enhanced {
-    padding: 4px 6px; /* Further reduced */
-    font-size: 0.75rem; /* Even smaller text */
-    margin-bottom: 3px;
+    font-size: 1.8rem; /* Keep readable size */
+    margin-bottom: 12px;
   }
 
   .stats-enhanced {
-    padding: 10px 5px; /* Further reduced */
-    margin-top: 15px;
-  }
-
-  .quick-enhanced {
-    gap: 4px; /* Further reduced */
-    margin-bottom: 8px;
-  }
-
-  .hero-enhanced h1::after {
-    font-size: 1.2rem; /* Smaller sparkle on mobile */
-    right: -25px;
-    top: -10px;
-  }
-
-  .stats-enhanced {
-    gap: 6px;
-    margin-top: 15px;
-    padding: 12px 0;
+    gap: 12px; /* Better spacing */
+    margin-top: 20px;
+    padding: 20px 8px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .stat-enhanced {
-    padding: 6px 10px;
-    min-width: 55px;
-    margin: 2px;
+    padding: 12px 16px; /* Much more comfortable */
+    min-width: 70px;
+    margin: 4px;
+    font-size: 0.9rem;
   }
 
   .stat-number {
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* Bigger, easier to read */
   }
 
   .stat-label {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   .quick-enhanced {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin: 10px 0;
+    gap: 12px; /* Better spacing */
+    margin: 20px 0;
   }
 
   .quick-icon-enhanced {
-    font-size: 1.5rem; /* Smaller icons on mobile */
-  }
-
-  .bots-enhanced {
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .bot-enhanced {
-    padding: 15px;
-  }
-
-  .bot-icon-enhanced {
-    font-size: 2.2rem; /* Smaller bot icons */
-    padding: 8px;
-  }
-
-  .bot-title-enhanced {
-    font-size: 1.1rem;
-  }
-
-  .bot-buttons-enhanced {
-    gap: 6px;
-  }
-
-  .btn-enhanced {
-    padding: 10px 14px;
-    font-size: 0.85rem;
-  }
-
-  .twitch-announcement {
-    padding: 4px 12px;
-    gap: 6px;
-    margin-top: 12px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .twitch-text {
-    font-size: 0.75em;
-  }
-
-  .twitch-highlight {
-    font-size: 0.8em;
-  }
-
-  .twitch-button {
-    font-size: 0.7em;
-    padding: 2px 8px;
-    margin-top: 2px;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 360px) {
-  body {
-    padding: 5px;
-    padding-top: 10px;
-  }
-
-  .container {
-    gap: 8px;
-  }
-
-  .hero-enhanced {
-    padding: 10px;
-  }
-
-  .hero-enhanced h1 {
-    font-size: 1.6rem;
-  }
-
-  .stats-enhanced {
-    gap: 4px;
-    padding: 8px 0;
-    margin-top: 10px;
-  }
-
-  .stat-enhanced {
-    padding: 4px 8px;
-    min-width: 50px;
-    margin: 1px;
-  }
-
-  .stat-number {
-    font-size: 1rem;
-  }
-
-  .stat-label {
-    font-size: 0.6rem;
-  }
-
-  .quick-enhanced {
-    gap: 4px;
-    margin: 8px 0;
-  }
-
-  .quick-icon-enhanced {
-    font-size: 1.3rem;
+    font-size: 1.8rem; /* Bigger icons */
   }
 
   .quick-title-enhanced {
-    font-size: 0.65rem;
+    font-size: 0.8rem; /* More readable */
+  }
+
+  .bots-enhanced {
+    gap: 20px; /* Much more space between cards */
+    margin-top: 20px;
   }
 
   .bot-enhanced {
-    padding: 12px;
+    padding: 24px; /* Much more generous padding */
+    border-radius: 16px;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .bot-icon-enhanced {
-    font-size: 2rem;
-    padding: 6px;
+    font-size: 2.8rem; /* Bigger, more prominent */
+    padding: 12px;
   }
 
   .bot-title-enhanced {
-    font-size: 1rem;
+    font-size: 1.3rem; /* Bigger titles */
+    margin-bottom: 12px;
   }
 
   .bot-description-enhanced {
-    font-size: 0.8rem;
+    font-size: 1.0rem; /* Much more readable */
+    margin-bottom: 16px;
+    line-height: 1.5; /* Better line spacing */
+    overflow-wrap: break-word;
   }
 
-  .feature-enhanced {
-    font-size: 0.65rem;
+  .feature-item-enhanced {
+    padding: 10px 14px; /* Much more comfortable */
+    font-size: 0.9rem; /* Much more readable */
+    margin-bottom: 8px;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+
+  .bot-buttons-enhanced {
+    gap: 12px;
+    margin-top: 20px;
   }
 
   .btn-enhanced {
-    font-size: 0.7rem;
-    padding: 8px 12px;
+    padding: 16px 20px; /* Much bigger touch targets */
+    font-size: 1.0rem; /* More readable */
+    border-radius: 14px;
+  }
+
+  .twitch-announcement {
+    padding: 12px 20px;
+    gap: 10px;
+    margin-top: 18px;
+    border-radius: 14px;
+  }
+
+  .twitch-text, .twitch-highlight {
+    font-size: 0.9em;
+  }
+
+  .twitch-button {
+    font-size: 0.85em;
+    padding: 6px 12px;
+  }
+
+  .footer-enhanced {
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  .footer-link {
+    font-size: 0.8rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    margin-top: 12px;
+  }
+}
+
+/* Extra small screens - Subtle refinements only */
+@media (max-width: 360px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    padding: 6px; /* Just slightly less than 480px (8px) */
+    padding-bottom: 25px; /* Ensure no cutoff */
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .container {
+    gap: 10px; /* Just slightly less than 480px (12px) */
+    max-width: calc(100vw - 12px);
+    padding: 0 3px; /* Safe internal padding */
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .hero-enhanced {
+    padding: 14px; /* Just slightly less than 480px (15px) */
+  }
+
+  .hero-enhanced h1 {
+    font-size: 1.6rem; /* Just slightly less than 480px (1.7rem) */
+  }
+
+  .stats-enhanced {
+    gap: 6px; /* Just slightly less than 480px (8px) */
+    padding: 12px 6px; /* Slightly more compact */
+  }
+
+  .stat-enhanced {
+    padding: 6px 10px; /* Just slightly less than 480px (8px 12px) */
+    min-width: 55px; /* Just slightly less than 480px (60px) */
+  }
+
+  .stat-number {
+    font-size: 1.1rem; /* Just slightly less than 480px (1.2rem) */
+  }
+
+  .bots-enhanced {
+    gap: 12px; /* Same as 480px - no change needed */
+  }
+
+  .bot-enhanced {
+    padding: 15px; /* Just slightly less than 480px (18px) */
+  }
+
+  .bot-description-enhanced {
+    font-size: 0.85rem; /* Just slightly less than 480px (0.9rem) */
+  }
+
+  .feature-item-enhanced {
+    padding: 5px 8px; /* Just slightly less than 480px (6px 10px) */
+    font-size: 0.75rem; /* Just slightly less than 480px (0.8rem) */
+  }
+
+  .btn-enhanced {
+    padding: 10px 14px; /* Just slightly less than 480px (12px 16px) */
+    font-size: 0.85rem; /* Just slightly less than 480px (0.9rem) */
   }
 }
 
