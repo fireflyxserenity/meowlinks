@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden; max-width: 100vw;">
 <head>
-  <!-- Deploy Fix: 2025-08-26-retry -->
+  <!-- Deploy Fix: 2025-09-01-aggressive-mobile-fix -->
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
   <script>
@@ -16,7 +16,7 @@
        crossorigin="anonymous"></script>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="google-site-verification" content="bJTja6pslcTo-rd24_1JI6n2MBj3SDpIIM08e4cJjYk" />
   
   <!-- Open Graph / Social Media Meta Tags -->
@@ -78,6 +78,83 @@
   
 </head>
 <body>
+  <!-- AGGRESSIVE MOBILE FIX -->
+  <style>
+    /* Force everything to stay within viewport */
+    *, *::before, *::after {
+      max-width: 100vw !important;
+      box-sizing: border-box !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    body {
+      padding: 8px !important;
+    }
+    
+    .container {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+    
+    /* Mobile specific fixes */
+    @media (max-width: 768px) {
+      * {
+        max-width: 100% !important;
+      }
+      
+      body {
+        padding: 4px !important;
+      }
+      
+      .hero-enhanced, .bots-enhanced, .quick-enhanced {
+        margin: 0 !important;
+        padding: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
+      .bot-enhanced {
+        margin: 8px 0 !important;
+        padding: 12px !important;
+        width: 100% !important;
+      }
+      
+      .quick-link-enhanced {
+        padding: 8px !important;
+        font-size: 0.8rem !important;
+      }
+      
+      .feature-item-enhanced {
+        font-size: 0.75rem !important;
+        padding: 4px !important;
+        line-height: 1.3 !important;
+      }
+      
+      .stats-enhanced {
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+        padding: 8px !important;
+      }
+      
+      .stat-enhanced {
+        min-width: 60px !important;
+        padding: 4px !important;
+      }
+    }
+  </style>
+
   <div class="particles">
     <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
     <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
@@ -512,6 +589,26 @@
         }
       }
     });
+
+    // AGGRESSIVE OVERFLOW FIX
+    function fixOverflow() {
+      // Force everything to stay within viewport
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(el => {
+        if (el.scrollWidth > window.innerWidth) {
+          el.style.maxWidth = '100vw';
+          el.style.overflow = 'hidden';
+          el.style.wordWrap = 'break-word';
+        }
+      });
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', fixOverflow);
+    window.addEventListener('resize', fixOverflow);
+    
+    // Also run periodically to catch dynamic content
+    setInterval(fixOverflow, 1000);
   </script>
 </body>
 </html>
