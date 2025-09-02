@@ -496,7 +496,7 @@ body > *:not(.nav):not(.footer) {
   backdrop-filter: blur(20px);
   border: 2px solid transparent;
   border-radius: var(--radius-md);
-  padding: var(--space-md);
+  padding: var(--space-sm);
   text-align: center;
   text-decoration: none;
   color: var(--text-primary);
@@ -504,9 +504,10 @@ body > *:not(.nav):not(.footer) {
   position: relative;
   overflow: hidden;
   flex: 1;
-  min-height: 80px;
-  max-width: 200px;
-  min-width: 120px;
+  min-height: 60px;
+  width: calc(25% - var(--space-sm));
+  max-width: 150px;
+  min-width: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -577,20 +578,53 @@ body > *:not(.nav):not(.footer) {
 }
 
 .action-icon {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   display: block;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+.action-icon-img {
+  width: 1.2em;
+  height: 1.2em;
+  display: block;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.action-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .action-title {
   font-weight: 600;
   color: var(--text-primary);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  margin-top: var(--space-xs);
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+  margin-top: 2px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Twitch Announcement Strip */
@@ -964,15 +998,19 @@ body > *:not(.nav):not(.footer) {
   }
 
   .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
   }
   
   .action-card {
-    min-height: 70px;
-    min-width: 100px;
+    min-height: 50px;
+    width: calc(25% - 3px);
+    min-width: 70px;
     max-width: none;
+    flex: none;
+    padding: var(--space-xs);
   }
 
   .bots-grid {
@@ -985,8 +1023,15 @@ body > *:not(.nav):not(.footer) {
   }
 
   .footer-links {
-    flex-direction: column;
-    gap: var(--space-md);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+  
+  .footer-link {
+    font-size: 0.65rem;
+    white-space: nowrap;
   }
 }
 
@@ -1009,16 +1054,19 @@ body > *:not(.nav):not(.footer) {
   }
 
   .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-xs);
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    flex-wrap: wrap;
   }
   
   .action-card {
-    min-height: 60px;
-    min-width: 80px;
+    min-height: 45px;
+    width: calc(25% - 1.5px);
+    min-width: 65px;
     max-width: none;
-    padding: var(--space-sm);
+    padding: 4px 2px;
+    flex: none;
   }
 
   .twitch-announcement {
@@ -1716,18 +1764,18 @@ body.legal-page {
 /* Advertisement Section */
 .ad-section {
   padding: var(--space-lg) 0;
-  background: rgba(0, 0, 0, 0.2);
 }
 
 .ad-container {
   background: var(--bg-card);
   backdrop-filter: blur(25px);
   border: 1px solid var(--border-neon);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
   text-align: center;
   box-shadow: var(--shadow-neon);
-  max-width: 728px;
+  position: relative;
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -1737,14 +1785,25 @@ body.legal-page {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple), var(--neon-green), var(--neon-orange));
+  background-size: 200% 100%;
+  animation: rainbowWave 4s ease-in-out infinite;
 }
 
 .adsbygoogle {
-  display: block;
+  display: block !important;
   min-height: 90px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: var(--radius-sm);
+  margin: var(--space-sm) 0;
+}
+
+.ad-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  opacity: 0.7;
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
