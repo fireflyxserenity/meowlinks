@@ -290,6 +290,7 @@ body > *:not(.nav):not(.footer) {
   list-style: none;
   flex-wrap: wrap;
   margin-left: auto;
+  margin-right: var(--space-lg);
   max-width: 100%;
   overflow: hidden;
 }
