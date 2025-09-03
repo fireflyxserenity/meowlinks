@@ -84,6 +84,38 @@
       <div class="patch-notes-container">
         
         <div class="patch-note">
+          <h3>🎯 Version 2.7.0 - "Bot Simplification Update"</h3>
+          <p class="patch-date">Release Date: September 3, 2025</p>
+          <p>
+            <strong>🎯 Major Changes - Bot Simplification:</strong><br><br>
+            <strong>🔧 New Server Defaults:</strong><br>
+            • Welcome messages now disabled by default for new servers (opt-in instead of auto-on)<br>
+            • Reduces initial overwhelm for new server admins<br><br>
+            
+            <strong>📉 Command Reduction (37 → 29 commands):</strong><br>
+            • Removed 8 bloated/unnecessary commands (-22% total commands)<br>
+            • Deleted: <code>/transfer_stats</code>, <code>/cleanup_streamers</code>, <code>/sync_commands</code>, <code>/edit_message</code>, <code>/avatar</code>, <code>/conversionhelp</code>, <code>/reactionrolehelp</code>, <code>/server_info</code><br>
+            • No functionality lost - features consolidated into organized menus<br><br>
+            
+            <strong>📋 Interface Improvements:</strong><br>
+            • <code>/help</code> command updated to reflect current command list<br>
+            • <code>/setup</code> command enhanced with comprehensive server status overview<br>
+            • Server info integrated into setup dropdown (replaces standalone <code>/server_info</code>)<br><br>
+            
+            <strong>📊 Analytics Update:</strong><br>
+            • Feature usage stats now sent daily instead of hourly<br>
+            • Less spam, same insights about bot usage<br><br>
+            
+            <strong>🎨 User Experience:</strong><br>
+            • Streamlined onboarding for new servers<br>
+            • Better organization of admin features<br>
+            • Cleaner command list for discovery<br>
+            • All functionality preserved through intuitive dropdown menus
+          </p>
+          <p><em>🚀 A leaner, cleaner Meow Bot! 22% fewer commands but 100% of the functionality through better organization and intuitive menus!</em></p>
+        </div>
+        
+        <div class="patch-note">
           <h3>🔧 Version 2.6.1 - "Backend Improvements"</h3>
           <p class="patch-date">Release Date: September 2, 2025</p>
           <p>
@@ -303,7 +335,55 @@
       <div class="patch-notes-container">
         
         <div class="patch-note">
-          <h3>🔒 Version 1.4.0 - "Permission System Overhaul"</h3>
+          <h3>� Version 2.5.0 - "Purrfect Polish" Update</h3>
+          <p class="patch-date">Release Date: September 3, 2025</p>
+          <p>
+            <strong>🔧 Bug Fixes:</strong><br>
+            • <strong>FIXED:</strong> Username display showing "@123456789" instead of actual usernames in ban/kick logs<br>
+            • <strong>FIXED:</strong> Inconsistent embed formatting across different log types<br>
+            • <strong>FIXED:</strong> Setup command being overly complicated and confusing<br>
+            • <strong>FIXED:</strong> Missing context information in moderation logs<br><br>
+            
+            <strong>✨ New Features:</strong><br>
+            • <strong>NEW:</strong> One-command bot setup - just <code>/setup general_logs:#channel</code> and you're done!<br>
+            • <strong>NEW:</strong> Dual-channel logging system - separate general logs from moderation actions<br>
+            • <strong>NEW:</strong> Enhanced username resolution system for reliable user identification<br>
+            • <strong>NEW:</strong> Interactive setup interface with helpful guidance<br>
+            • <strong>NEW:</strong> <code>/avatar</code> command to view user avatars in full size<br><br>
+            
+            <strong>🎨 Visual & UX Improvements:</strong><br>
+            • <strong>IMPROVED:</strong> All log embeds redesigned with consistent colors and professional formatting<br>
+            • <strong>IMPROVED:</strong> Before/after displays for username and profile changes<br>
+            • <strong>IMPROVED:</strong> Help command organization with clear categories<br>
+            • <strong>IMPROVED:</strong> Error messages are now actually helpful<br>
+            • <strong>IMPROVED:</strong> Mobile-friendly embed layouts<br><br>
+            
+            <strong>⚙️ Quality of Life Changes:</strong><br>
+            • <strong>ENHANCED:</strong> Setup process reduced from 8+ confusing steps to 1 simple command<br>
+            • <strong>ENHANCED:</strong> Log messages now include more context (timestamps, moderators, reasons)<br>
+            • <strong>ENHANCED:</strong> Account age analysis for new member joins<br>
+            • <strong>ENHANCED:</strong> Message content previews in deletion/edit logs<br>
+            • <strong>ENHANCED:</strong> Activity leaderboard time periods - now defaults to "All Time" with cleaner options<br><br>
+            
+            <strong>⚙️ Technical Improvements:</strong><br>
+            • <strong>OPTIMIZED:</strong> Database queries for better performance<br>
+            • <strong>OPTIMIZED:</strong> Error handling throughout the entire codebase<br>
+            • <strong>OPTIMIZED:</strong> Rate limiting system to prevent log spam<br>
+            • <strong>OPTIMIZED:</strong> Background task reliability<br><br>
+            
+            <strong>📊 Admin Tools:</strong><br>
+            • <strong>ADDED:</strong> Dual-channel setup: <code>/setup general_logs:#general moderation_logs:#mod-actions</code><br>
+            • <strong>ADDED:</strong> Quick settings overview in setup interface<br>
+            • <strong>ADDED:</strong> Better configuration validation and feedback<br><br>
+            
+            <strong>🚀 Migration Guide:</strong><br>
+            Existing setups will continue working normally. To use new dual-channel logging, simply run the setup command again with both parameters!
+          </p>
+          <p><em>🌟 The biggest quality of life update yet! Manager Meow is now easier to set up, more reliable, and provides better insights than ever before!</em></p>
+        </div>
+        
+        <div class="patch-note">
+          <h3>�🔒 Version 1.4.0 - "Permission System Overhaul"</h3>
           <p class="patch-date">Release Date: September 1, 2025</p>
           <p>
             <strong>🛡️ Enhanced Command Security:</strong><br>
