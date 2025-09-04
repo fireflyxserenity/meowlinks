@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://meowlinks.github.io/</loc>
-    <lastmod>2025-08-17</lastmod>
+    <loc>https://fireflydesigns.me/</loc>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://meowlinks.github.io/patch-notes.html</loc>
-    <lastmod>2025-08-17</lastmod>
+    <loc>https://fireflydesigns.me/patch-notes.html</loc>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://meowlinks.github.io/bots.html</loc>
-    <lastmod>2025-08-17</lastmod>
+    <loc>https://fireflydesigns.me/twitch.html</loc>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://meowlinks.github.io/community.html</loc>
-    <lastmod>2025-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fireflydesigns.me/privacy.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://meowlinks.github.io/meow-clicker/</loc>
-    <lastmod>2025-08-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://fireflydesigns.me/terms.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
     <priority>0.6</priority>
   </url>
   <url>

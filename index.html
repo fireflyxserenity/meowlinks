@@ -19,6 +19,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="google-site-verification" content="bJTja6pslcTo-rd24_1JI6n2MBj3SDpIIM08e4cJjYk" />
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Meow Links - Discord Bots & Community Hub" />
@@ -275,8 +280,8 @@
 
   <!-- Modals -->
   <div id="aboutModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
-    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
-      <span class="close" onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 25px; border-radius: 18px; width: 85% !important; max-width: 735px !important; min-width: 400px !important; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 90vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeModal()" style="position: absolute; right: 15px; top: 12px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
       <div class="about-text" style="color: white;">
         <h2 style="color: #00ffff;">🐱 Multi-Server Meow Bot - What Can I Do?</h2>
         <p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">🎯 The Basics</p>
@@ -429,8 +434,8 @@
   </div>
 
   <div id="managerModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
-    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 20px; border-radius: 15px; width: 90%; max-width: 500px; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 80vh; overflow-y: auto; position: relative;">
-      <span class="close" onclick="closeManagerModal()" style="position: absolute; right: 15px; top: 10px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
+    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 25px; border-radius: 18px; width: 85% !important; max-width: 735px !important; min-width: 400px !important; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 90vh; overflow-y: auto; position: relative;">
+      <span class="close" onclick="closeManagerModal()" style="position: absolute; right: 15px; top: 12px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
       <div class="about-text" style="color: white;">
         <h2 style="color: #00ffff;">🐱 Manager Meow - Complete Discord Management Suite</h2>
         <p style="margin-bottom: 15px; font-size: 1.1em; font-weight: bold; color: #4facfe;">Professional moderation and logging system with adorable cat theming</p>
