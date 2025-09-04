@@ -10,7 +10,7 @@
     gtag('config', 'G-YKNC7L8DV7');
   </script>
 
-  <!-- Google AdSense -->
+ <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
        crossorigin="anonymous"></script>
 
@@ -82,6 +82,27 @@
     <!-- Meow Bot Patch Notes -->
     <div id="meow-bot" class="tab-content active">
       <div class="patch-notes-container">
+        
+        <div class="patch-note">
+          <h3>🔧 Version 2.7.1 - "Setup Fix"</h3>
+          <p class="patch-date">Release Date: September 4, 2025</p>
+          <p>
+            <strong>🐛 Bug Fixes:</strong><br>
+            • <strong>Fixed <code>/setup</code> command crash</strong> - Resolved emoji encoding issue that was preventing the setup dropdown menu from loading<br>
+            • <strong>Improved error handling</strong> - Setup command now displays proper error messages instead of crashing<br><br>
+            
+            <strong>✅ What's Working Now:</strong><br>
+            • <code>/setup</code> dropdown menu displays correctly<br>
+            • All configuration options accessible through the interactive menu<br>
+            • No impact on existing server configurations or user data<br><br>
+            
+            <strong>🔧 Technical Details:</strong><br>
+            • Removed corrupted Unicode emoji characters from dropdown options<br>
+            • All existing welcome messages, meow counts, and server settings remain unchanged<br>
+            • No user action required - everything should work immediately
+          </p>
+          <p><em>🎉 Setup menu is fixed and working again!</em></p>
+        </div>
         
         <div class="patch-note">
           <h3>🎯 Version 2.7.0 - "Bot Simplification Update"</h3>
@@ -335,7 +356,51 @@
       <div class="patch-notes-container">
         
         <div class="patch-note">
-          <h3>� Version 2.5.0 - "Purrfect Polish" Update</h3>
+          <h3>🐱 Version 2.6.0 - "Advanced Logging Control"</h3>
+          <p class="patch-date">Release Date: September 4, 2025</p>
+          <p>
+            <strong>🎉 Major New Features:</strong><br><br>
+            
+            <strong>⚙️ NEW: <code>/logs</code> Command:</strong><br>
+            Configure what events get logged and where they go!<br>
+            <strong>Examples:</strong><br>
+            • <code>/logs view</code> - See your current setup (shows publicly)<br>
+            • <code>/logs moderation member_activity</code> - Move joins/leaves to mod channel<br>
+            • <code>/logs general ban_activity</code> - Move bans to general channel<br>
+            • <code>/logs enable voice_activity</code> - Turn on voice logging<br>
+            • <code>/logs disable message_activity</code> - Turn off message logging<br><br>
+            
+            <strong>🔄 Flexible Event Routing:</strong><br>
+            Move any event type between your general and moderation log channels.<br><br>
+            
+            <strong>Popular moves:</strong><br>
+            • Member joins/leaves → moderation channel for admin visibility<br>
+            • Bans/kicks → general channel for transparency<br>
+            • Voice activity → moderation channel for monitoring<br><br>
+            
+            <strong> Event Categories You Can Control:</strong><br>
+            • <strong>Member Activity</strong> - Joins, leaves<br>
+            • <strong>Message Activity</strong> - Edits, deletes<br>
+            • <strong>Moderation Activity</strong> - Bans, kicks, warnings, mutes<br>
+            • <strong>Voice Activity</strong> - Voice channel movement<br>
+            • <strong>Profile Activity</strong> - Nickname/avatar changes<br>
+            • <strong>Role Activity</strong> - Role assignments<br>
+            • <strong>Server Activity</strong> - Channel/server updates<br><br>
+            
+            <strong>🛠️ Setup Experience:</strong><br>
+            • <strong>New Servers:</strong> <code>/setup</code> → guided setup in 30 seconds<br>
+            • <strong>Existing Servers:</strong> Everything keeps working, use <code>/logs</code> to customize<br><br>
+            
+            <strong>🐛 Bug Fixes:</strong><br>
+            • Fixed log channel errors<br>
+            • Improved message deletion error handling<br>
+            • Enhanced setup command stability
+          </p>
+          <p><em>🚀 Use <code>/help</code> or <code>/setup</code> to get started!</em></p>
+        </div>
+        
+        <div class="patch-note">
+          <h3>🔧 Version 2.5.0 - "Purrfect Polish" Update</h3>
           <p class="patch-date">Release Date: September 3, 2025</p>
           <p>
             <strong>🔧 Bug Fixes:</strong><br>
@@ -383,7 +448,7 @@
         </div>
         
         <div class="patch-note">
-          <h3>�🔒 Version 1.4.0 - "Permission System Overhaul"</h3>
+          <h3>⚙️🔒 Version 1.4.0 - "Permission System Overhaul"</h3>
           <p class="patch-date">Release Date: September 1, 2025</p>
           <p>
             <strong>🛡️ Enhanced Command Security:</strong><br>
