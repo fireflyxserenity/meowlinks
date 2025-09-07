@@ -155,6 +155,20 @@
           <p><em>🐱 Behind-the-scenes improvements to keep Meow Bot running smoothly and help us monitor its health across all servers!</em></p>
         </div>
         
+        <!-- In-Feed Ad -->
+        <div style="margin: 30px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
+          <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-layout="in-article"
+               data-ad-format="fluid"
+               data-ad-client="ca-pub-3994230437494776"
+               data-ad-slot="4306564524"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        
         <div class="patch-note">
           <h3>🎭 Version 2.6.0 - "Reaction Roles Update"</h3>
           <p class="patch-date">Release Date: August 28, 2025</p>
@@ -356,7 +370,7 @@
       <div class="patch-notes-container">
         
         <div class="patch-note">
-          <h3>� Version 2.6.1 - "Guild Join Request Fixes"</h3>
+          <h3>🔧 Version 2.6.1 - "Guild Join Request Fixes"</h3>
           <p class="patch-date">Release Date: September 5, 2025</p>
           <p>
             <strong>🐛 Bug Fixes:</strong><br><br>
@@ -383,7 +397,7 @@
         </div>
         
         <div class="patch-note">
-          <h3>�🐱 Version 2.6.0 - "Advanced Logging Control"</h3>
+          <h3>🐱 Version 2.6.0 - "Advanced Logging Control"</h3>
           <p class="patch-date">Release Date: September 4, 2025</p>
           <p>
             <strong>🎉 Major New Features:</strong><br><br>
@@ -520,6 +534,20 @@
             ✅ All commands work exactly as before - ✅ All logging features unchanged - ✅ Activity/XP system untouched - ✅ Same embeds and message format
           </p>
           <p><em>🌍 Manager Meow can now be deployed globally across large Discord communities without rate limiting issues!</em></p>
+        </div>
+        
+        <!-- In-Feed Ad -->
+        <div style="margin: 30px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
+          <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-layout="in-article"
+               data-ad-format="fluid"
+               data-ad-client="ca-pub-3994230437494776"
+               data-ad-slot="4306564524"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
         
         <div class="patch-note">
@@ -659,7 +687,70 @@
         // Default to Meow Bot if no parameter or invalid parameter
         showBot('meow-bot');
       }
+      
+      // Auto-insert ads after every 3 patch notes
+      insertAdsAutomatically();
     });
+
+    function insertAdsAutomatically() {
+      // Function to create an ad element
+      function createAdElement() {
+        const adDiv = document.createElement('div');
+        adDiv.style.cssText = 'margin: 30px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;';
+        adDiv.innerHTML = `
+          <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-layout="in-article"
+               data-ad-format="fluid"
+               data-ad-client="ca-pub-3994230437494776"
+               data-ad-slot="4306564524"></ins>
+        `;
+        return adDiv;
+      }
+
+      // Insert ads in both bot sections
+      const botSections = ['meow-bot', 'meow-manager'];
+      
+      botSections.forEach(sectionId => {
+        const container = document.querySelector(`#${sectionId} .patch-notes-container`);
+        if (!container) return;
+        
+        const patchNotes = container.querySelectorAll('.patch-note');
+        let adCount = 0;
+        
+        // Insert ad after every 3 patch notes (starting after the 3rd)
+        for (let i = 2; i < patchNotes.length; i += 3) {
+          // Skip if there's already a manual ad nearby
+          const nextElement = patchNotes[i].nextElementSibling;
+          if (nextElement && nextElement.innerHTML && nextElement.innerHTML.includes('adsbygoogle')) {
+            continue;
+          }
+          
+          const adElement = createAdElement();
+          adElement.setAttribute('data-auto-ad', 'true'); // Mark as auto-generated
+          
+          // Insert after current patch note
+          patchNotes[i].parentNode.insertBefore(adElement, patchNotes[i].nextSibling);
+          adCount++;
+          
+          // Limit to 3 ads per section to avoid overwhelming
+          if (adCount >= 3) break;
+        }
+      });
+      
+      // Initialize new ads
+      if (window.adsbygoogle) {
+        const newAds = document.querySelectorAll('[data-auto-ad="true"] .adsbygoogle');
+        newAds.forEach(ad => {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.log('AdSense auto-ad initialization skipped');
+          }
+        });
+      }
+    }
   </script>
 
   <!-- Footer -->
