@@ -60,7 +60,7 @@
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="index.html#bots" class="nav-link">Bots</a></li>
           <li><a href="twitch.html" class="nav-link">Twitch Bot</a></li>
-          <li><a href="https://discord.gg/tba3sPkR" target="_blank" class="nav-link">Support</a></li>
+          <li><a href="https://discord.gg/tba3sPkR" target="_blank" class="nav-link">Discord Server</a></li>
           <li><a href="patch-notes.html" class="nav-link active">Patch Notes</a></li>
         </ul>
       </div>
@@ -674,6 +674,32 @@
       if (container) {
         container.scrollTop = 0;
       }
+      
+      // Refresh ads when switching to a tab (especially important for hidden tabs)
+      setTimeout(() => {
+        refreshAdsInSection(botName);
+      }, 100);
+    }
+
+    function refreshAdsInSection(sectionId) {
+      // Find all AdSense ads in the current section
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+      
+      const ads = section.querySelectorAll('.adsbygoogle');
+      ads.forEach(ad => {
+        // Only refresh if the ad appears empty/not loaded
+        if (ad.innerHTML.trim() === '' || ad.offsetHeight < 50) {
+          try {
+            // Push ad to AdSense queue for loading
+            if (window.adsbygoogle && window.adsbygoogle.loaded) {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+          } catch (e) {
+            console.log('Ad refresh skipped:', e);
+          }
+        }
+      });
     }
 
     // Check URL parameters on page load
@@ -739,17 +765,40 @@
         }
       });
       
-      // Initialize new ads
-      if (window.adsbygoogle) {
-        const newAds = document.querySelectorAll('[data-auto-ad="true"] .adsbygoogle');
-        newAds.forEach(ad => {
+      // Initialize new ads with proper timing
+      setTimeout(() => {
+        if (window.adsbygoogle) {
+          const newAds = document.querySelectorAll('[data-auto-ad="true"] .adsbygoogle');
+          newAds.forEach(ad => {
+            try {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+              console.log('AdSense auto-ad initialization skipped');
+            }
+          });
+        }
+        
+        // Also initialize any existing ads that might not have loaded
+        setTimeout(() => {
+          refreshAllAds();
+        }, 1000);
+      }, 500);
+    }
+    
+    function refreshAllAds() {
+      // Force refresh all ads on the page
+      const allAds = document.querySelectorAll('.adsbygoogle');
+      allAds.forEach(ad => {
+        if (ad.innerHTML.trim() === '' || ad.offsetHeight < 50) {
           try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            if (window.adsbygoogle) {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            }
           } catch (e) {
-            console.log('AdSense auto-ad initialization skipped');
+            console.log('Ad refresh failed:', e);
           }
-        });
-      }
+        }
+      });
     }
   </script>
 
