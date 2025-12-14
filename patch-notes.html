@@ -84,6 +84,33 @@
       <div class="patch-notes-container">
         
         <div class="patch-note">
+          <h3>🐱 Version 2.10.0 - "Meow Count Consistency Patch"</h3>
+          <p class="patch-date">Release Date: December 14, 2025</p>
+          <p class="patch-status">Status: ✅ Live in all servers</p>
+          <p>
+            <strong>🔍 Issue Fixed:</strong><br>
+            Server meow counts were inconsistent across different displays. Some servers showed different totals in chat vs. leaderboards due to counting departed members differently (~5-10% variance depending on member turnover).<br><br>
+            
+            <strong>🎯 Root Cause:</strong><br>
+            • Message responses counted ALL meows (including departed users)<br>
+            • Global leaderboard only counted current members<br>
+            • This created a discrepancy in displayed totals<br><br>
+            
+            <strong>✅ Fixes Applied:</strong><br>
+            • <strong>Server Leaderboard (<code>/meowboard</code>):</strong> Now shows all-time total including departed users<br>
+            • <strong>Global Leaderboard (<code>/globalmeowboard</code>):</strong> Now shows accurate all-time server totals<br>
+            • <strong>Leaderboard rankings:</strong> Still only display current members in the top 10<br><br>
+            
+            <strong>🎉 Results:</strong><br>
+            ✅ Message response meow count now matches <code>/meowboard</code> total<br>
+            ✅ <code>/meowboard</code> total now matches <code>/globalmeowboard</code> entry<br>
+            ✅ All historical meows are preserved and counted<br>
+            ✅ No data loss - departed users' meows still matter!
+          </p>
+          <p><em>✨ All meow counts are now consistent across all displays! *Thanks to user PoppaB for pointing this out*</em></p>
+        </div>
+        
+        <div class="patch-note">
           <h3>🧹 Version 2.9.0 - "Console Cleanup & Optimization"</h3>
           <p class="patch-date">Release Date: October 31, 2025</p>
           <p class="patch-status">Status: ✅ Live in all 31 servers</p>
