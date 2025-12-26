@@ -441,15 +441,17 @@ nav {
   }
 
   nav {
-    flex-wrap: wrap;
-    gap: 0.5rem;
     padding: 0.8rem 1rem;
   }
 
   .nav-links {
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
   }
 
   .stats-row {
