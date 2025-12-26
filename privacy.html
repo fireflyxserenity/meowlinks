@@ -1,192 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YKNC7L8DV7');
-    </script>
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
-         crossorigin="anonymous"></script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Meow Links</title>
-    <meta name="description" content="Privacy Policy for Meow Links Discord bots and services">
-    <meta name="keywords" content="privacy policy, discord bot, meow bot, data protection">
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body class="legal-page">
-    <!-- Particles Background -->
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-        <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
-        <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
-        <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
-        <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
-        <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
-    </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Meow Links</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bot-tab {
+      padding: 0.8rem 1.5rem;
+      background: rgba(0, 255, 255, 0.1);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      color: #ffffff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    🐱
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="index.html#bots" class="nav-link">Bots</a></li>
-                    <li><a href="twitch.html" class="nav-link">Twitch Bot</a></li>
-                    <li><a href="https://discord.gg/CQFaH9pH" target="_blank" class="nav-link">Discord Server</a></li>
-                    <li><a href="patch-notes.html" class="nav-link">Patch Notes</a></li>
-                </ul>
-            </div>
-        </div>
+    .bot-tab.active {
+      background: rgba(0, 255, 255, 0.2);
+      border-color: rgba(0, 255, 255, 0.5);
+      color: #00ffff;
+    }
+
+    .bot-tab:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
+    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
+    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
+    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+  </div>
+
+  <div class="content">
+    <nav>
+      <div class="logo">🐱 MEOW LINKS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#bots">Bots</a></li>
+        <li><a href="index.html#servers">Servers</a></li>
+        <li><a href="https://discord.gg/tzqYXPC3" target="_blank">Discord</a></li>
+      </ul>
     </nav>
 
-    <div class="legal-container">
-        <div class="legal-header">
-            <h1>🔒 Privacy Policy</h1>
-            <p>How we protect and handle your data</p>
+    <section class="section">
+      <div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+        <h2 class="section-title">🔒 Privacy Policy</h2>
+        <p class="section-subtitle">How we protect and handle your data</p>
+
+        <!-- Bot Selection Tabs -->
+        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="bot-tab active" id="tab-meow-bot" onclick="showBot('meow-bot')">🐱 Meow Bot</button>
+          <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')">🛠️ Meow Manager</button>
         </div>
 
-        <div class="legal-content">
-            <p><strong>Last Updated:</strong> August 18, 2025</p>
+        <!-- Meow Bot Privacy -->
+        <div id="meow-bot" class="tab-content active" style="margin-top: 2rem; text-align: left;">
+            <p><strong>Last Updated:</strong> December 25, 2025</p>
 
-            <h2>1. Introduction</h2>
-            <p>Welcome to Meow Links! We operate Discord bots including <span class="highlight">Meow Bot</span> and <span class="highlight">Meow Manager</span>. This Privacy Policy explains how we collect, use, and protect your information when you use our services.</p>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📝 Introduction</h3>
+            <p><span style="color: #ff69b4;">Meow Bot</span> ("the Bot") is committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, how we protect it, and your rights regarding your information.</p>
 
-            <h2>2. Information We Collect</h2>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📊 Information We Collect</h3>
             
-            <h3>Automatically Collected Data</h3>
-            <ul>
-                <li><strong>Discord User ID:</strong> Your unique Discord identifier</li>
-                <li><strong>Server/Guild ID:</strong> The Discord server where our bot is used</li>
-                <li><strong>Message Content:</strong> Only when specifically using bot commands</li>
-                <li><strong>Usage Statistics:</strong> Command usage, interaction frequency</li>
-                <li><strong>Activity Data:</strong> XP tracking, level progression (Meow Manager only)</li>
+            <h4 style="margin-top: 1rem;">Discord User Information</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>User IDs:</strong> Unique Discord identifiers for users who interact with the Bot</li>
+                <li><strong>Server IDs:</strong> Identifiers for servers where the Bot is installed</li>
+                <li><strong>Usernames and Display Names:</strong> For leaderboard and public-facing features (when applicable)</li>
             </ul>
 
-            <h3>Voluntarily Provided Data</h3>
-            <ul>
-                <li><strong>Anonymous Confessions:</strong> Content you submit through confession features</li>
-                <li><strong>Reminders:</strong> Personal reminder content and timing</li>
-                <li><strong>Poll Responses:</strong> Your votes and poll interactions</li>
-                <li><strong>Meow/Bark Counts:</strong> Your participation in counting activities</li>
+            <h4 style="margin-top: 1rem;">Interaction Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Message Counts:</strong> Number of "meow" and "bark" messages per user per server</li>
+                <li><strong>Quotes:</strong> Text content of quotes created by users, including timestamps and user IDs</li>
+                <li><strong>Confessions:</strong> Anonymous message text and associated metadata</li>
+                <li><strong>Timestamps:</strong> When users interact with Bot features</li>
+                <li><strong>Message Content:</strong> Limited processing of message content to identify triggers (meows, barks, etc.)</li>
             </ul>
 
-            <h2>3. How We Use Your Information</h2>
-            <ul>
-                <li><strong>Bot Functionality:</strong> To provide core bot features and commands</li>
-                <li><strong>Statistics:</strong> To display leaderboards and server analytics</li>
-                <li><strong>User Experience:</strong> To personalize your bot interactions</li>
-                <li><strong>Moderation:</strong> To track warnings and moderation actions (Meow Manager)</li>
-                <li><strong>Support:</strong> To provide technical support and troubleshooting</li>
+            <h4 style="margin-top: 1rem;">Server Configuration Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Channel IDs:</strong> Configured channels for confessions, quotes, Twitch notifications, logs, etc.</li>
+                <li><strong>Server Settings:</strong> Preferences set by server administrators including rate limits and features</li>
+                <li><strong>Server Names:</strong> Display names for leaderboards and statistics</li>
+                <li><strong>Welcome Messages:</strong> Custom welcome message text configured by administrators</li>
             </ul>
 
-            <h2>4. Data Storage and Security</h2>
-            <p>We implement appropriate security measures to protect your data:</p>
-            <ul>
-                <li>Data is stored on secure servers with encryption</li>
-                <li>Access is limited to authorized personnel only</li>
-                <li>Regular security audits and updates</li>
-                <li>Data is backed up securely to prevent loss</li>
+            <h4 style="margin-top: 1rem;">Twitch Integration Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Streamer Information:</strong> Names of Twitch streamers being tracked</li>
+                <li><strong>Stream Status:</strong> Online/offline status and stream metadata</li>
+                <li><strong>Stream Notifications:</strong> When and where stream notifications are sent</li>
             </ul>
 
-            <!-- In-Feed Ad -->
-            <div style="margin: 30px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
-                <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
-                <ins class="adsbygoogle"
-                     style="display:block; text-align:center;"
-                     data-ad-layout="in-article"
-                     data-ad-format="fluid"
-                     data-ad-client="ca-pub-3994230437494776"
-                     data-ad-slot="4306564524"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-
-            <h2>5. Data Sharing</h2>
-            <p>We <strong>DO NOT</strong> sell, trade, or share your personal data with third parties except:</p>
-            <ul>
-                <li><strong>Discord:</strong> As required for bot functionality through Discord's API</li>
-                <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
-                <li><strong>Aggregated Data:</strong> Anonymous, non-identifiable statistics for improvement purposes</li>
+            <h4 style="margin-top: 1rem;">Leaderboard Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Rankings:</strong> User rankings based on meow/bark counts</li>
+                <li><strong>Statistics:</strong> Aggregated data about server activity</li>
+                <li><strong>Participation Status:</strong> Whether servers opt into global leaderboards</li>
             </ul>
 
-            <h2>6. Data Retention</h2>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🎯 How We Use Your Information</h3>
             
-            <!-- In-Feed Ad -->
-            <div style="margin: 15px 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2); padding: 20px;">
-                <div style="font-size: 0.7em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 10px;">Advertisement</div>
-                <ins class="adsbygoogle"
-                     style="display:block; text-align:center;"
-                     data-ad-layout="in-article"
-                     data-ad-format="fluid"
-                     data-ad-client="ca-pub-3994230437494776"
-                     data-ad-slot="4306564524"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            
-            <ul>
-                <li><strong>Active Users:</strong> Data retained while you use our services</li>
-                <li><strong>Inactive Users:</strong> Data may be deleted after 12 months of inactivity</li>
-                <li><strong>Banned Users:</strong> Moderation data retained for security purposes</li>
-                <li><strong>Server Removal:</strong> Data deleted within 30 days of bot removal</li>
+            <h4 style="margin-top: 1rem;">Primary Purposes</h4>
+            <p>Your information is used to:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Provide Bot Functionality:</strong> Count meows/barks, store quotes, process confessions, send notifications</li>
+                <li><strong>Generate Leaderboards:</strong> Create rankings and statistics for servers and globally</li>
+                <li><strong>Send Notifications:</strong> Twitch stream alerts, reminders, and scheduled messages</li>
+                <li><strong>Server Administration:</strong> Allow administrators to configure and manage Bot features</li>
+                <li><strong>Analytics:</strong> Track feature usage to improve Bot performance (aggregate, non-identifying data)</li>
             </ul>
 
-            <h2>7. Your Rights</h2>
+            <h4 style="margin-top: 1rem;">Anonymous Confessions</h4>
+            <p>Confessions are displayed anonymously to other users. Server administrators and Bot creators may access confession logs with user IDs attached for moderation purposes. User IDs are stored to prevent duplicate confessions and enable administrator review.</p>
+
+            <h4 style="margin-top: 1rem;">Quote Attribution</h4>
+            <p>Quotes are stored with your user ID but can be accessed anonymously through commands. Your username is recorded as the creator but may not be visible depending on server configuration.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔐 Data Storage and Security</h3>
+            
+            <h4 style="margin-top: 1rem;">Security Measures</h4>
+            <p>We employ security measures including:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>SQLite Database with Encryption Pragmas:</strong> Database uses Write-Ahead Logging (WAL) and integrity checks</li>
+                <li><strong>Limited Access:</strong> Only authorized administrators can access raw database files</li>
+                <li><strong>No Passwords Stored:</strong> User authentication relies on Discord's secure OAuth2 system</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">Limitations</h4>
+            <p>We cannot guarantee absolute security. Despite our efforts, database files could be compromised if server security is breached. Users should not share sensitive personal information through the Bot.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Data Sharing</h3>
+            
+            <h4 style="margin-top: 1rem;">With Server Administrators</h4>
+            <p>Server administrators have access to confession logs with user IDs, detailed server statistics, configuration information, and settings history. Administrators are responsible for handling this data appropriately.</p>
+
+            <h4 style="margin-top: 1rem;">With Other Users</h4>
+            <p>In public leaderboards and statistics, we share usernames, message counts, rankings, and aggregated statistics. Users appearing on leaderboards do so based on their public activity in the server.</p>
+
+            <h4 style="margin-top: 1rem;">Third Parties</h4>
+            <p><strong>Twitch:</strong> If you use the Twitch integration, limited streamer information is shared with Twitch's API to verify stream status.</p>
+            <p><strong>Discord:</strong> The Bot operates within Discord and is subject to Discord's data policies. Limited information may be shared with Discord as required by their platform (such as through their API).</p>
+            <p><strong>No Other Sharing:</strong> We do not sell, rent, lease, or share your data with third parties for marketing or other purposes.</p>
+
+            <h4 style="margin-top: 1rem;">Legal Requirements</h4>
+            <p>We may disclose information if required by law, necessary to prevent fraud, required to protect user safety, or to comply with Discord's Terms of Service.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⏱️ Data Retention</h3>
+            
+            <h4 style="margin-top: 1rem;">Retention Period</h4>
+            <p>Data is retained for as long as you are a member of a server using the Bot, the Bot is installed in the server, or it is needed for the functionality of the Bot.</p>
+
+            <h4 style="margin-top: 1rem;">Deletion</h4>
+            <p>You can request deletion of your data by contacting the server administrator of servers where you submitted content, requesting deletion of your meow/bark counts, or contacting the Bot creator for account-wide data deletion. Some data may be retained for backup purposes or may be recoverable from archives.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">✋ Your Rights</h3>
             <p>You have the right to:</p>
-            <ul>
-                <li><strong>Access:</strong> Request a copy of your stored data</li>
-                <li><strong>Correction:</strong> Request corrections to inaccurate data</li>
-                <li><strong>Deletion:</strong> Request deletion of your data</li>
-                <li><strong>Opt-out:</strong> Stop using our services at any time</li>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Access:</strong> Request information about what personal data is collected about you</li>
+                <li><strong>Deletion:</strong> Request deletion of your personal data (subject to limitations)</li>
+                <li><strong>Opt-Out:</strong> Stop using Bot features, ask administrators to remove you from leaderboards, or request the Bot creator disable the Bot in a server</li>
+                <li><strong>Data Portability:</strong> Request your data be provided in a readable format</li>
             </ul>
 
-            <div class="contact-box">
-                <h3>Data Requests</h3>
-                <p>To exercise your rights or request data deletion, contact us:</p>
-                <p>Discord: <a href="https://discord.gg/CQFaH9pH" target="_blank">Join our support server</a></p>
-                <p>Direct Message: <strong>fireflyxserenity</strong> on Discord</p>
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #00ffff;">
+                <h3 style="margin-top: 0; font-size: 1rem;">❓ Data Deletion Request Process</h3>
+                <p><strong>To request deletion of your data:</strong></p>
+                <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Identify the data: Specify what data you want deleted (e.g., "all meow counts", "all confessions I submitted")</li>
+                    <li>Provide evidence: Include your Discord user ID and the server ID (if server-specific)</li>
+                    <li>Contact administrator: First contact your server administrator</li>
+                    <li>Contact creator: If server administrator cannot help, contact the Bot creator</li>
+                </ol>
+                <p>Requests will be processed within 30 days where possible.</p>
             </div>
 
-            <h2>8. Children's Privacy</h2>
-            <p>Our services are intended for users 13 years and older, in compliance with Discord's Terms of Service. We do not knowingly collect information from children under 13.</p>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">👧 Children's Privacy</h3>
+            <p>The Bot is not intended for children under 13. We do not knowingly collect information from children under 13. Discord's Terms of Service require users to be 13+, and servers using the Bot should enforce age requirements.</p>
 
-            <h2>9. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy periodically. Changes will be announced in our Discord server and reflected in the "Last Updated" date above.</p>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔗 Third-Party Services</h3>
+            <p>The Bot integrates with Discord (subject to Discord's Privacy Policy), Twitch (for stream status integration), and local database storage. We are not responsible for third parties' privacy practices. Review their policies independently.</p>
 
-            <h2>10. Contact Information</h2>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Changes to This Policy</h3>
+            <p>We reserve the right to modify this Privacy Policy at any time. Changes will be effective immediately upon posting. Your continued use of the Bot constitutes acceptance of the modified policy. Significant changes will be announced when possible.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💬 Contact Information</h3>
+            <p>For privacy-related questions, concerns, or requests regarding your data, please contact:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Bot Creator:</strong> Available through Discord. Provide server ID and user ID when making requests</li>
+                <li><strong>Server Administrators:</strong> Contact your server's administrators for server-specific privacy concerns</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💬 Contact Information</h3>
             <p>If you have questions about this Privacy Policy:</p>
-            <ul>
-                <li>Join our Discord server: <a href="https://discord.gg/CQFaH9pH" target="_blank">discord.gg/CQFaH9pH</a></li>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Join our Discord server: <a href="https://discord.gg/tzqYXPC3" target="_blank" style="color: #ff69b4;">discord.gg/tzqYXPC3</a></li>
                 <li>Direct message: <strong>fireflyxserenity</strong> on Discord</li>
             </ul>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html" class="footer-link active">Privacy Policy</a>
-                <a href="terms.html" class="footer-link">Terms of Service</a>
-                <a href="https://discord.gg/CQFaH9pH" target="_blank" class="footer-link">Support</a>
-                <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="footer-link">Donate</a>
+        <!-- Meow Manager Privacy -->
+        <div id="meow-manager" class="tab-content" style="margin-top: 2rem; text-align: left;">
+            <p><strong>Last Updated:</strong> December 25, 2025</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📝 Introduction</h3>
+            <p>Manager Meow ("the Bot") is committed to protecting your privacy. This Privacy Policy explains what data we collect, how we use it, how long we retain it, and your rights regarding your information.</p>
+            <p>By using the Bot, you consent to the practices described in this Privacy Policy. If you do not agree with our data practices, please do not use the Bot.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📊 Data We Collect</h3>
+            
+            <h4 style="margin-top: 1rem;">🔧 Server Configuration Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Server ID and name</li>
+                <li>Channel IDs and configurations</li>
+                <li>Role IDs and assignments</li>
+                <li>Bot permissions and settings</li>
+                <li>Custom command configurations</li>
+                <li>Prefix and command settings</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">🎫 Ticket and Thread Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Ticket numbers and IDs</li>
+                <li>Ticket status and creation/closure timestamps</li>
+                <li>Thread IDs and messages</li>
+                <li>User IDs of ticket participants</li>
+                <li>Ticket category and type information</li>
+                <li>Custom field data entered in tickets</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">👤 User Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>User IDs (Discord user identifiers)</li>
+                <li>Usernames and display names</li>
+                <li>User reminders and preferences</li>
+                <li>Role assignments per user</li>
+                <li>Message content when necessary for feature operation</li>
+                <li>Timestamps of interactions</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">⏰ Reminder Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Reminder text and content</li>
+                <li>Reminder timestamps and recurrence settings</li>
+                <li>User IDs associated with reminders</li>
+                <li>Channel IDs where reminders should be sent</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">📊 Automatically Collected Data</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Bot interaction logs (for error tracking and improvement)</li>
+                <li>Command usage statistics</li>
+                <li>Feature usage patterns (in aggregate, non-identifying)</li>
+                <li>Timestamps of all interactions</li>
+                <li>Event information from Discord (joins, leaves, role changes)</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">ℹ️ Data You Provide</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Custom messages and configurations</li>
+                <li>Support requests or feedback</li>
+                <li>Server rules and guidelines (if configured through the Bot)</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🎯 How We Use Your Data</h3>
+            <p>We use collected data to:</p>
+
+            <h4 style="margin-top: 1rem;">⚙️ Core Bot Functionality</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Execute user commands and feature requests</li>
+                <li>Store and retrieve server configurations</li>
+                <li>Manage tickets, reminders, and automated tasks</li>
+                <li>Maintain user preferences and settings</li>
+                <li>Process role assignments and welcome messages</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">🔧 Service Improvement</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Identify and fix bugs and errors</li>
+                <li>Analyze usage patterns to improve features</li>
+                <li>Perform necessary maintenance and updates</li>
+                <li>Monitor bot performance and reliability</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">🔒 Security and Compliance</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Prevent abuse, spam, and malicious use</li>
+                <li>Comply with Discord's Terms of Service</li>
+                <li>Respond to legal requests or law enforcement</li>
+                <li>Protect the rights and safety of users and server administrators</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">💬 Communication</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Send reminders at requested times</li>
+                <li>Notify users of ticket updates or role assignments</li>
+                <li>Provide error messages and feedback</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Data Sharing</h3>
+
+            <h4 style="margin-top: 1rem;">🚫 No Third-Party Sales</h4>
+            <p>We do not sell, trade, or rent your personal information to third parties.</p>
+
+            <h4 style="margin-top: 1rem;">🔗 Discord Integration</h4>
+            <p>The Bot operates on Discord and shares necessary data with Discord Inc. to function. You are subject to Discord's Privacy Policy: <a href="https://discordapp.com/privacy" target="_blank" style="color: #ff69b4;">https://discordapp.com/privacy</a></p>
+
+            <h4 style="margin-top: 1rem;">⚖️ Legal Compliance</h4>
+            <p>We may disclose data if required by law, court order, or legitimate legal request from law enforcement.</p>
+
+            <h4 style="margin-top: 1rem;">👨‍💼 Bot Administrators</h4>
+            <p>Server administrators of your Discord server can access server configuration data and ticket information as part of normal bot administration.</p>
+
+            <h4 style="margin-top: 1rem;">🤝 Service Providers</h4>
+            <p>We may use third-party services for hosting, analytics, or error tracking. These providers are contractually obligated to maintain confidentiality.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⏱️ Data Retention</h3>
+
+            <h4 style="margin-top: 1rem;">🔧 Server Configuration</h4>
+            <p>Stored indefinitely while the Bot remains in the server. Deleted when the Bot is removed.</p>
+
+            <h4 style="margin-top: 1rem;">🎫 Tickets and Threads</h4>
+            <p>Stored until explicitly deleted by administrators. Closed tickets may be archived but retained for record-keeping.</p>
+
+            <h4 style="margin-top: 1rem;">⏰ User Reminders</h4>
+            <p>Stored until the reminder is completed or explicitly deleted. Recurring reminders persist until canceled.</p>
+
+            <h4 style="margin-top: 1rem;">📝 Logs and Analytics</h4>
+            <p>General logs may be retained for 30-90 days for troubleshooting and improvement purposes.</p>
+
+            <h4 style="margin-top: 1rem;">👤 User Preference Data</h4>
+            <p>Retained while the user participates in the server. Deleted if the user leaves the server or data is explicitly removed.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔐 Data Security</h3>
+
+            <h4 style="margin-top: 1rem;">🛡️ Protection Measures</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Data is encrypted in transit (HTTPS/TLS)</li>
+                <li>Access to data is restricted to authorized personnel</li>
+                <li>Regular security reviews and updates</li>
+                <li>Secure authentication mechanisms</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">⚠️ Limitations</h4>
+            <p>No security system is perfect. While we implement reasonable safeguards, we cannot guarantee absolute security against all threats.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">✋ Your Privacy Rights</h3>
+
+            <h4 style="margin-top: 1rem;">🔍 Access</h4>
+            <p>You have the right to request access to your personal data. Contact the Bot administrators to request a copy of your data.</p>
+
+            <h4 style="margin-top: 1rem;">✏️ Correction</h4>
+            <p>You can request correction of inaccurate data through server configurations or by contacting administrators.</p>
+
+            <h4 style="margin-top: 1rem;">🗑️ Deletion</h4>
+            <p>You can delete your reminders, preferences, and user data. Request Server Administrators to remove your data from the Bot's database.</p>
+
+            <h4 style="margin-top: 1rem;">📤 Data Portability</h4>
+            <p>You can request export of your data in a standard format.</p>
+
+            <h4 style="margin-top: 1rem;">🚫 Opt-Out</h4>
+            <p>You can:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Leave any Discord server using the Bot</li>
+                <li>Ask administrators to remove you from the Bot's systems</li>
+                <li>Disable specific features if options are available</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">📧 Contact for Privacy Requests</h4>
+            <p>Submit privacy requests to the Bot administrators through Discord support channels or direct messages.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">👧 Children's Privacy</h3>
+            <p>The Bot is not intended for children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect data from children under 13. If we become aware of such collection, we will delete the data. Discord users must be at least 13 years old per Discord's Terms of Service.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🏛️ GDPR and Data Protection</h3>
+
+            <h4 style="margin-top: 1rem;">⚖️ Legal Basis</h4>
+            <p>We process data based on:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Legitimate interests (Bot functionality and security)</li>
+                <li>Consent (by using the Bot)</li>
+                <li>Legal obligations (when required by law)</li>
+            </ul>
+
+            <h4 style="margin-top: 1rem;">🇪🇺 Data Subject Rights (EU Users)</h4>
+            <p>If you are in the EU, you have additional rights including:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Right to access</li>
+                <li>Right to rectification</li>
+                <li>Right to erasure ("right to be forgotten")</li>
+                <li>Right to restrict processing</li>
+                <li>Right to data portability</li>
+                <li>Right to lodge a complaint with supervisory authorities</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🏛️ California Privacy Rights (CCPA)</h3>
+            <p>California residents have the right to:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Know what personal information is collected</li>
+                <li>Know whether personal information is sold or disclosed</li>
+                <li>Delete personal information (with certain exceptions)</li>
+                <li>Opt-out of the sale or sharing of personal information</li>
+                <li>Non-discrimination for exercising CCPA rights</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🍪 Cookies and Tracking</h3>
+            <p>The Bot does not use cookies or tracking pixels. Discord may use cookies as part of its own services—see Discord's Privacy Policy for details.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔗 Third-Party Links</h3>
+            <p>The Bot may reference external services or documentation. We are not responsible for the privacy practices of external sites. Please review their privacy policies independently.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy periodically. We will notify users of significant changes. Your continued use of the Bot constitutes acceptance of the updated Privacy Policy.</p>
+            <p>Substantial changes will be announced prominently when the Bot is updated.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💬 Contact Us</h3>
+            <p>For privacy questions or concerns, contact the Bot administrators through:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Discord direct messages</li>
+                <li>Discord server support channels</li>
+                <li>Official Bot support channels (if provided)</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Complaint Rights</h3>
+
+            <h4 style="margin-top: 1rem;">💬 Informal Resolution</h4>
+            <p>We encourage you to contact us first to resolve privacy concerns.</p>
+
+            <h4 style="margin-top: 1rem;">🏛️ Regulatory Authorities</h4>
+            <p>You have the right to lodge a complaint with relevant data protection authorities in your jurisdiction.</p>
+
+            <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #00ffff;">
+                <h3 style="margin-top: 0; font-size: 1rem;">📋 Summary of Data Practices</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <th style="text-align: left; padding: 0.5rem; color: #00ffff;">Data Type</th>
+                        <th style="text-align: left; padding: 0.5rem; color: #00ffff;">Collected</th>
+                        <th style="text-align: left; padding: 0.5rem; color: #00ffff;">Purpose</th>
+                        <th style="text-align: left; padding: 0.5rem; color: #00ffff;">Retention</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <td style="padding: 0.5rem;">Server Config</td>
+                        <td style="padding: 0.5rem;">Yes</td>
+                        <td style="padding: 0.5rem;">Bot functionality</td>
+                        <td style="padding: 0.5rem;">Until bot removal</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <td style="padding: 0.5rem;">Tickets</td>
+                        <td style="padding: 0.5rem;">Yes</td>
+                        <td style="padding: 0.5rem;">Ticket management</td>
+                        <td style="padding: 0.5rem;">Admin configured</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <td style="padding: 0.5rem;">User IDs</td>
+                        <td style="padding: 0.5rem;">Yes</td>
+                        <td style="padding: 0.5rem;">Features & analytics</td>
+                        <td style="padding: 0.5rem;">While user in server</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <td style="padding: 0.5rem;">Reminders</td>
+                        <td style="padding: 0.5rem;">Yes</td>
+                        <td style="padding: 0.5rem;">Reminder functionality</td>
+                        <td style="padding: 0.5rem;">Until completion</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+                        <td style="padding: 0.5rem;">Logs</td>
+                        <td style="padding: 0.5rem;">Yes</td>
+                        <td style="padding: 0.5rem;">Debugging & improvement</td>
+                        <td style="padding: 0.5rem;">30-90 days</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.5rem;">Messages</td>
+                        <td style="padding: 0.5rem;">Selective</td>
+                        <td style="padding: 0.5rem;">Feature operation</td>
+                        <td style="padding: 0.5rem;">Feature-dependent</td>
+                    </tr>
+                </table>
             </div>
-            <p class="footer-text">&copy; 2025 Meow Links. Made with 💜 for the Discord community.</p>
+
+            <p style="margin-top: 2rem; font-weight: bold; text-align: center;">By using Manager Meow, you acknowledge that you have read and understand this Privacy Policy.</p>
         </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="https://discord.gg/tzqYXPC3" target="_blank" style="color: #00ffff; text-decoration: none;">Support</a></p>
+      <p>Made with 💜 for the Discord community</p>
     </footer>
+  </div>
+
+  <script>
+    function showBot(botName) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Reset all tab buttons
+      document.querySelectorAll('.bot-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Show selected content
+      const selectedContent = document.getElementById(botName);
+      if (selectedContent) {
+        selectedContent.classList.add('active');
+      }
+      
+      // Update active button
+      const targetTab = document.querySelector(`#tab-${botName}`);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>

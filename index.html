@@ -1,1207 +1,178 @@
-﻿<!DOCTYPE html>
-<html lang="en" style="overflow-x: hidden; max-width: 100vw;">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Deploy Fix: 2025-09-01-aggressive-mobile-fix -->
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YKNC7L8DV7');
-  </script>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776"
-       crossorigin="anonymous"></script>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="google-site-verification" content="bJTja6pslcTo-rd24_1JI6n2MBj3SDpIIM08e4cJjYk" />
-  
-  <!-- Performance Optimizations -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Meow Links - Discord Bots & Community Hub" />
-  <meta property="og:description" content="Professional Discord bots for community engagement and server management. Featuring Meow Bot for fun interactions and Meow Manager for advanced moderation." />
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/512x512/1f431.png" />
-  <meta property="og:site_name" content="Meow Links" />
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Meow Links - Discord Bots & Community Hub" />
-  <meta name="twitter:description" content="Professional Discord bots for community engagement and server management." />
-  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/512x512/1f431.png" />
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="description" content="Discover Meow Bot and Meow Manager - professional Discord bots offering community engagement, moderation tools, and server management features. Free to use with 24/7 uptime." />
-  <meta name="keywords" content="Discord bot, Discord bots, server management, community engagement, moderation bot, meow bot, discord tools" />
-  <meta name="author" content="Meow Links" />
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://fireflydesigns.me/" />
-  
-  <title>Meow Links - Discord Bots Hub</title>
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png" />
-  <link rel="stylesheet" href="style.css" />
-  
-  <!-- Accordion Modal Styles -->
-  <style>
-    .features-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(5px);
-    }
-
-    .features-modal-content {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      margin: 5% auto;
-      padding: 0;
-      border-radius: 18px;
-      width: 50%;
-      max-width: 450px;
-      min-width: 350px;
-      max-height: 85vh;
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .features-modal-header {
-      padding: 20px 25px;
-      background: rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .features-modal-title {
-      color: #00ffff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .features-modal-close {
-      font-size: 28px;
-      color: #fff;
-      cursor: pointer;
-      padding: 6px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .features-modal-close:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
-    }
-
-    .features-modal-body {
-      max-height: calc(85vh - 80px);
-      overflow-y: auto;
-      padding: 0;
-    }
-
-    .features-accordion {
-      border-radius: 0;
-      background: transparent;
-      border: none;
-    }
-
-    .accordion-item {
-      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-    }
-
-    .accordion-item:last-child {
-      border-bottom: none;
-    }
-
-    .accordion-header {
-      padding: 18px 25px;
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-    }
-
-    .accordion-header:hover {
-      background: rgba(0, 255, 255, 0.1);
-    }
-
-    .accordion-header.active {
-      background: rgba(0, 255, 255, 0.15);
-    }
-
-    .accordion-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .accordion-title {
-      flex: 1;
-      font-weight: 600;
-      color: white;
-      font-size: 1.1rem;
-    }
-
-    .accordion-arrow {
-      font-size: 1rem;
-      color: #00ffff;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .accordion-header.active .accordion-arrow {
-      transform: rotate(180deg);
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      background: rgba(0, 0, 0, 0.3);
-    }
-
-    .accordion-content.active {
-      max-height: 1000px;
-      padding: 25px;
-    }
-
-    .accordion-content p {
-      margin: 0 0 20px 0;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .feature-details h4 {
-      color: #00ffff;
-      margin: 20px 0 12px 0;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .feature-details ul {
-      margin: 0 0 20px 0;
-      padding-left: 20px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .feature-details li {
-      margin-bottom: 8px;
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
-
-    .command-examples {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.95rem;
-    }
-
-    .command-examples code {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-family: 'Courier New', monospace;
-      color: #ff69b4;
-      margin: 0 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-      .features-modal-content {
-        width: 90%;
-        max-width: 400px;
-        min-width: 300px;
-        margin: 8% auto;
-      }
-      
-      .features-modal-header {
-        padding: 15px 20px;
-      }
-      
-      .features-modal-title {
-        font-size: 1.3rem;
-      }
-      
-      .accordion-header {
-        padding: 15px 20px;
-      }
-      
-      .accordion-title {
-        font-size: 1rem;
-      }
-      
-      .accordion-content.active {
-        padding: 20px;
-      }
-      
-      .feature-details h4 {
-        font-size: 1rem;
-      }
-      
-      .feature-details li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .features-modal-content {
-        width: 95%;
-        max-width: 350px;
-        min-width: 280px;
-        margin: 10% auto;
-      }
-      
-      .features-modal-header {
-        padding: 12px 15px;
-      }
-      
-      .features-modal-title {
-        font-size: 1.2rem;
-      }
-      
-      .accordion-header {
-        padding: 12px 15px;
-      }
-      
-      .accordion-title {
-        font-size: 0.95rem;
-      }
-      
-      .accordion-content.active {
-        padding: 15px;
-      }
-    }
-  </style>
-  
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Meow Links Discord Bots",
-    "description": "Professional Discord bots for community engagement and server management featuring Meow Bot and Meow Manager.",
-    "applicationCategory": "CommunicationApplication",
-    "operatingSystem": "Discord",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "Meow Links"
-    },
-    "featureList": [
-      "Community engagement tools",
-      "Server moderation",
-      "Activity tracking",
-      "Anonymous confessions",
-      "Interactive polls",
-      "Unit conversion",
-      "Translation services",
-      "Level and XP systems"
-    ]
-  }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meow Links - Hybrid v1: Clean Modern Blocked</title>
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Particles Background -->
   <div class="particles">
     <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
-    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
-    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
-    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
-    <div class="particle" style="left: 15%; animation-delay: 20s;">✨</div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;">🐱</div>
+    <div class="particle" style="left: 40%; animation-delay: 8s;">⭐</div>
+    <div class="particle" style="left: 60%; animation-delay: 12s;">😺</div>
+    <div class="particle" style="left: 80%; animation-delay: 16s;">💫</div>
   </div>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-content">
-        <a href="#" class="logo">
-          🐱
-        </a>
-        <ul class="nav-links">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#bots" class="nav-link">Bots</a></li>
-          <li><a href="https://discord.gg/DAVXsw6B" target="_blank" class="nav-link">Discord Server</a></li>
-          <li><a href="patch-notes.html" class="nav-link">Patch Notes</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div class="content">
+    <nav>
+      <div class="logo">🐱 MEOW LINKS</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#bots">Bots</a></li>
+        <li><a href="#servers">Servers</a></li>
+        <li><a href="https://discord.gg/tzqYXPC3" target="_blank">Support Server</a></li>
+      </ul>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-card">
-        <h1 class="hero-title text-center">🐱 MEOW LINKS</h1>
-        <p class="hero-subtitle text-center">
-          Discord bots for fun interactions and server management
-        </p>
+    <section class="hero" id="home">
+      <h1>MEOW LINKS</h1>
+      <p>Discord bots for fun interactions and server management</p>
 
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number">3</span>
-            <div class="stat-label">Active Bots</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">FREE</span>
-            <div class="stat-label">Service</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">42+</span>
-            <div class="stat-label">Servers</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">1900+</span>
-            <div class="stat-label">Users</div>
-          </div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">2</div>
+          <div class="stat-label">Active Bots</div>
         </div>
-
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Actions Section -->
-  <section class="quick-actions-section">
-    <div class="container">
-      <div class="quick-actions-container">
-        <div class="quick-actions">
-          <a href="https://discord.gg/DAVXsw6B" target="_blank" class="action-card action-discord">
-            <span class="action-icon">💬</span>
-            <div class="action-title">Support Hub</div>
-          </a>
-          <a href="https://discord.gg/thesecrettunnel" target="_blank" class="action-card action-secret">
-            <span class="action-badge">18+</span>
-            <span class="action-icon">🕳️</span>
-            <div class="action-title">Secret Tunnel</div>
-          </a>
-          <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="action-card action-coffee">
-            <span class="action-icon">☕</span>
-            <div class="action-title">Support Us</div>
-          </a>
-
+        <div class="stat">
+          <div class="stat-value">FREE</div>
+          <div class="stat-label">Service</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">43+</div>
+          <div class="stat-label">Servers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2.1K+</div>
+          <div class="stat-label">Users</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Bots Section -->
-  <section class="bots-section" id="bots">
-    <div class="container">
-      <div class="bots-grid">
-        <!-- Meow Bot -->
-        <div class="bot-card">
-          <div class="bot-header">
-            <span class="bot-icon">🐱</span>
-            <h3 class="bot-title">MEOW BOT</h3>
+    <section class="section" id="bots">
+      <h2 class="section-title">Featured Bots</h2>
+      <p class="section-subtitle">Powerful tools for your Discord server</p>
+      
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><img src="meow.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+            <h3 class="card-title">MEOW BOT</h3>
           </div>
+          <p class="card-description">Meow counter with server leaderboard (optional global leaderboard), confessions, quotes & more.</p>
           
-          <p class="bot-description">
-            Turn your Discord into the most purrfect meowing paradise where members battle for glory on global leaderboards! 🐱👑✨
-          </p>
-
-          <div class="bot-features">
-            <div class="features-grid">
-              <div class="feature-item">😸 Interactive Meow Counter Game - Gamify your server with real-time meow tracking and leaderboards</div>
-              <div class="feature-item">🌐 Optional Global Competition - Opt into cross-server leaderboards to compete with other communities</div>
-              <div class="feature-item">💬 Quote Creation & Management - Save memorable messages with interactive backgrounds and archive system</div>
-              <div class="feature-item">💭 Anonymous Confessions - Let users share thoughts safely with numbered posts</div>
-              <div class="feature-item">🎭 Streamlined Reaction Roles - Integrated whitelist support and clearer setup process with simplified workflow</div>
-
-              <div class="feature-item">👋 Smart Welcome Messages - Automatic member greetings with custom messages</div>
-            </div>
+          <div class="features-list">
+            <div class="feature-tag">Meow Counter</div>
+            <div class="feature-tag">Confessions</div>
+            <div class="feature-tag">Quotes</div>
+            <div class="feature-tag">Reaction Roles</div>
+            <div class="feature-tag">Welcome Messages</div>
+            <div class="feature-tag">Polls</div>
           </div>
 
-          <div class="bot-actions">
-            <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn btn-primary">
-              🤖 Add to Discord
-            </a>
-            <a href="#" onclick="openFeaturesModal('meow-bot')" class="btn btn-secondary">
-              📊 Bot Features
-            </a>
+          <div class="card-actions">
+            <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
           </div>
         </div>
 
-        <!-- Meow Manager -->
-        <div class="bot-card">
-          <div class="bot-header">
-            <span class="bot-icon">🛠️</span>
-            <h3 class="bot-title">MEOW MANAGER</h3>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><img src="manager.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+            <h3 class="card-title">MEOW MANAGER</h3>
           </div>
+          <p class="card-description">Professional moderation, logging, XP system, auto threads & so much more.</p>
           
-          <p class="bot-description">
-            Professional Discord management with adorable cat theming - serious tools, playful personality!
-          </p>
-
-          <div class="bot-features">
-            <div class="features-grid">
-              <div class="feature-item">🛡️ Complete Moderation Suite - Professional ban, kick, mute tools with full audit trails</div>
-              <div class="feature-item">📊 Track Everything Important - Advanced logging catches all server activity and changes</div>
-              <div class="feature-item">⚙️ Interactive Setup System - Smart configuration menus for easy server customization</div>
-              <div class="feature-item">🔊 Voice Activity Monitoring - Track who joins, leaves, and moves between voice channels</div>
-              <div class="feature-item">🎭 Adorable Cat-Themed activity tracking with levels</div>
-              <div class="feature-item">🔒 Server Lockdown Feature - Instantly secure your server during emergencies or raids</div>
-              <div class="feature-item">⚠️ Warning System - Issue and track warnings with database storage</div>
-              <div class="feature-item">🧵 Auto Threads for Photos - Automatically create discussion threads for images in designated channels</div>
-              <div class="feature-item">🔄 Unit Conversion System - Convert distance, weight, temperature, volume, currency (160+), and more</div>
-              <div class="feature-item">🌐 Translation Services - Auto-detect and translate text in 100+ languages</div>
-              <div class="feature-item">📌 Sticky Messages (beta) - Pin important messages to keep them at the top of your channels</div>
-              <div class="feature-item">🆕 NEW: Member Application Logs - Monitor join requests, screening responses, and application updates</div>
-            </div>
+          <div class="features-list">
+            <div class="feature-tag">Moderation</div>
+            <div class="feature-tag">Logging</div>
+            <div class="feature-tag">XP Levels (optional)</div>
+            <div class="feature-tag">Auto Threads</div>
+            <div class="feature-tag">Sticky Messages</div>
+            <div class="feature-tag">Ticket System (Beta)</div>
           </div>
 
-          <div class="bot-actions">
-            <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn btn-primary">
-              🛠️ Add to Discord
-            </a>
-            <a href="#" onclick="openFeaturesModal('meow-manager')" class="btn btn-secondary">
-              📊 Bot Features
-            </a>
+          <div class="card-actions">
+            <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
+          </div>
+        </div>
+      </div> 
+    </section>
+
+    <section class="section" id="servers">
+      <h2 class="section-title">Featured Discord Servers</h2>
+      <p class="section-subtitle">Join our thriving communities</p>
+      
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><img src="st.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+            <h3 class="card-title">The Secret Tunnel</h3>
+          </div>
+          <p class="card-description">× ☠️ Join for the CULT tag ☠️</p>
+          <div class="feature-details" style="margin-bottom: 1rem;">
+            <p>Looking for chaotic good energy, unhinged confessions, and active members? You've found it. Our server is a safe haven for the unfiltered, the hilarious, and the ✨emotionally unstable✨.</p>
+
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);"><strong>Quick note:</strong> we use member applications to keep things bot-free — you'll be welcomed in right after joining!</p>
+          </div>
+          <div style="position: relative; z-index: 1; margin-bottom: 1.2rem;">
+            <div class="feature-tag" style="width: 100%;">⚠️ 18+ Only </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://discord.gg/thesecrettunnel" target="_blank" class="btn-add">Join Server</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><img src="canadiangg.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+            <h3 class="card-title">Canadian Gamer Girls</h3>
+          </div>
+          <p class="card-description">× 🐾 Join for the MEOW tag 🐾×</p>
+          <div class="feature-details" style="margin-bottom: 1rem;">
+            <p>A dedicated community for Canadian Women who are looking to connect & play video games. If you are a female gamer looking for a safe space to game & meet new friends - come join us!</p>
+
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);"><strong>Quick note:</strong> we will interview members as they come in to ensure a bot-free, female only enviroment</p>
+          </div>
+          <div style="position: relative; z-index: 1; margin-bottom: 1.2rem;">
+            <div class="feature-tag" style="width: 100%;">⚠️ 18+ Only - Girls only </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://discord.gg/NN3mEjmC" target="_blank" class="btn-add">Join Server</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Advertisement Section -->
-  <section class="ad-section">
-    <div class="container">
-      <div class="ad-container">
-        <div class="ad-label">Advertisement</div>
-        <!-- Updated Meow Links -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3994230437494776"
-             data-ad-slot="9252512676"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-        <a href="terms.html" class="footer-link">Terms of Service</a>
-        <a href="https://discord.gg/DAVXsw6B" target="_blank" class="footer-link">Support</a>
-        <a href="https://ko-fi.com/fireflyxserenity" target="_blank" class="footer-link">Donate</a>
-      </div>
-      <p class="footer-text">&copy; 2025 Meow Links. Made with 💜 for the Discord community.</p>
-    </div>
-  </footer>
-
-  <!-- Features Accordion Modal -->
-  <div id="featuresModal" class="features-modal">
-    <div class="features-modal-content">
-      <div class="features-modal-header">
-        <h2 id="modalTitle" class="features-modal-title">
-          <span id="modalIcon">🐱</span>
-          <span id="modalBotName">Meow Bot Features</span>
-        </h2>
-        <span class="features-modal-close" onclick="closeFeaturesModal()">&times;</span>
-      </div>
-      <div class="features-modal-body">
-        <!-- Meow Bot Accordion Content -->
-        <div id="meow-bot-accordion" class="features-accordion">
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🐱</span>
-              <span class="accordion-title">Meow & Bark Counting</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Track meows and barks with global leaderboards</strong></p>
-              <div class="feature-details">
-                <h4>🔍 Tracking Features</h4>
-                <ul>
-                  <li>Automatic meow and bark detection</li>
-                  <li>Server-specific leaderboards</li>
-                  <li>Global cross-server rankings</li>
-                  <li>Personal progress tracking</li>
-                  <li>Anti-spam protection</li>
-                </ul>
-                <h4>🏆 Competition Elements</h4>
-                <ul>
-                  <li>Daily, weekly, and monthly leaderboards</li>
-                  <li>Achievement badges and milestones</li>
-                  <li>Friendly server competitions</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/meowboard</code> <code>/globalmeowboard</code> <code>/barkcount</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🎭</span>
-              <span class="accordion-title">Anonymous Confessions</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Safe and secure anonymous messaging system for your community</strong></p>
-              <div class="feature-details">
-                <h4>🔒 Privacy & Security</h4>
-                <ul>
-                  <li>Complete user anonymity protection</li>
-                  <li>Admin moderation without identity exposure</li>
-                  <li>Anti-spam and abuse prevention</li>
-                  <li>Custom confession channels</li>
-                  <li>Configurable message filters</li>
-                </ul>
-                <h4>🎯 Perfect For</h4>
-                <ul>
-                  <li>Community feedback and suggestions</li>
-                  <li>Mental health support spaces</li>
-                  <li>Sensitive topic discussions</li>
-                  <li>Anonymous reporting systems</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/confess [message]</code> <code>/config_confessions</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">💬</span>
-              <span class="accordion-title">Quote Creation & Management</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Create and manage memorable quotes from server messages</strong></p>
-              <div class="feature-details">
-                <h4>⚡ Easy Quote Creation</h4>
-                <ul>
-                  <li><strong>Reply + Mention:</strong> Reply to any message and mention the bot or reply to the message with !quote</li>
-                  <li>Interactive background switcher buttons</li>
-                  <li>Automatic posting to configured quotes channel</li>
-                  <li>Dual-posting option (original + quotes channel)</li>
-                </ul>
-                <h4>📋 Quote Management</h4>
-                <ul>
-                  <li>Configurable quotes channel for archiving</li>
-                  <li>Random quote retrieval from archives</li>
-                  <li>Jump-to-original-message links</li>
-                  <li>Server-specific quote collections</li>
-                  <li>Compatible with @MakeItAQuote bot archives</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>@MeowBot [reply to message]</code> <code>/randomquote</code> <code>/setup</code> (quote configuration)
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">👋</span>
-              <span class="accordion-title">Welcome Messages (If Enabled)</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Customizable welcome system for new members</strong></p>
-              <div class="feature-details">
-                <h4>🎨 Customization Options</h4>
-                <ul>
-                  <li>Custom welcome messages</li>
-                  <li>User mention integration</li>
-                  <li>Server rule reminders</li>
-                  <li>Channel-specific greetings</li>
-                  <li>Role assignment suggestions</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/setup</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">⚡</span>
-              <span class="accordion-title">Reaction Roles (If Enabled)</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Basic reaction role system (Beta)</strong></p>
-              <div class="feature-details">
-                <h4>🎯 Key Features</h4>
-                <ul>
-                  <li>Basic reaction role functionality</li>
-                  <li>Server configuration support</li>
-                  <li>Integration with server setup</li>
-                  <li>Beta feature - more functionality coming soon</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/setup</code> (includes reaction role configuration)
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🎉</span>
-              <span class="accordion-title">Fun Extras & Utilities</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Helpful tools and fun features to enhance your server experience</strong></p>
-              <div class="feature-details">
-                <h4>🗳️ Interactive Polls</h4>
-                <ul>
-                  <li>Multiple choice questions (up to 10 options)</li>
-                  <li>Image and media support</li>
-                  <li>Automatic reaction management</li>
-                  <li>Invalid reaction removal</li>
-                </ul>
-                
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/poll [question] [options]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Meow Manager Accordion Content -->
-        <div id="meow-manager-accordion" class="features-accordion" style="display: none;">
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🔨</span>
-              <span class="accordion-title">Advanced Moderation</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Professional moderation tools with comprehensive tracking</strong></p>
-              <div class="feature-details">
-                <h4>🛠️ Core Tools</h4>
-                <ul>
-                  <li>Ban, kick, mute with detailed reasons</li>
-                  <li>Timed punishments with auto-expiry</li>
-                  <li>Warning system with database storage</li>
-                  <li>Message deletion and cleanup</li>
-                  <li>User unban functionality</li>
-                </ul>
-                <h4>📊 Action Tracking</h4>
-                <ul>
-                  <li>Complete action history tracking</li>
-                  <li>Infraction database with search</li>
-                  <li>Warning system with user records</li>
-                  <li>Moderator attribution for all actions</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/ban [user] [reason]</code> <code>/kick [user] [reason]</code> <code>/unban [user_id]</code> <code>/mute [user] [duration]</code> <code>/warn [user] [reason]</code> <code>/warnings [user]</code> <code>/infractions [user]</code> <code>/clear [amount]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">📊</span>
-              <span class="accordion-title">Activity Tracking</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Comprehensive XP system with voice and text tracking</strong></p>
-              <div class="feature-details">
-                <h4>📈 XP System</h4>
-                <ul>
-                  <li>Message and voice activity tracking</li>
-                  <li>Anti-spam protection with cooldowns</li>
-                  <li>Customizable XP rates and settings</li>
-                  <li>Level progression with role rewards</li>
-                </ul>
-                <h4>🏆 Leaderboards & Roles</h4>
-                <ul>
-                  <li>Server activity leaderboards</li>
-                  <li>Activity-based role rewards</li>
-                  <li>30 pre-designed cat-themed roles</li>
-                  <li>Custom level role assignments</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/rank [user]</code> <code>/leaderboard</code> <code>/set_level_role [level] [role]</code> <code>/setup_cat_roles</code> <code>/activity_enable</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">📝</span>
-              <span class="accordion-title">Advanced Logging</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Customizable event logging with dual-channel support</strong></p>
-              <div class="feature-details">
-                <h4>🔄 Event Categories</h4>
-                <ul>
-                  <li>Member activity (joins, leaves)</li>
-                  <li>Message activity (edits, deletes)</li>
-                  <li>Moderation actions (bans, kicks, warnings)</li>
-                  <li>Voice activity (channel movements)</li>
-                  <li>Profile changes (nicknames, avatars)</li>
-                  <li>Role assignments and removals</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/setup [general_logs] [moderation_logs]</code> <code>/logs [action] [event]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🔒</span>
-              <span class="accordion-title">Lockdown System</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Emergency lockdown for channels or entire server</strong></p>
-              <div class="feature-details">
-                <h4>🚨 Lockdown Types</h4>
-                <ul>
-                  <li>Individual channel lockdown</li>
-                  <li>Server-wide emergency lockdown</li>
-                  <li>Channel unlock functionality</li>
-                  <li>Server unlock functionality</li>
-                  <li>Prevents message sending in locked areas</li>
-                  <li>Maintains admin/mod permissions</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/lockdown channel</code> <code>/lockdown server</code> <code>/lockdown unlock_channel</code> <code>/lockdown unlock_server</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">⚠️</span>
-              <span class="accordion-title">Warning System</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Warning system with database storage and tracking</strong></p>
-              <div class="feature-details">
-                <h4>⚠️ Warning Management</h4>
-                <ul>
-                  <li>Warning system with database storage</li>
-                  <li>Detailed warning records per user</li>
-                  <li>Moderator attribution and timestamps</li>
-                  <li>Warning history tracking</li>
-                  <li>Server-wide warning overview</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/warn [user] [reason]</code> <code>/warnings [user]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">📋</span>
-              <span class="accordion-title">Join Request Monitoring</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Track membership screening and join requests</strong></p>
-              <div class="feature-details">
-                <h4>📊 Request Tracking</h4>
-                <ul>
-                  <li>New join request notifications</li>
-                  <li>Request update monitoring</li>
-                  <li>Withdrawal tracking</li>
-                  <li>Screening question responses</li>
-                  <li>Account age and user details</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/setup member_applications:#channel</code> <code>/logs enable join_requests</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">⏰</span>
-              <span class="accordion-title">Smart Reminders</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Advanced reminder system for server management and personal use</strong></p>
-              <div class="feature-details">
-                <h4>⏰ Reminder Features</h4>
-                <ul>
-                  <li>Natural language processing ("in 10 minutes", "tomorrow at 3pm")</li>
-                  <li>Personal DM notifications</li>
-                  <li>Recurring reminder options</li>
-                  <li>Reminder management and editing</li>
-                  <li>Server-wide reminder announcements</li>
-                  <li>Moderator task reminders</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/reminder [time] [message]</code> <code>/reminder_list</code> <code>/reminder_delete [id]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🧵</span>
-              <span class="accordion-title">Auto Threads for Photos</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Automatically create discussion threads for images posted in designated channels</strong></p>
-              <div class="feature-details">
-                <h4>📸 Thread Creation</h4>
-                <ul>
-                  <li>Automatic thread creation for photo attachments</li>
-                  <li>Supports JPG, PNG, GIF, WEBP, and other image formats</li>
-                  <li>Each photo gets its own organized discussion thread</li>
-                  <li>Clean channel organization with focused conversations</li>
-                  <li>Configurable per-channel settings</li>
-                </ul>
-                <h4>⚙️ Management Features</h4>
-                <ul>
-                  <li>Enable/disable auto threads per channel</li>
-                  <li>View current auto thread settings</li>
-                  <li>Channel-specific configuration options</li>
-                  <li>Easy setup and management commands</li>
-                </ul>
-                <h4>🎯 Perfect For</h4>
-                <ul>
-                  <li>Art sharing channels with individual feedback</li>
-                  <li>Photography communities</li>
-                  <li>Screenshot sharing and discussion</li>
-                  <li>Meme channels with organized conversations</li>
-                  <li>Creative showcase channels</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/autothread enable</code> <code>/autothread disable</code> <code>/autothread view</code> <code>/autothread help</code>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">🔄</span>
-              <span class="accordion-title">Conversion & Translation Tools</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Universal unit conversion and translation services</strong></p>
-              <div class="feature-details">
-                <h4>🔄 Unit Conversion System</h4>
-                <ul>
-                  <li>Distance (km, miles, feet, meters, etc.)</li>
-                  <li>Weight (kg, pounds, ounces, grams, etc.)</li>
-                  <li>Temperature (celsius, fahrenheit, kelvin)</li>
-                  <li>Volume (liters, gallons, cups, ml, etc.)</li>
-                  <li>Time (hours, minutes, days, weeks, etc.)</li>
-                  <li>Data (GB, MB, KB, bytes, bits, etc.)</li>
-                  <li>Speed (mph, kmh, m/s, knots, etc.)</li>
-                  <li>Currency (USD, CAD, EUR, GBP, etc. - 160+ currencies)</li>
-                </ul>
-                <h4>🌐 Translation Services</h4>
-                <ul>
-                  <li>Auto-detects source language</li>
-                  <li>Translates to English</li>
-                  <li>Supports 100+ languages</li>
-                  <li>Natural language processing</li>
-                  <li>Instant results</li>
-                </ul>
-                <div class="command-examples">
-                  <strong>Commands:</strong> <code>/convert [amount] [from] [to]</code> <code>/translate [text]</code>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="accordion-icon">📌</span>
-              <span class="accordion-title">Sticky Messages (beta)</span>
-              <span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <p><strong>Keep important messages at the top of your channels</strong></p>
-              <div class="feature-details">
-                <h4>📌 Sticky Messages</h4>
-                <ul>
-                  <li>Pin messages that stay as the last message in a channel</li>
-                  <li>Perfect for announcements and important information</li>
-                  <li>Easy to manage and update</li>
-                  <li>Per-channel sticky messages</li>
-                </ul>
-                <h4>Available Commands</h4>
-                <ul>
-                  <li><code>/sticky set</code> - Add a sticky message to a channel</li>
-                  <li><code>/sticky edit</code> - Change an existing sticky message</li>
-                  <li><code>/sticky remove</code> - Delete a sticky message</li>
-                  <li><code>/sticky list</code> - See all your sticky messages</li>
-                </ul>
-                <p><strong>Requirements:</strong> Manage Channels permission</p>
-                <div class="command-examples">
-                  <strong>Command:</strong> <code>/sticky [set|edit|remove|list]</code>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section class="section" style="padding: 1.5rem; background: linear-gradient(135deg, rgba(0, 255, 255, 0.03), rgba(138, 43, 226, 0.03));">
+      <div style="max-width: 100%; text-align: center;">
+        <!-- Google AdSense Ad Space -->
+        <div id="google-ad-container" style="min-height: 250px; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.2); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2);">
+          <!-- Updated Meow Links -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-3994230437494776"
+               data-ad-slot="9252512676"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.08), rgba(0, 255, 255, 0.08)); padding: 1.2rem; text-align: center;">
+      <h3 style="font-size: 1.2rem; color: #ffffff; margin-bottom: 0.7rem; font-weight: 700;">✨ Interested in partnering with us?</h3>
+      <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem; font-size: 0.9rem;">We're open to collaborations and partnerships.</p>
+      <a href="https://discord.gg/tzqYXPC3" target="_blank" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Get in Touch</a>
+    </section>
+
+    <footer class="footer">
+      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="https://discord.gg/tzqYXPC3" target="_blank" style="color: #00ffff; text-decoration: none;">Support</a></p>
+      <p>Made with 💜 for the Discord community</p>
+    </footer>
   </div>
-
-  <!-- Old Modals (keeping as backup) -->
-  <div id="aboutModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
-    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 25px; border-radius: 18px; width: 85% !important; max-width: 735px !important; min-width: 400px !important; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 90vh; overflow-y: auto; position: relative;">
-      <span class="close" onclick="closeModal()" style="position: absolute; right: 15px; top: 12px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
-      <div class="about-text" style="color: white;">
-        <!-- Original modal content here if needed as fallback -->
-      </div>
-    </div>
-  </div>
-
-  <div id="managerModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);">
-    <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e, #16213e); margin: 5% auto; padding: 25px; border-radius: 18px; width: 85% !important; max-width: 735px !important; min-width: 400px !important; border: 2px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); max-height: 90vh; overflow-y: auto; position: relative;">
-      <span class="close" onclick="closeManagerModal()" style="position: absolute; right: 15px; top: 12px; font-size: 28px; color: #fff; cursor: pointer; z-index: 100; padding: 6px; line-height: 1; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">&times;</span>
-      <div class="about-text" style="color: white;">
-        <!-- Original modal content here if needed as fallback -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Overflow Fix Script -->
-  <script>
-    // ULTRA-PRECISE MOBILE OVERFLOW FIX
-    function fixOverflow() {
-      // Force everything to stay within viewport with pixel-perfect precision
-      const allElements = document.querySelectorAll('*');
-      const viewportWidth = window.innerWidth;
-      
-      allElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        
-        // Fix elements that extend beyond viewport
-        if (rect.right > viewportWidth || el.scrollWidth > viewportWidth) {
-          el.style.maxWidth = '100vw';
-          el.style.width = '100%';
-          el.style.overflow = 'hidden';
-          el.style.wordWrap = 'break-word';
-          el.style.boxSizing = 'border-box';
-          el.style.margin = '0';
-          el.style.paddingLeft = '0';
-          el.style.paddingRight = '0';
-        }
-        
-        // Fix elements positioned off-screen
-        if (rect.left < 0) {
-          el.style.left = '0';
-          el.style.marginLeft = '0';
-        }
-        
-        // Ensure perfect viewport alignment
-        if (rect.right > viewportWidth) {
-          el.style.transform = 'translateX(0)';
-          el.style.marginRight = '0';
-        }
-      });
-      
-      // Ensure body and html are perfectly aligned
-      document.body.style.maxWidth = '100vw';
-      document.body.style.overflowX = 'hidden';
-      document.body.style.margin = '0';
-      document.body.style.padding = '0';
-      document.documentElement.style.maxWidth = '100vw';
-      document.documentElement.style.overflowX = 'hidden';
-      document.documentElement.style.margin = '0';
-      document.documentElement.style.padding = '0';
-    }
-
-    // Run on load and resize
-    window.addEventListener('load', fixOverflow);
-    window.addEventListener('resize', fixOverflow);
-    
-    // Also run periodically to catch dynamic content
-    setInterval(fixOverflow, 1000);
-
-    // New Features Modal Functions
-    function openFeaturesModal(botType) {
-      const modal = document.getElementById('featuresModal');
-      const modalIcon = document.getElementById('modalIcon');
-      const modalBotName = document.getElementById('modalBotName');
-      const meowBotAccordion = document.getElementById('meow-bot-accordion');
-      const meowManagerAccordion = document.getElementById('meow-manager-accordion');
-      
-      if (botType === 'meow-bot') {
-        modalIcon.textContent = '🐱';
-        modalBotName.textContent = 'Meow Bot Features';
-        meowBotAccordion.style.display = 'block';
-        meowManagerAccordion.style.display = 'none';
-      } else if (botType === 'meow-manager') {
-        modalIcon.textContent = '🛠️';
-        modalBotName.textContent = 'Meow Manager Features';
-        meowBotAccordion.style.display = 'none';
-        meowManagerAccordion.style.display = 'block';
-      }
-      
-      modal.style.display = 'block';
-      document.body.classList.add('modal-open');
-      
-      // Reset all accordion items to closed
-      resetAccordionStates();
-    }
-
-    function closeFeaturesModal() {
-      const modal = document.getElementById('featuresModal');
-      modal.style.display = 'none';
-      document.body.classList.remove('modal-open');
-      
-      // Reset all accordion items to closed
-      resetAccordionStates();
-    }
-
-    function toggleAccordion(header) {
-      const content = header.nextElementSibling;
-      const isActive = header.classList.contains('active');
-      
-      // Close all other accordion items in the same accordion
-      const accordion = header.closest('.features-accordion');
-      const allHeaders = accordion.querySelectorAll('.accordion-header');
-      const allContents = accordion.querySelectorAll('.accordion-content');
-      
-      allHeaders.forEach(h => h.classList.remove('active'));
-      allContents.forEach(c => c.classList.remove('active'));
-      
-      // Toggle current item
-      if (!isActive) {
-        header.classList.add('active');
-        content.classList.add('active');
-      }
-    }
-
-    function resetAccordionStates() {
-      const allHeaders = document.querySelectorAll('.accordion-header');
-      const allContents = document.querySelectorAll('.accordion-content');
-      
-      allHeaders.forEach(h => h.classList.remove('active'));
-      allContents.forEach(c => c.classList.remove('active'));
-    }
-
-    // Old Modal Functions (keeping as backup)
-    function openModal() {
-      document.getElementById('aboutModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-    }
-
-    function closeModal() {
-      document.getElementById('aboutModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
-    function openManagerModal() {
-      document.getElementById('managerModal').style.display = 'block';
-      document.body.classList.add('modal-open');
-    }
-
-    function closeManagerModal() {
-      document.getElementById('managerModal').style.display = 'none';
-      document.body.classList.remove('modal-open');
-    }
-
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-      const featuresModal = document.getElementById('featuresModal');
-      const aboutModal = document.getElementById('aboutModal');
-      const managerModal = document.getElementById('managerModal');
-      
-      if (event.target == featuresModal) {
-        closeFeaturesModal();
-      }
-      if (event.target == aboutModal) {
-        closeModal();
-      }
-      if (event.target == managerModal) {
-        closeManagerModal();
-      }
-    }
-
-    // ESC key to close modal
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        const featuresModal = document.getElementById('featuresModal');
-        const aboutModal = document.getElementById('aboutModal');
-        const managerModal = document.getElementById('managerModal');
-        
-        if (featuresModal.style.display === 'block') {
-          closeFeaturesModal();
-        }
-        if (aboutModal.style.display === 'block') {
-          closeModal();
-        }
-        if (managerModal.style.display === 'block') {
-          closeManagerModal();
-        }
-      }
-    });
-  </script>
 </body>
 </html>
-
-
