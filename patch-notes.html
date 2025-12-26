@@ -479,7 +479,8 @@
               <label for="meow-manager-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
               <select id="meow-manager-version-select" class="version-selector" onchange="jumpToVersion('meow-manager', this.value)">
                 <option value="">-- Select Version --</option>
-                <option value="v1.0.0">Version 1.0.0 - December Release</option>
+                <option value="v2.9.0">Version 2.9.0 - Ticket System</option>
+                <option value="v2.8.0">Version 2.8.0 - December Release</option>
                 <option value="v2.7.0">Version 2.7.0 - Conversion & Translation</option>
                 <option value="v2.6.1">Version 2.6.1 - Guild Join Request Fixes</option>
                 <option value="v2.6.0">Version 2.6.0 - Advanced Logging Control</option>
@@ -497,7 +498,9 @@
 
             <div class="patch-notes-container">
               <!-- Meow Manager Accordion Items -->
-              <div class="patch-note-accordion" id="v1.0.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>✨ Version 1.0.0 - "What's New - December 2025"</h3><p>Release Date: December 12, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>📌 Sticky Messages (beta)</strong> Keep important messages at the top of your channels! Use /sticky to pin a message that will always stay as the last message in a channel.</p><p><strong>⏰ Recurring Reminders</strong> Set up reminders that repeat on your schedule! Use /remind to create daily, weekly, or custom reminders.</p><p><em>🎀 New features to help you manage your server more effectively!</em></p></div></div>
+              <div class="patch-note-accordion" id="v2.9.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎫 Version 2.9.0 - "Ticket System Launch"</h3><p>Release Date: December 25, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>🎫 Ticket Creation</strong> Users can create support tickets with a single command</p><p><strong>🧵 Auto-Threading</strong> Tickets automatically spawn dedicated threads for discussion</p><p><strong>⚙️ Ticket Management</strong> Admins can close, reopen, and manage tickets</p><p><strong>📊 Status Tracking</strong> View open and closed tickets at a glance</p><p><strong>🔐 Role-Based Access</strong> Configurable ticket channels with proper permissions</p><p><strong>📋 New Commands:</strong></p><ul><li><code>/ticket create</code> - Create a new support ticket</li><li><code>/ticket close</code> - Close an active ticket</li><li><code>/ticket list</code> - View all tickets</li><li><code>/ticket reopen</code> - Reopen a closed ticket</li></ul><p><strong>⚙️ Configuration Options:</strong></p><ul><li>Assign a dedicated ticket channel per server</li><li>Set ticket categories and auto-assign support roles</li><li>Customize ticket naming conventions</li></ul><p><em>🎉 Professional ticket management system is here!</em></p></div></div>
+
+              <div class="patch-note-accordion collapsed" id="v2.8.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>✨ Version 2.8.0 - "What's New - December 2025"</h3><p>Release Date: December 12, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>📌 Sticky Messages (beta)</strong> Keep important messages at the top of your channels! Use /sticky to pin a message that will always stay as the last message in a channel.</p><p><strong>⏰ Recurring Reminders</strong> Set up reminders that repeat on your schedule! Use /remind to create daily, weekly, or custom reminders.</p><p><em>🎀 New features to help you manage your server more effectively!</em></p></div></div>
 
               <div class="patch-note-accordion collapsed" id="v2.7.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 2.7.0 - "Conversion & Translation Update"</h3><p>Release Date: October 31, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>✨ New Features:</strong> Added /convert command for unit conversions and /translate command with auto-detection</p><p><strong>🐛 Bug Fixes:</strong> Fixed negative number support in conversions, Console cleanup for cleaner output</p><p><em>🎀 All systems operational! Bot is cleaner and more powerful than ever!</em></p></div></div>
 
@@ -558,8 +561,10 @@
       if (!versionId) return;
       // Handle manager versions differently since they have different IDs
       let element;
-      if (botId === 'meow-manager' && versionId === 'v1.0.0') {
-        element = document.getElementById('v1.0.0-manager');
+      if (botId === 'meow-manager' && versionId === 'v2.9.0') {
+        element = document.getElementById('v2.9.0-manager');
+      } else if (botId === 'meow-manager' && versionId === 'v2.8.0') {
+        element = document.getElementById('v2.8.0-manager');
       } else if (botId === 'meow-manager' && versionId === 'v2.7.0') {
         element = document.getElementById('v2.7.0-manager');
       } else if (botId === 'meow-manager' && versionId === 'v2.6.1') {
