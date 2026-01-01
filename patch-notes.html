@@ -389,13 +389,37 @@
 
         <!-- Bot Selection Tabs -->
         <div style="margin-top: 0.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <button class="bot-tab active" id="tab-meow-bot" onclick="showBot('meow-bot')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.2); border: 2px solid rgba(0, 255, 255, 0.5); color: #00ffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">🐱 Meow Bot</button>
+          <button class="bot-tab active" id="tab-cat-cafe" onclick="showBot('cat-cafe')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.2); border: 2px solid rgba(0, 255, 255, 0.5); color: #00ffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">🐱 Cat Cafe Economy Bot</button>
+          <button class="bot-tab" id="tab-meow-bot" onclick="showBot('meow-bot')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.1); border: 2px solid rgba(0, 255, 255, 0.3); color: #ffffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">😺 Meow Bot</button>
           <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.1); border: 2px solid rgba(0, 255, 255, 0.3); color: #ffffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">🛠️ Meow Manager</button>
         </div>
 
-        <div style="margin-top: 1.5rem; text-align: left;">
-          <!-- Meow Bot Patch Notes -->
-          <div id="meow-bot" class="tab-content active" style="display: block;">
+        <!-- Cat Cafe Economy Bot Patch Notes -->
+        <div id="cat-cafe" class="tab-content" style="display: block;">
+          <div style="margin-top: 1.5rem; text-align: left;">
+            <!-- Version Selector -->
+            <div class="patch-notes-controls">
+              <label for="cat-cafe-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
+              <select id="cat-cafe-version-select" class="version-selector" onchange="jumpToVersion('cat-cafe', this.value)">
+                <option value="">-- Select Version --</option>
+                <option value="v1.0.0">Version 1.0.0 - Launch</option>
+              </select>
+              <div class="control-buttons">
+                <button class="control-btn" onclick="expandAllAccordions('cat-cafe')">Expand All</button>
+                <button class="control-btn" onclick="collapseAllAccordions('cat-cafe')">Collapse All</button>
+              </div>
+            </div>
+
+            <div class="patch-notes-container">
+              <!-- Cat Cafe Accordion Items -->
+              <div class="patch-note-accordion" id="v1.0.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 1.0.0 - "Cat Cafe Economy Bot Launch"</h3><p>Release Date: January 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><div style="background: rgba(255, 217, 61, 0.15); border: 2px solid rgba(255, 217, 61, 0.5); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; color: #ffd93d; font-weight: 600;"><p>🚀 BETA STATUS: This bot is in active development. Please report bugs in our <a href="https://discord.gg/cqa4ehjv" target="_blank" style="color: #00ffff; text-decoration: underline;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p></div><p class="patch-status">Status: ✨ BETA - Early Access</p><p><strong>🎮 Core Features:</strong></p><ul><li><strong>Economy System</strong> - Virtual currency with daily rewards, /balance to check wallet, /daily for free coins</li><li><strong>Mini Games</strong> - /fish for fishing gameplay, /gamble for chance-based earnings, /slots for spinning wheel</li><li><strong>Shop System</strong> - /shop to browse items, /buy to purchase, /inventory to manage items</li><li><strong>Profile System</strong> - /profile to view stats, Customizable profile cards, Achievement tracking</li><li><strong>Leaderboards</strong> - /leaderboard to view economy standings, Global rankings, Server-specific stats</li></ul><p><strong>🎯 Planned Features (Coming Soon):</strong></p><ul><li>Trading system between users</li><li>Guild wars economy</li><li>Custom currency names per server</li><li>Economy reset/wipe commands for admins</li></ul><p><em>🐱 Welcome to the Cat Cafe Economy! Report bugs and suggest features to help make this bot amazing!</em></p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meow Bot Patch Notes -->
+        <div id="meow-bot" class="tab-content" style="display: none;">
+          <div style="margin-top: 1.5rem; text-align: left;">
             <!-- Version Selector -->
             <div class="patch-notes-controls">
               <label for="meow-bot-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
@@ -471,8 +495,9 @@
               <div class="patch-note-accordion collapsed" id="v1.0.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>💬 Version 1.0.0 - "Foundation"</h3><p>Release Date: April 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🎉 The Beginning:</strong> /meow, /barkcount, /meowboard, /randomquote, reaction roles, Twitch alerts</p></div></div>
             </div>
           </div>
+        </div>
 
-          <!-- Meow Manager Patch Notes -->
+        <!-- Meow Manager Patch Notes -->
           <div id="meow-manager" class="tab-content" style="display: none;">
             <!-- Version Selector -->
             <div class="patch-notes-controls">
@@ -525,7 +550,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p><a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="https://discord.gg/tzqYXPC3" target="_blank">Support</a></p>
+      <p><a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="https://discord.gg/cqa4ehjv" target="_blank">Support</a></p>
       <p>Made with 💜 for the Discord community</p>
     </footer>
   </div>

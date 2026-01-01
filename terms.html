@@ -54,7 +54,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
-        <li><a href="https://discord.gg/tzqYXPC3" target="_blank">Discord</a></li>
+        <li><a href="https://discord.gg/cqa4ehjv" target="_blank">Discord</a></li>
       </ul>
     </nav>
 
@@ -65,12 +65,135 @@
 
         <!-- Bot Selection Tabs -->
         <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <button class="bot-tab active" id="tab-meow-bot" onclick="showBot('meow-bot')">🐱 Meow Bot</button>
+          <button class="bot-tab active" id="tab-cat-cafe" onclick="showBot('cat-cafe')">🐱 Cat Cafe Economy Bot</button>
+          <button class="bot-tab" id="tab-meow-bot" onclick="showBot('meow-bot')">😺 Meow Bot</button>
           <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')">🛠️ Meow Manager</button>
         </div>
 
+        <!-- Cat Cafe Terms -->
+        <div id="cat-cafe" class="tab-content active" style="margin-top: 2rem; text-align: left;">
+            <p><strong>Last Updated:</strong> December 31, 2025</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">1. Acceptance of Terms</h3>
+            <p>By adding <span style="color: #ffd93d;">Economy Bot</span> to your Discord server and using its features, you agree to these Terms of Service. If you do not agree, do not use the bot.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">2. Bot Description</h3>
+            <p>Economy Bot is a Discord bot that provides:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>A coin-based economy system</li>
+                <li>Games (Coinflip, Rock Paper Scissors, Dice Roll)</li>
+                <li>A shop to buy and sell items</li>
+                <li>Customizable user profiles</li>
+                <li>Leaderboards and statistics</li>
+                <li>Passive income from chat and voice activity</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">3. User Responsibilities</h3>
+            <p>You agree to:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Use the bot in accordance with Discord's Terms of Service</li>
+                <li>Not exploit, hack, or manipulate the bot or its systems</li>
+                <li>Not use the bot for harassment, scams, or illegal activities</li>
+                <li>Not attempt to gain unauthorized access to bot systems or data</li>
+                <li>Respect other users and play fairly</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">4. Prohibited Activities</h3>
+            <p>Users may not:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Cheat or exploit glitches for unfair advantages</li>
+                <li>Spam commands excessively</li>
+                <li>Attempt to distribute coins/items illegally</li>
+                <li>Use automated tools or bots to manipulate gameplay</li>
+                <li>Engage in fraud or scams using the economy system</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">5. Server Owner Responsibilities</h3>
+            <p>Server owners agree to:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Provide notice to members if the bot is collecting data</li>
+                <li>Respect Discord's Terms of Service in how the bot is used</li>
+                <li>Not use the bot to facilitate illegal activities</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">6. No Warranty</h3>
+            <p>The bot is provided "as-is" without warranty of any kind. We do not guarantee:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Continuous uptime or availability</li>
+                <li>Error-free operation</li>
+                <li>Data persistence or backup</li>
+                <li>Performance or reliability</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">7. Limitation of Liability</h3>
+            <p>We are not liable for:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Loss of coins, items, or data</li>
+                <li>Bot unavailability or downtime</li>
+                <li>Incorrect functionality or bugs</li>
+                <li>Actions of other users</li>
+                <li>Indirect or consequential damages</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">8. Changes to the Bot</h3>
+            <p>We reserve the right to:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Modify bot features, commands, or functionality</li>
+                <li>Change economy values, coin rates, or item prices</li>
+                <li>Take the bot offline temporarily or permanently</li>
+                <li>Wipe data if necessary for security or system reasons</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">9. Account Suspension</h3>
+            <p>We may suspend or ban users who:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Violate these terms</li>
+                <li>Exploit bugs or glitches</li>
+                <li>Engage in fraud or scams</li>
+                <li>Violate Discord's Terms of Service</li>
+                <li>Engage in harassment or abuse</li>
+            </ul>
+            <p>Suspensions are at our sole discretion with no guarantee of appeal.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">10. Third-Party Services</h3>
+            <p>This bot uses:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Discord API (subject to Discord's Terms)</li>
+                <li>Third-party database hosting</li>
+                <li>Third-party emoji/image services</li>
+            </ul>
+            <p>We are not responsible for their outages or policy changes.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">11. Intellectual Property</h3>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Economy Bot is owned by Firefly Designs</li>
+                <li>The bot's code, design, and features are protected intellectual property</li>
+                <li>Users may not redistribute, clone, or commercialize the bot</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">12. Changes to Terms</h3>
+            <p>We may update these Terms of Service at any time. Your continued use of the bot constitutes acceptance of updated terms.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">13. Governing Law</h3>
+            <p>These Terms of Service are governed by applicable laws. Any disputes shall be resolved through negotiation or, if necessary, legal channels.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">14. Contact & Support</h3>
+            <p>For questions, bug reports, or support:<br /><a href="https://fireflydesigns.me/" target="_blank" style="color: #00ffff; text-decoration: none;">https://fireflydesigns.me/</a></p>
+
+            <hr style="border: 1px solid rgba(0, 255, 255, 0.2); margin: 2rem 0;">
+
+            <div style="padding: 1.5rem; background: rgba(255, 193, 7, 0.1); border-radius: 8px; border-left: 4px solid #ffd93d;">
+                <p style="margin: 0; color: #ffd93d;"><strong>⚠️ Status: BETA</strong></p>
+                <p style="margin-top: 0.5rem;">Economy Bot is currently in Beta. Features may change, data may be wiped, and stability is not guaranteed. Use at your own risk.</p>
+            </div>
+
+            <hr style="border: 1px solid rgba(0, 255, 255, 0.2); margin: 2rem 0;">
+
+            <p style="text-align: center; margin-top: 2rem;">By using Economy Bot, you acknowledge that you have read, understood, and agree to these Terms of Service.</p>
+        </div>
+
         <!-- Meow Bot Terms -->
-        <div id="meow-bot" class="tab-content active" style="margin-top: 2rem; text-align: left;">
+        <div id="meow-bot" class="tab-content" style="margin-top: 2rem; text-align: left;">
             <p><strong>Last Updated:</strong> December 25, 2025</p>
 
             <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤝 Acceptance of Terms</h3>

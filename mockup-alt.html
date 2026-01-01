@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout Mockup - Alternative</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content">
+    <h1 style="color: #00ffff; margin: 2rem 0;">ALTERNATIVE LAYOUT: Cat Cafe Full Width, Then 2 Bots Side-by-Side</h1>
+    <section class="section">
+      <h2 class="section-title">Featured Bots</h2>
+      <p class="section-subtitle">Powerful tools for your Discord server</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <!-- CAT CAFE - Full Width with Screenshot -->
+        <div class="card" style="display: flex; gap: 2rem; align-items: center;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-header">
+                <div class="card-icon"><img src="catcafe.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+                <h3 class="card-title">CAT CAFE ECONOMY BOT</h3>
+              </div>
+              <p class="card-description">Earn coins through work, chat, voice, and games. Customize your profile and collect rare items.</p>
+              
+              <div class="features-list">
+                <div class="feature-tag">Economy System</div>
+                <div class="feature-tag">Work & Passive Income</div>
+                <div class="feature-tag">Gambling & Games</div>
+                <div class="feature-tag">Profile Customization</div>
+                <div class="feature-tag">Loot Boxes & Shop</div>
+                <div class="feature-tag">Leaderboards</div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a href="#" class="btn-add">Add Bot</a>
+            </div>
+          </div>
+
+          <div style="flex: 0 0 280px; display: flex; align-items: center; justify-content: center;">
+            <img src="profile.png" style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover;" />
+          </div>
+        </div>
+
+        <!-- MEOW BOT and MEOW MANAGER - Side by side, NO screenshots -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><img src="meow.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+              <h3 class="card-title">MEOW BOT</h3>
+            </div>
+            <p class="card-description">Meow counter with server leaderboard (optional global leaderboard), confessions, quotes & more.</p>
+            
+            <div class="features-list">
+              <div class="feature-tag">Meow Counter</div>
+              <div class="feature-tag">Confessions</div>
+              <div class="feature-tag">Quotes</div>
+              <div class="feature-tag">Reaction Roles</div>
+              <div class="feature-tag">Welcome Messages</div>
+              <div class="feature-tag">Polls</div>
+            </div>
+
+            <div class="card-actions">
+              <a href="#" class="btn-add">Add Bot</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon"><img src="manager.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+              <h3 class="card-title">MEOW MANAGER</h3>
+            </div>
+            <p class="card-description">Professional moderation, logging, XP system, auto threads & so much more.</p>
+            
+            <div class="features-list">
+              <div class="feature-tag">Moderation</div>
+              <div class="feature-tag">Logging</div>
+              <div class="feature-tag">XP Levels (optional)</div>
+              <div class="feature-tag">Auto Threads</div>
+              <div class="feature-tag">Sticky Messages</div>
+              <div class="feature-tag">Ticket System (Beta)</div>
+            </div>
+
+            <div class="card-actions">
+              <a href="#" class="btn-add">Add Bot</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
