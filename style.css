@@ -465,4 +465,20 @@ nav {
   .features-list {
     grid-template-columns: 1fr;
   }
+
+  /* Mobile bot cards layout */
+  [style*="display: flex"][style*="gap: 1.5rem"] {
+    flex-direction: column !important;
+  }
+
+  [style*="display: grid"][style*="grid-template-columns: 1fr 1fr"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix the screenshot container to full width on mobile */
+  [style*="flex: 0 0 240px"] {
+    flex: 1 !important;
+    width: 100% !important;
+  }
 }
