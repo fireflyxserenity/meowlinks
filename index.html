@@ -50,11 +50,11 @@
           <div class="stat-label">Service</div>
         </div>
         <div class="stat">
-          <div class="stat-value">65+</div>
+          <div class="stat-value"><span id="total-servers">0</span></div>
           <div class="stat-label">Servers</div>
         </div>
         <div class="stat">
-          <div class="stat-value">3.8K+</div>
+          <div class="stat-value"><span id="total-users">0</span></div>
           <div class="stat-label">Users</div>
         </div>
       </div>
@@ -268,6 +268,35 @@
       Object.entries(botStatuses).forEach(([botId, status]) => {
         setBotStatus(botId, status);
       });
+    });
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      databaseURL: "https://bot-counts-default-rtdb.firebaseio.com/",
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const statsRef = firebase.database().ref('stats');
+
+    // This triggers every time a bot updates its stats
+    statsRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      let totalSells = 0;
+      let totalUsers = 0;
+
+      // Loop through all bots in the database and add them up
+      for (let bot in data) {
+        totalSells += data[bot].servers || 0;
+        totalUsers += data[bot].users || 0;
+      }
+
+      document.getElementById('total-servers').innerText = totalSells + "+";
+      const formattedUsers = totalUsers >= 1000 ? (totalUsers / 1000).toFixed(1) + 'k' : totalUsers.toLocaleString();
+      document.getElementById('total-users').innerText = formattedUsers;
     });
   </script>
 </body>
