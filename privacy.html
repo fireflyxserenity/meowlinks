@@ -63,7 +63,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
-        <li><a href="https://discord.gg/RRwBBbGw" target="_blank">Discord</a></li>
+        <li><a href="https://discord.gg/ns7NakZ8" target="_blank">Discord</a></li>
       </ul>
     </nav>
 
@@ -296,7 +296,7 @@
             <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💬 Contact Information</h3>
             <p>If you have questions about this Privacy Policy:</p>
             <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Join our Discord server: <a href="https://discord.gg/RRwBBbGw" target="_blank" style="color: #ff69b4;">discord.gg/RRwBBbGw</a></li>
+                <li>Join our Discord server: <a href="https://discord.gg/ns7NakZ8" target="_blank" style="color: #ff69b4;">discord.gg/ns7NakZ8</a></li>
                 <li>Direct message: <strong>fireflyxserenity</strong> on Discord</li>
             </ul>
         </div>
@@ -586,7 +586,7 @@
     </section>
 
     <footer class="footer">
-      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="https://discord.gg/RRwBBbGw" target="_blank" style="color: #00ffff; text-decoration: none;">Support</a></p>
+      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="https://discord.gg/ns7NakZ8" target="_blank" style="color: #00ffff; text-decoration: none;">Support</a></p>
       <p>Made with 💜 for the Discord community</p>
     </footer>
   </div>
@@ -615,6 +615,33 @@
         targetTab.classList.add('active');
       }
     }
+
+    // Handle URL hash on page load
+    window.addEventListener('load', function() {
+      const hash = window.location.hash.slice(1); // Remove the # character
+      if (hash && document.getElementById(hash)) {
+        showBot(hash);
+      }
+    });
+
+    // Handle hash changes (back button, etc.)
+    window.addEventListener('hashchange', function() {
+      const hash = window.location.hash.slice(1);
+      if (hash && document.getElementById(hash)) {
+        showBot(hash);
+      }
+    });
+
+    // Update URL when clicking tabs
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.bot-tab').forEach(tab => {
+        const originalOnclick = tab.onclick;
+        tab.addEventListener('click', function(e) {
+          const botName = this.id.replace('tab-', '');
+          window.history.pushState(null, null, '#' + botName);
+        });
+      });
+    });
   </script>
 </body>
 </html>
