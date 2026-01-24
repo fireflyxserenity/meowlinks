@@ -13,6 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meow Links - Discord Tools</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
   <link rel="stylesheet" href="style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776" crossorigin="anonymous"></script>
 </head>
@@ -320,8 +321,10 @@
         }
         
         const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-        document.getElementById('meow-count-inline').innerText = formattedMeows;
-        document.getElementById('meow-count-banner').innerText = formattedMeows;
+        const inlineElement = document.getElementById('meow-count-inline');
+        if (inlineElement) {
+          inlineElement.innerText = formattedMeows;
+        }
       })
       .catch(error => console.log('Error fetching meows:', error));
     
@@ -335,8 +338,10 @@
             totalMeows += data[bot].total_meows_tracked || 0;
           }
           const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-          document.getElementById('meow-count-inline').innerText = formattedMeows;
-          document.getElementById('meow-count-banner').innerText = formattedMeows;
+          const inlineElement = document.getElementById('meow-count-inline');
+          if (inlineElement) {
+            inlineElement.innerText = formattedMeows;
+          }
         })
         .catch(error => console.log('Error fetching meows:', error));
     }, 10000);
