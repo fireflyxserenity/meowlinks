@@ -249,7 +249,7 @@
   <script>
     // Hardcoded bot statuses (fake for now)
     const botStatuses = {
-      catcafe: 'purrfecting',
+      catcafe: 'maintenance',
       meowbot: 'online',
       manager: 'online'
     };
@@ -258,7 +258,8 @@
     const statusColors = {
       online: '#00ff00',
       purrfecting: '#FFFF00',
-      offline: '#ff0000'
+      offline: '#ff0000',
+      maintenance: '#ff8800'
     };
 
     // Set hardcoded status
@@ -267,7 +268,10 @@
       const text = document.getElementById(`status-text-${botId}`);
       
       if (dot && text) {
-        const displayText = status.charAt(0).toUpperCase() + status.slice(1);
+        let displayText = status.charAt(0).toUpperCase() + status.slice(1);
+        if (status === 'maintenance') {
+          displayText = 'Maintenance ⚠️';
+        }
         dot.style.background = statusColors[status] || '#ff0000';
         text.textContent = displayText;
       }
