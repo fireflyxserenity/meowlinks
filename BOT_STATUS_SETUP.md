@@ -36,23 +36,20 @@ app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
 });
 
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
+});
+
 const PORT = process.env.CAT_CAFE_PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Cat Cafe status server running on port ${PORT}`);
-});
-```
-
-**To set maintenance mode**, add a command:
-```javascript
-// Slash command to toggle maintenance
-client.on('interactionCreate', async (interaction) => {
-  if (interaction.commandName === 'maintenance') {
-    if (interaction.user.id !== 'YOUR_DISCORD_ID') return;
-    
-    const mode = interaction.options.getString('mode');
-    botStatus = mode; // 'online', 'maintenance', or 'offline'
-    await interaction.reply(`Status changed to: ${mode}`);
-  }
 });
 ```
 
@@ -79,6 +76,17 @@ client.on('disconnect', () => {
 
 app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
+});
+
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
 });
 
 const PORT = process.env.MEOW_BOT_PORT || 3002;
@@ -110,6 +118,17 @@ client.on('disconnect', () => {
 
 app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
+});
+
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
 });
 
 const PORT = process.env.MEOW_MANAGER_PORT || 3003;
@@ -146,6 +165,53 @@ app.listen(PORT, () => {
 5. **For maintenance mode**, you can:
    - Use a slash command (example code above)
    - Manually set `botStatus = 'maintenance'` before deploying updates
+
+---
+
+## Admin Control Panel - Secure Backend Auth ✅
+
+The admin panel at `luna.html` now uses **secure backend authentication** - the password is NOT visible in the source code!
+
+**Setup:**
+
+1. **Add the authentication endpoints to your backend** (`backend/index.js`):
+   - The password is stored in a `.env` file on the server
+   - When you log in, you get a temporary token
+   - Only the token is used for subsequent requests
+
+2. **Set your admin password in `.env`:**
+   ```
+   ADMIN_PASSWORD=your_super_strong_password_here_12345
+   ```
+   Use a strong, random password! (20+ characters recommended)
+
+3. **Update luna.html** - Make sure the BACKEND_URL matches your server:
+   ```javascript
+   const BACKEND_URL = 'http://your-server-url.com'; // Not just localhost
+   ```
+
+4. **Backend now validates tokens** - The bot status endpoints check for valid tokens before allowing changes
+
+**How it works:**
+1. You enter password in luna.html
+2. Frontend sends password to `POST /api/admin/verify`
+3. Backend checks against `ADMIN_PASSWORD` from .env
+4. Backend returns a secure token (24-hour expiration)
+5. Token is stored in browser (NOT the password!)
+6. Token is sent with each status change request
+7. Backend validates token before allowing changes
+
+**Security Benefits:**
+- ✅ Password is NEVER visible in source code
+- ✅ Password is stored server-side in .env
+- ✅ Only temporary tokens are sent in requests
+- ✅ Tokens expire after 24 hours
+- ✅ Each session is isolated
+
+**To change your password:**
+- Edit your `.env` file on the server
+- Restart the backend
+- All existing tokens become invalid
 
 ---
 

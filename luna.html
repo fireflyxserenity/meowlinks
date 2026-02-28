@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bot Admin - Meow Links</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0f0f2e 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(255, 105, 180, 0.12) 0%, transparent 40%);
+      animation: bgFloat 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes bgFloat {
+      0%, 100% { transform: translateY(0px); opacity: 0.4; }
+      50% { transform: translateY(-10px); opacity: 0.6; }
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: float-particle 20s infinite ease-in-out;
+    }
+
+    @keyframes float-particle {
+      0% { opacity: 0; transform: translateY(100vh) translateX(0); }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-100vh) translateX(100px); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .login-container,
+    .admin-container {
+      backdrop-filter: blur(10px);
+      background: rgba(10, 14, 39, 0.6);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-container {
+      max-width: 450px;
+    }
+
+    .login-container::before,
+    .admin-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2, #32cd32, #ffa500);
+      background-size: 200% 100%;
+      animation: rainbow-wave 4s ease-in-out infinite;
+    }
+
+    @keyframes rainbow-wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #00ffff, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid rgba(0, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #ffffff;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    input[type="password"]::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 10px;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(135deg, #00ffff, #0099cc);
+      color: #000;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .btn-login:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .error {
+      color: #ff1744;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .bots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .bot-card {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(138, 43, 226, 0.08));
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .bot-card:hover {
+      border-color: rgba(0, 255, 255, 0.6);
+      box-shadow: 0 8px 30px rgba(0, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .bot-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffff, #ff69b4, #8a2be2);
+    }
+
+    .bot-card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #00ffff, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .status-display {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.8rem;
+      min-height: 18px;
+    }
+
+    .status-display.success {
+      color: #00ff00;
+    }
+
+    .status-display.loading {
+      color: #ffa500;
+    }
+
+    .status-display.error {
+      color: #ff1744;
+    }
+
+    .status-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .status-btn {
+      padding: 0.6rem;
+      border: 2px solid rgba(0, 255, 255, 0.5);
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .status-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .status-btn.online {
+      border-color: #00ff00;
+      color: #00ff00;
+      background: rgba(0, 255, 0, 0.1);
+    }
+
+    .status-btn.online.active {
+      background: rgba(0, 255, 0, 0.3);
+      box-shadow: 0 6px 15px rgba(0, 255, 0, 0.4);
+    }
+
+    .status-btn.offline {
+      border-color: #ff1744;
+      color: #ff1744;
+      background: rgba(255, 23, 68, 0.1);
+    }
+
+    .status-btn.offline.active {
+      background: rgba(255, 23, 68, 0.3);
+      box-shadow: 0 6px 15px rgba(255, 23, 68, 0.4);
+    }
+
+    .status-btn.maintenance {
+      border-color: #ffa500;
+      color: #ffa500;
+      background: rgba(255, 165, 0, 0.1);
+    }
+
+    .status-btn.maintenance.active {
+      background: rgba(255, 165, 0, 0.3);
+      box-shadow: 0 6px 15px rgba(255, 165, 0, 0.4);
+    }
+
+    .status-btn.purfecting {
+      border-color: #ff69b4;
+      color: #ff69b4;
+      background: rgba(255, 105, 180, 0.1);
+    }
+
+    .status-btn.purfecting.active {
+      background: rgba(255, 105, 180, 0.3);
+      box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .logout-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(255, 105, 180, 0.2);
+      border: 2px solid rgba(255, 105, 180, 0.5);
+      color: #ff69b4;
+      font-size: 1rem;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 105, 180, 0.3);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .bots-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-container {
+        max-width: 100%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 25%; animation-delay: 4s;">🐱</div>
+    <div class="particle" style="left: 40%; animation-delay: 8s;">⭐</div>
+    <div class="particle" style="left: 60%; animation-delay: 12s;">😺</div>
+    <div class="particle" style="left: 80%; animation-delay: 16s;">💫</div>
+  </div>
+
+  <div class="content">
+    <div id="loginForm" class="login-container">
+      <h1>🐱 Bot Admin</h1>
+      <div class="form-group">
+        <label for="passwordInput">Admin Password</label>
+        <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="off"/>
+      </div>
+      <button class="btn-login" onclick="login()">Login</button>
+      <div class="error" id="loginError"></div>
+    </div>
+
+    <div id="adminPanel" class="admin-container hidden">
+      <h1>🐱 Bot Status Control</h1>
+
+      <div class="bots-grid">
+        <div class="bot-card">
+          <h2>🎮 Cat Cafe</h2>
+          <div class="status-display" id="catCafeStatus"></div>
+          <div class="status-buttons">
+            <button class="status-btn online" onclick="setStatus('cat-cafe', 'online')">✅ Online</button>
+            <button class="status-btn offline" onclick="setStatus('cat-cafe', 'offline')">❌ Offline</button>
+            <button class="status-btn maintenance" onclick="setStatus('cat-cafe', 'maintenance')">🔧 Maint</button>
+            <button class="status-btn purfecting" onclick="setStatus('cat-cafe', 'purfecting')">✨ Perf</button>
+          </div>
+        </div>
+
+        <div class="bot-card">
+          <h2>😺 Meow Bot</h2>
+          <div class="status-display" id="meowBotStatus"></div>
+          <div class="status-buttons">
+            <button class="status-btn online" onclick="setStatus('meow-bot', 'online')">✅ Online</button>
+            <button class="status-btn offline" onclick="setStatus('meow-bot', 'offline')">❌ Offline</button>
+            <button class="status-btn maintenance" onclick="setStatus('meow-bot', 'maintenance')">🔧 Maint</button>
+            <button class="status-btn purfecting" onclick="setStatus('meow-bot', 'purfecting')">✨ Perf</button>
+          </div>
+        </div>
+
+        <div class="bot-card">
+          <h2>👑 Meow Manager</h2>
+          <div class="status-display" id="meowManagerStatus"></div>
+          <div class="status-buttons">
+            <button class="status-btn online" onclick="setStatus('meow-manager', 'online')">✅ Online</button>
+            <button class="status-btn offline" onclick="setStatus('meow-manager', 'offline')">❌ Offline</button>
+            <button class="status-btn maintenance" onclick="setStatus('meow-manager', 'maintenance')">🔧 Maint</button>
+            <button class="status-btn purfecting" onclick="setStatus('meow-manager', 'purfecting')">✨ Perf</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="logout-btn" onclick="logout()">Logout 🚪</button>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND_URL = 'http://localhost:3000';
+    let adminToken = null;
+    
+    const PORTS = {
+      'cat-cafe': 3001,
+      'meow-bot': 3002,
+      'meow-manager': 3003
+    };
+
+    async function login() {
+      const password = document.getElementById('passwordInput').value;
+      const errorDiv = document.getElementById('loginError');
+      
+      if (!password) {
+        errorDiv.textContent = '❌ Please enter a password';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${BACKEND_URL}/api/admin/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+          adminToken = data.token;
+          document.getElementById('loginForm').classList.add('hidden');
+          document.getElementById('adminPanel').classList.remove('hidden');
+          loadStatuses();
+          setInterval(loadStatuses, 5000);
+        } else {
+          errorDiv.textContent = '❌ Invalid password';
+          document.getElementById('passwordInput').value = '';
+        }
+      } catch (error) {
+        errorDiv.textContent = '❌ Connection error';
+      }
+    }
+
+    function logout() {
+      adminToken = null;
+      document.getElementById('adminPanel').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('loginError').textContent = '';
+    }
+
+    async function setStatus(bot, status) {
+      const port = PORTS[bot];
+      const statusDisplay = document.getElementById(
+        bot === 'cat-cafe' ? 'catCafeStatus' :
+        bot === 'meow-bot' ? 'meowBotStatus' : 'meowManagerStatus'
+      );
+
+      statusDisplay.textContent = '⏳ Updating...';
+      statusDisplay.className = 'status-display loading';
+
+      try {
+        const response = await fetch(`http://localhost:${port}/api/status/set`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-Admin-Token': adminToken
+          },
+          body: JSON.stringify({ status })
+        });
+
+        if (response.ok) {
+          statusDisplay.textContent = `Status: ${status}`;
+          statusDisplay.className = 'status-display success';
+          updateButtonStates(bot, status);
+        } else {
+          statusDisplay.textContent = '❌ Failed';
+          statusDisplay.className = 'status-display error';
+        }
+      } catch (error) {
+        statusDisplay.textContent = '❌ Error';
+        statusDisplay.className = 'status-display error';
+      }
+    }
+
+    async function loadStatuses() {
+      for (const [bot, port] of Object.entries(PORTS)) {
+        try {
+          const response = await fetch(`http://localhost:${port}/api/status`);
+          const data = await response.json();
+          updateButtonStates(bot, data.status);
+        } catch (error) {
+          // Silently fail if bot is not running
+        }
+      }
+    }
+
+    function updateButtonStates(bot, status) {
+      const cards = document.querySelectorAll('.bot-card');
+      let targetIndex = 0;
+      if (bot === 'meow-bot') targetIndex = 1;
+      if (bot === 'meow-manager') targetIndex = 2;
+      
+      const buttons = cards[targetIndex].querySelectorAll('.status-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      const statusMap = {
+        'online': 0,
+        'offline': 1,
+        'maintenance': 2,
+        'purfecting': 3
+      };
+      
+      if (statusMap[status] !== undefined) {
+        buttons[statusMap[status]].classList.add('active');
+      }
+    }
+
+    document.getElementById('passwordInput')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') login();
+    });
+  </script>
+</body>
+</html>

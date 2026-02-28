@@ -17,13 +17,63 @@ const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET; // Required
 const BOT_USERNAME = process.env.BOT_USERNAME || 'your_bot_username';
 const BOT_ACCESS_TOKEN = process.env.BOT_ACCESS_TOKEN;
 
+// Admin Panel Configuration
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'change_me_immediately';
+const activeSessions = new Map(); // Store active sessions: token -> { createdAt, expiresAt }
+
 // Validate required environment variables
 if (!TWITCH_CLIENT_SECRET) {
     console.error('ERROR: TWITCH_CLIENT_SECRET environment variable is required');
     process.exit(1);
 }
 
-// Route to handle authorization code exchange and bot joining
+// ============ ADMIN AUTHENTICATION ENDPOINTS ============
+
+// Verify admin password and create session
+app.post('/api/admin/verify', (req, res) => {
+    const { password } = req.body;
+    
+    if (password === ADMIN_PASSWORD) {
+        // Generate a random token
+        const token = require('crypto').randomBytes(32).toString('hex');
+        const expiresAt = Date.now() + (24 * 60 * 60 * 1000); // 24 hour expiration
+        
+        activeSessions.set(token, { createdAt: Date.now(), expiresAt });
+        
+        res.json({ 
+            success: true, 
+            token: token,
+            message: 'Authentication successful'
+        });
+    } else {
+        res.status(401).json({ 
+            success: false, 
+            message: 'Invalid password' 
+        });
+    }
+});
+
+// Verify if a token is valid
+function isValidToken(token) {
+    if (!activeSessions.has(token)) return false;
+    const session = activeSessions.get(token);
+    if (Date.now() > session.expiresAt) {
+        activeSessions.delete(token);
+        return false;
+    }
+    return true;
+}
+
+// Middleware to check admin token
+function requireAdminToken(req, res, next) {
+    const token = req.headers['x-admin-token'];
+    if (!token || !isValidToken(token)) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    next();
+}
+
+// ============ BOT STATUS ENDPOINTS ============
 app.post('/api/authorize-bot', async (req, res) => {
     try {
         const { code, redirect_uri } = req.body;
