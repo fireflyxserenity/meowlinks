@@ -36,23 +36,20 @@ app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
 });
 
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
+});
+
 const PORT = process.env.CAT_CAFE_PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Cat Cafe status server running on port ${PORT}`);
-});
-```
-
-**To set maintenance mode**, add a command:
-```javascript
-// Slash command to toggle maintenance
-client.on('interactionCreate', async (interaction) => {
-  if (interaction.commandName === 'maintenance') {
-    if (interaction.user.id !== 'YOUR_DISCORD_ID') return;
-    
-    const mode = interaction.options.getString('mode');
-    botStatus = mode; // 'online', 'maintenance', or 'offline'
-    await interaction.reply(`Status changed to: ${mode}`);
-  }
 });
 ```
 
@@ -79,6 +76,17 @@ client.on('disconnect', () => {
 
 app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
+});
+
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
 });
 
 const PORT = process.env.MEOW_BOT_PORT || 3002;
@@ -110,6 +118,17 @@ client.on('disconnect', () => {
 
 app.get('/api/status', (req, res) => {
   res.json({ status: botStatus });
+});
+
+// Add this endpoint to allow admin panel to change status
+app.post('/api/status/set', express.json(), (req, res) => {
+  const { status } = req.body;
+  if (['online', 'offline', 'maintenance', 'purfecting'].includes(status)) {
+    botStatus = status;
+    res.json({ success: true, status: botStatus });
+  } else {
+    res.status(400).json({ error: 'Invalid status' });
+  }
 });
 
 const PORT = process.env.MEOW_MANAGER_PORT || 3003;
@@ -146,6 +165,11 @@ app.listen(PORT, () => {
 5. **For maintenance mode**, you can:
    - Use a slash command (example code above)
    - Manually set `botStatus = 'maintenance'` before deploying updates
+
+**To change your password:**
+- Edit your `.env` file on the server
+- Restart the backend
+- All existing tokens become invalid
 
 ---
 
