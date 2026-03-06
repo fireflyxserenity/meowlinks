@@ -255,14 +255,7 @@
   </div>
 
   <script>
-    // Hardcoded bot statuses (fake for now)
-    const botStatuses = {
-      catcafe: 'purfecting',
-      meowbot: 'online',
-      manager: 'online'
-    };
-
-    // Status colors
+    // ========== BOT STATUS MANAGEMENT ==========
     const statusColors = {
       online: '#00ff00',
       purfecting: '#FFFF00',
@@ -270,7 +263,21 @@
       maintenance: '#ff8800'
     };
 
-    // Set hardcoded status
+    // Fetch bot statuses from Firebase in real-time
+    function loadBotStatuses() {
+      const botsRef = firebase.database().ref('botStatuses');
+      
+      botsRef.on('value', (snapshot) => {
+        const statuses = snapshot.val() || {};
+        
+        // Update each bot display
+        setBotStatus('meowbot', statuses['meow-bot'] || 'offline');
+        setBotStatus('catcafe', statuses['cat-cafe'] || 'offline');
+        setBotStatus('manager', statuses['meow-manager'] || 'offline');
+      });
+    }
+
+    // Set status display
     function setBotStatus(botId, status) {
       const dot = document.getElementById(`status-dot-${botId}`);
       const text = document.getElementById(`status-text-${botId}`);
@@ -288,11 +295,9 @@
       }
     }
 
-    // Update all bot statuses on page load
+    // Load on page load
     window.addEventListener('load', () => {
-      Object.entries(botStatuses).forEach(([botId, status]) => {
-        setBotStatus(botId, status);
-      });
+      loadBotStatuses();
     });
   </script>
 

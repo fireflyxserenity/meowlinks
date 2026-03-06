@@ -344,6 +344,74 @@
         max-width: 100%;
         padding: 1.5rem;
       }
+
+      .status-buttons {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      .status-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .bot-card {
+        padding: 1.5rem;
+      }
+
+      button {
+        min-height: 44px;
+      }
+
+      input[type="password"] {
+        padding: 1rem;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 1rem;
+      }
+
+      .login-container,
+      .admin-container {
+        padding: 1.5rem;
+        border-radius: 15px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .bot-card h2 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .status-buttons {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+      }
+
+      .status-btn {
+        padding: 0.7rem;
+        font-size: 0.8rem;
+      }
+
+      .logout-btn {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      input[type="password"] {
+        padding: 0.9rem;
+      }
+
+      .btn-login {
+        padding: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -371,9 +439,9 @@
       <h1>🐱 Bot Status Control</h1>
 
       <div class="bots-grid">
-        <div class="bot-card">
+        <div class="bot-card" id="cat-cafeCard">
           <h2>🎮 Cat Cafe</h2>
-          <div class="status-display" id="catCafeStatus"></div>
+          <div class="status-display" id="cat-cafeStatus"></div>
           <div class="status-buttons">
             <button class="status-btn online" onclick="setStatus('cat-cafe', 'online')">✅ Online</button>
             <button class="status-btn offline" onclick="setStatus('cat-cafe', 'offline')">❌ Offline</button>
@@ -382,9 +450,9 @@
           </div>
         </div>
 
-        <div class="bot-card">
+        <div class="bot-card" id="meow-botCard">
           <h2>😺 Meow Bot</h2>
-          <div class="status-display" id="meowBotStatus"></div>
+          <div class="status-display" id="meow-botStatus"></div>
           <div class="status-buttons">
             <button class="status-btn online" onclick="setStatus('meow-bot', 'online')">✅ Online</button>
             <button class="status-btn offline" onclick="setStatus('meow-bot', 'offline')">❌ Offline</button>
@@ -393,9 +461,9 @@
           </div>
         </div>
 
-        <div class="bot-card">
+        <div class="bot-card" id="meow-managerCard">
           <h2>👑 Meow Manager</h2>
-          <div class="status-display" id="meowManagerStatus"></div>
+          <div class="status-display" id="meow-managerStatus"></div>
           <div class="status-buttons">
             <button class="status-btn online" onclick="setStatus('meow-manager', 'online')">✅ Online</button>
             <button class="status-btn offline" onclick="setStatus('meow-manager', 'offline')">❌ Offline</button>
@@ -409,17 +477,23 @@
     </div>
   </div>
 
-  <script>
-    const BACKEND_URL = 'http://localhost:3000';
-    let adminToken = null;
-    
-    const PORTS = {
-      'cat-cafe': 3001,
-      'meow-bot': 3002,
-      'meow-manager': 3003
-    };
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
 
-    async function login() {
+  <script>
+    // Firebase config (same as your main site)
+    const firebaseConfig = {
+      databaseURL: "https://bot-counts-default-rtdb.firebaseio.com/",
+    };
+    firebase.initializeApp(firebaseConfig);
+    
+    const botsRef = firebase.database().ref('botStatuses');
+    
+    // ========== PASSWORD CONFIGURATION ==========
+    // Change this to your password
+    const ADMIN_PASSWORD = 'suitcase1994!';
+    
+    function login() {
       const password = document.getElementById('passwordInput').value;
       const errorDiv = document.getElementById('loginError');
       
@@ -428,91 +502,60 @@
         return;
       }
 
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/admin/verify`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password })
-        });
-
-        const data = await response.json();
-        
-        if (data.success) {
-          adminToken = data.token;
-          document.getElementById('loginForm').classList.add('hidden');
-          document.getElementById('adminPanel').classList.remove('hidden');
-          loadStatuses();
-          setInterval(loadStatuses, 5000);
-        } else {
-          errorDiv.textContent = '❌ Invalid password';
-          document.getElementById('passwordInput').value = '';
-        }
-      } catch (error) {
-        errorDiv.textContent = '❌ Connection error';
+      if (password === ADMIN_PASSWORD) {
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        document.getElementById('passwordInput').value = '';
+        loadStatuses();
+      } else {
+        errorDiv.textContent = '❌ Invalid password';
+        document.getElementById('passwordInput').value = '';
       }
     }
 
     function logout() {
-      adminToken = null;
       document.getElementById('adminPanel').classList.add('hidden');
       document.getElementById('loginForm').classList.remove('hidden');
       document.getElementById('passwordInput').value = '';
       document.getElementById('loginError').textContent = '';
     }
 
-    async function setStatus(bot, status) {
-      const port = PORTS[bot];
-      const statusDisplay = document.getElementById(
-        bot === 'cat-cafe' ? 'catCafeStatus' :
-        bot === 'meow-bot' ? 'meowBotStatus' : 'meowManagerStatus'
-      );
-
+    async function setStatus(botId, status) {
+      const statusDisplay = document.getElementById(`${botId}Status`);
+      
       statusDisplay.textContent = '⏳ Updating...';
       statusDisplay.className = 'status-display loading';
 
       try {
-        const response = await fetch(`http://localhost:${port}/api/status/set`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'X-Admin-Token': adminToken
-          },
-          body: JSON.stringify({ status })
-        });
-
-        if (response.ok) {
-          statusDisplay.textContent = `Status: ${status}`;
-          statusDisplay.className = 'status-display success';
-          updateButtonStates(bot, status);
-        } else {
-          statusDisplay.textContent = '❌ Failed';
-          statusDisplay.className = 'status-display error';
-        }
+        // Save to Firebase
+        await botsRef.child(botId).set(status);
+        
+        statusDisplay.textContent = `Status: ${status}`;
+        statusDisplay.className = 'status-display success';
+        updateButtonStates(botId, status);
       } catch (error) {
+        console.error('Error setting status:', error);
         statusDisplay.textContent = '❌ Error';
         statusDisplay.className = 'status-display error';
       }
     }
 
-    async function loadStatuses() {
-      for (const [bot, port] of Object.entries(PORTS)) {
-        try {
-          const response = await fetch(`http://localhost:${port}/api/status`);
-          const data = await response.json();
-          updateButtonStates(bot, data.status);
-        } catch (error) {
-          // Silently fail if bot is not running
+    function loadStatuses() {
+      botsRef.on('value', (snapshot) => {
+        const statuses = snapshot.val() || {};
+        
+        for (const botId of ['cat-cafe', 'meow-bot', 'meow-manager']) {
+          const status = statuses[botId] || 'offline';
+          updateButtonStates(botId, status);
         }
-      }
+      });
     }
 
-    function updateButtonStates(bot, status) {
-      const cards = document.querySelectorAll('.bot-card');
-      let targetIndex = 0;
-      if (bot === 'meow-bot') targetIndex = 1;
-      if (bot === 'meow-manager') targetIndex = 2;
+    function updateButtonStates(botId, status) {
+      const card = document.getElementById(`${botId}Card`);
+      if (!card) return;
       
-      const buttons = cards[targetIndex].querySelectorAll('.status-btn');
+      const buttons = card.querySelectorAll('.status-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
       
       const statusMap = {
