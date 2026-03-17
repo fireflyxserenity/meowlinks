@@ -81,12 +81,12 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #00ffff, #b300ff, #ff0080, #39ff14, #00ffff);
-  background-size: 300% 100%;
+  background: linear-gradient(135deg, #00ffff, #ff69b4, #8a2be2, #00ffff);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: neon-shift 4s ease infinite;
+  animation: gradient-shift 4s ease infinite;
 }
 
 @keyframes neon-shift {
