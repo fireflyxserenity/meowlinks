@@ -81,10 +81,18 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #00ffff, #ff69b4);
+  background: linear-gradient(90deg, #00ffff, #b300ff, #ff0080, #39ff14, #00ffff);
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: neon-shift 4s ease infinite;
+}
+
+@keyframes neon-shift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
 }
 
 .nav-links {
