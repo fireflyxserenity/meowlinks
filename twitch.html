@@ -276,11 +276,10 @@
                         <p>Ready to start counting meows? Add the bot now!</p>
                         
                         <div class="quick-actions">
-                            <a href="https://id.twitch.tv/oauth2/authorize?client_id=i8doijnvc4wkt0q5et2fb7ucb7mng7&redirect_uri=https://fireflydesigns.me/twitch.html&response_type=code&scope=chat:read+chat:edit+channel:moderate" 
-                               class="action-card action-twitch" target="_blank">
+                            <button id="addBotBtn" class="action-card action-twitch" onclick="startOAuthFlow()">
                                 <span class="action-icon">📺</span>
                                 <div class="action-title">Add Bot to Channel</div>
-                            </a>
+                            </button>
                         </div>
                         
                         <div class="twitch-features">
@@ -487,6 +486,26 @@
             }
         }
 
+        // Configuration
+        const TWITCH_CLIENT_ID = 'i8doijnvc4wkt0q5et2fb7ucb7mng7';
+        const BOT_API_URL = 'https://oauthmeow-production.up.railway.app/api/authorize-bot';
+        const TWITCH_OAUTH_URL = 'https://id.twitch.tv/oauth2/authorize';
+        const SCOPES = 'chat:read+chat:edit+channel:moderate';
+
+        // Get the redirect URI dynamically (works on any domain)
+        function getRedirectUri() {
+            return `${window.location.origin}${window.location.pathname}`;
+        }
+
+        // Start the OAuth flow
+        function startOAuthFlow() {
+            const redirectUri = getRedirectUri();
+            const authUrl = `${TWITCH_OAUTH_URL}?client_id=${TWITCH_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${SCOPES}`;
+            
+            // Open in same window for better UX
+            window.location.href = authUrl;
+        }
+
         // Check if user just came back from authorization
         window.addEventListener('load', function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -496,7 +515,8 @@
             if (code) {
                 handleAuthorization(code);
             } else if (error) {
-                showMessage('error', { error: 'Authorization was cancelled or failed' });
+                const errorDescription = urlParams.get('error_description') || 'Authorization was cancelled or failed';
+                showMessage('error', { error: errorDescription });
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
         });
@@ -506,14 +526,16 @@
             showMessage('loading');
             
             try {
-                const response = await fetch('https://oauthmeow-production.up.railway.app/api/authorize-bot', {
+                const redirectUri = getRedirectUri();
+                
+                const response = await fetch(BOT_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         code: code,
-                        redirect_uri: 'https://fireflydesigns.me/twitch.html'
+                        redirect_uri: redirectUri
                     })
                 });
 
