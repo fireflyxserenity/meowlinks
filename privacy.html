@@ -64,7 +64,17 @@
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
+        <li><a href="patch-notes.html">Patch Notes</a></li>
       </ul>
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+      <a href="index.html#bots" onclick="closeMobileNav()">Bots</a>
+      <a href="index.html#servers" onclick="closeMobileNav()">Servers</a>
+      <a href="feedback.html">Feedback/Support</a>
+      <a href="patch-notes.html">Patch Notes</a>
     </nav>
 
     <section class="section">
@@ -642,6 +652,19 @@
         });
       });
     });
+  </script>
+
+  <script>
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileNavMenu');
+      const btn = document.getElementById('hamburgerBtn');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNavMenu').classList.remove('open');
+      document.getElementById('hamburgerBtn').classList.remove('open');
+    }
   </script>
 </body>
 </html>
