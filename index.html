@@ -33,12 +33,24 @@
         <li><a href="#bots">Bots</a></li>
         <li><a href="#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
+        <li><a href="patch-notes.html">Patch Notes<span class="patch-notes-dot" id="patch-dot"></span></a></li>
       </ul>
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+      <a href="#bots" onclick="closeMobileNav()">Bots</a>
+      <a href="#servers" onclick="closeMobileNav()">Servers</a>
+      <a href="feedback.html">Feedback/Support</a>
+      <a href="patch-notes.html">Patch Notes<span class="patch-notes-dot" id="patch-dot-mobile"></span></a>
     </nav>
 
     <section class="hero" id="home">
       <h1>MEOW BOTS</h1>
-      <p>Discord bots for fun interactions and server management</p>
+      <p>Discord bots for fun interactions and server management - built for cat lovers by cat lovers
+      
+      </p>
 
       <div class="stats-row">
         <div class="stat">
@@ -46,8 +58,8 @@
           <div class="stat-label">Active Bots</div>
         </div>
         <div class="stat">
-          <div class="stat-value">FREE</div>
-          <div class="stat-label">Service</div>
+          <div class="stat-value"><span id="stat-meows">0</span></div>
+          <div class="stat-label">Meows Tracked</div>
         </div>
         <div class="stat">
           <div class="stat-value"><span id="total-servers">0</span></div>
@@ -60,99 +72,72 @@
       </div>
     </section>
 
-    <div style="max-width: 950px; margin: 0 auto; padding: 0 2rem;">
-      <div style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(75, 0, 130, 0.2) 100%); border: 2px solid rgba(138, 43, 226, 0.5); border-radius: 8px; padding: 1.2rem 1.2rem; margin: 1.5rem 0; text-align: center; box-shadow: 0 0 20px rgba(138, 43, 226, 0.3), inset 0 0 15px rgba(138, 43, 226, 0.1);">
-        <h3 style="color: #9370db; font-size: 1.1rem; margin-bottom: 0.5rem; margin-top: 0; font-weight: 700;">🎥 Twitch Meow Bot (Beta)</h3>
-        <p style="color: rgba(255, 255, 255, 0.85); margin: 0.5rem 0; font-size: 0.9rem;">Live meow counter for your streams with a global leaderboard. <a href="feedback.html" style="color: #00ffff; text-decoration: underline; font-weight: 600;">Drop your Twitch channel</a> and we'll set you up!</p>
-      </div>
-    </div>
+
 
     <section class="section" id="bots">
       <h2 class="section-title">Featured Bots</h2>
       <p class="section-subtitle">Powerful tools for your Discord server</p>
       
-      <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <!-- MEOW BOT and MEOW MANAGER - Side by side, NO screenshots -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon"><img src="meowbot.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-              <div style="display: flex; align-items: center; gap: 0.8rem; justify-content: space-between;">
-                <h3 class="card-title">MEOW BOT</h3>
-                <span id="status-meowbot" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                  <span id="status-dot-meowbot" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                  <span id="status-text-meowbot">Loading...</span>
-                </span>
+      <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+
+        <!-- MEOW BOT - Featured with screenshot -->
+        <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-header">
+                <div class="card-icon"><img src="meowbot.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <h3 class="card-title" style="margin: 0;">MEOW BOT</h3>
+                    <span style="background: linear-gradient(135deg, #00ffff, #00ccff); color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">⭐ ORIGINAL</span>
+                  </div>
+                  <span id="status-meowbot" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
+                    <span id="status-dot-meowbot" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
+                    <span id="status-text-meowbot">Loading...</span>
+                  </span>
+                </div>
+              </div>
+              <p class="card-description">The original Meow Counter we all love and know, with server leaderboards (optional global leaderboards to compete with other servers) and more.</p>
+              <span class="patch-last-updated" id="patch-badge-meowbot" style="display:none; margin-bottom: 0.5rem;"></span>
+
+              <div class="features-list">
+                <div class="feature-tag">Meow Counter</div>
+                <div class="feature-tag">Confessions</div>
+                <div class="feature-tag">Quotes</div>
+                <div class="feature-tag">Reaction Roles</div>
+                <div class="feature-tag">Welcome Messages</div>
+                <div class="feature-tag">Polls</div>
               </div>
             </div>
-            <p class="card-description">The original Meow Counter we all love and know, with server leaderboards (optional global leaderboards to compete with other servers) and more.</p>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 255, 255, 0.1); border: 1px solid rgba(0, 255, 255, 0.2); padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.8rem;">
-              <span style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.5px;">Meows tracked:</span>
-              <span style="font-size: 1rem; font-weight: 900; background: linear-gradient(135deg, #00ffff, #ff69b4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span id="meow-count-inline">0</span></span>
-            </div>
-            
-            <div class="features-list">
-              <div class="feature-tag">Meow Counter</div>
-              <div class="feature-tag">Confessions</div>
-              <div class="feature-tag">Quotes</div>
-              <div class="feature-tag">Reaction Roles</div>
-              <div class="feature-tag">Welcome Messages</div>
-              <div class="feature-tag">Polls</div>
-            </div>
-
             <div class="card-actions">
               <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
+              <a href="feedback.html?bot=meow-bot" class="btn-bug">🐛 Report Bug</a>
             </div>
           </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon"><img src="manager.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-              <div style="display: flex; align-items: center; gap: 0.8rem; justify-content: space-between;">
-                <h3 class="card-title">MEOW MANAGER</h3>
-                <span id="status-manager" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                  <span id="status-dot-manager" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                  <span id="status-text-manager">Loading...</span>
-                </span>
-              </div>
-            </div>
-            <p class="card-description">Server management with comprehensive logging, moderation, member applications & tracking, tickets, reminders, XP ranking, auto-threads, role welcome messages & sticky pins.</p>
-            
-            <div class="features-list">
-              <div class="feature-tag">Moderation</div>
-              <div class="feature-tag">Logging</div>
-              <div class="feature-tag">XP Levels (optional)</div>
-              <div class="feature-tag">Auto Threads</div>
-              <div class="feature-tag">Member Applications</div>
-              <div class="feature-tag">Reminders</div>
-              <div class="feature-tag">Sticky Messages</div>
-              <div class="feature-tag">Ticket System (Beta)</div>
-            </div>
-
-            <div class="card-actions">
-              <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
-            </div>
+          <div style="flex: 0 0 280px; display: flex; align-items: center; justify-content: center;">
+            <img src="meow.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
           </div>
         </div>
 
-        <!-- CAT CAFE - Full Width with Screenshot -->
+        <!-- CAT CAFE ECONOMY - Featured with screenshot -->
         <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <div class="card-header">
                 <div class="card-icon"><img src="economy.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem;">
-                  <h3 class="card-title">CAT CAFE ECONOMY BOT</h3>
-                  <span style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">BETA</span>
-                  <span id="status-catcafe" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(255, 193, 7, 0.3);">
-                    <span id="status-dot-catcafe" style="width: 8px; height: 8px; border-radius: 50%; background: #ffc107; display: inline-block;"></span>
-                    <span id="status-text-catcafe">Purfecting</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <h3 class="card-title" style="margin: 0;">CAT CAFE ECONOMY BOT</h3>
+                    <span style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">BETA</span>
+                  </div>
+                  <span id="status-catcafe" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
+                    <span id="status-dot-catcafe" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
+                    <span id="status-text-catcafe">Loading...</span>
                   </span>
                 </div>
               </div>
               <p class="card-description">Earn coins through work, chat, voice, and games. Customize your profile and collect rare items.</p>
-              
+              <span class="patch-last-updated" id="patch-badge-catcafe" style="display:none; margin-bottom: 0.5rem;"></span>
               <div class="features-list">
                 <div class="feature-tag">Economy System</div>
                 <div class="feature-tag">Work & Passive Income</div>
@@ -164,17 +149,84 @@
                 <div class="feature-tag">Counting Channel</div>
               </div>
             </div>
-
             <div class="card-actions">
               <a href="https://discord.com/api/oauth2/authorize?client_id=1355710891257102369&permissions=268553216&scope=bot" target="_blank" class="btn-add">Add Bot</a>
+              <a href="feedback.html?bot=cat-cafe" class="btn-bug">🐛 Report Bug</a>
             </div>
           </div>
-
-          <div style="flex: 0 0 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;">
-            <img src="profile.png" style="width: 100%; height: 150px; border-radius: 8px; object-fit: cover;" />
-            <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); text-align: center; line-height: 1.3;">Please report bugs in our <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p>
+          <div style="flex: 0 0 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;">
+            <img src="profile.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
+            <p style="font-size: 0.7rem; color: rgba(255, 255, 255, 0.7); text-align: center; line-height: 1.3; margin: 0;">Please report bugs in our <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p>
           </div>
         </div>
+
+        <!-- TWITCH MEOW BOT -->
+        <div class="card">
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-header">
+                <div class="card-icon"><img src="twitch.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" alt="📺" /></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <h3 class="card-title" style="font-size: 1.1rem; margin: 0;">TWITCH MEOW BOT</h3>
+                    <span style="background: linear-gradient(135deg, #ff9500, #ffb84d); color: #000; padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.65rem; font-weight: 700; white-space: nowrap;">BETA</span>
+                  </div>
+                  <span id="status-twitch" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
+                    <span id="status-dot-twitch" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
+                    <span id="status-text-twitch">Loading...</span>
+                  </span>
+                </div>
+              </div>
+              <p class="card-description" style="font-size: 0.85rem;">Live meow counter for your streams with a global leaderboard. Join streamers competing for the top spot!</p>
+              <div class="features-list">
+                <div class="feature-tag">Meow Counter</div>
+                <div class="feature-tag">Personal Counter</div>
+                <div class="feature-tag">Global Leaderboard</div>
+                <div class="feature-tag">User Stats</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="feedback.html" class="btn-add" style="background: linear-gradient(135deg, rgba(100, 65, 165, 0.4), rgba(145, 70, 255, 0.4)); border: 1px solid rgba(145, 70, 255, 0.6); color: #bb7fc9;">Drop Your Channel</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEOW MANAGER -->
+        <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-header">
+                <div class="card-icon"><img src="manager.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
+                  <h3 class="card-title" style="font-size: 1.1rem; margin: 0;">MEOW MANAGER</h3>
+                  <span id="status-manager" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
+                    <span id="status-dot-manager" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
+                    <span id="status-text-manager">Loading...</span>
+                  </span>
+                </div>
+              </div>
+              <p class="card-description" style="font-size: 0.85rem;">Server management with comprehensive logging, moderation, member applications & tracking, tickets, reminders, XP ranking, auto-threads, role welcome messages & sticky pins.</p>
+              <div class="features-list">
+                <div class="feature-tag">Moderation</div>
+                <div class="feature-tag">Logging</div>
+                <div class="feature-tag">XP Levels (optional)</div>
+                <div class="feature-tag">Auto Threads</div>
+                <div class="feature-tag">Member Applications</div>
+                <div class="feature-tag">Reminders</div>
+                <div class="feature-tag">Sticky Messages</div>
+                <div class="feature-tag">Ticket System (Beta)</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
+              <a href="feedback.html?bot=meow-manager" class="btn-bug">🐛 Report Bug</a>
+            </div>
+          </div>
+          <div style="flex: 0 0 200px; display: flex; align-items: center; justify-content: center;">
+            <img src="managerpic.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
+          </div>
+        </div>
+
       </div> 
     </section>
 
@@ -253,6 +305,61 @@
   </div>
 
   <script>
+    // ========== HAMBURGER NAV ==========
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileNavMenu');
+      const btn = document.getElementById('hamburgerBtn');
+      const isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNavMenu').classList.remove('open');
+      document.getElementById('hamburgerBtn').classList.remove('open');
+    }
+
+    // ========== PATCH NOTES DOT ==========
+    // Show dot if: patch is within 7 days AND user hasn't seen it yet
+    (function() {
+      const LAST_PATCH = '2026-03-22'; // update this string whenever you post new patch notes
+
+      // Per-bot last patch dates — update when you post new notes
+      const BOT_PATCHES = {
+        'meowbot':  { date: '2026-03-17', label: 'Meow Bot' },
+        'catcafe':  { date: '2026-03-22', label: 'Cat Cafe Economy' },
+      };
+
+      function relLabel(dateStr) {
+        // Parse as local midnight to avoid UTC offset errors
+        const patch = new Date(dateStr + 'T00:00:00');
+        const today = new Date(); today.setHours(0, 0, 0, 0);
+        const d = Math.round((today - patch) / (1000 * 60 * 60 * 24));
+        if (d > 7) return null;
+        return d === 0 ? '🔧 Updated today' : '🔧 Updated ' + d + 'd ago';
+      }
+
+      // Nav dot
+      const seen = localStorage.getItem('patchNotesSeen');
+      const patchDate = new Date(LAST_PATCH);
+      const daysSince = (Date.now() - patchDate.getTime()) / (1000 * 60 * 60 * 24);
+      const isNew = seen !== LAST_PATCH && daysSince <= 7;
+      const dot = document.getElementById('patch-dot');
+      const mob = document.getElementById('patch-dot-mobile');
+      if (dot) dot.style.display = isNew ? 'inline-block' : 'none';
+      if (mob) mob.style.display = isNew ? 'inline-block' : 'none';
+
+      // Bot card badges
+      Object.entries(BOT_PATCHES).forEach(function([key, info]) {
+        const badge = document.getElementById('patch-badge-' + key);
+        if (!badge) return;
+        const text = relLabel(info.date);
+        if (text) {
+          badge.textContent = text;
+          badge.style.display = 'inline-block';
+        }
+      });
+    })();
+
     // ========== BOT STATUS MANAGEMENT ==========
     const statusColors = {
       online: '#00ff00',
@@ -272,6 +379,7 @@
         setBotStatus('meowbot', statuses['meow-bot'] || 'offline');
         setBotStatus('catcafe', statuses['cat-cafe'] || 'offline');
         setBotStatus('manager', statuses['meow-manager'] || 'offline');
+        setBotStatus('twitch', statuses['twitch-bot'] || 'offline');
       });
     }
 
@@ -339,7 +447,7 @@
         }
         
         const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-        const inlineElement = document.getElementById('meow-count-inline');
+        const inlineElement = document.getElementById('stat-meows');
         if (inlineElement) {
           inlineElement.innerText = formattedMeows;
         }
@@ -356,7 +464,7 @@
             totalMeows += data[bot].total_meows_tracked || 0;
           }
           const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-          const inlineElement = document.getElementById('meow-count-inline');
+          const inlineElement = document.getElementById('stat-meows');
           if (inlineElement) {
             inlineElement.innerText = formattedMeows;
           }

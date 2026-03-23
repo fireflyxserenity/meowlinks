@@ -13,133 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patch Notes - Meow Bots</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+    <link rel="stylesheet" href="style.css">
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      
-      body {
-        background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0f0f2e 100%);
-        color: rgba(255, 255, 255, 0.9);
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      .particles {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .particle {
-        position: absolute;
-        font-size: 2.5rem;
-        opacity: 0.15;
-        animation: float 15s infinite;
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0; }
-        10% { opacity: 0.15; }
-        50% { opacity: 0.25; }
-        90% { opacity: 0.15; }
-      }
-
-      .content {
-        position: relative;
-        z-index: 2;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 2rem;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00ffff, #ff69b4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-      }
-
-      .nav-links a {
-        color: #00ffff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .nav-links a:hover {
-        color: #ff69b4;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-      }
-
-      .hero {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        font-weight: 900;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(90deg, #00ffff, #ff69b4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-        color: rgba(255, 255, 255, 0.8);
-        margin: 0;
-        background: linear-gradient(90deg, rgba(0, 255, 255, 0.6), rgba(255, 105, 180, 0.6));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .section {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1.5rem 2rem;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(90deg, #00ffff, #ff69b4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -1px;
-      }
-
-      .section-subtitle {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 2rem;
-      }
-
       .patch-notes-controls {
         display: flex;
         gap: 1rem;
@@ -173,10 +49,6 @@
       .version-selector option {
         background: #0a0e27;
         color: #00ffff;
-      }
-
-      .version-selector option:hover {
-        background: rgba(0, 255, 255, 0.2);
       }
 
       .control-buttons {
@@ -243,6 +115,10 @@
         color: #00ffff;
         margin: 0 0 0.3rem 0;
         font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
       }
 
       .patch-note-header p {
@@ -264,14 +140,15 @@
 
       .patch-note-content {
         padding: 2rem;
-        max-height: 1000px;
+        max-height: 2000px;
         overflow-y: auto;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.4s ease;
       }
 
       .patch-note-accordion.collapsed .patch-note-content {
         max-height: 0;
         padding: 0 2rem;
+        overflow: hidden;
       }
 
       .patch-status {
@@ -318,38 +195,7 @@
         transition: all 0.3s;
       }
 
-      .footer {
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(0, 255, 255, 0.1);
-        padding: 2rem;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.7);
-        margin-top: 4rem;
-      }
-
-      .footer a {
-        color: #00ffff;
-        text-decoration: none;
-      }
-
-      .footer a:hover {
-        color: #ff69b4;
-      }
-
       @media (max-width: 768px) {
-        .hero {
-          padding: 1.5rem;
-        }
-
-        .hero h1 {
-          font-size: 1.8rem;
-        }
-
-        .hero p {
-          font-size: 0.95rem;
-        }
-
         .patch-notes-controls {
           flex-direction: column;
           align-items: stretch;
@@ -385,7 +231,17 @@
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
+        <li><a href="patch-notes.html">Patch Notes</a></li>
       </ul>
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+      <a href="index.html#bots" onclick="closeMobileNav()">Bots</a>
+      <a href="index.html#servers" onclick="closeMobileNav()">Servers</a>
+      <a href="feedback.html">Feedback/Support</a>
+      <a href="patch-notes.html">Patch Notes</a>
     </nav>
 
     <section class="section">
@@ -410,6 +266,8 @@
               <label for="cat-cafe-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
               <select id="cat-cafe-version-select" class="version-selector" onchange="jumpToVersion('cat-cafe', this.value)">
                 <option value="">-- Select Version --</option>
+                <option value="v1.5.0">Version 1.5.0 - Stability &amp; Reliability Fixes</option>
+                <option value="v1.4.0">Version 1.4.0 - Economy Bug Fixes</option>
                 <option value="v1.3.0">Version 1.3.0 - Stability & Mod Permissions</option>
                 <option value="v1.2.0">Version 1.2.0 - Fishing & Boss Combat Systems</option>
                 <option value="v1.1.0">Version 1.1.0 - Slot Machine & Balance Update</option>
@@ -423,7 +281,11 @@
 
             <div class="patch-notes-container">
               <!-- Cat Cafe Accordion Items -->
-              <div class="patch-note-accordion" id="v1.3.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 1.3.0 - "Stability & Mod Permissions"</h3><p>Release Date: March 18, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>✅ Fixed Critical Stability Issues</strong></p><ul><li>Resolved database connection leaks causing bot instability across servers</li><li>Fixed interaction timeout errors on boss commands</li><li>Improved overall bot performance and reliability</li></ul><p><strong>✅ Expanded Mod Permissions</strong></p><p>Mods can now manage most server features:</p><ul><li>Spawn and control bosses (<code>/spawn_boss</code>, <code>/kill_boss</code>)</li><li>Set boss channel (<code>/set_boss_channel</code>)</li><li>Manage counting game (<code>/setcountingchannel</code>, <code>/resetcount</code>)</li><li>Configure random drops (<code>/randomdrop</code>)</li><li>Economy commands (<code>/addmoney</code>, <code>/removemoney</code>, <code>/additem</code>, <code>/removeitem</code>) remain admin-only</li><li>Mods are users with the Manage Messages permission</li></ul><p><strong>🔧 What This Means:</strong></p><ul><li>Bot is now much more stable running across all 37 servers</li><li>Your mods have more autonomy to manage gameplay features</li><li>No more surprise crashes or lag spikes!</li></ul><p><em>🎉 A more stable and responsive economy bot with empowered moderation!</em></p></div></div>
+              <div class="patch-note-accordion" id="v1.5.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 1.5.0 - "Stability &amp; Reliability Fixes"</h3><p>Release Date: March 22, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p>Hey everyone! Sorry for the downtime today — we were squashing some bugs behind the scenes. Here's what got fixed:</p><p><strong>🔧 Bug Fixes</strong></p><ul><li><strong>Database connection stability</strong> — Fixed an issue causing frequent "DB unavailable" errors during normal bot usage. Commands should now handle brief connection hiccups silently instead of failing.</li><li><strong>Boss battle crashes</strong> — Fixed a rare crash in the boss attack/heal buttons caused by temporary network issues on the server side.</li><li><strong>Overall reliability</strong> — The bot should now be significantly more stable during any short network blips going forward.</li></ul><p>Thanks for your patience! 🐱</p></div></div>
+
+              <div class="patch-note-accordion collapsed" id="v1.4.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🐱 Version 1.4.0 - "Economy Bug Fixes"</h3><p>Release Date: March 19, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🔧 Bug Fixes</strong></p><ul><li><strong>Loot Boxes:</strong> Fixed exploit where you could open multiple boxes per click</li><li><strong>Boss Timer:</strong> Fixed timer showing "expired" when it wasn't & large hour values (now shows "2d 5h" instead of "53h")</li><li><strong>Shop:</strong> Lootboxes now display in order (uncommon → legendary) instead of reversed</li><li><strong>Purchases:</strong> You can now only buy 1 of each item at a time (except lootboxes which you can buy in bulk)</li></ul><p><strong>🎯 What This Means:</strong></p><ul><li>No more duplicate lootbox opening exploits!</li><li>Boss timers display more readably with better formatting</li><li>Shop UI is now logically organized by rarity</li><li>Prevents accidental bulk purchases of regular items</li></ul><p><em>🎉 Smoother economy gameplay with these important fixes!</em></p></div></div>
+
+              <div class="patch-note-accordion collapsed" id="v1.3.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 1.3.0 - "Stability & Mod Permissions"</h3><p>Release Date: March 18, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>✅ Fixed Critical Stability Issues</strong></p><ul><li>Resolved database connection leaks causing bot instability across servers</li><li>Fixed interaction timeout errors on boss commands</li><li>Improved overall bot performance and reliability</li></ul><p><strong>✅ Expanded Mod Permissions</strong></p><p>Mods can now manage most server features:</p><ul><li>Spawn and control bosses (<code>/spawn_boss</code>, <code>/kill_boss</code>)</li><li>Set boss channel (<code>/set_boss_channel</code>)</li><li>Manage counting game (<code>/setcountingchannel</code>, <code>/resetcount</code>)</li><li>Configure random drops (<code>/randomdrop</code>)</li><li>Economy commands (<code>/addmoney</code>, <code>/removemoney</code>, <code>/additem</code>, <code>/removeitem</code>) remain admin-only</li><li>Mods are users with the Manage Messages permission</li></ul><p><strong>🔧 What This Means:</strong></p><ul><li>Bot is now much more stable running across all 37 servers</li><li>Your mods have more autonomy to manage gameplay features</li><li>No more surprise crashes or lag spikes!</li></ul><p><em>🎉 A more stable and responsive economy bot with empowered moderation!</em></p></div></div>
 
               <div class="patch-note-accordion collapsed" id="v1.2.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎣 Version 1.2.0 - "Fishing & Boss Combat Systems"</h3><p>Release Date: March 6, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🎮 Major Updates</strong></p><p><strong>🐠 NEW SYSTEM: Fishing System (Full Release!)</strong></p><ul><li><strong>55 Unique Fish</strong> organized by difficulty</li><li><strong>Tiny Fish</strong> (Levels 1-15)</li><li><strong>Small Fish</strong> (Levels 15-35)</li><li><strong>Medium Fish</strong> (Levels 30-55)</li><li><strong>Large Fish</strong> (Levels 45-75)</li><li><strong>Very Large Fish</strong> (Levels 60-85)</li><li><strong>Massive Fish</strong> (Levels 75-99)</li><li><strong>4 Location Unlock Tiers</strong> as you progress<ul><li><strong>🏠 Beginner:</strong> Cat Cafe, Cozy Corner, Sunny Window (unlocked at Level 1)</li><li><strong>🌊 Freshwater:</strong> Yarn Valley, Blossom Field, Catnip Garden (unlocked at Level 15)</li><li><strong>🏖️ Beach:</strong> Scratch Beach, Sandy Shore, Rocky Reef (unlocked at Level 30)</li><li><strong>🌑 Deep:</strong> Whisker Woods, Deep Forest, Mossy Stream (unlocked at Level 60)</li></ul></li><li><strong>Weight-Based Mechanics</strong> - Catch bigger fish for more XP and coins!</li><li><strong>Use /fish</strong> to start fishing and <strong>/fish inventory</strong> to see your catches</li></ul><p><strong>👑 NEW SYSTEM: Boss Combat</strong></p><ul><li><strong>4 Difficulty Tiers</strong> that scale with your server's top players<ul><li><strong>🟢 Easy Bosses</strong> (30k HP)</li><li><strong>🟡 Medium Bosses</strong> (150k HP)</li><li><strong>🔴 Hard Bosses</strong> (400k HP)</li><li><strong>⚫ Extreme Bosses</strong> (900k HP)</li></ul></li><li><strong>Team Combat</strong> - Fight bosses with up to 4 other players</li><li><strong>Real-time leaderboard</strong> showing damage rankings</li><li><strong>Use /boss_attack</strong> to fight and choose potion strategies</li><li><strong>Damage is tracked per player</strong> for fair rewards</li><li><strong>Rich Rewards</strong> - Win loot based on your rank<ul><li><strong>🥇 1st Place:</strong> Legendary Loot Box + highest coin reward</li><li><strong>🥈 2nd Place:</strong> Epic Loot Box</li><li><strong>🥉 3rd Place:</strong> Rare Loot Box</li><li><strong>4th-5th Place:</strong> Uncommon Loot Box</li></ul></li><li><strong>Use /spawn_boss [tier]</strong> (admin) or <strong>/boss_status</strong> to check current battle</li></ul><p><strong>📊 NEW: Profile Page 2 - Skill Stats View</strong></p><ul><li><strong>Two-Page Profile System</strong><ul><li>Page 1: Username, balance, earnings, gambling stats</li><li>Page 2: Skill stats display with 7 skills total</li></ul></li><li><strong>New Skills:</strong> Health & Power (for boss combat)</li><li><strong>Previous Skills:</strong> Workmanship, Luck, Cat Care, Scavenging, Fishing</li><li><strong>Use /profile</strong> and click the "Stats" button to view your skills</li></ul><p><strong>📈 NEW: Expanded Player Statistics</strong></p><ul><li><strong>Biggest Win / Biggest Loss Tracking</strong> across all games<ul><li>Slots, Blackjack, Rock Paper Scissors, Coin Flip, Dice Roll</li><li>Your best and worst gambling moments on your profile stats</li></ul></li></ul><p><strong>⚖️ Balance Changes</strong></p><p><strong>Major Cooldown Reductions</strong></p><ul><li><code>/work</code> cooldown: 8 hours → 2 hours (earn more frequently!)</li><li><code>/petcat</code> cooldown: 24 hours → 4 hours (pet your cats way more!)</li></ul><p><strong>📝 Bug Fixes & Improvements</strong></p><ul><li>Fixed database connection stability issues</li><li>Improved error handling across all game modes</li><li>Better timeout handling for interactions</li><li>Database migrations for new systems</li><li>Fixed chat interaction timeouts</li></ul><p><em>🎉 Two massive new gameplay systems with fishing and boss combat - plus a new profile page to track all your progress!</em></p></div></div>
 
@@ -582,6 +444,19 @@
   </div>
 
   <script>
+    // ========== HAMBURGER NAV ==========
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileNavMenu');
+      const btn = document.getElementById('hamburgerBtn');
+      const isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNavMenu').classList.remove('open');
+      document.getElementById('hamburgerBtn').classList.remove('open');
+    }
+
     function toggleAccordion(element) {
       element.classList.toggle('collapsed');
     }
@@ -675,15 +550,63 @@
       collapseAllAccordions(botName);
     }
 
+    // ========== PATCH NOTES SEEN + RELATIVE TIMESTAMPS ==========
+    const LAST_PATCH = '2026-03-22'; // keep in sync with index.html
+
+    function patchRelativeTime(dateStr) {
+      // Parses "March 22, 2026" or "March 2026" style strings
+      const parsed = new Date(dateStr);
+      if (isNaN(parsed)) return null;
+      const days = Math.floor((Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
+      if (days === 0) return 'today';
+      if (days === 1) return '1 day ago';
+      if (days < 7) return days + ' days ago';
+      return null; // only show for within 7 days
+    }
+
+    function applyPatchTimestamps() {
+      document.querySelectorAll('.patch-note-accordion').forEach(function(accordion) {
+        const dateEl = accordion.querySelector('.patch-note-header p');
+        if (!dateEl) return;
+        const raw = dateEl.textContent.replace('Release Date:', '').trim();
+        const rel = patchRelativeTime(raw);
+        if (!rel) return;
+
+        // Add glowing dot before the header title
+        const titleEl = accordion.querySelector('.patch-note-header h3');
+        if (titleEl && !titleEl.querySelector('.patch-new-dot')) {
+          const dot = document.createElement('span');
+          dot.className = 'patch-new-dot';
+          titleEl.insertBefore(dot, titleEl.firstChild);
+        }
+
+        // Append "· X days ago" after the date
+        if (!dateEl.querySelector('.patch-age')) {
+          const ageSpan = document.createElement('span');
+          ageSpan.className = 'patch-age';
+          ageSpan.textContent = ' · ' + rel;
+          dateEl.appendChild(ageSpan);
+        }
+      });
+    }
+
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
+      // Mark patch notes as seen — dismisses the nav dot on index.html
+      localStorage.setItem('patchNotesSeen', LAST_PATCH);
+
+      // Apply relative timestamps to recent entries
+      applyPatchTimestamps();
+
       const urlParams = new URLSearchParams(window.location.search);
       const botParam = urlParams.get('bot');
-      
+
       if (botParam === 'manager') {
         showBot('meow-manager');
+      } else if (botParam === 'cat-cafe') {
+        showBot('cat-cafe');
       } else {
-        showBot('meow-bot');
+        showBot('cat-cafe');
       }
     });
   </script>

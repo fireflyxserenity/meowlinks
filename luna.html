@@ -144,6 +144,7 @@
     }
 
     input[type="password"],
+    input[type="text"],
     input[type="text"].password-input {
       width: 100%;
       padding: 0.8rem 2.5rem 0.8rem 0.8rem;
@@ -185,6 +186,30 @@
       color: #00ffff;
     }
 
+    .remember-me {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      accent-color: #00ffff;
+    }
+
+    .remember-me label {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      cursor: pointer;
+    }
+
     button {
       font-family: 'Inter', sans-serif;
       font-weight: 600;
@@ -217,7 +242,7 @@
 
     .bots-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-bottom: 2rem;
     }
@@ -459,6 +484,10 @@
           <button type="button" class="password-toggle" id="togglePassword" onclick="togglePasswordVisibility()">👁️</button>
         </div>
       </div>
+      <div class="remember-me">
+        <input type="checkbox" id="rememberMe" />
+        <label for="rememberMe">Remember me</label>
+      </div>
       <button class="btn-login" onclick="login()">Login</button>
       <div class="error" id="loginError"></div>
     </div>
@@ -499,6 +528,17 @@
             <button class="status-btn purfecting" onclick="setStatus('meow-manager', 'purfecting')">✨ Perf</button>
           </div>
         </div>
+
+        <div class="bot-card" id="twitch-botCard">
+          <h2>🎥 Twitch Meow Bot</h2>
+          <div class="status-display" id="twitch-botStatus"></div>
+          <div class="status-buttons">
+            <button class="status-btn online" onclick="setStatus('twitch-bot', 'online')">✅ Online</button>
+            <button class="status-btn offline" onclick="setStatus('twitch-bot', 'offline')">❌ Offline</button>
+            <button class="status-btn maintenance" onclick="setStatus('twitch-bot', 'maintenance')">🔧 Maint</button>
+            <button class="status-btn purfecting" onclick="setStatus('twitch-bot', 'purfecting')">✨ Perf</button>
+          </div>
+        </div>
       </div>
 
       <button class="logout-btn" onclick="logout()">Logout 🚪</button>
@@ -524,6 +564,7 @@
     function login() {
       const password = document.getElementById('passwordInput').value;
       const errorDiv = document.getElementById('loginError');
+      const rememberMe = document.getElementById('rememberMe').checked;
       
       if (!password) {
         errorDiv.textContent = '❌ Please enter a password';
@@ -531,9 +572,15 @@
       }
 
       if (password === ADMIN_PASSWORD) {
+        // Save to localStorage if "Remember me" is checked
+        if (rememberMe) {
+          localStorage.setItem('adminLoggedIn', 'true');
+        }
+        
         document.getElementById('loginForm').classList.add('hidden');
         document.getElementById('adminPanel').classList.remove('hidden');
         document.getElementById('passwordInput').value = '';
+        document.getElementById('rememberMe').checked = false;
         loadStatuses();
       } else {
         errorDiv.textContent = '❌ Invalid password';
@@ -542,6 +589,7 @@
     }
 
     function logout() {
+      localStorage.removeItem('adminLoggedIn');
       document.getElementById('adminPanel').classList.add('hidden');
       document.getElementById('loginForm').classList.remove('hidden');
       document.getElementById('passwordInput').value = '';
@@ -572,7 +620,7 @@
       botsRef.on('value', (snapshot) => {
         const statuses = snapshot.val() || {};
         
-        for (const botId of ['cat-cafe', 'meow-bot', 'meow-manager']) {
+        for (const botId of ['cat-cafe', 'meow-bot', 'meow-manager', 'twitch-bot']) {
           const status = statuses[botId] || 'offline';
           updateButtonStates(botId, status);
         }
@@ -613,6 +661,16 @@
 
     document.getElementById('passwordInput')?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') login();
+    });
+
+    // Check if user was previously logged in
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('adminLoggedIn') === 'true') {
+        // Auto-login if remembered
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        loadStatuses();
+      }
     });
   </script>
 </body>
