@@ -466,8 +466,6 @@ nav {
     background: rgba(10, 14, 39, 0.98);
     border-bottom: 2px solid rgba(0, 255, 255, 0.2);
     padding: 0.5rem 0;
-    position: sticky;
-    top: 57px;
     z-index: 99;
     backdrop-filter: blur(10px);
   }
@@ -516,9 +514,16 @@ nav {
   }
 
   /* Fix the screenshot container to full width on mobile */
-  [style*="flex: 0 0 240px"] {
-    flex: 1 !important;
+  [style*="flex: 0 0 240px"],
+  [style*="flex: 0 0 280px"] {
+    flex: 0 0 auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Remove excess spacing around bot card image panels on mobile */
+  [style*="display: flex"][style*="gap: 1.5rem"] > div + div {
+    margin-top: 0 !important;
   }
 }
 
