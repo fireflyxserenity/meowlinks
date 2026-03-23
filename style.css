@@ -443,6 +443,20 @@ nav {
   margin-top: 2rem;
 }
 
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.mobile-nav-menu {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -525,20 +539,6 @@ nav {
   [style*="display: flex"][style*="gap: 1.5rem"] > div + div {
     margin-top: 0 !important;
   }
-}
-
-.hamburger-btn {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.3rem;
-}
-
-.mobile-nav-menu {
-  display: none;
 }
 
 .hamburger-btn span {
