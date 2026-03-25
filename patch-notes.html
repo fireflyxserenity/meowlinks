@@ -1,269 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>    
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YKNC7L8DV7');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YKNC7L8DV7');
+  </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patch Notes - Meow Bots</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
-    <link rel="stylesheet" href="style.css">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patch Notes — Meow Bots</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .patch-notes-controls {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .version-selector {
+      padding: 0.8rem 1.2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-hover);
+      border-radius: 10px;
+      color: var(--neon-purple);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 300px;
+    }
+
+    .version-selector:hover {
+      border-color: rgba(129, 140, 248, 0.5);
+      box-shadow: 0 0 12px rgba(129, 140, 248, 0.15);
+    }
+
+    .version-selector option {
+      background: var(--bg);
+      color: var(--text-1);
+    }
+
+    .control-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .control-btn {
+      padding: 0.6rem 1rem;
+      background: rgba(129, 140, 248, 0.08);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .control-btn:hover {
+      background: rgba(129, 140, 248, 0.15);
+      border-color: var(--border-hover);
+      color: var(--neon-purple);
+    }
+
+    .patch-note-accordion {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .patch-note-accordion:hover {
+      border-color: var(--border-hover);
+    }
+
+    .patch-note-header {
+      padding: 1.5rem;
+      background: rgba(129, 140, 248, 0.04);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      user-select: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .patch-note-accordion:hover .patch-note-header {
+      background: rgba(129, 140, 248, 0.08);
+    }
+
+    .patch-note-accordion.collapsed .patch-note-header {
+      border-bottom: none;
+    }
+
+    .patch-note-header h3 {
+      color: var(--neon-purple);
+      margin: 0 0 0.3rem 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .patch-note-header p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--neon-pink);
+    }
+
+    .accordion-toggle {
+      font-size: 1.5rem;
+      color: var(--neon-purple);
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+    }
+
+    .patch-note-accordion.collapsed .accordion-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .patch-note-content {
+      padding: 2rem;
+      max-height: 2000px;
+      overflow-y: auto;
+      transition: max-height 0.4s ease;
+    }
+
+    .patch-note-accordion.collapsed .patch-note-content {
+      max-height: 0;
+      padding: 0 2rem;
+      overflow: hidden;
+    }
+
+    .patch-status {
+      display: inline-block;
+      background: rgba(129, 140, 248, 0.1);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      margin: 0.5rem 0 1rem 0;
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+
+    .patch-note-content p {
+      margin: 1rem 0;
+      line-height: 1.7;
+      color: var(--text-2);
+    }
+
+    .patch-note-content ul {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    .patch-note-content li {
+      margin: 0.5rem 0;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    .patch-note-content strong {
+      color: var(--text-1);
+    }
+
+    .patch-note-content code {
+      background: rgba(129, 140, 248, 0.15);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      color: var(--neon-pink);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+    }
+
+    .patch-note-content a {
+      color: var(--neon-purple);
+      text-decoration: underline;
+    }
+
+    .patch-note-content em {
+      color: var(--text-3);
+    }
+
+    .tab-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
       .patch-notes-controls {
-        display: flex;
-        gap: 1rem;
-        margin: 2rem 0;
-        flex-wrap: wrap;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
       }
-
       .version-selector {
-        padding: 0.8rem 1.2rem;
-        background: rgba(0, 20, 40, 0.8);
-        border: 2px solid rgba(0, 255, 255, 0.6);
-        border-radius: 8px;
-        color: #00ffff;
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 300px;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+        min-width: 100%;
       }
-
-      .version-selector:hover {
-        background: rgba(0, 30, 60, 0.9);
-        border-color: rgba(0, 255, 255, 0.8);
-        color: #ffffff;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(0, 255, 255, 0.15);
-      }
-
-      .version-selector option {
-        background: #0a0e27;
-        color: #00ffff;
-      }
-
       .control-buttons {
-        display: flex;
-        gap: 0.5rem;
+        width: 100%;
       }
-
       .control-btn {
-        padding: 0.6rem 1rem;
-        background: rgba(0, 255, 255, 0.1);
-        border: 2px solid rgba(0, 255, 255, 0.3);
-        color: rgba(255, 255, 255, 0.8);
-        border-radius: 6px;
-        cursor: pointer;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-      }
-
-      .control-btn:hover {
-        background: rgba(0, 255, 255, 0.2);
-        border-color: rgba(0, 255, 255, 0.5);
-        color: #00ffff;
-      }
-
-      .patch-note-accordion {
-        background: rgba(0, 20, 40, 0.6);
-        border: 2px solid rgba(0, 255, 255, 0.3);
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        transition: all 0.3s ease;
-      }
-
-      .patch-note-accordion:hover {
-        border-color: rgba(0, 255, 255, 0.5);
-      }
-
-      .patch-note-header {
-        padding: 1.5rem;
-        background: rgba(0, 255, 255, 0.05);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.3s ease;
-        user-select: none;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-      }
-
-      .patch-note-accordion:hover .patch-note-header {
-        background: rgba(0, 255, 255, 0.1);
-      }
-
-      .patch-note-accordion.collapsed .patch-note-header {
-        border-bottom: none;
-      }
-
-      .patch-note-header-content {
         flex: 1;
       }
-
-      .patch-note-header h3 {
-        color: #00ffff;
-        margin: 0 0 0.3rem 0;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.3rem;
-      }
-
-      .patch-note-header p {
-        margin: 0;
-        font-size: 0.9rem;
-        color: #ff69b4;
-      }
-
-      .accordion-toggle {
-        font-size: 1.5rem;
-        color: #00ffff;
-        transition: transform 0.3s ease;
-        margin-left: 1rem;
-      }
-
-      .patch-note-accordion.collapsed .accordion-toggle {
-        transform: rotate(-90deg);
-      }
-
-      .patch-note-content {
-        padding: 2rem;
-        max-height: 2000px;
-        overflow-y: auto;
-        transition: max-height 0.4s ease;
-      }
-
-      .patch-note-accordion.collapsed .patch-note-content {
-        max-height: 0;
-        padding: 0 2rem;
-        overflow: hidden;
-      }
-
-      .patch-status {
-        display: inline-block;
-        background: rgba(0, 255, 255, 0.15);
-        border: 1px solid rgba(0, 255, 255, 0.4);
-        border-radius: 6px;
-        padding: 0.4rem 0.8rem;
-        margin: 0.5rem 0 1rem 0;
-        font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .patch-note-content p {
-        margin: 1rem 0;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .patch-note-content ul {
-        margin: 1rem 0;
-        padding-left: 2rem;
-      }
-
-      .patch-note-content li {
-        margin: 0.5rem 0;
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      .patch-note-content code {
-        background: rgba(145, 70, 255, 0.2);
-        border: 1px solid rgba(145, 70, 255, 0.4);
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        color: #ff69b4;
-        font-family: 'Courier New', monospace;
-      }
-
-      .patch-notes-container {
-        margin-top: 2rem;
-      }
-
-      .bot-tab {
-        transition: all 0.3s;
-      }
-
-      @media (max-width: 768px) {
-        .patch-notes-controls {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .version-selector {
-          min-width: 100%;
-        }
-
-        .control-buttons {
-          width: 100%;
-        }
-
-        .control-btn {
-          flex: 1;
-        }
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
+
   <div class="particles">
-    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
-    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
-    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
-    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+    <div class="particle" style="left: 8%; animation: particleFloat 22s linear infinite; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 20%; animation: particleFloat 28s linear infinite; animation-delay: 3s;">🌟</div>
+    <div class="particle" style="left: 38%; animation: particleFloat 25s linear infinite; animation-delay: 7s;">💫</div>
+    <div class="particle" style="left: 55%; animation: particleFloat 30s linear infinite; animation-delay: 11s;">⭐</div>
+    <div class="particle" style="left: 72%; animation: particleFloat 24s linear infinite; animation-delay: 5s;">🔮</div>
   </div>
 
-  <div class="content">
-    <nav>
-      <a href="index.html" class="logo" style="text-decoration: none;">🐱 MEOW BOTS</a>
-      <ul class="nav-links">
+  <div class="aurora">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">🐱 <span class="brand-text">Meow Bots</span></a>
+      <ul class="nav-pills">
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
         <li><a href="patch-notes.html">Patch Notes</a></li>
       </ul>
-      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-    <nav class="mobile-nav-menu" id="mobileNavMenu">
-      <a href="index.html#bots" onclick="closeMobileNav()">Bots</a>
-      <a href="index.html#servers" onclick="closeMobileNav()">Servers</a>
-      <a href="feedback.html">Feedback/Support</a>
-      <a href="patch-notes.html">Patch Notes</a>
-    </nav>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html#bots">Bots</a>
+    <a href="index.html#servers">Servers</a>
+    <a href="patch-notes.html">Patch Notes</a>
+    <a href="feedback.html">Support</a>
+    <a href="https://discord.gg/VwDa3WKr" target="_blank">Join Discord</a>
+  </nav>
 
-    <section class="section">
-      <div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
-        <h2 class="section-title">📋 Patch Notes</h2>
-        <p class="section-subtitle">Stay up to date with the latest features, fixes, and improvements</p>
+  <div class="page">
 
-        <div style="margin-top: 2rem;">
+    <div class="content-section">
+      <div class="content-card">
+        <h1>📋 Patch Notes</h1>
+        <p class="subtitle">Stay up to date with the latest features, fixes, and improvements</p>
 
         <!-- Bot Selection Tabs -->
-        <div style="margin-top: 0.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <button class="bot-tab active" id="tab-cat-cafe" onclick="showBot('cat-cafe')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.2); border: 2px solid rgba(0, 255, 255, 0.5); color: #00ffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">🐱 Cat Cafe Economy Bot</button>
-          <button class="bot-tab" id="tab-meow-bot" onclick="showBot('meow-bot')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.1); border: 2px solid rgba(0, 255, 255, 0.3); color: #ffffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">😺 Meow Bot</button>
-          <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')" style="padding: 0.8rem 1.5rem; background: rgba(0, 255, 255, 0.1); border: 2px solid rgba(0, 255, 255, 0.3); color: #ffffff; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; font-family: 'Inter', sans-serif;">🛠️ Meow Manager</button>
+        <div class="tab-buttons">
+          <button class="bot-tab active" id="tab-cat-cafe" onclick="showBot('cat-cafe')">🐱 Cat Cafe Economy Bot</button>
+          <button class="bot-tab" id="tab-meow-bot" onclick="showBot('meow-bot')">😺 Meow Bot</button>
+          <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')">🛠️ Meow Manager</button>
         </div>
 
         <!-- Cat Cafe Economy Bot Patch Notes -->
         <div id="cat-cafe" class="tab-content" style="display: block;">
           <div style="margin-top: 1.5rem; text-align: left;">
-            <!-- Version Selector -->
             <div class="patch-notes-controls">
-              <label for="cat-cafe-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
+              <label for="cat-cafe-version-select" style="color: var(--text-2); margin-right: 0.5rem;">Jump to version:</label>
               <select id="cat-cafe-version-select" class="version-selector" onchange="jumpToVersion('cat-cafe', this.value)">
                 <option value="">-- Select Version --</option>
                 <option value="v1.5.0">Version 1.5.0 - Stability &amp; Reliability Fixes</option>
@@ -280,7 +299,6 @@
             </div>
 
             <div class="patch-notes-container">
-              <!-- Cat Cafe Accordion Items -->
               <div class="patch-note-accordion" id="v1.5.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 1.5.0 - "Stability &amp; Reliability Fixes"</h3><p>Release Date: March 22, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p>Hey everyone! Sorry for the downtime today — we were squashing some bugs behind the scenes. Here's what got fixed:</p><p><strong>🔧 Bug Fixes</strong></p><ul><li><strong>Database connection stability</strong> — Fixed an issue causing frequent "DB unavailable" errors during normal bot usage. Commands should now handle brief connection hiccups silently instead of failing.</li><li><strong>Boss battle crashes</strong> — Fixed a rare crash in the boss attack/heal buttons caused by temporary network issues on the server side.</li><li><strong>Overall reliability</strong> — The bot should now be significantly more stable during any short network blips going forward.</li></ul><p>Thanks for your patience! 🐱</p></div></div>
 
               <div class="patch-note-accordion collapsed" id="v1.4.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🐱 Version 1.4.0 - "Economy Bug Fixes"</h3><p>Release Date: March 19, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🔧 Bug Fixes</strong></p><ul><li><strong>Loot Boxes:</strong> Fixed exploit where you could open multiple boxes per click</li><li><strong>Boss Timer:</strong> Fixed timer showing "expired" when it wasn't & large hour values (now shows "2d 5h" instead of "53h")</li><li><strong>Shop:</strong> Lootboxes now display in order (uncommon → legendary) instead of reversed</li><li><strong>Purchases:</strong> You can now only buy 1 of each item at a time (except lootboxes which you can buy in bulk)</li></ul><p><strong>🎯 What This Means:</strong></p><ul><li>No more duplicate lootbox opening exploits!</li><li>Boss timers display more readably with better formatting</li><li>Shop UI is now logically organized by rarity</li><li>Prevents accidental bulk purchases of regular items</li></ul><p><em>🎉 Smoother economy gameplay with these important fixes!</em></p></div></div>
@@ -291,7 +309,7 @@
 
               <div class="patch-note-accordion collapsed" id="v1.1.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎰 Version 1.1.0 - "Slot Machine & Balance Update"</h3><p>Release Date: January 6, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🎰 New Game: Slot Machine</strong></p><ul><li><strong>3x3 Reel Game</strong> with 7 unique symbols</li><li><strong>Progressive Jackpot</strong> that grows from every loss</li><li><strong>Free Spins</strong> - get hearts (❤️) to earn free spins</li><li><strong>Bet Range</strong> 25-500 coins per spin</li><li><strong>Use</strong> <code>/slots</code> to play</li></ul><p><strong>How to Win</strong></p><ul><li>Match 3 symbols in a row or diagonal → <strong>WIN</strong></li><li>Get hearts → <strong>Free spins</strong> (auto-use 50 coins)</li><li>Get 3 sevens → <strong>JACKPOT!</strong> (wins entire pool)</li></ul><p><strong>⚖️ Balance Changes</strong></p><ul><li><code>/work</code> cooldown: <strong>8 hours → 2 hours</strong> (way more frequent!)</li><li><code>/petcat</code> cooldown: <strong>24 hours → 4 hours</strong> (more chances to pet cats)</li></ul><p><strong>✨ Bug Fixes & Polish</strong></p><ul><li>Fixed counting game double-counting bug</li><li>Better error handling across all games</li><li>Improved database stability</li><li>Fixed title text overflow on profiles</li><li>Added next command timing to <code>/work</code> and <code>/petcat</code></li></ul><p><strong>📦 New Cats/Loot Boxes</strong></p><ul><li>Added 34 cats to the lootboxes!!!!</li><li>Now have <strong>separate loot boxes by rarity</strong> (Uncommon, Rare, Epic, Legendary)</li><li>More balanced pricing and drop rates</li></ul><p><em>🎉 New slot machine game + earn coins more often with shorter cooldowns!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v1.0.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 1.0.0 - "Cat Cafe Economy Bot Launch"</h3><p>Release Date: January 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><div style="background: rgba(255, 217, 61, 0.15); border: 2px solid rgba(255, 217, 61, 0.5); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; color: #ffd93d; font-weight: 600;"><p>🚀 BETA STATUS: This bot is in active development. Please report bugs in our <a href="https://discord.gg/ns7NakZ8" target="_blank" style="color: #00ffff; text-decoration: underline;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p></div><p class="patch-status">Status: ✨ BETA - Early Access</p><p><strong>🎮 Core Features:</strong></p><ul><li><strong>Economy System</strong> - Virtual currency with daily rewards, /balance to check wallet, /daily for free coins</li><li><strong>Mini Games</strong> - /fish for fishing gameplay, /gamble for chance-based earnings, /slots for spinning wheel</li><li><strong>Shop System</strong> - /shop to browse items, /buy to purchase, /inventory to manage items</li><li><strong>Profile System</strong> - /profile to view stats, Customizable profile cards, Achievement tracking</li><li><strong>Leaderboards</strong> - /leaderboard to view economy standings, Global rankings, Server-specific stats</li></ul><p><strong>🎯 Planned Features (Coming Soon):</strong></p><ul><li>Trading system between users</li><li>Guild wars economy</li><li>Custom currency names per server</li><li>Economy reset/wipe commands for admins</li></ul><p><em>🐱 Welcome to the Cat Cafe Economy! Report bugs and suggest features to help make this bot amazing!</em></p></div></div>
+              <div class="patch-note-accordion collapsed" id="v1.0.0-cafe"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 1.0.0 - "Cat Cafe Economy Bot Launch"</h3><p>Release Date: January 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><div style="background: rgba(253, 230, 138, 0.1); border: 1px solid rgba(253, 230, 138, 0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; color: var(--neon-yellow); font-weight: 600;"><p>🚀 BETA STATUS: This bot is in active development. Please report bugs in our <a href="https://discord.gg/ns7NakZ8" target="_blank" style="color: var(--neon-purple); text-decoration: underline;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p></div><p class="patch-status">Status: ✨ BETA - Early Access</p><p><strong>🎮 Core Features:</strong></p><ul><li><strong>Economy System</strong> - Virtual currency with daily rewards, /balance to check wallet, /daily for free coins</li><li><strong>Mini Games</strong> - /fish for fishing gameplay, /gamble for chance-based earnings, /slots for spinning wheel</li><li><strong>Shop System</strong> - /shop to browse items, /buy to purchase, /inventory to manage items</li><li><strong>Profile System</strong> - /profile to view stats, Customizable profile cards, Achievement tracking</li><li><strong>Leaderboards</strong> - /leaderboard to view economy standings, Global rankings, Server-specific stats</li></ul><p><strong>🎯 Planned Features (Coming Soon):</strong></p><ul><li>Trading system between users</li><li>Guild wars economy</li><li>Custom currency names per server</li><li>Economy reset/wipe commands for admins</li></ul><p><em>🐱 Welcome to the Cat Cafe Economy! Report bugs and suggest features to help make this bot amazing!</em></p></div></div>
             </div>
           </div>
         </div>
@@ -299,9 +317,8 @@
         <!-- Meow Bot Patch Notes -->
         <div id="meow-bot" class="tab-content" style="display: none;">
           <div style="margin-top: 1.5rem; text-align: left;">
-            <!-- Version Selector -->
             <div class="patch-notes-controls">
-              <label for="meow-bot-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
+              <label for="meow-bot-version-select" style="color: var(--text-2); margin-right: 0.5rem;">Jump to version:</label>
               <select id="meow-bot-version-select" class="version-selector" onchange="jumpToVersion('meow-bot', this.value)">
                 <option value="">-- Select Version --</option>
                 <option value="v2.12.0">Version 2.12.0 - Twitch Notifications Migration</option>
@@ -334,7 +351,6 @@
             </div>
 
             <div class="patch-notes-container">
-              <!-- Meow Bot Accordion Items -->
               <div class="patch-note-accordion" id="v2.12.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎙️ Version 2.12.0 - "Twitch Notifications Migration"</h3><p>Release Date: March 17, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live in all servers</p><p><strong>📡 Twitch Notifications Moved</strong></p><ul><li>Removed Twitch streamer notifications from Meow Bot</li><li>Migrated to <strong>Meow Manager</strong> for better organization</li><li>Centralized moderation and stream management features</li></ul><p><strong>✅ What This Means:</strong> Meow Bot now focuses on community and fun features, Meow Manager handles all administrative and notification systems, Twitch notifications are now more reliable and powerful in their new home</p><p><em>🎙️ Better feature organization means better Discord bot experience!</em></p></div></div>
 
               <div class="patch-note-accordion collapsed" id="v2.11.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>✨ Version 2.11.0 - "Quote System Improvements"</h3><p>Release Date: January 4, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live in all servers</p><p><strong>🔤 Fixed Character Encoding Issues</strong></p><ul><li>Replaced all <code>display_name</code> references with Discord <code>username</code> (<code>.name</code>)</li><li>This eliminates weird character rendering issues that were occurring with display names containing Unicode characters</li><li>Changes applied to:<ul><li>Main quote image username display</li><li>User mention replacements</li><li>Guild member mention replacements</li><li>Debug logging</li></ul></li></ul><p><strong>📝 Simplified Username Display</strong></p><ul><li>Now only displays <code>@username</code> below the quote text</li><li>Cleaner, more streamlined appearance</li></ul><p><em>✨ Quote system now displays usernames cleanly and reliably across all Unicode character sets!</em></p></div></div>
@@ -347,7 +363,7 @@
 
               <div class="patch-note-accordion collapsed" id="v2.7.1"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.7.1 - "Setup Fix"</h3><p>Release Date: September 4, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🐛 Bug Fixes:</strong> Fixed <code>/setup</code> command crash - Resolved emoji encoding issue that was preventing the setup dropdown menu from loading, Improved error handling - Setup command now displays proper error messages instead of crashing</p><p><strong>✅ What's Working Now:</strong> <code>/setup</code> dropdown menu displays correctly, All configuration options accessible through the interactive menu, No impact on existing server configurations or user data</p><p><em>🎉 Setup menu is fixed and working again!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.7.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎯 Version 2.7.0 - "Bot Simplification Update"</h3><p>Release Date: September 3, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>📉 Command Reduction (37 → 29 commands):</strong> Removed 8 bloated/unnecessary commands (-22% total commands)</p><p><strong>📋 Interface Improvements:</strong> <code>/help</code> command updated to reflect current command list, <code>/setup</code> command enhanced with comprehensive server status overview, Server info integrated into setup dropdown</p><p><p><em>🚀 A leaner, cleaner Meow Bot! 22% fewer commands but 100% of the functionality through better organization and intuitive menus!</em></p></div></div>
+              <div class="patch-note-accordion collapsed" id="v2.7.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎯 Version 2.7.0 - "Bot Simplification Update"</h3><p>Release Date: September 3, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>📉 Command Reduction (37 → 29 commands):</strong> Removed 8 bloated/unnecessary commands (-22% total commands)</p><p><strong>📋 Interface Improvements:</strong> <code>/help</code> command updated to reflect current command list, <code>/setup</code> command enhanced with comprehensive server status overview, Server info integrated into setup dropdown</p><p><em>🚀 A leaner, cleaner Meow Bot! 22% fewer commands but 100% of the functionality through better organization and intuitive menus!</em></p></div></div>
 
               <div class="patch-note-accordion collapsed" id="v2.6.1"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.6.1 - "Backend Improvements"</h3><p>Release Date: September 2, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🔧 Backend Improvements:</strong> Enhanced error monitoring and logging, Added feature usage analytics, Improved server management tracking, Optimized startup validation</p><p><strong>🐛 Bug Fixes:</strong> Reduced console spam from quote system, Enhanced database error handling</p><p><em>🐱 Behind-the-scenes improvements to keep Meow Bot running smoothly!</em></p></div></div>
 
@@ -383,79 +399,93 @@
         </div>
 
         <!-- Meow Manager Patch Notes -->
-          <div id="meow-manager" class="tab-content" style="display: none;">
-            <!-- Version Selector -->
-            <div class="patch-notes-controls">
-              <label for="meow-manager-version-select" style="color: rgba(255, 255, 255, 0.8); margin-right: 0.5rem;">Jump to version:</label>
-              <select id="meow-manager-version-select" class="version-selector" onchange="jumpToVersion('meow-manager', this.value)">
-                <option value="">-- Select Version --</option>
-                <option value="v2.10.0">Version 2.10.0 - Twitch Notifications</option>
-                <option value="v2.9.0">Version 2.9.0 - Ticket System</option>
-                <option value="v2.8.0">Version 2.8.0 - December Release</option>
-                <option value="v2.7.0">Version 2.7.0 - Conversion & Translation</option>
-                <option value="v2.6.1">Version 2.6.1 - Guild Join Request Fixes</option>
-                <option value="v2.6.0">Version 2.6.0 - Advanced Logging Control</option>
-                <option value="v2.5.0">Version 2.5.0 - Purrfect Polish</option>
-                <option value="v1.4.0">Version 1.4.0 - Permission System Overhaul</option>
-                <option value="v1.3.0">Version 1.3.0 - Rate Limiting Fix</option>
-                <option value="v1.2.0">Version 1.2.0 - Emoji Tracking & Ignore Lists</option>
-                <option value="v1.1.0">Version 1.1.0 - Bug Fixes & Logging Improvements</option>
-              </select>
-              <div class="control-buttons">
-                <button class="control-btn" onclick="expandAllAccordions('meow-manager')">Expand All</button>
-                <button class="control-btn" onclick="collapseAllAccordions('meow-manager')">Collapse All</button>
-              </div>
+        <div id="meow-manager" class="tab-content" style="display: none;">
+          <div class="patch-notes-controls">
+            <label for="meow-manager-version-select" style="color: var(--text-2); margin-right: 0.5rem;">Jump to version:</label>
+            <select id="meow-manager-version-select" class="version-selector" onchange="jumpToVersion('meow-manager', this.value)">
+              <option value="">-- Select Version --</option>
+              <option value="v2.10.0">Version 2.10.0 - Twitch Notifications</option>
+              <option value="v2.9.0">Version 2.9.0 - Ticket System</option>
+              <option value="v2.8.0">Version 2.8.0 - December Release</option>
+              <option value="v2.7.0">Version 2.7.0 - Conversion & Translation</option>
+              <option value="v2.6.1">Version 2.6.1 - Guild Join Request Fixes</option>
+              <option value="v2.6.0">Version 2.6.0 - Advanced Logging Control</option>
+              <option value="v2.5.0">Version 2.5.0 - Purrfect Polish</option>
+              <option value="v1.4.0">Version 1.4.0 - Permission System Overhaul</option>
+              <option value="v1.3.0">Version 1.3.0 - Rate Limiting Fix</option>
+              <option value="v1.2.0">Version 1.2.0 - Emoji Tracking & Ignore Lists</option>
+              <option value="v1.1.0">Version 1.1.0 - Bug Fixes & Logging Improvements</option>
+            </select>
+            <div class="control-buttons">
+              <button class="control-btn" onclick="expandAllAccordions('meow-manager')">Expand All</button>
+              <button class="control-btn" onclick="collapseAllAccordions('meow-manager')">Collapse All</button>
             </div>
+          </div>
 
-            <div class="patch-notes-container">
-              <!-- Meow Manager Accordion Items -->
-              <div class="patch-note-accordion" id="v2.10.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎙️ Version 2.10.0 - "Twitch Streamer Notifications"</h3><p>Release Date: March 17, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🎮 Twitch Notifications Integrated</strong></p><ul><li>Added comprehensive Twitch streamer notification system to Meow Manager</li><li>Migrated from Meow Bot for centralized management</li><li><strong>Features include:</strong><ul><li>Automatic notifications when configured streamers go live</li><li>Stream status tracking and updates</li></ul></li></ul><p><strong>⚙️ Configuration:</strong> Use Meow Manager commands to set up Twitch notifications for your streamers, All notifications managed from one central bot for consistency</p><p><em>🎙️ Professional streaming notifications now available in Meow Manager!</em></p></div></div>
+          <div class="patch-notes-container">
+            <div class="patch-note-accordion" id="v2.10.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎙️ Version 2.10.0 - "Twitch Streamer Notifications"</h3><p>Release Date: March 17, 2026</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Status: ✅ Live</p><p><strong>🎮 Twitch Notifications Integrated</strong></p><ul><li>Added comprehensive Twitch streamer notification system to Meow Manager</li><li>Migrated from Meow Bot for centralized management</li><li><strong>Features include:</strong><ul><li>Automatic notifications when configured streamers go live</li><li>Stream status tracking and updates</li></ul></li></ul><p><strong>⚙️ Configuration:</strong> Use Meow Manager commands to set up Twitch notifications for your streamers, All notifications managed from one central bot for consistency</p><p><em>🎙️ Professional streaming notifications now available in Meow Manager!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.9.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎫 Version 2.9.0 - "Ticket System Launch"</h3><p>Release Date: December 25, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>🎫 Ticket Creation</strong> Users can create support tickets with a single command</p><p><strong>🧵 Auto-Threading</strong> Tickets automatically spawn dedicated threads for discussion</p><p><strong>⚙️ Ticket Management</strong> Admins can close, reopen, and manage tickets</p><p><strong>📊 Status Tracking</strong> View open and closed tickets at a glance</p><p><strong>🔐 Role-Based Access</strong> Configurable ticket channels with proper permissions</p><p><strong>📋 New Commands:</strong></p><ul><li><code>/ticket create</code> - Create a new support ticket</li><li><code>/ticket close</code> - Close an active ticket</li><li><code>/ticket list</code> - View all tickets</li><li><code>/ticket reopen</code> - Reopen a closed ticket</li></ul><p><strong>⚙️ Configuration Options:</strong></p><ul><li>Assign a dedicated ticket channel per server</li><li>Set ticket categories and auto-assign support roles</li><li>Customize ticket naming conventions</li></ul><p><em>🎉 Professional ticket management system is here!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.9.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎫 Version 2.9.0 - "Ticket System Launch"</h3><p>Release Date: December 25, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>🎫 Ticket Creation</strong> Users can create support tickets with a single command</p><p><strong>🧵 Auto-Threading</strong> Tickets automatically spawn dedicated threads for discussion</p><p><strong>⚙️ Ticket Management</strong> Admins can close, reopen, and manage tickets</p><p><strong>📊 Status Tracking</strong> View open and closed tickets at a glance</p><p><strong>🔐 Role-Based Access</strong> Configurable ticket channels with proper permissions</p><p><strong>📋 New Commands:</strong></p><ul><li><code>/ticket create</code> - Create a new support ticket</li><li><code>/ticket close</code> - Close an active ticket</li><li><code>/ticket list</code> - View all tickets</li><li><code>/ticket reopen</code> - Reopen a closed ticket</li></ul><p><strong>⚙️ Configuration Options:</strong></p><ul><li>Assign a dedicated ticket channel per server</li><li>Set ticket categories and auto-assign support roles</li><li>Customize ticket naming conventions</li></ul><p><em>🎉 Professional ticket management system is here!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.8.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>✨ Version 2.8.0 - "What's New - December 2025"</h3><p>Release Date: December 12, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>📌 Sticky Messages (beta)</strong> Keep important messages at the top of your channels! Use /sticky to pin a message that will always stay as the last message in a channel.</p><p><strong>⏰ Recurring Reminders</strong> Set up reminders that repeat on your schedule! Use /remind to create daily, weekly, or custom reminders.</p><p><em>🎀 New features to help you manage your server more effectively!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.8.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>✨ Version 2.8.0 - "What's New - December 2025"</h3><p>Release Date: December 12, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p class="patch-status">Latest Release</p><p><strong>📌 Sticky Messages (beta)</strong> Keep important messages at the top of your channels! Use /sticky to pin a message that will always stay as the last message in a channel.</p><p><strong>⏰ Recurring Reminders</strong> Set up reminders that repeat on your schedule! Use /remind to create daily, weekly, or custom reminders.</p><p><em>🎀 New features to help you manage your server more effectively!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.7.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 2.7.0 - "Conversion & Translation Update"</h3><p>Release Date: October 31, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>✨ New Features:</strong> Added /convert command for unit conversions and /translate command with auto-detection</p><p><strong>🐛 Bug Fixes:</strong> Fixed negative number support in conversions, Console cleanup for cleaner output</p><p><em>🎀 All systems operational! Bot is cleaner and more powerful than ever!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.7.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🎉 Version 2.7.0 - "Conversion & Translation Update"</h3><p>Release Date: October 31, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>✨ New Features:</strong> Added /convert command for unit conversions and /translate command with auto-detection</p><p><strong>🐛 Bug Fixes:</strong> Fixed negative number support in conversions, Console cleanup for cleaner output</p><p><em>🎀 All systems operational! Bot is cleaner and more powerful than ever!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.6.1-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.6.1 - "Guild Join Request Fixes"</h3><p>Release Date: September 5, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🐛 Bug Fixes:</strong> Fixed: New join requests now properly appear, Join request notifications now appear immediately when submitted, Bot crashes related to guild logging have been resolved</p><p><strong>📊 What You'll Notice:</strong> New join requests display correctly with the proper title and blue color, Updated requests show as orange, Withdrawn requests display in red, All join request notifications appear instantly</p><p><em>🛠️ Critical fixes to ensure guild join request logging works flawlessly!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.6.1-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.6.1 - "Guild Join Request Fixes"</h3><p>Release Date: September 5, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🐛 Bug Fixes:</strong> Fixed: New join requests now properly appear, Join request notifications now appear immediately when submitted, Bot crashes related to guild logging have been resolved</p><p><strong>📊 What You'll Notice:</strong> New join requests display correctly with the proper title and blue color, Updated requests show as orange, Withdrawn requests display in red, All join request notifications appear instantly</p><p><em>🛠️ Critical fixes to ensure guild join request logging works flawlessly!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.6.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🐱 Version 2.6.0 - "Advanced Logging Control"</h3><p>Release Date: September 4, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🎉 Major New Features:</strong> NEW: /logs Command to configure what events get logged and where they go!</p><p><strong>⚙️ Event Categories You Can Control:</strong> Member Activity, Message Activity, Moderation Activity, Voice Activity, Profile Activity, Role Activity, Server Activity</p><p><strong>🐛 Bug Fixes:</strong> Fixed log channel errors, Improved message deletion error handling, Enhanced setup command stability</p><p><em>🚀 Perfect for servers with membership screening!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.6.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🐱 Version 2.6.0 - "Advanced Logging Control"</h3><p>Release Date: September 4, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🎉 Major New Features:</strong> NEW: /logs Command to configure what events get logged and where they go!</p><p><strong>⚙️ Event Categories You Can Control:</strong> Member Activity, Message Activity, Moderation Activity, Voice Activity, Profile Activity, Role Activity, Server Activity</p><p><strong>🐛 Bug Fixes:</strong> Fixed log channel errors, Improved message deletion error handling, Enhanced setup command stability</p><p><em>🚀 Perfect for servers with membership screening!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v2.5.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.5.0 - "Purrfect Polish" Update</h3><p>Release Date: September 3, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>✨ New Features:</strong> NEW: One-command bot setup, NEW: Dual-channel logging system, NEW: Enhanced username resolution system, NEW: Interactive setup interface, NEW: /avatar command</p><p><strong>🎨 Visual Improvements:</strong> All log embeds redesigned, Before/after displays for changes, Consistent colors and professional formatting</p><p><em>🌟 The biggest quality of life update yet!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v2.5.0-manager"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🔧 Version 2.5.0 - "Purrfect Polish" Update</h3><p>Release Date: September 3, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>✨ New Features:</strong> NEW: One-command bot setup, NEW: Dual-channel logging system, NEW: Enhanced username resolution system, NEW: Interactive setup interface, NEW: /avatar command</p><p><strong>🎨 Visual Improvements:</strong> All log embeds redesigned, Before/after displays for changes, Consistent colors and professional formatting</p><p><em>🌟 The biggest quality of life update yet!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v1.4.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>⚙️🔒 Version 1.4.0 - "Permission System Overhaul"</h3><p>Release Date: September 1, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🛡️ Enhanced Command Security:</strong> Complete redesign of permission system</p><p><strong>🆕 New Moderation Features:</strong> Lockdown System: Added /lockdown command with channel and server-wide lockdown capabilities, Enhanced Message Management: /clear command now supports user-specific message purging</p><p><em>🔒 Enhanced security without affecting core functionality!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v1.4.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>⚙️🔒 Version 1.4.0 - "Permission System Overhaul"</h3><p>Release Date: September 1, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🛡️ Enhanced Command Security:</strong> Complete redesign of permission system</p><p><strong>🆕 New Moderation Features:</strong> Lockdown System: Added /lockdown command with channel and server-wide lockdown capabilities, Enhanced Message Management: /clear command now supports user-specific message purging</p><p><em>🔒 Enhanced security without affecting core functionality!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v1.3.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.3.0 - "Rate Limiting Fix"</h3><p>Release Date: August 28, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🚀 Global Deployment Ready:</strong> Fixed Discord rate limiting issues that were preventing deployment to large servers</p><p><strong>🔊 Voice Activity Improvements:</strong> No more 429 errors in busy voice channels, Individual messages maintained</p><p><em>🌍 Manager Meow can now be deployed globally!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v1.3.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.3.0 - "Rate Limiting Fix"</h3><p>Release Date: August 28, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🚀 Global Deployment Ready:</strong> Fixed Discord rate limiting issues that were preventing deployment to large servers</p><p><strong>🔊 Voice Activity Improvements:</strong> No more 429 errors in busy voice channels, Individual messages maintained</p><p><em>🌍 Manager Meow can now be deployed globally!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v1.2.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.2.0 - "Emoji Tracking & Ignore Lists"</h3><p>Release Date: August 28, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🆕 New Features:</strong> Emoji Event Tracking: Now logs when server emojis are added or removed, Ignore Lists System: Add channels or users to ignore lists to reduce log spam</p><p><strong>🖼️ Avatar Change Logging Enhanced:</strong> Added username display alongside mentions for better mobile compatibility</p><p><em>🐾 Manager Meow now tracks even more server activity!</em></p></div></div>
+            <div class="patch-note-accordion collapsed" id="v1.2.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.2.0 - "Emoji Tracking & Ignore Lists"</h3><p>Release Date: August 28, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🆕 New Features:</strong> Emoji Event Tracking: Now logs when server emojis are added or removed, Ignore Lists System: Add channels or users to ignore lists to reduce log spam</p><p><strong>🖼️ Avatar Change Logging Enhanced:</strong> Added username display alongside mentions for better mobile compatibility</p><p><em>🐾 Manager Meow now tracks even more server activity!</em></p></div></div>
 
-              <div class="patch-note-accordion collapsed" id="v1.1.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.1.0 - "Bug Fixes & Logging Improvements"</h3><p>Release Date: August 26, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🖼️ Avatar Logging Enhanced:</strong> Fixed avatar change detection, Added username display for mobile compatibility, Simplified avatar change embeds</p><p><strong>🧹 System Cleanup:</strong> Reduced Discord gateway spam, Added comprehensive error handling</p><p><em>🐾 Manager Meow continues to provide reliable moderation!</em></p></div></div>
-            </div>
+            <div class="patch-note-accordion collapsed" id="v1.1.0"><div class="patch-note-header" onclick="toggleAccordion(this.parentElement)"><div class="patch-note-header-content"><h3>🛠️ Version 1.1.0 - "Bug Fixes & Logging Improvements"</h3><p>Release Date: August 26, 2025</p></div><span class="accordion-toggle">▼</span></div><div class="patch-note-content"><p><strong>🖼️ Avatar Logging Enhanced:</strong> Fixed avatar change detection, Added username display for mobile compatibility, Simplified avatar change embeds</p><p><strong>🧹 System Cleanup:</strong> Reduced Discord gateway spam, Added comprehensive error handling</p><p><em>🐾 Manager Meow continues to provide reliable moderation!</em></p></div></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="feedback.html" style="color: #00ffff; text-decoration: none;">Feedback</a> • <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">Support Server</a></p>
-      <p>Made with 💜 for the Discord community</p>
+    <footer class="footer-v2">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="patch-notes.html">Patch Notes</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="https://discord.gg/VwDa3WKr" target="_blank">Support Server</a>
+      </div>
+      <div class="footer-copy">Made with 💜 for the Discord community</div>
     </footer>
+
   </div>
 
   <script>
-    // ========== HAMBURGER NAV ==========
-    function toggleMobileNav() {
-      const menu = document.getElementById('mobileNavMenu');
-      const btn = document.getElementById('hamburgerBtn');
-      const isOpen = menu.classList.contains('open');
-      menu.classList.toggle('open', !isOpen);
-      btn.classList.toggle('open', !isOpen);
-    }
-    function closeMobileNav() {
-      document.getElementById('mobileNavMenu').classList.remove('open');
-      document.getElementById('hamburgerBtn').classList.remove('open');
-    }
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
+    });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
 
     function toggleAccordion(element) {
       element.classList.toggle('collapsed');
@@ -464,55 +494,25 @@
     function expandAllAccordions(botId) {
       const section = document.getElementById(botId);
       if (!section) return;
-      const accordions = section.querySelectorAll('.patch-note-accordion');
-      accordions.forEach(accordion => {
-        accordion.classList.remove('collapsed');
-      });
+      section.querySelectorAll('.patch-note-accordion').forEach(a => a.classList.remove('collapsed'));
     }
 
     function collapseAllAccordions(botId) {
       const section = document.getElementById(botId);
       if (!section) return;
       const accordions = section.querySelectorAll('.patch-note-accordion');
-      accordions.forEach(accordion => {
-        accordion.classList.add('collapsed');
-      });
-      // Keep the first one open for context
-      if (accordions.length > 0) {
-        accordions[0].classList.remove('collapsed');
-      }
+      accordions.forEach(a => a.classList.add('collapsed'));
+      if (accordions.length > 0) accordions[0].classList.remove('collapsed');
     }
 
     function jumpToVersion(botId, versionId) {
       if (!versionId) return;
-      // Handle manager versions differently since they have different IDs
       let element;
-      if (botId === 'meow-manager' && versionId === 'v2.10.0') {
-        element = document.getElementById('v2.10.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.9.0') {
-        element = document.getElementById('v2.9.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.8.0') {
-        element = document.getElementById('v2.8.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.7.0') {
-        element = document.getElementById('v2.7.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.6.1') {
-        element = document.getElementById('v2.6.1-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.6.0') {
-        element = document.getElementById('v2.6.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v2.5.0') {
-        element = document.getElementById('v2.5.0-manager');
-      } else if (botId === 'meow-manager' && versionId === 'v1.4.0') {
-        element = document.getElementById('v1.4.0');
-      } else if (botId === 'meow-manager' && versionId === 'v1.3.0') {
-        element = document.getElementById('v1.3.0');
-      } else if (botId === 'meow-manager' && versionId === 'v1.2.0') {
-        element = document.getElementById('v1.2.0');
-      } else if (botId === 'meow-manager' && versionId === 'v1.1.0') {
-        element = document.getElementById('v1.1.0');
+      if (botId === 'meow-manager' && ['v2.10.0','v2.9.0','v2.8.0','v2.7.0','v2.6.1','v2.6.0','v2.5.0'].includes(versionId)) {
+        element = document.getElementById(versionId + '-manager');
       } else {
         element = document.getElementById(versionId);
       }
-      
       if (element) {
         element.classList.remove('collapsed');
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -520,48 +520,26 @@
     }
 
     function showBot(botName) {
-      // Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.style.display = 'none';
-      });
-      
-      // Reset all tab buttons
-      document.querySelectorAll('.bot-tab').forEach(tab => {
-        tab.style.background = 'rgba(0, 255, 255, 0.1)';
-        tab.style.borderColor = 'rgba(0, 255, 255, 0.3)';
-        tab.style.color = '#ffffff';
-      });
-      
-      // Show selected content
-      const selectedContent = document.getElementById(botName);
-      if (selectedContent) {
-        selectedContent.style.display = 'block';
-      }
-      
-      // Update active button
-      const targetTab = document.querySelector(`#tab-${botName}`);
-      if (targetTab) {
-        targetTab.style.background = 'rgba(0, 255, 255, 0.2)';
-        targetTab.style.borderColor = 'rgba(0, 255, 255, 0.5)';
-        targetTab.style.color = '#00ffff';
-      }
-      
-      // Collapse all on tab switch, except first
+      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.bot-tab').forEach(t => t.classList.remove('active'));
+      const content = document.getElementById(botName);
+      if (content) content.style.display = 'block';
+      const tab = document.getElementById('tab-' + botName);
+      if (tab) tab.classList.add('active');
       collapseAllAccordions(botName);
     }
 
     // ========== PATCH NOTES SEEN + RELATIVE TIMESTAMPS ==========
-    const LAST_PATCH = '2026-03-22'; // keep in sync with index.html
+    const LAST_PATCH = '2026-03-22';
 
     function patchRelativeTime(dateStr) {
-      // Parses "March 22, 2026" or "March 2026" style strings
       const parsed = new Date(dateStr);
       if (isNaN(parsed)) return null;
       const days = Math.floor((Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
       if (days === 0) return 'today';
       if (days === 1) return '1 day ago';
       if (days < 7) return days + ' days ago';
-      return null; // only show for within 7 days
+      return null;
     }
 
     function applyPatchTimestamps() {
@@ -571,16 +549,12 @@
         const raw = dateEl.textContent.replace('Release Date:', '').trim();
         const rel = patchRelativeTime(raw);
         if (!rel) return;
-
-        // Add glowing dot before the header title
         const titleEl = accordion.querySelector('.patch-note-header h3');
         if (titleEl && !titleEl.querySelector('.patch-new-dot')) {
           const dot = document.createElement('span');
           dot.className = 'patch-new-dot';
           titleEl.insertBefore(dot, titleEl.firstChild);
         }
-
-        // Append "· X days ago" after the date
         if (!dateEl.querySelector('.patch-age')) {
           const ageSpan = document.createElement('span');
           ageSpan.className = 'patch-age';
@@ -590,17 +564,11 @@
       });
     }
 
-    // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-      // Mark patch notes as seen — dismisses the nav dot on index.html
       localStorage.setItem('patchNotesSeen', LAST_PATCH);
-
-      // Apply relative timestamps to recent entries
       applyPatchTimestamps();
-
       const urlParams = new URLSearchParams(window.location.search);
       const botParam = urlParams.get('bot');
-
       if (botParam === 'manager') {
         showBot('meow-manager');
       } else if (botParam === 'cat-cafe') {

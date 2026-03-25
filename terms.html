@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -10,596 +10,242 @@
     gtag('config', 'G-YKNC7L8DV7');
   </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service - Meow Bots</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Meow Bots</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .bot-tab {
-      padding: 0.8rem 1.5rem;
-      background: rgba(0, 255, 255, 0.1);
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      color: #ffffff;
+    .terms-highlight {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(127, 99, 243, 0.06);
       border-radius: 8px;
-      cursor: pointer;
+      border-left: 4px solid var(--neon-purple);
+    }
+    .terms-highlight h3 {
+      margin-top: 0;
       font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-family: 'Inter', sans-serif;
     }
-
-    .bot-tab.active {
-      background: rgba(0, 255, 255, 0.2);
-      border-color: rgba(0, 255, 255, 0.5);
-      color: #00ffff;
+    .terms-warning {
+      padding: 1.5rem;
+      background: rgba(253, 230, 138, 0.08);
+      border-radius: 8px;
+      border-left: 4px solid var(--neon-yellow);
     }
-
-    .bot-tab:hover {
-      border-color: rgba(0, 255, 255, 0.5);
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
+    .terms-warning p:first-child {
+      margin: 0;
+      color: var(--neon-yellow);
     }
   </style>
 </head>
 <body>
+
   <div class="particles">
-    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-    <div class="particle" style="left: 25%; animation-delay: 4s;">🌟</div>
-    <div class="particle" style="left: 40%; animation-delay: 8s;">💫</div>
-    <div class="particle" style="left: 60%; animation-delay: 12s;">⭐</div>
-    <div class="particle" style="left: 80%; animation-delay: 16s;">🔮</div>
+    <div class="particle" style="left: 8%; animation: particleFloat 22s linear infinite; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 20%; animation: particleFloat 28s linear infinite; animation-delay: 3s;">🌟</div>
+    <div class="particle" style="left: 38%; animation: particleFloat 25s linear infinite; animation-delay: 7s;">💫</div>
+    <div class="particle" style="left: 55%; animation: particleFloat 30s linear infinite; animation-delay: 11s;">⭐</div>
+    <div class="particle" style="left: 72%; animation: particleFloat 24s linear infinite; animation-delay: 5s;">🔮</div>
   </div>
 
-  <div class="content">
-    <nav>
-      <a href="index.html" class="logo" style="text-decoration: none;">🐱 MEOW BOTS</a>
-      <ul class="nav-links">
+  <div class="aurora">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">🐱 <span class="brand-text">Meow Bots</span></a>
+      <ul class="nav-pills">
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
         <li><a href="patch-notes.html">Patch Notes</a></li>
       </ul>
-      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-    <nav class="mobile-nav-menu" id="mobileNavMenu">
-      <a href="index.html#bots" onclick="closeMobileNav()">Bots</a>
-      <a href="index.html#servers" onclick="closeMobileNav()">Servers</a>
-      <a href="feedback.html">Feedback/Support</a>
-      <a href="patch-notes.html">Patch Notes</a>
-    </nav>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html#bots">Bots</a>
+    <a href="index.html#servers">Servers</a>
+    <a href="patch-notes.html">Patch Notes</a>
+    <a href="feedback.html">Support</a>
+    <a href="https://discord.gg/VwDa3WKr" target="_blank">Join Discord</a>
+  </nav>
 
-    <section class="section">
-      <div style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
-        <h2 class="section-title">📋 Terms of Service</h2>
-        <p class="section-subtitle">Your agreement to use our services</p>
+  <div class="page">
 
-        <!-- Bot Selection Tabs -->
-        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <button class="bot-tab active" id="tab-cat-cafe" onclick="showBot('cat-cafe')">🐱 Cat Cafe Economy Bot</button>
-          <button class="bot-tab" id="tab-meow-bot" onclick="showBot('meow-bot')">😺 Meow Bot</button>
-          <button class="bot-tab" id="tab-meow-manager" onclick="showBot('meow-manager')">🛠️ Meow Manager</button>
-        </div>
+    <div class="content-section">
+      <div class="content-card">
+        <h1>📋 Terms of Service</h1>
+        <p class="subtitle">Your agreement to use our services</p>
 
-        <!-- Cat Cafe Terms -->
-        <div id="cat-cafe" class="tab-content active" style="margin-top: 2rem; text-align: left;">
-            <p><strong>Last Updated:</strong> December 31, 2025</p>
+        <div style="margin-top: 2rem; text-align: left;">
+            <p><strong>Last Updated:</strong> March 24, 2026</p>
+            <p>These terms apply to all bots operated under the Meow Bots umbrella: <strong>Meow Bot</strong>, <strong>Cat Cafe Economy Bot</strong>, <strong>Meow Manager</strong>, and <strong>Twitch Meow Bot</strong> (collectively, "the Bots").</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">1. Acceptance of Terms</h3>
-            <p>By adding <span style="color: #ffd93d;">Economy Bot</span> to your Discord server and using its features, you agree to these Terms of Service. If you do not agree, do not use the bot.</p>
+            <h3>1. Acceptance of Terms</h3>
+            <p>By adding any of the Bots to your Discord server or using their features, you agree to these Terms of Service. If you do not agree, do not use the Bots. Your continued use following any changes constitutes acceptance of the updated terms.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">2. Bot Description</h3>
-            <p>Economy Bot is a Discord bot that provides:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>A coin-based economy system</li>
-                <li>Games (Coinflip, Rock Paper Scissors, Dice Roll)</li>
-                <li>A shop to buy and sell items</li>
-                <li>Customizable user profiles</li>
-                <li>Leaderboards and statistics</li>
-                <li>Passive income from chat and voice activity</li>
+            <h3>2. Description of Services</h3>
+            <p>Meow Bots provides Discord bots offering:</p>
+            <ul>
+                <li>Meow and bark counting with leaderboards (Meow Bot, Twitch Meow Bot)</li>
+                <li>A coin-based economy system with games, shops, and profiles (Cat Cafe Economy)</li>
+                <li>Anonymous confessions, quotes, reaction roles, and welcome messages (Meow Bot)</li>
+                <li>Server management, tickets, reminders, moderation, XP ranking, and logging (Meow Manager)</li>
+                <li>Twitch stream tracking and notifications</li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">3. User Responsibilities</h3>
+            <h3>3. User Responsibilities</h3>
             <p>You agree to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Use the bot in accordance with Discord's Terms of Service</li>
-                <li>Not exploit, hack, or manipulate the bot or its systems</li>
-                <li>Not use the bot for harassment, scams, or illegal activities</li>
+            <ul>
+                <li>Use the Bots in compliance with all applicable laws and Discord's Terms of Service</li>
+                <li>Not exploit, hack, or manipulate the Bots or their systems</li>
+                <li>Not use the Bots for harassment, scams, or illegal activities</li>
                 <li>Not attempt to gain unauthorized access to bot systems or data</li>
+                <li>Not spam commands excessively or use automated tools to manipulate features</li>
                 <li>Respect other users and play fairly</li>
             </ul>
+            <p>You are entirely responsible for any content you create through the Bots, including confessions, quotes, messages, and ticket content.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">4. Prohibited Activities</h3>
-            <p>Users may not:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Cheat or exploit glitches for unfair advantages</li>
-                <li>Spam commands excessively</li>
-                <li>Attempt to distribute coins/items illegally</li>
-                <li>Use automated tools or bots to manipulate gameplay</li>
-                <li>Engage in fraud or scams using the economy system</li>
+            <h3>4. Server Owner Responsibilities</h3>
+            <p>Server owners and administrators agree to:</p>
+            <ul>
+                <li>Inform members that the Bots may collect data as described in our Privacy Policy</li>
+                <li>Use the Bots in accordance with Discord's Terms of Service</li>
+                <li>Configure the Bots appropriately for their server's needs</li>
+                <li>Handle moderation data (confession logs, tickets) responsibly</li>
+                <li>Not use the Bots to facilitate illegal activities</li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">5. Server Owner Responsibilities</h3>
-            <p>Server owners agree to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Provide notice to members if the bot is collecting data</li>
-                <li>Respect Discord's Terms of Service in how the bot is used</li>
-                <li>Not use the bot to facilitate illegal activities</li>
+            <h3>5. User-Generated Content</h3>
+            <p>You retain all rights to content you create. By using the Bots, you grant us a non-exclusive, royalty-free license to store, display, and distribute that content within Discord servers where you've submitted it. Content submitted through anonymous features (confessions) may be identifiable to server administrators through logs for moderation purposes. Server administrators reserve the right to remove content that violates server rules.</p>
+
+            <h3>6. Disclaimer of Warranties</h3>
+            <p>THE BOTS ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. WE DO NOT GUARANTEE:</p>
+            <ul>
+                <li>Continuous uptime, availability, or error-free operation</li>
+                <li>Accuracy, completeness, or timeliness of information</li>
+                <li>Data persistence, backup, or security from all threats</li>
+                <li>Fitness for a particular purpose</li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">6. No Warranty</h3>
-            <p>The bot is provided "as-is" without warranty of any kind. We do not guarantee:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Continuous uptime or availability</li>
-                <li>Error-free operation</li>
-                <li>Data persistence or backup</li>
-                <li>Performance or reliability</li>
-            </ul>
+            <div class="terms-warning">
+                <p><strong>⚠️ Beta Features</strong></p>
+                <p style="margin-top: 0.5rem;">Some features (including Cat Cafe Economy and Twitch Meow Bot) are currently in Beta. Features may change, data may be wiped, and stability is not guaranteed.</p>
+            </div>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">7. Limitation of Liability</h3>
-            <p>We are not liable for:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Loss of coins, items, or data</li>
+            <h3>7. Limitation of Liability</h3>
+            <p>TO THE FULLEST EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR:</p>
+            <ul>
+                <li>Any indirect, incidental, special, or consequential damages</li>
+                <li>Loss of data, coins, items, revenue, or business opportunities</li>
                 <li>Bot unavailability or downtime</li>
-                <li>Incorrect functionality or bugs</li>
-                <li>Actions of other users</li>
-                <li>Indirect or consequential damages</li>
+                <li>Actions of other users or unauthorized access</li>
             </ul>
+            <p>This limitation applies even if we have been advised of the possibility of such damages.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">8. Changes to the Bot</h3>
+            <h3>8. Changes to the Bots</h3>
             <p>We reserve the right to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Modify bot features, commands, or functionality</li>
+            <ul>
+                <li>Modify, update, or discontinue any Bot or feature at any time</li>
                 <li>Change economy values, coin rates, or item prices</li>
-                <li>Take the bot offline temporarily or permanently</li>
                 <li>Wipe data if necessary for security or system reasons</li>
+                <li>Restrict or remove access for any user or server</li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">9. Account Suspension</h3>
-            <p>We may suspend or ban users who:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Violate these terms</li>
-                <li>Exploit bugs or glitches</li>
-                <li>Engage in fraud or scams</li>
-                <li>Violate Discord's Terms of Service</li>
-                <li>Engage in harassment or abuse</li>
-            </ul>
-            <p>Suspensions are at our sole discretion with no guarantee of appeal.</p>
+            <h3>9. Account Suspension</h3>
+            <p>We may suspend or ban users who violate these terms, exploit bugs, engage in fraud or abuse, or violate Discord's Terms of Service. Suspensions are at our sole discretion with no guarantee of appeal.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">10. Third-Party Services</h3>
-            <p>This bot uses:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Discord API (subject to Discord's Terms)</li>
-                <li>Third-party database hosting</li>
-                <li>Third-party emoji/image services</li>
-            </ul>
-            <p>We are not responsible for their outages or policy changes.</p>
+            <h3>10. Indemnification</h3>
+            <p>You agree to indemnify, defend, and hold harmless the Bot operators and developers from any claims, damages, or losses arising from your use of the Bots, your violation of these Terms, applicable laws, or third-party rights.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">11. Intellectual Property</h3>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Economy Bot is owned by Firefly Designs</li>
-                <li>The bot's code, design, and features are protected intellectual property</li>
-                <li>Users may not redistribute, clone, or commercialize the bot</li>
+            <h3>11. Third-Party Services</h3>
+            <p>The Bots integrate with Discord and Twitch. You acknowledge that:</p>
+            <ul>
+                <li>Discord's and Twitch's Terms of Service and Privacy Policies apply</li>
+                <li>The Bots are not affiliated with or endorsed by Discord Inc. or Twitch</li>
+                <li>Third-party service issues are not our responsibility</li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">12. Changes to Terms</h3>
-            <p>We may update these Terms of Service at any time. Your continued use of the bot constitutes acceptance of updated terms.</p>
+            <h3>12. Intellectual Property</h3>
+            <p>All Meow Bots are owned by Firefly Designs. The bots' code, design, and features are protected intellectual property. Users may not redistribute, clone, or commercialize the Bots.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">13. Governing Law</h3>
-            <p>These Terms of Service are governed by applicable laws. Any disputes shall be resolved through negotiation or, if necessary, legal channels.</p>
+            <h3>13. Severability</h3>
+            <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">14. Contact & Support</h3>
-            <p>For questions, bug reports, or support:<br /><a href="https://fireflydesigns.me/" target="_blank" style="color: #00ffff; text-decoration: none;">https://fireflydesigns.me/</a></p>
+            <h3>14. Entire Agreement</h3>
+            <p>These Terms of Service, together with the Privacy Policy, constitute the entire agreement between you and the Bot operators regarding the Bots and supersede all prior agreements.</p>
 
-            <hr style="border: 1px solid rgba(0, 255, 255, 0.2); margin: 2rem 0;">
+            <h3>15. Governing Law</h3>
+            <p>These Terms are governed by applicable laws. Disputes should be resolved informally first by contacting us.</p>
 
-            <div style="padding: 1.5rem; background: rgba(255, 193, 7, 0.1); border-radius: 8px; border-left: 4px solid #ffd93d;">
-                <p style="margin: 0; color: #ffd93d;"><strong>⚠️ Status: BETA</strong></p>
-                <p style="margin-top: 0.5rem;">Economy Bot is currently in Beta. Features may change, data may be wiped, and stability is not guaranteed. Use at your own risk.</p>
-            </div>
+            <h3>16. Changes to Terms</h3>
+            <p>We may update these Terms at any time. Continued use constitutes acceptance. Significant changes will be announced when possible.</p>
 
-            <hr style="border: 1px solid rgba(0, 255, 255, 0.2); margin: 2rem 0;">
-
-            <p style="text-align: center; margin-top: 2rem;">By using Economy Bot, you acknowledge that you have read, understood, and agree to these Terms of Service.</p>
-        </div>
-
-        <!-- Meow Bot Terms -->
-        <div id="meow-bot" class="tab-content" style="margin-top: 2rem; text-align: left;">
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤝 Acceptance of Terms</h3>
-            <p>By using <span style="color: #ff69b4;">Meow Bot</span> ("the Bot"), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use the Bot. Your continued use of the Bot following any changes to these terms constitutes your acceptance of the new terms.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤖 Description of Service</h3>
-            <p>Meow Bot is a Discord bot providing the following features:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Meow and Bark messaging features</li>
-                <li>Quote creation and retrieval system</li>
-                <li>Anonymous confession submission and logging</li>
-                <li>Twitch stream status tracking and notifications</li>
-                <li>Server-wide leaderboards and statistics</li>
-                <li>Welcome message customization</li>
-                <li>Reaction role assignment</li>
-                <li>Message broadcasting across servers</li>
-                <li>Reminders and scheduling</li>
+            <h3>17. Contact &amp; Support</h3>
+            <p>For questions, bug reports, or support:</p>
+            <ul>
+                <li>Join our Discord server: <a href="https://discord.gg/VwDa3WKr" target="_blank">discord.gg/VwDa3WKr</a></li>
+                <li>Direct message: <strong>fireflyxserenity</strong> on Discord</li>
+                <li>Website: <a href="https://meowbots.ca/" target="_blank">https://meowbots.ca/</a></li>
             </ul>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">👤 User Responsibilities</h3>
-            
-            <h4 style="margin-top: 1rem;">Legal Compliance</h4>
-            <p>You agree to use the Bot in compliance with all applicable laws and Discord's Terms of Service. You are solely responsible for your use of the Bot and any content you create through it.</p>
+            <hr>
 
-            <h4 style="margin-top: 1rem;">Prohibited Conduct</h4>
-            <p>You agree NOT to use the Bot to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Harass, threaten, abuse, or defame any person or group</li>
-                <li>Violate any person's privacy or intellectual property rights</li>
-                <li>Post illegal, infringing, or harmful content</li>
-                <li>Spam, flood, or disrupt server communication</li>
-                <li>Attempt to access, hack, or exploit the Bot's systems</li>
-                <li>Circumvent any safety features or restrictions</li>
-                <li>Impersonate another person or entity</li>
-                <li>Submit false, misleading, or fraudulent information</li>
-            </ul>
-
-            <h4 style="margin-top: 1rem;">Content Responsibility</h4>
-            <p>You are entirely responsible for any content you create through the Bot, including confessions, quotes, and messages. The Bot creators are not responsible for user-generated content.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📝 User-Generated Content</h3>
-            
-            <h4 style="margin-top: 1rem;">Rights to Content</h4>
-            <p>You retain all rights to content you create. However, by using the Bot to create or submit content, you grant the Bot operators a non-exclusive, royalty-free license to store, display, and distribute that content within Discord servers where you've submitted it.</p>
-
-            <h4 style="margin-top: 1rem;">Anonymous Submissions</h4>
-            <p>Content submitted through the confession feature is treated as anonymous to end users but may be identifiable to server administrators through logs. Administrators are responsible for handling confessions appropriately.</p>
-
-            <h4 style="margin-top: 1rem;">Content Moderation</h4>
-            <p>Server administrators reserve the right to remove or modify any content that violates server rules or these terms. The Bot creators reserve the right to remove content that violates Discord's Terms of Service.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚠️ Disclaimer of Warranties</h3>
-            <p>THE BOT IS PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. THE BOT CREATORS AND OPERATORS MAKE NO WARRANTIES, EXPRESS OR IMPLIED, REGARDING THE BOT'S:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE</li>
-                <li>ACCURACY, COMPLETENESS, OR TIMELINESS OF INFORMATION</li>
-                <li>UNINTERRUPTED OR ERROR-FREE OPERATION</li>
-                <li>SECURITY OR PROTECTION FROM DATA LOSS</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Limitation of Liability</h3>
-            <p>TO THE FULLEST EXTENT PERMITTED BY LAW, THE BOT CREATORS AND OPERATORS SHALL NOT BE LIABLE FOR:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES</li>
-                <li>LOSS OF DATA, REVENUE, PROFITS, OR BUSINESS OPPORTUNITIES</li>
-                <li>DAMAGES CAUSED BY THIRD PARTIES</li>
-                <li>UNAUTHORIZED ACCESS OR SECURITY BREACHES</li>
-            </ul>
-            <p>This limitation applies even if the creators have been advised of the possibility of such damages.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💾 Data Storage and Retention</h3>
-            <p>The Bot stores certain user data as described in the Privacy Policy, including:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>User message counts (meows/barks)</li>
-                <li>Quote submissions and metadata</li>
-                <li>Confession submissions with associated user IDs</li>
-                <li>Server configuration settings</li>
-                <li>Twitch stream data</li>
-                <li>Leaderboard information</li>
-            </ul>
-            <p>Data is retained for the functionality of the Bot and may be deleted at the discretion of server administrators.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔧 Modification of Service</h3>
-            <p>The Bot creators reserve the right to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Modify or discontinue the Bot at any time with or without notice</li>
-                <li>Change features, functionality, or pricing</li>
-                <li>Update these Terms of Service at any time</li>
-            </ul>
-            <p>Continued use of the Bot after modifications constitutes acceptance of new terms.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🚫 Termination</h3>
-            <p>The Bot creators reserve the right to suspend or terminate your access to the Bot if you violate these terms or engage in prohibited conduct. Server administrators may also restrict your use of the Bot within their servers.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Governing Law</h3>
-            <p>These Terms of Service are governed by and construed in accordance with applicable law, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤝 Disputes and Contact</h3>
-            <p>For questions or disputes regarding these terms, please contact the Bot creator through Discord. Any disputes will be handled on a case-by-case basis at the discretion of the Bot creators.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔗 Severability</h3>
-            <p>If any provision of these Terms of Service is found to be unenforceable or invalid, the remaining provisions shall continue in full force and effect.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📋 Entire Agreement</h3>
-            <p>These Terms of Service, along with the Privacy Policy, constitute the entire agreement between you and the Bot creators regarding the Bot and supersede all prior agreements and understandings.</p>
-
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #00ffff;">
-                <h3 style="margin-top: 0; font-size: 1rem;">❓ Questions or Concerns?</h3>
-                <p>Thank you for using Meow Bot! 🐱</p>
-                <p>For questions about these Terms, please contact us on Discord or visit our support server.</p>
-            </div>
-
-            <p style="margin-top: 2rem;"><em>By using Meow Bot, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</em></p>
-        </div>
-
-        <!-- Meow Manager Terms -->
-        <div id="meow-manager" class="tab-content" style="margin-top: 2rem; text-align: left;">
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤝 Acceptance of Terms</h3>
-            <p>By using <span style="color: #ff69b4;">Meow Manager</span> ("the Bot"), you agree to these Terms of Service ("Terms"). If you disagree with any part of these terms, you must discontinue use immediately by removing the Bot from your server or ceasing to interact with it.</p>
-            <p>These Terms apply to all users, server administrators, and anyone who interacts with Meow Manager across Discord servers.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤖 Bot Features & Services</h3>
-            <p>Our Bot provides the following features:</p>
-            
-            <h4 style="margin-top: 1rem;">Meow Manager Features:</h4>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Advanced moderation tools and user management</li>
-                <li>XP and leveling system with role rewards</li>
-                <li>Auto-role management and assignment</li>
-                <li>Activity tracking and detailed analytics</li>
-                <li>Comprehensive logging system for all server events</li>
-                <li>Sticky messages and recurring reminders</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚠️ Prohibited Activities</h3>
-            <p><strong>The following activities are strictly prohibited:</strong></p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li><strong>Abuse of Power:</strong> Using moderation tools to unfairly target or harass users</li>
-                <li><strong>Data Manipulation:</strong> Attempting to artificially inflate XP or activity data</li>
-                <li><strong>Illegal Content:</strong> Using Bot to distribute illegal or harmful content</li>
-                <li><strong>Circumvention:</strong> Attempting to bypass Bot security measures or restrictions</li>
-                <li><strong>Impersonation:</strong> Using the Bot to impersonate server staff or other users</li>
-                <li><strong>Unauthorized Commercial Use:</strong> Using the Bot for unauthorized business purposes</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🛡️ Administrator Responsibilities</h3>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li><strong>Compliance:</strong> Follow Discord's Terms of Service and Community Guidelines</li>
-                <li><strong>Fair Moderation:</strong> Use moderation tools fairly and consistently</li>
-                <li><strong>Data Protection:</strong> Protect user privacy and handle data responsibly</li>
-                <li><strong>Transparency:</strong> Keep server members informed about Bot features and logging</li>
-                <li><strong>Server Rules:</strong> Establish and enforce clear server rules where applicable</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔒 Privacy and Data</h3>
-            <p>Your privacy is important to us. Please review our <a href="privacy.html" style="color: #ff69b4;">Privacy Policy</a> to understand how we collect, use, and protect your information. Key points:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>We collect data necessary for moderation and logging functions</li>
-                <li>Server logs are accessible to authorized administrators only</li>
-                <li>Activity data is used for leaderboards and progress tracking</li>
-                <li>You can request data deletion at any time</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Limitation of Liability</h3>
-            <p>The Bot is provided "as is" without warranties of any kind. We are not liable for:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Service interruptions or downtime</li>
-                <li>Data loss due to technical issues</li>
-                <li>Actions taken by server administrators using Bot moderation features</li>
-                <li>Disputes between server members or administrators</li>
-                <li>Conflicts arising from Bot usage or misconfiguration</li>
-            </ul>
-        </div>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🚫 Termination</h3>
-            <p>We reserve the right to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Suspend or terminate Bot services at any time</li>
-                <li>Block users or servers that violate these Terms</li>
-                <li>Remove or modify Bot features without notice</li>
-                <li>Take legal action for severe violations</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Changes to Terms</h3>
-            <p>We may update these Terms periodically. Significant changes will be announced through:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Bot announcements in participating servers</li>
-                <li>Updates posted on our website</li>
-                <li>Direct contact through our support channels</li>
-            </ul>
-            <p>Continued use of the Bots after changes constitutes acceptance of new Terms.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🌍 Governing Law</h3>
-            <p>These Terms are governed by applicable laws. Any disputes will be resolved through appropriate legal channels.</p>
-
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #00ffff;">
-                <h3 style="margin-top: 0; font-size: 1rem;">❓ Questions or Concerns?</h3>
-                <p>If you have questions about these Terms:</p>
-                <p>Discord: <a href="https://discord.gg/Wb5ucy9N" target="_blank" style="color: #ff69b4;">Join our support server</a></p>
-                <p>Direct Message: <strong>fireflyxserenity</strong> on Discord</p>
-            </div>
-
-            <p style="margin-top: 2rem;"><em>By using our Bots, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</em></p>
-        </div>
-
-        <!-- Meow Manager Terms -->
-        <div id="meow-manager" class="tab-content" style="margin-top: 2rem; text-align: left;">
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🤝 Agreement to Terms</h3>
-            <p>By inviting, installing, or using Manager Meow (the "Bot") on your Discord server, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Bot.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📜 Use License</h3>
-            <p>Permission is granted to use the Bot for lawful purposes only. You agree not to use the Bot:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>To violate any applicable laws or regulations</li>
-                <li>To infringe upon the rights of others (including intellectual property rights)</li>
-                <li>To harass, threaten, or intimidate any person or group</li>
-                <li>To spam, distribute malware, or engage in any harmful activities</li>
-                <li>To circumvent security measures or attempt unauthorized access</li>
-                <li>To reverse engineer, decompile, or disassemble the Bot's code</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🛠️ Server Management Features</h3>
-            <p>The Bot provides server management, ticketing, reminders, role assignment, and automated moderation features. You are responsible for:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Using these features in accordance with Discord's Terms of Service</li>
-                <li>Configuring the Bot appropriately for your server's needs</li>
-                <li>Managing user access and permissions</li>
-                <li>Ensuring compliance with your server's rules and applicable laws</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💾 Data Storage and Retention</h3>
-            <p>The Bot may store limited data necessary to function, including:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Server configuration settings</li>
-                <li>User preferences and reminder data</li>
-                <li>Ticket and thread information</li>
-                <li>Role assignment records</li>
-            </ul>
-            <p>You are responsible for backing up any critical data. The Bot administrators are not responsible for data loss due to server deletion, account termination, or unforeseen technical issues.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚠️ Disclaimer of Warranties</h3>
-            <p><strong>THE BOT IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. THIS INCLUDES BUT IS NOT LIMITED TO:</strong></p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
-                <li>The Bot's reliability, accuracy, or completeness</li>
-                <li>That the Bot will be uninterrupted or error-free</li>
-                <li>That the Bot will meet your specific requirements</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Limitation of Liability</h3>
-            <p><strong>IN NO EVENT SHALL THE BOT ADMINISTRATORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF YOUR USE OF THE BOT, INCLUDING BUT NOT LIMITED TO:</strong></p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Loss of data or revenue</li>
-                <li>Server disruption or downtime</li>
-                <li>Unauthorized access or modification of data</li>
-                <li>Any damage to your Discord server or other systems</li>
-            </ul>
-            <p>This limitation applies regardless of the form of action or basis of the claim, even if advised of the possibility of such damages.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔧 Modification and Discontinuation</h3>
-            <p>The Bot administrators reserve the right to:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Modify, update, or change the Bot at any time without notice</li>
-                <li>Discontinue the Bot or any of its features</li>
-                <li>Restrict or remove access to the Bot for any user or server</li>
-                <li>Change these Terms of Service with reasonable notice</li>
-            </ul>
-            <p>Continued use of the Bot after changes constitutes acceptance of the new Terms.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🚫 Termination</h3>
-            <p>The Bot administrators may terminate your access to the Bot at any time for violation of these Terms or for any other reason without notice. Upon termination, your right to use the Bot immediately ceases.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔗 Third-Party Services</h3>
-            <p>The Bot integrates with Discord and may interact with other services. You acknowledge that:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Discord's Terms of Service and Privacy Policy apply</li>
-                <li>The Bot is not affiliated with or endorsed by Discord Inc.</li>
-                <li>Third-party service issues are not the responsibility of the Bot administrators</li>
-                <li>The Bot must comply with Discord's Bot Policy</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🛡️ Indemnification</h3>
-            <p>You agree to indemnify, defend, and hold harmless the Bot administrators and developers from any claims, damages, or losses arising from:</p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Your use of the Bot</li>
-                <li>Your violation of these Terms</li>
-                <li>Your violation of applicable laws or regulations</li>
-                <li>Your infringement of third-party rights</li>
-                <li>Your content or actions on Discord servers using the Bot</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">⚖️ Governing Law</h3>
-            <p>These Terms of Service are governed by and construed in accordance with applicable laws. Any disputes shall be resolved informally if possible, and formal disputes are subject to jurisdictional constraints.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔀 Severability</h3>
-            <p>If any provision of these Terms is found to be invalid or unenforceable, that provision shall be modified to the minimum extent necessary to make it valid, and all other provisions shall remain in effect.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">📋 Entire Agreement</h3>
-            <p>These Terms of Service, together with the Privacy Policy, constitute the entire agreement between you and the Bot administrators regarding the Bot and supersede all prior agreements.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">🔄 Changes to Terms</h3>
-            <p>The Bot administrators may update these Terms at any time. Your continued use of the Bot constitutes acceptance of the updated Terms. You are responsible for reviewing these Terms periodically.</p>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem;">💬 Contact</h3>
-            <p>For questions about these Terms of Service, please contact the Bot administrators through Discord or the support channels provided with the Bot.</p>
-
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border-left: 4px solid #00ffff;">
-                <p style="margin-top: 0; font-weight: bold; text-align: center;">By using Manager Meow, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+            <div class="terms-highlight">
+                <p style="margin-top: 0; font-weight: bold; text-align: center;">By using any Meow Bots service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
             </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="feedback.html" style="color: #00ffff; text-decoration: none;">Feedback</a> • <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">Support Server</a></p>
-      <p>Made with 💜 for the Discord community</p>
+    <footer class="footer-v2">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="patch-notes.html">Patch Notes</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="https://discord.gg/VwDa3WKr" target="_blank">Support Server</a>
+      </div>
+      <div class="footer-copy">Made with 💜 for the Discord community by fireflyxserenity</div>
     </footer>
+
   </div>
 
   <script>
-    function showBot(botName) {
-      // Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      // Reset all tab buttons
-      document.querySelectorAll('.bot-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      
-      // Show selected content
-      const selectedContent = document.getElementById(botName);
-      if (selectedContent) {
-        selectedContent.classList.add('active');
-      }
-      
-      // Update active button
-      const targetTab = document.querySelector(`#tab-${botName}`);
-      if (targetTab) {
-        targetTab.classList.add('active');
-      }
-    }
-
-    // Handle URL hash on page load
-    window.addEventListener('load', function() {
-      const hash = window.location.hash.slice(1); // Remove the # character
-      if (hash && document.getElementById(hash)) {
-        showBot(hash);
-      }
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
     });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    }));
 
-    // Handle hash changes (back button, etc.)
-    window.addEventListener('hashchange', function() {
-      const hash = window.location.hash.slice(1);
-      if (hash && document.getElementById(hash)) {
-        showBot(hash);
-      }
-    });
-
-    // Update URL when clicking tabs
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.bot-tab').forEach(tab => {
-        const originalOnclick = tab.onclick;
-        tab.addEventListener('click', function(e) {
-          const botName = this.id.replace('tab-', '');
-          window.history.pushState(null, null, '#' + botName);
-        });
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
       });
-    });
-  </script>
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
 
-  <script>
-    function toggleMobileNav() {
-      const menu = document.getElementById('mobileNavMenu');
-      const btn = document.getElementById('hamburgerBtn');
-      menu.classList.toggle('open');
-      btn.classList.toggle('open');
-    }
-    function closeMobileNav() {
-      document.getElementById('mobileNavMenu').classList.remove('open');
-      document.getElementById('hamburgerBtn').classList.remove('open');
-    }
   </script>
 </body>
 </html>

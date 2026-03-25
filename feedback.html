@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -12,32 +12,17 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback - Meow Links</title>
+  <title>Feedback — Meow Bots</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776" crossorigin="anonymous"></script>
   <style>
     .feedback-container {
       max-width: 600px;
       margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .feedback-title {
-      font-size: 2rem;
-      background: linear-gradient(90deg, #00ffff, #ff69b4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .feedback-intro {
-      color: rgba(255, 255, 255, 0.8);
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
     }
 
     .form-group {
@@ -47,7 +32,7 @@
     label {
       display: block;
       margin-bottom: 0.5rem;
-      color: #00ffff;
+      color: var(--neon-purple);
       font-weight: 600;
       font-size: 0.9rem;
     }
@@ -55,29 +40,29 @@
     select, textarea, input[type="text"], input[type="email"] {
       width: 100%;
       padding: 0.8rem;
-      background: rgba(0, 20, 40, 0.6);
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      border-radius: 6px;
-      color: rgba(255, 255, 255, 0.9);
-      font-family: 'Inter', sans-serif;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-1);
+      font-family: 'Outfit', sans-serif;
       font-size: 0.95rem;
       transition: all 0.3s ease;
     }
 
     select:hover, textarea:hover, input:hover {
-      border-color: rgba(0, 255, 255, 0.5);
+      border-color: var(--border-hover);
     }
 
     select:focus, textarea:focus, input:focus {
       outline: none;
-      border-color: rgba(0, 255, 255, 0.8);
-      background: rgba(0, 30, 60, 0.8);
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      border-color: rgba(129, 140, 248, 0.5);
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 15px rgba(129, 140, 248, 0.15);
     }
 
     select option {
-      background: #0a0e27;
-      color: #00ffff;
+      background: var(--bg);
+      color: var(--text-1);
     }
 
     textarea {
@@ -90,27 +75,27 @@
       align-items: center;
       gap: 0.8rem;
       padding: 1rem;
-      background: rgba(0, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      border-radius: 6px;
+      background: rgba(129, 140, 248, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     .checkbox-group:hover {
-      background: rgba(0, 255, 255, 0.1);
-      border-color: rgba(0, 255, 255, 0.3);
+      background: rgba(129, 140, 248, 0.1);
+      border-color: var(--border-hover);
     }
 
     input[type="checkbox"] {
       width: 18px;
       height: 18px;
       cursor: pointer;
-      accent-color: #00ffff;
+      accent-color: var(--neon-purple);
     }
 
     .checkbox-label {
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-2);
       cursor: pointer;
       margin: 0;
       flex: 1;
@@ -126,13 +111,9 @@
       max-height: 300px;
     }
 
-    .contact-info-section .form-group {
-      margin-bottom: 1rem;
-    }
-
     .contact-info-hint {
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-3);
       margin-top: 0.3rem;
     }
 
@@ -146,42 +127,44 @@
       flex: 1;
       padding: 1rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 10px;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Outfit', sans-serif;
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, #00ffff, #ff69b4);
-      color: #000;
+      background: var(--gradient-glow);
+      color: white;
       font-weight: 700;
+      box-shadow: 0 4px 20px rgba(167, 139, 250, 0.2);
     }
 
     .btn-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 8px 30px rgba(167, 139, 250, 0.35);
     }
 
     .btn-reset {
-      background: rgba(0, 255, 255, 0.1);
-      color: #00ffff;
-      border: 2px solid rgba(0, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .btn-reset:hover {
-      background: rgba(0, 255, 255, 0.2);
-      border-color: rgba(0, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-1);
     }
 
     .success-message {
-      background: rgba(0, 255, 100, 0.15);
-      border: 1px solid rgba(0, 255, 100, 0.4);
-      color: #00ff64;
+      background: rgba(134, 239, 172, 0.1);
+      border: 1px solid rgba(134, 239, 172, 0.3);
+      color: var(--neon-green);
       padding: 1rem;
-      border-radius: 6px;
+      border-radius: 10px;
       margin-bottom: 1.5rem;
       display: none;
     }
@@ -192,102 +175,146 @@
 
     .feedback-note {
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-3);
       text-align: center;
       margin-top: 1.5rem;
     }
   </style>
 </head>
 <body>
+
+  <!-- Floating emoji particles -->
   <div class="particles">
-    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-    <div class="particle" style="left: 25%; animation-delay: 4s;">🐱</div>
-    <div class="particle" style="left: 40%; animation-delay: 8s;">⭐</div>
-    <div class="particle" style="left: 60%; animation-delay: 12s;">😺</div>
-    <div class="particle" style="left: 80%; animation-delay: 16s;">💫</div>
+    <div class="particle" style="left: 8%; animation: particleFloat 22s linear infinite; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 20%; animation: particleFloat 28s linear infinite; animation-delay: 3s;">🐱</div>
+    <div class="particle" style="left: 38%; animation: particleFloat 25s linear infinite; animation-delay: 7s;">⭐</div>
+    <div class="particle" style="left: 55%; animation: particleFloat 30s linear infinite; animation-delay: 11s;">😺</div>
+    <div class="particle" style="left: 72%; animation: particleFloat 24s linear infinite; animation-delay: 5s;">💫</div>
+    <div class="particle" style="left: 88%; animation: particleFloat 26s linear infinite; animation-delay: 14s;">🐾</div>
   </div>
 
-  <div class="content">
-    <nav>
-      <a href="index.html" class="logo" style="text-decoration: none;">🐱 MEOW BOTS</a>
-      <ul class="nav-links">
+  <div class="aurora">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">🐱 <span class="brand-text">Meow Bots</span></a>
+      <ul class="nav-pills">
         <li><a href="index.html#bots">Bots</a></li>
         <li><a href="index.html#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
         <li><a href="patch-notes.html">Patch Notes</a></li>
       </ul>
-      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-    <nav class="mobile-nav-menu" id="mobileNavMenu">
-      <a href="index.html#bots" onclick="closeMobileNav()">Bots</a>
-      <a href="index.html#servers" onclick="closeMobileNav()">Servers</a>
-      <a href="feedback.html">Feedback/Support</a>
-      <a href="patch-notes.html">Patch Notes</a>
-    </nav>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html#bots">Bots</a>
+    <a href="index.html#servers">Servers</a>
+    <a href="patch-notes.html">Patch Notes</a>
+    <a href="feedback.html">Support</a>
+    <a href="https://discord.gg/VwDa3WKr" target="_blank">Join Discord</a>
+  </nav>
 
-    <section class="section">
-      <div class="feedback-container">
-        <h1 class="feedback-title">📝 Send Us Feedback</h1>
-        <p class="feedback-intro">Help us improve! Report bugs, suggest features, or apply for early access to new bots.</p>
+  <div class="page">
 
-        <div class="success-message" id="successMessage">
-          ✅ Thank you! Your feedback has been submitted successfully.
-        </div>
+    <div class="content-section">
+      <div class="content-card">
+        <div class="feedback-container">
+          <h1>📝 Send Us Feedback</h1>
+          <p class="subtitle">Help us improve! Report bugs, suggest features, or apply for early access to new bots.</p>
 
-        <form id="feedbackForm">
-          <!-- Category Dropdown -->
-          <div class="form-group">
-            <label for="category">Type of Feedback *</label>
-            <select id="category" required>
-              <option value="">-- Select an option --</option>
-              <option value="bug-report">🐛 Bug Report</option>
-              <option value="suggestion">💡 Suggestion</option>
-              <option value="twitch-beta">📺 Twitch Bot Early Access</option>
-              <option value="other">📢 Other</option>
-            </select>
+          <div class="success-message" id="successMessage">
+            ✅ Thank you! Your feedback has been submitted successfully.
           </div>
 
-          <!-- Message Textarea -->
-          <div class="form-group">
-            <label for="message">Your Message *</label>
-            <textarea id="message" placeholder="Tell us what's on your mind..." required></textarea>
-          </div>
-
-          <!-- Contact Checkbox -->
-          <div class="form-group">
-            <div class="checkbox-group">
-              <input type="checkbox" id="wantContact" onchange="toggleContactInfo()">
-              <label for="wantContact" class="checkbox-label">You can contact me for more info</label>
-            </div>
-          </div>
-
-          <!-- Contact Info Section (Hidden by default) -->
-          <div class="contact-info-section" id="contactInfoSection">
+          <form id="feedbackForm">
             <div class="form-group">
-              <label for="contactInfo">Email or Discord Username</label>
-              <input type="text" id="contactInfo" placeholder="your.email@example.com or YourDiscordUsername">
-              <div class="contact-info-hint">We'll only use this to follow up if needed</div>
+              <label for="category">Type of Feedback *</label>
+              <select id="category" required>
+                <option value="">-- Select an option --</option>
+                <option value="bug-report">🐛 Bug Report</option>
+                <option value="suggestion">💡 Suggestion</option>
+                <option value="twitch-beta">📺 Twitch Bot Early Access</option>
+                <option value="other">📢 Other</option>
+              </select>
             </div>
-          </div>
 
-          <!-- Buttons -->
-          <div class="button-group">
-            <button type="submit" class="btn-submit">Send Feedback</button>
-            <button type="reset" class="btn-reset">Clear</button>
-          </div>
-        </form>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" placeholder="Tell us what's on your mind..." required></textarea>
+            </div>
 
-        <p class="feedback-note">Your feedback helps us make our Bots better! 💜</p>
+            <div class="form-group">
+              <div class="checkbox-group">
+                <input type="checkbox" id="wantContact" onchange="toggleContactInfo()">
+                <label for="wantContact" class="checkbox-label">You can contact me for more info</label>
+              </div>
+            </div>
+
+            <div class="contact-info-section" id="contactInfoSection">
+              <div class="form-group">
+                <label for="contactInfo">Email or Discord Username</label>
+                <input type="text" id="contactInfo" placeholder="your.email@example.com or YourDiscordUsername">
+                <div class="contact-info-hint">We'll only use this to follow up if needed</div>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button type="submit" class="btn-submit">Send Feedback</button>
+              <button type="reset" class="btn-reset">Clear</button>
+            </div>
+          </form>
+
+          <p class="feedback-note">Your feedback helps us make our Bots better! 💜</p>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="feedback.html" style="color: #00ffff; text-decoration: none;">Feedback</a> • <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">Support Server</a></p>
-      <p>Made with 💜 for the Discord community</p>
+    <footer class="footer-v2">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="patch-notes.html">Patch Notes</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="https://discord.gg/VwDa3WKr" target="_blank">Support Server</a>
+      </div>
+      <div class="footer-copy">Made with 💜 for the Discord community</div>
     </footer>
+
   </div>
+
+  <script>
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
+    });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 
   <script>
     const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1479555353774391326/bHTJDHZiBYzkgU7D1zhLQ2CseLxZ7u28wTOKUXPiLwRwF70GpCl4qaSudg5BR779DYWF';
@@ -296,7 +323,6 @@
       const checkbox = document.getElementById('wantContact');
       const section = document.getElementById('contactInfoSection');
       const input = document.getElementById('contactInfo');
-      
       if (checkbox.checked) {
         section.classList.add('visible');
         input.focus();
@@ -308,13 +334,11 @@
 
     document.getElementById('feedbackForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
       const category = document.getElementById('category').value;
       const message = document.getElementById('message').value;
       const wantContact = document.getElementById('wantContact').checked;
       const contactInfo = document.getElementById('contactInfo').value;
 
-      // Map category to emoji
       const categoryMap = {
         'bug-report': '🐛 Bug Report',
         'suggestion': '💡 Suggestion',
@@ -322,13 +346,10 @@
         'other': '📢 Other'
       };
 
-      const categoryLabel = categoryMap[category] || category;
-
-      // Create Discord embed
       const embed = {
-        title: categoryLabel,
+        title: categoryMap[category] || category,
         description: message,
-        color: 0x00ffff,
+        color: 0x818cf8,
         fields: [],
         timestamp: new Date().toISOString()
       };
@@ -341,30 +362,18 @@
         });
       }
 
-      // Send to Discord
       fetch(DISCORD_WEBHOOK_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          embeds: [embed]
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ embeds: [embed] })
       })
       .then(response => {
         if (response.ok) {
-          // Show success message
           const successMsg = document.getElementById('successMessage');
           successMsg.classList.add('show');
-
-          // Reset form
           document.getElementById('feedbackForm').reset();
           document.getElementById('contactInfoSection').classList.remove('visible');
-
-          // Hide success message after 3 seconds
-          setTimeout(() => {
-            successMsg.classList.remove('show');
-          }, 3000);
+          setTimeout(() => { successMsg.classList.remove('show'); }, 3000);
         } else {
           alert('Something went wrong. Please try again!');
         }
@@ -374,19 +383,6 @@
         alert('Error submitting feedback. Please try again!');
       });
     });
-  </script>
-
-  <script>
-    function toggleMobileNav() {
-      const menu = document.getElementById('mobileNavMenu');
-      const btn = document.getElementById('hamburgerBtn');
-      menu.classList.toggle('open');
-      btn.classList.toggle('open');
-    }
-    function closeMobileNav() {
-      document.getElementById('mobileNavMenu').classList.remove('open');
-      document.getElementById('hamburgerBtn').classList.remove('open');
-    }
   </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNC7L8DV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -12,465 +12,488 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meow Bots - Discord Tools</title>
+  <title>Meow Bots — Discord Tools</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3994230437494776" crossorigin="anonymous"></script>
 </head>
 <body>
+
+  <!-- Floating emoji particles -->
   <div class="particles">
-    <div class="particle" style="left: 10%; animation-delay: 0s;">✨</div>
-    <div class="particle" style="left: 25%; animation-delay: 4s;">🐱</div>
-    <div class="particle" style="left: 40%; animation-delay: 8s;">⭐</div>
-    <div class="particle" style="left: 60%; animation-delay: 12s;">😺</div>
-    <div class="particle" style="left: 80%; animation-delay: 16s;">💫</div>
+    <div class="particle" style="left: 8%; animation: particleFloat 22s linear infinite; animation-delay: 0s;">✨</div>
+    <div class="particle" style="left: 20%; animation: particleFloat 28s linear infinite; animation-delay: 3s;">🐱</div>
+    <div class="particle" style="left: 38%; animation: particleFloat 25s linear infinite; animation-delay: 7s;">⭐</div>
+    <div class="particle" style="left: 55%; animation: particleFloat 30s linear infinite; animation-delay: 11s;">😺</div>
+    <div class="particle" style="left: 72%; animation: particleFloat 24s linear infinite; animation-delay: 5s;">💫</div>
+    <div class="particle" style="left: 88%; animation: particleFloat 26s linear infinite; animation-delay: 14s;">🐾</div>
+    <div class="particle" style="left: 45%; animation: particleFloat 32s linear infinite; animation-delay: 18s;">✨</div>
   </div>
 
-  <div class="content">
-    <nav>
-      <a href="#home" class="logo" style="text-decoration: none;">🐱</a>
-      <ul class="nav-links">
+  <!-- Neon glow orbs background -->
+  <div class="aurora">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">🐱 <span class="brand-text">Meow Bots</span></a>
+      <ul class="nav-pills">
         <li><a href="#bots">Bots</a></li>
         <li><a href="#servers">Servers</a></li>
         <li><a href="feedback.html">Feedback/Support</a></li>
         <li><a href="patch-notes.html">Patch Notes<span class="patch-notes-dot" id="patch-dot"></span></a></li>
       </ul>
-      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-    <nav class="mobile-nav-menu" id="mobileNavMenu">
-      <a href="#bots" onclick="closeMobileNav()">Bots</a>
-      <a href="#servers" onclick="closeMobileNav()">Servers</a>
-      <a href="feedback.html">Feedback/Support</a>
-      <a href="patch-notes.html">Patch Notes<span class="patch-notes-dot" id="patch-dot-mobile"></span></a>
-    </nav>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#bots">Bots</a>
+    <a href="#servers">Servers</a>
+    <a href="patch-notes.html">Patch Notes<span class="patch-notes-dot" id="patch-dot-mobile"></span></a>
+    <a href="feedback.html">Support</a>
+    <a href="https://discord.gg/VwDa3WKr" target="_blank">Join Discord</a>
+  </nav>
 
-    <section class="hero" id="home">
-      <h1>MEOW BOTS</h1>
-      <p>Discord bots for fun interactions and server management - built for cat lovers by cat lovers
-      
-      </p>
+  <div class="page">
 
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-value">4</div>
-          <div class="stat-label">Active Bots</div>
+    <!-- ===== HERO BENTO ===== -->
+    <section class="hero-bento" id="home">
+      <div class="hero-main reveal">
+        <div class="hero-tag">
+          <span class="pulse-dot"></span>
+          4 bots online
         </div>
-        <div class="stat">
-          <div class="stat-value"><span id="stat-meows">0</span></div>
-          <div class="stat-label">Meows Tracked</div>
+        <h1 class="hero-title">
+          Discord bots<br>for <span class="gradient-word">cat lovers</span>
+        </h1>
+        <p class="hero-desc">Fun interactions, server management, economy games, and meow tracking — built by cat lovers, for cat lovers.</p>
+        <div class="hero-actions">
+          <a href="#bots" class="btn-primary">Explore Bots ↓</a>
+          <a href="https://discord.gg/VwDa3WKr" target="_blank" class="btn-ghost">Support Server</a>
         </div>
-        <div class="stat">
-          <div class="stat-value"><span id="total-servers">0</span></div>
-          <div class="stat-label">Servers</div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-cell reveal">
+          <div class="stat-number" id="stat-meows">0</div>
+          <div class="stat-desc">Meows tracked</div>
         </div>
-        <div class="stat">
-          <div class="stat-value"><span id="total-users">0</span></div>
-          <div class="stat-label">Users</div>
+        <div class="stat-cell reveal">
+          <div class="stat-number" id="total-servers">0</div>
+          <div class="stat-desc">Active servers</div>
+        </div>
+        <div class="stat-cell reveal">
+          <div class="stat-number" id="total-users">0</div>
+          <div class="stat-desc">Users reached</div>
+        </div>
+        <div class="stat-cell reveal">
+          <div class="stat-number">100%</div>
+          <div class="stat-desc">Free service</div>
         </div>
       </div>
     </section>
 
+    <!-- ===== RECENTLY UPDATED TICKER ===== -->
+    <div class="ticker reveal">
+      <div class="pulse-dot"></div>
+      <span class="ticker-title">🔧 Recently Updated</span>
+      <div id="ticker-updates"></div>
+    </div>
 
+    <!-- ===== BOTS ===== -->
+    <section id="bots">
+      <div class="section-head">
+        <div>
+          <h2>Featured <span class="accent">Bots</span></h2>
+          <p>Powerful tools for your Discord server</p>
+        </div>
+      </div>
 
-    <section class="section" id="bots">
-      <h2 class="section-title">Featured Bots</h2>
-      <p class="section-subtitle">Powerful tools for your Discord server</p>
-      
-      <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+      <div class="bot-showcase">
 
-        <!-- MEOW BOT - Featured with screenshot -->
-        <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div class="card-header">
-                <div class="card-icon"><img src="meowbot.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <h3 class="card-title" style="margin: 0;">MEOW BOT</h3>
-                    <span style="background: linear-gradient(135deg, #00ffff, #00ccff); color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">⭐ ORIGINAL</span>
-                  </div>
-                  <span id="status-meowbot" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                    <span id="status-dot-meowbot" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                    <span id="status-text-meowbot">Loading...</span>
-                  </span>
-                </div>
-              </div>
-              <p class="card-description">The original Meow Counter we all love and know, with server leaderboards (optional global leaderboards to compete with other servers) and more.</p>
-              <span class="patch-last-updated" id="patch-badge-meowbot" style="display:none; margin-bottom: 0.5rem;"></span>
-
-              <div class="features-list">
-                <div class="feature-tag">Meow Counter</div>
-                <div class="feature-tag">Confessions</div>
-                <div class="feature-tag">Quotes</div>
-                <div class="feature-tag">Reaction Roles</div>
-                <div class="feature-tag">Welcome Messages</div>
-                <div class="feature-tag">Polls</div>
+        <!-- MEOW BOT -->
+        <div class="bot-card-v2 reveal">
+          <div class="bot-info">
+            <div class="bot-top-row">
+              <img src="meowbot.png" alt="Meow Bot" class="bot-avatar" />
+              <span class="bot-name">Meow Bot</span>
+              <span class="badge-v2 badge-original">⭐ Original</span>
+              <div class="status-v2">
+                <span class="dot" id="status-dot-meowbot"></span>
+                <span id="status-text-meowbot">Loading...</span>
               </div>
             </div>
-            <div class="card-actions">
-              <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
-              <a href="feedback.html?bot=meow-bot" class="btn-bug">🐛 Report Bug</a>
+            <p class="bot-desc">The original Meow Counter with server leaderboards, optional global leaderboards to compete with other servers, confessions, quotes, and more.</p>
+            <div class="cmd-preview">
+              <span class="slash">/</span> meow &middot; /meowboard &middot; /globalmeowboard &middot; /barkcount &middot; /randomquote &middot; /confess &middot; /poll
+            </div>
+            <div class="chips">
+              <span class="chip">Meow Counter</span>
+              <span class="chip">Confessions</span>
+              <span class="chip">Quotes</span>
+              <span class="chip">Reaction Roles</span>
+              <span class="chip">Welcome Messages</span>
+              <span class="chip">Polls</span>
+            </div>
+            <div class="bot-actions-v2">
+              <a href="https://discord.com/oauth2/authorize?client_id=1170513148080570439&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-invite primary">Add to Server</a>
+              <a href="feedback.html?bot=meow-bot" class="btn-invite secondary">🐛 Report Bug</a>
             </div>
           </div>
-          <div style="flex: 0 0 280px; display: flex; align-items: center; justify-content: center;">
-            <img src="meow.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
+          <div class="bot-visual">
+            <img src="meow.png" alt="Meow Bot preview" />
           </div>
         </div>
 
-        <!-- CAT CAFE ECONOMY - Featured with screenshot -->
-        <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div class="card-header">
-                <div class="card-icon"><img src="economy.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <h3 class="card-title" style="margin: 0;">CAT CAFE ECONOMY BOT</h3>
-                    <span style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;">BETA</span>
-                  </div>
-                  <span id="status-catcafe" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                    <span id="status-dot-catcafe" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                    <span id="status-text-catcafe">Loading...</span>
-                  </span>
-                </div>
-              </div>
-              <p class="card-description">Earn coins through work, chat, voice, and games. Customize your profile and collect rare items.</p>
-              <span class="patch-last-updated" id="patch-badge-catcafe" style="display:none; margin-bottom: 0.5rem;"></span>
-              <div class="features-list">
-                <div class="feature-tag">Economy System</div>
-                <div class="feature-tag">Work & Passive Income</div>
-                <div class="feature-tag">Gambling & Games</div>
-                <div class="feature-tag">Profile Customization</div>
-                <div class="feature-tag">Loot Boxes & Shop</div>
-                <div class="feature-tag">Leaderboards</div>
-                <div class="feature-tag">Skills Levelling</div>
-                <div class="feature-tag">Counting Channel</div>
+        <!-- CAT CAFE ECONOMY -->
+        <div class="bot-card-v2 reveal">
+          <div class="bot-info">
+            <div class="bot-top-row">
+              <img src="economy.png" alt="Cat Cafe Economy" class="bot-avatar" />
+              <span class="bot-name">Cat Cafe Economy</span>
+              <span class="badge-v2 badge-beta">Beta</span>
+              <div class="status-v2">
+                <span class="dot" id="status-dot-catcafe"></span>
+                <span id="status-text-catcafe">Loading...</span>
               </div>
             </div>
-            <div class="card-actions">
-              <a href="https://discord.com/api/oauth2/authorize?client_id=1355710891257102369&permissions=268553216&scope=bot" target="_blank" class="btn-add">Add Bot</a>
-              <a href="feedback.html?bot=cat-cafe" class="btn-bug">🐛 Report Bug</a>
+            <p class="bot-desc">Earn coins through work, chat, voice, and games. Customize your profile and collect rare items in a cozy cat-themed economy.</p>
+            <div class="cmd-preview">
+              <span class="slash">/</span> balance &middot; /work &middot; /shop &middot; /buy &middot; /profile &middot; /games &middot; /fish
+            </div>
+            <div class="chips">
+              <span class="chip">Economy System</span>
+              <span class="chip">Work & Income</span>
+              <span class="chip">Games</span>
+              <span class="chip">Profile Custom.</span>
+              <span class="chip">Loot Boxes</span>
+              <span class="chip">Leaderboards</span>
+              <span class="chip">Skills</span>
+              <span class="chip">Counting</span>
+            </div>
+            <div class="bot-actions-v2">
+              <a href="https://discord.com/api/oauth2/authorize?client_id=1355710891257102369&permissions=268553216&scope=bot" target="_blank" class="btn-invite primary">Add to Server</a>
+              <a href="feedback.html?bot=cat-cafe" class="btn-invite secondary">🐛 Report Bug</a>
             </div>
           </div>
-          <div style="flex: 0 0 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;">
-            <img src="profile.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
-            <p style="font-size: 0.7rem; color: rgba(255, 255, 255, 0.7); text-align: center; line-height: 1.3; margin: 0;">Please report bugs in our <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">support server</a> or message <strong>fireflyxserenity</strong> on Discord</p>
+          <div class="bot-visual">
+            <img src="profile.png" alt="Cat Cafe Economy preview" />
           </div>
         </div>
 
         <!-- TWITCH MEOW BOT -->
-        <div class="card">
-          <div style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div class="card-header">
-                <div class="card-icon"><img src="twitch.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" alt="📺" /></div>
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <h3 class="card-title" style="font-size: 1.1rem; margin: 0;">TWITCH MEOW BOT</h3>
-                    <span style="background: linear-gradient(135deg, #ff9500, #ffb84d); color: #000; padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.65rem; font-weight: 700; white-space: nowrap;">BETA</span>
-                  </div>
-                  <span id="status-twitch" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                    <span id="status-dot-twitch" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                    <span id="status-text-twitch">Loading...</span>
-                  </span>
-                </div>
-              </div>
-              <p class="card-description" style="font-size: 0.85rem;">Live meow counter for your streams with a global leaderboard. Join streamers competing for the top spot!</p>
-              <div class="features-list">
-                <div class="feature-tag">Meow Counter</div>
-                <div class="feature-tag">Personal Counter</div>
-                <div class="feature-tag">Global Leaderboard</div>
-                <div class="feature-tag">User Stats</div>
+        <div class="bot-card-v2 no-visual reveal">
+          <div class="bot-info">
+            <div class="bot-top-row">
+              <img src="twitch.png" alt="Twitch Meow Bot" class="bot-avatar" />
+              <span class="bot-name">Twitch Meow Bot</span>
+              <span class="badge-v2 badge-beta">Beta</span>
+              <div class="status-v2">
+                <span class="dot" id="status-dot-twitch"></span>
+                <span id="status-text-twitch">Loading...</span>
               </div>
             </div>
-            <div class="card-actions">
-              <a href="feedback.html" class="btn-add" style="background: linear-gradient(135deg, rgba(100, 65, 165, 0.4), rgba(145, 70, 255, 0.4)); border: 1px solid rgba(145, 70, 255, 0.6); color: #bb7fc9;">Drop Your Channel</a>
+            <p class="bot-desc">Live meow counter for your Twitch streams with a global leaderboard. Join streamers competing for the top spot!</p>
+            <div class="cmd-preview">
+              <span class="slash">!</span>meow &middot; !top &middot; !global &middot; !totalmeows
+            </div>
+            <div class="chips">
+              <span class="chip">Meow Counter</span>
+              <span class="chip">Personal Counter</span>
+              <span class="chip">Global Leaderboard</span>
+              <span class="chip">User Stats</span>
+            </div>
+            <div class="bot-actions-v2">
+              <a href="feedback.html" class="btn-invite primary" style="background: linear-gradient(135deg, rgba(180, 109, 250, 0.35), rgba(127, 99, 243, 0.35)); border: 1px solid rgba(180, 109, 250, 0.3);">Drop Your Channel</a>
             </div>
           </div>
         </div>
 
         <!-- MEOW MANAGER -->
-        <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="bot-card-v2 reveal">
+          <div class="bot-info">
+            <div class="bot-top-row">
+              <img src="manager.png" alt="Meow Manager" class="bot-avatar" />
+              <span class="bot-name">Meow Manager</span>
+              <div class="status-v2">
+                <span class="dot" id="status-dot-manager"></span>
+                <span id="status-text-manager">Loading...</span>
+              </div>
+            </div>
+            <p class="bot-desc">Server management with logging, moderation, member applications, tickets, reminders, XP ranking, auto-threads & sticky pins.</p>
+            <div class="cmd-preview">
+              <span class="slash">/</span> reminder &middot; /ticket create &middot; /activitylog &middot; /twitch &middot; /convert &middot; /translate &middot; /setup
+            </div>
+            <div class="chips">
+              <span class="chip">Moderation</span>
+              <span class="chip">Logging</span>
+              <span class="chip">XP Levels</span>
+              <span class="chip">Auto Threads</span>
+              <span class="chip">Applications</span>
+              <span class="chip">Reminders</span>
+              <span class="chip">Sticky Msgs</span>
+              <span class="chip">Tickets</span>
+            </div>
+            <div class="bot-actions-v2">
+              <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-invite primary">Add to Server</a>
+              <a href="feedback.html?bot=meow-manager" class="btn-invite secondary">🐛 Report Bug</a>
+            </div>
+          </div>
+          <div class="bot-visual">
+            <img src="managerpic.png" alt="Meow Manager preview" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== AD SPACE (mid-page) ===== -->
+    <div class="content-section" style="padding: 12px 0;">
+      <div style="min-height: 90px; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border);">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%;"
+             data-ad-client="ca-pub-3994230437494776"
+             data-ad-slot="9641801623"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <!-- ===== SERVERS ===== -->
+    <section id="servers">
+      <div class="section-head">
+        <div>
+          <h2>Featured <span class="accent">Servers</span></h2>
+          <p>Join our communities</p>
+        </div>
+      </div>
+
+      <div class="servers-grid">
+        <div class="server-card reveal">
+          <div class="server-top">
+            <img src="st.jpg" alt="The Secret Tunnel" class="server-icon" />
             <div>
-              <div class="card-header">
-                <div class="card-icon"><img src="manager.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.5rem; flex-wrap: wrap;">
-                  <h3 class="card-title" style="font-size: 1.1rem; margin: 0;">MEOW MANAGER</h3>
-                  <span id="status-manager" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 20px; background: rgba(100, 100, 100, 0.3); white-space: nowrap;">
-                    <span id="status-dot-manager" style="width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block;"></span>
-                    <span id="status-text-manager">Loading...</span>
-                  </span>
-                </div>
-              </div>
-              <p class="card-description" style="font-size: 0.85rem;">Server management with comprehensive logging, moderation, member applications & tracking, tickets, reminders, XP ranking, auto-threads, role welcome messages & sticky pins.</p>
-              <div class="features-list">
-                <div class="feature-tag">Moderation</div>
-                <div class="feature-tag">Logging</div>
-                <div class="feature-tag">XP Levels (optional)</div>
-                <div class="feature-tag">Auto Threads</div>
-                <div class="feature-tag">Member Applications</div>
-                <div class="feature-tag">Reminders</div>
-                <div class="feature-tag">Sticky Messages</div>
-                <div class="feature-tag">Ticket System (Beta)</div>
-              </div>
-            </div>
-            <div class="card-actions">
-              <a href="https://discord.com/oauth2/authorize?client_id=1172223118241169589&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn-add">Add Bot</a>
-              <a href="feedback.html?bot=meow-manager" class="btn-bug">🐛 Report Bug</a>
+              <div class="server-name">The Secret Tunnel</div>
+              <div class="server-tagline">☠️ Join for the CULT tag ☠️</div>
             </div>
           </div>
-          <div style="flex: 0 0 200px; display: flex; align-items: center; justify-content: center;">
-            <img src="managerpic.png" style="width: 100%; height: auto; border-radius: 8px; object-fit: contain; display: block;" />
+          <p class="server-desc">Looking for chaotic good energy, unhinged confessions, and active members? Our server is a safe haven for the unfiltered, the hilarious, and the ✨emotionally unstable✨.</p>
+          <p class="server-note">We use member applications to keep things bot-free — you'll be welcomed in right after!</p>
+          <div class="age-gate">⚠️ 18+ Only</div>
+          <div class="server-join">
+            <a href="https://discord.gg/thesecrettunnel" target="_blank">Join Server →</a>
           </div>
         </div>
 
-      </div> 
-    </section>
-
-    <section class="section" id="servers">
-      <h2 class="section-title">Featured Discord Servers</h2>
-      <p class="section-subtitle">Join our thriving communities</p>
-      
-      <div class="grid">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon"><img src="st.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-            <h3 class="card-title">The Secret Tunnel</h3>
+        <div class="server-card reveal">
+          <div class="server-top">
+            <img src="canadiangg.jpg" alt="Canadian Gamer Girls" class="server-icon" />
+            <div>
+              <div class="server-name">Canadian Gamer Girls</div>
+              <div class="server-tagline">❤️🇨🇦 Join for the MEOW tag 🐾</div>
+            </div>
           </div>
-          <p class="card-description">× ☠️ Join for the CULT tag ☠️</p>
-          <div class="feature-details" style="margin-bottom: 1rem;">
-            <p>Looking for chaotic good energy, unhinged confessions, and active members? You've found it. Our server is a safe haven for the unfiltered, the hilarious, and the ✨emotionally unstable✨.</p>
-
-            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);"><strong>Quick note:</strong> we use member applications to keep things bot-free — you'll be welcomed in right after joining!</p>
-          </div>
-          <div style="position: relative; z-index: 1; margin-bottom: 1.2rem;">
-            <div class="feature-tag" style="width: 100%;">⚠️ 18+ Only </div>
-          </div>
-          <div class="card-actions">
-            <a href="https://discord.gg/thesecrettunnel" target="_blank" class="btn-add">Join Server</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon"><img src="canadiangg.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" /></div>
-            <h3 class="card-title">Canadian Gamer Girls</h3>
-          </div>
-          <p class="card-description">× 🐾 Join for the MEOW tag 🐾×</p>
-          <div class="feature-details" style="margin-bottom: 1rem;">
-            <p>A dedicated community for Canadian Women who are looking to connect & play video games. If you are a female gamer looking for a safe space to game & meet new friends - come join us!</p>
-
-            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);"><strong>Quick note:</strong> we will interview members as they come in to ensure a bot-free, female only enviroment</p>
-          </div>
-          <div style="position: relative; z-index: 1; margin-bottom: 1.2rem;">
-            <div class="feature-tag" style="width: 100%;">⚠️ 18+ Only - Girls only </div>
-          </div>
-          <div class="card-actions">
-            <a href="https://discord.gg/NN3mEjmC" target="_blank" class="btn-add">Join Server</a>
+          <p class="server-desc">A dedicated community for Canadian Women who are looking to connect & play video games. If you're a female gamer looking for a safe space to game & meet new friends — come join us!</p>
+          <p class="server-note">We interview members to ensure a bot-free, female-only environment.</p>
+          <div class="age-gate">⚠️ 18+ Only — Girls only</div>
+          <div class="server-join">
+            <a href="https://discord.gg/NN3mEjmC" target="_blank">Join Server →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding: 1.5rem; background: linear-gradient(135deg, rgba(0, 255, 255, 0.03), rgba(138, 43, 226, 0.03));">
-      <div style="max-width: 100%; text-align: center;">
-        <!-- Google AdSense Ad Space -->
-        <div id="google-ad-container" style="min-height: 250px; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.2); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.2);">
-          <ins class="adsbygoogle"
-               style="display:block; width:100%; height:250px;"
-               data-ad-client="ca-pub-3994230437494776"
-               data-ad-slot="9641801623"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
+    <!-- ===== AD SPACE ===== -->
+    <div class="content-section" style="padding: 12px 0;">
+      <div style="min-height: 250px; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border);">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:250px;"
+             data-ad-client="ca-pub-3994230437494776"
+             data-ad-slot="9641801623"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
-    </section>
+    </div>
 
-    <section class="section" style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.08), rgba(0, 255, 255, 0.08)); padding: 1.2rem; text-align: center;">
-      <h3 style="font-size: 1.2rem; color: #ffffff; margin-bottom: 0.7rem; font-weight: 700;">✨ Interested in partnering with us?</h3>
-      <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem; font-size: 0.9rem;">We're open to collaborations and partnerships.</p>
-      <a href="feedback.html" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Get in Touch</a>
-    </section>
+    <!-- ===== PARTNER CTA ===== -->
+    <div class="cta-banner reveal">
+      <div>
+        <h3>✨ Interested in partnering?</h3>
+        <p>We're open to collaborations and partnerships.</p>
+      </div>
+      <a href="feedback.html" class="btn-primary">Get in Touch →</a>
+    </div>
 
-    <footer class="footer">
-      <p><a href="privacy.html" style="color: #00ffff; text-decoration: none;">Privacy</a> • <a href="terms.html" style="color: #00ffff; text-decoration: none;">Terms</a> • <a href="patch-notes.html" style="color: #00ffff; text-decoration: none;">Patch Notes</a> • <a href="feedback.html" style="color: #00ffff; text-decoration: none;">Feedback</a> • <a href="https://discord.gg/q7eGHmFh" target="_blank" style="color: #00ffff; text-decoration: none;">Support Server</a></p>
-      <p>Made with 💜 for the Discord community</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-v2">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="patch-notes.html">Patch Notes</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="https://discord.gg/VwDa3WKr" target="_blank">Support Server</a>
+      </div>
+      <div class="footer-copy">Made with 💜 for the Discord community by fireflyxserenity</div>
     </footer>
+
   </div>
 
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    // ========== HAMBURGER NAV ==========
-    function toggleMobileNav() {
-      const menu = document.getElementById('mobileNavMenu');
-      const btn = document.getElementById('hamburgerBtn');
-      const isOpen = menu.classList.contains('open');
-      menu.classList.toggle('open', !isOpen);
-      btn.classList.toggle('open', !isOpen);
-    }
-    function closeMobileNav() {
-      document.getElementById('mobileNavMenu').classList.remove('open');
-      document.getElementById('hamburgerBtn').classList.remove('open');
-    }
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mobMenu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mobMenu.classList.toggle('open');
+    });
+    mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobMenu.classList.remove('open');
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
 
     // ========== PATCH NOTES DOT ==========
-    // Show dot if: patch is within 7 days AND user hasn't seen it yet
     (function() {
-      const LAST_PATCH = '2026-03-22'; // update this string whenever you post new patch notes
-
-      // Per-bot last patch dates — update when you post new notes
+      const LAST_PATCH = '2026-03-22';
       const BOT_PATCHES = {
-        'meowbot':  { date: '2026-03-17', label: 'Meow Bot' },
-        'catcafe':  { date: '2026-03-22', label: 'Cat Cafe Economy' },
+        'catcafe':  { date: '2026-03-22', label: 'Cat Cafe', hash: 'cat-cafe' },
+        'meowbot':  { date: '2026-03-17', label: 'Meow Bot', hash: 'meow-bot' },
+        'meowmanager': { date: '2026-03-17', label: 'Meow Manager', hash: 'meow-manager' },
       };
-
       function relLabel(dateStr) {
-        // Parse as local midnight to avoid UTC offset errors
         const patch = new Date(dateStr + 'T00:00:00');
         const today = new Date(); today.setHours(0, 0, 0, 0);
         const d = Math.round((today - patch) / (1000 * 60 * 60 * 24));
         if (d > 7) return null;
         return d === 0 ? '🔧 Updated today' : '🔧 Updated ' + d + 'd ago';
       }
-
-      // Nav dot
+      function timeAgo(dateStr) {
+        const patch = new Date(dateStr + 'T00:00:00');
+        const today = new Date(); today.setHours(0, 0, 0, 0);
+        const d = Math.round((today - patch) / (1000 * 60 * 60 * 24));
+        if (d === 0) return 'today';
+        if (d === 1) return 'yesterday';
+        if (d < 7) return d + ' days ago';
+        if (d < 14) return '1 week ago';
+        if (d < 30) return Math.floor(d / 7) + ' weeks ago';
+        return Math.floor(d / 30) + 'mo ago';
+      }
+      // Build ticker items dynamically from BOT_PATCHES
+      var tickerContainer = document.getElementById('ticker-updates');
+      if (tickerContainer) {
+        var keys = Object.keys(BOT_PATCHES);
+        var html = '';
+        keys.forEach(function(key, i) {
+          var info = BOT_PATCHES[key];
+          if (i > 0) html += '<div class="ticker-dot"></div>';
+          html += '<div class="ticker-item">';
+          html += '<span class="label">🔧 ' + info.label + '</span>';
+          html += '<a href="patch-notes.html#' + info.hash + '" class="value" style="text-decoration:none;">' + timeAgo(info.date) + '</a>';
+          html += '</div>';
+        });
+        tickerContainer.innerHTML = html;
+      }
       const seen = localStorage.getItem('patchNotesSeen');
       const patchDate = new Date(LAST_PATCH);
       const daysSince = (Date.now() - patchDate.getTime()) / (1000 * 60 * 60 * 24);
       const isNew = seen !== LAST_PATCH && daysSince <= 7;
       const dot = document.getElementById('patch-dot');
-      const mob = document.getElementById('patch-dot-mobile');
+      const mobDot = document.getElementById('patch-dot-mobile');
       if (dot) dot.style.display = isNew ? 'inline-block' : 'none';
-      if (mob) mob.style.display = isNew ? 'inline-block' : 'none';
-
-      // Bot card badges
+      if (mobDot) mobDot.style.display = isNew ? 'inline-block' : 'none';
       Object.entries(BOT_PATCHES).forEach(function([key, info]) {
         const badge = document.getElementById('patch-badge-' + key);
         if (!badge) return;
         const text = relLabel(info.date);
-        if (text) {
-          badge.textContent = text;
-          badge.style.display = 'inline-block';
-        }
+        if (text) { badge.textContent = text; badge.style.display = 'inline-block'; }
       });
     })();
-
-    // ========== BOT STATUS MANAGEMENT ==========
-    const statusColors = {
-      online: '#00ff00',
-      purfecting: '#FFFF00',
-      offline: '#ff0000',
-      maintenance: '#ff8800'
-    };
-
-    // Fetch bot statuses from Firebase in real-time
-    function loadBotStatuses() {
-      const botsRef = firebase.database().ref('botStatuses');
-      
-      botsRef.on('value', (snapshot) => {
-        const statuses = snapshot.val() || {};
-        
-        // Update each bot display
-        setBotStatus('meowbot', statuses['meow-bot'] || 'offline');
-        setBotStatus('catcafe', statuses['cat-cafe'] || 'offline');
-        setBotStatus('manager', statuses['meow-manager'] || 'offline');
-        setBotStatus('twitch', statuses['twitch-bot'] || 'offline');
-      });
-    }
-
-    // Set status display
-    function setBotStatus(botId, status) {
-      const dot = document.getElementById(`status-dot-${botId}`);
-      const text = document.getElementById(`status-text-${botId}`);
-      
-      if (dot && text) {
-        let displayText = status.charAt(0).toUpperCase() + status.slice(1);
-        if (status === 'maintenance') {
-          displayText = 'Maintenance ⚠️';
-        }
-        if (status === 'purfecting') {
-          displayText = 'Purfecting';
-        }
-        dot.style.background = statusColors[status] || '#ff0000';
-        text.textContent = displayText;
-      }
-    }
-
-    // Load on page load
-    window.addEventListener('load', () => {
-      loadBotStatuses();
-    });
   </script>
 
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
-
   <script>
-    const firebaseConfig = {
-      databaseURL: "https://bot-counts-default-rtdb.firebaseio.com/",
-    };
+    const firebaseConfig = { databaseURL: "https://bot-counts-default-rtdb.firebaseio.com/" };
     firebase.initializeApp(firebaseConfig);
 
-    const statsRef = firebase.database().ref('stats');
+    const statusColors = { online: '#86efac', purfecting: '#fde68a', offline: '#ef4444', maintenance: '#fdba74' };
 
-    // This triggers every time a bot updates its stats
-    statsRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      let totalSells = 0;
-      let totalUsers = 0;
-
-      // Loop through all bots in the database and add them up
-      for (let bot in data) {
-        totalSells += data[bot].servers || 0;
-        totalUsers += data[bot].users || 0;
-      }
-
-      document.getElementById('total-servers').innerText = totalSells + "+";
-      const formattedUsers = totalUsers >= 1000 ? (totalUsers / 1000).toFixed(1) + 'k' : totalUsers.toLocaleString();
-      document.getElementById('total-users').innerText = formattedUsers;
+    // Bot statuses
+    firebase.database().ref('botStatuses').on('value', (snap) => {
+      const s = snap.val() || {};
+      setStatus('meowbot', s['meow-bot'] || 'offline');
+      setStatus('catcafe', s['cat-cafe'] || 'offline');
+      setStatus('manager', s['meow-manager'] || 'offline');
+      setStatus('twitch', s['twitch-bot'] || 'offline');
     });
 
-    // Meows tracker - fetch from Firebase REST API
-    fetch('https://bot-counts-default-rtdb.firebaseio.com/stats.json')
-      .then(response => response.json())
-      .then(data => {
-        let totalMeows = 0;
-        
-        // Loop through all bots and sum up total meows
-        for (let bot in data) {
-          totalMeows += data[bot].total_meows_tracked || 0;
-        }
-        
-        const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-        const inlineElement = document.getElementById('stat-meows');
-        if (inlineElement) {
-          inlineElement.innerText = formattedMeows;
-        }
-      })
-      .catch(error => console.log('Error fetching meows:', error));
-    
-    // Refresh meows every 10 seconds
-    setInterval(() => {
+    function setStatus(id, status) {
+      const dot = document.getElementById('status-dot-' + id);
+      const text = document.getElementById('status-text-' + id);
+      if (!dot || !text) return;
+      let label = status.charAt(0).toUpperCase() + status.slice(1);
+      if (status === 'maintenance') label = 'Maintenance ⚠️';
+      if (status === 'purfecting') label = 'Purfecting';
+      dot.style.background = statusColors[status] || '#ef4444';
+      dot.style.boxShadow = '0 0 8px ' + (statusColors[status] || '#ef4444');
+      text.textContent = label;
+    }
+
+    // Stats
+    firebase.database().ref('stats').on('value', (snap) => {
+      const data = snap.val();
+      let servers = 0, users = 0;
+      for (let b in data) { servers += data[b].servers || 0; users += data[b].users || 0; }
+      const srvText = servers + '+';
+      const usrText = users >= 1000 ? (users / 1000).toFixed(1) + 'k' : users.toLocaleString();
+      document.getElementById('total-servers').textContent = srvText;
+      document.getElementById('total-users').textContent = usrText;
+      var tkSrv = document.getElementById('ticker-servers');
+      var tkUsr = document.getElementById('ticker-users');
+      if (tkSrv) tkSrv.textContent = srvText;
+      if (tkUsr) tkUsr.textContent = usrText;
+    });
+
+    // Meow counter
+    function updateMeows() {
       fetch('https://bot-counts-default-rtdb.firebaseio.com/stats.json')
-        .then(response => response.json())
-        .then(data => {
-          let totalMeows = 0;
-          for (let bot in data) {
-            totalMeows += data[bot].total_meows_tracked || 0;
-          }
-          const formattedMeows = totalMeows >= 1000000 ? (totalMeows / 1000000).toFixed(1) + 'M' : totalMeows >= 1000 ? (totalMeows / 1000).toFixed(1) + 'k' : totalMeows.toLocaleString();
-          const inlineElement = document.getElementById('stat-meows');
-          if (inlineElement) {
-            inlineElement.innerText = formattedMeows;
-          }
-        })
-        .catch(error => console.log('Error fetching meows:', error));
-    }, 10000);
+        .then(r => r.json()).then(data => {
+          let m = 0; for (let b in data) m += data[b].total_meows_tracked || 0;
+          const fmt = m >= 1e6 ? (m/1e6).toFixed(1)+'M' : m >= 1e3 ? (m/1e3).toFixed(1)+'k' : m.toLocaleString();
+          const el = document.getElementById('stat-meows');
+          const tk = document.getElementById('ticker-meows');
+          if (el) el.textContent = fmt;
+          if (tk) tk.textContent = fmt;
+        });
+    }
+    updateMeows();
+    setInterval(updateMeows, 10000);
   </script>
 </body>
 </html>
