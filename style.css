@@ -793,6 +793,7 @@ body {
 .age-gate {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
   gap: 6px;
   padding: 5px 12px;
   border-radius: 6px;
