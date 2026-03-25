@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bot Admin - Meow Bots</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin — Meow Bots</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
     * {
       margin: 0;
@@ -73,7 +74,7 @@
       z-index: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
       padding: 2rem;
     }
@@ -387,6 +388,125 @@
       display: none !important;
     }
 
+    /* ========== TABS ========== */
+    .admin-tabs {
+      display: flex; gap: 0; margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(129, 140, 248, 0.2);
+    }
+    .admin-tab {
+      padding: 0.8rem 1.5rem; background: none; border: none;
+      border-bottom: 3px solid transparent;
+      color: rgba(255, 255, 255, 0.5); font-size: 1rem; font-weight: 600;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .admin-tab:hover { color: rgba(255, 255, 255, 0.8); }
+    .admin-tab.active {
+      color: #818cf8; border-bottom-color: #818cf8;
+      background: rgba(129, 140, 248, 0.05);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ========== PATCH NOTES FORM ========== */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .patch-form select,
+    .patch-form input[type="text"],
+    .patch-form input[type="date"] {
+      width: 100%; padding: 0.8rem;
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      background: rgba(0, 0, 0, 0.3); border-radius: 10px;
+      font-size: 1rem; color: #ffffff;
+      transition: all 0.3s; font-family: 'Outfit', sans-serif;
+    }
+    .patch-form select option { background: #0a0a1a; color: #fff; }
+    .patch-form select:focus,
+    .patch-form input:focus {
+      outline: none; border-color: #818cf8;
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .patch-form label {
+      display: block; margin-bottom: 0.4rem;
+      color: rgba(255, 255, 255, 0.8); font-weight: 500; font-size: 0.9rem;
+    }
+
+    .version-bumps { display: flex; gap: 4px; margin-top: 6px; }
+    .bump-btn {
+      padding: 5px 10px; background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: rgba(255, 255, 255, 0.7); border-radius: 6px; cursor: pointer;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; transition: all 0.2s;
+    }
+    .bump-btn:hover { background: rgba(129, 140, 248, 0.2); color: #818cf8; border-color: #818cf8; }
+    .version-hint { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 4px; }
+
+    .editor-toolbar {
+      display: flex; flex-wrap: wrap; gap: 4px; padding: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(129, 140, 248, 0.3); border-bottom: none;
+      border-radius: 10px 10px 0 0;
+    }
+    .editor-toolbar button {
+      padding: 6px 10px; background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.3); color: rgba(255, 255, 255, 0.7);
+      border-radius: 6px; cursor: pointer; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; transition: all 0.2s; min-height: auto;
+    }
+    .editor-toolbar button:hover { background: rgba(129, 140, 248, 0.2); color: #818cf8; }
+    .editor-toolbar .sep { width: 1px; background: rgba(129, 140, 248, 0.2); margin: 0 4px; }
+    .editor-area {
+      min-height: 300px; padding: 1rem; background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(129, 140, 248, 0.3); border-radius: 0 0 10px 10px;
+      color: #ffffff; font-family: 'Outfit', sans-serif; font-size: 0.95rem;
+      line-height: 1.7; overflow-y: auto; outline: none;
+    }
+    .editor-area:focus { border-color: #818cf8; box-shadow: 0 0 20px rgba(129, 140, 248, 0.2); }
+    .editor-area ul, .editor-area ol { padding-left: 1.5rem; }
+    .editor-area code {
+      background: rgba(129, 140, 248, 0.15); border: 1px solid rgba(129, 140, 248, 0.25);
+      padding: 0.1rem 0.4rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+    }
+
+    .submit-row { display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; }
+    .btn-submit {
+      padding: 0.8rem 2rem; background: linear-gradient(135deg, #818cf8, #6366f1);
+      color: #fff; border: none; font-size: 1rem; font-weight: 700;
+    }
+    .btn-submit:hover { box-shadow: 0 0 30px rgba(129, 140, 248, 0.6); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .discord-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
+      background: rgba(88, 101, 242, 0.15); border: 1px solid rgba(88, 101, 242, 0.3);
+      border-radius: 6px; font-size: 0.8rem; color: #7289da;
+    }
+    .submit-status { font-size: 0.9rem; }
+    .submit-status.success { color: #86efac; }
+    .submit-status.error { color: #ff1744; }
+
+    .preview-toggle {
+      margin-top: 1rem; padding: 0.6rem 1rem; background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.3); color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px; font-size: 0.85rem; transition: all 0.2s;
+    }
+    .preview-toggle:hover { color: #818cf8; border-color: #818cf8; }
+    .preview-panel {
+      display: none; margin-top: 1rem; padding: 1.5rem;
+      background: rgba(129, 140, 248, 0.05); border: 1px solid rgba(129, 140, 248, 0.2);
+      border-radius: 10px;
+    }
+    .preview-panel.active { display: block; }
+    .preview-panel h4 { color: #818cf8; margin: 0 0 0.5rem; font-family: 'Space Grotesk', sans-serif; }
+    .preview-panel .preview-date { color: #f472b6; font-size: 0.85rem; margin-bottom: 1rem; }
+    .preview-panel .preview-body { color: rgba(255, 255, 255, 0.8); line-height: 1.7; }
+    .preview-panel .preview-body strong { color: #fff; }
+    .preview-panel .preview-body code {
+      background: rgba(129, 140, 248, 0.15); border: 1px solid rgba(129, 140, 248, 0.25);
+      padding: 0.1rem 0.4rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem; color: #f472b6;
+    }
+    .preview-panel .preview-body ul { padding-left: 2rem; }
+    .preview-panel .preview-body li { margin: 0.3rem 0; }
+
     @media (max-width: 768px) {
       .bots-grid {
         grid-template-columns: 1fr;
@@ -396,6 +516,8 @@
         max-width: 100%;
         padding: 1.5rem;
       }
+
+      .form-row { grid-template-columns: 1fr; }
 
       .status-buttons {
         grid-template-columns: 1fr 1fr;
@@ -457,6 +579,8 @@
         font-size: 0.95rem;
       }
 
+      .admin-tab { padding: 0.6rem 1rem; font-size: 0.85rem; }
+
       input[type="password"] {
         padding: 0.9rem;
       }
@@ -495,8 +619,15 @@
     </div>
 
     <div id="adminPanel" class="admin-container hidden">
-      <h1>🐱 Bot Status Control</h1>
+      <h1>🐱 Admin Panel</h1>
 
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchTab('status', this)">🤖 Bot Status</button>
+        <button class="admin-tab" onclick="switchTab('patch', this)">📋 Patch Notes</button>
+      </div>
+
+      <!-- Tab: Bot Status -->
+      <div id="tab-status" class="tab-panel active">
       <div class="bots-grid">
         <div class="bot-card" id="cat-cafeCard">
           <h2>🎮 Cat Cafe</h2>
@@ -542,8 +673,75 @@
           </div>
         </div>
       </div>
+      </div><!-- end tab-status -->
 
-      <button class="logout-btn" onclick="logout()">Logout 🚪</button>
+      <!-- Tab: Patch Notes -->
+      <div id="tab-patch" class="tab-panel">
+        <div class="patch-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Bot</label>
+              <select id="patchBot">
+                <option value="cat-cafe" data-name="Cat Cafe Economy Bot">🐱 Cat Cafe Economy Bot</option>
+                <option value="meow-bot" data-name="Meow Bot">😺 Meow Bot</option>
+                <option value="meow-manager" data-name="Meow Manager">🛠️ Meow Manager</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Release Date</label>
+              <input type="date" id="patchDate">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Version</label>
+              <input type="text" id="patchVersion" placeholder="Version 1.6.0">
+              <div class="version-bumps">
+                <button class="bump-btn" onclick="bumpVersion('patch')" title="Bug fixes (1.5.0 → 1.5.1)">+Patch</button>
+                <button class="bump-btn" onclick="bumpVersion('minor')" title="New features (1.5.0 → 1.6.0)">+Minor</button>
+                <button class="bump-btn" onclick="bumpVersion('major')" title="Big release (1.5.0 → 2.0.0)">+Major</button>
+              </div>
+              <div class="version-hint" id="versionHint">Select a bot to see suggested version</div>
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" id="patchTitle" placeholder="New Features & Fixes">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Content</label>
+            <div class="editor-toolbar">
+              <button onclick="fmt('bold')" title="Bold"><b>B</b></button>
+              <button onclick="fmt('italic')" title="Italic"><i>I</i></button>
+              <button onclick="insertCode()" title="Inline Code">&lt;/&gt;</button>
+              <div class="sep"></div>
+              <button onclick="fmt('insertUnorderedList')" title="Bullet List">• List</button>
+              <button onclick="fmt('insertOrderedList')" title="Numbered List">1. List</button>
+              <div class="sep"></div>
+              <button onclick="insertHeading()" title="Section Heading">H</button>
+              <button onclick="insertEmoji()" title="Insert Emoji">😺</button>
+            </div>
+            <div class="editor-area" id="patchContent" contenteditable="true"></div>
+          </div>
+
+          <button class="preview-toggle" onclick="togglePreview()">👁️ Toggle Preview</button>
+          <div class="preview-panel" id="previewPanel">
+            <h4 id="previewTitle"></h4>
+            <div class="preview-date" id="previewDate"></div>
+            <div class="preview-body" id="previewBody"></div>
+          </div>
+
+          <div class="submit-row">
+            <button class="btn-submit" id="submitBtn" onclick="submitPatchNote()">Publish Patch Note</button>
+            <span class="discord-badge">🎮 Also posts to Discord</span>
+            <span class="submit-status" id="submitStatus"></span>
+          </div>
+        </div>
+      </div><!-- end tab-patch -->
+
+      <button class="logout-btn" onclick="logout()" style="margin-top: 2rem;">Logout 🚪</button>
     </div>
   </div>
 
@@ -559,7 +757,13 @@
     const botsRef = firebase.database().ref('botStatuses');
 
     // ========== PASSWORD CONFIGURATION ==========
-    const ADMIN_PASSWORD = 'suitcase1994!';
+    const ADMIN_PASSWORD = 'meow1994';
+    const API_BASE = 'https://oauthmeow-production.up.railway.app';
+    let adminToken = sessionStorage.getItem('adminToken') || '';
+
+    // Known latest versions per bot
+    const KNOWN_VERSIONS = { 'cat-cafe': '1.5.0', 'meow-bot': '2.12.0', 'meow-manager': '2.10.0' };
+    let latestVersions = { ...KNOWN_VERSIONS };
 
     function login() {
       const password = document.getElementById('passwordInput').value;
@@ -581,6 +785,7 @@
         document.getElementById('passwordInput').value = '';
         document.getElementById('rememberMe').checked = false;
         loadStatuses();
+        initPatchNotesTab();
       } else {
         errorDiv.textContent = '❌ Invalid password';
         document.getElementById('passwordInput').value = '';
@@ -589,10 +794,20 @@
 
     function logout() {
       localStorage.removeItem('adminLoggedIn');
+      adminToken = '';
+      sessionStorage.removeItem('adminToken');
       document.getElementById('adminPanel').classList.add('hidden');
       document.getElementById('loginForm').classList.remove('hidden');
       document.getElementById('passwordInput').value = '';
       document.getElementById('loginError').textContent = '';
+    }
+
+    // ========== TABS ==========
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      btn.classList.add('active');
     }
 
     async function setStatus(botId, status) {
@@ -661,11 +876,192 @@
       if (e.key === 'Enter') login();
     });
 
+    // ========== PATCH NOTES ==========
+    function initPatchNotesTab() {
+      document.getElementById('patchDate').valueAsDate = new Date();
+      document.getElementById('patchBot').addEventListener('change', updateVersionHint);
+      fetchBackendToken();
+      fetchLatestVersions();
+    }
+
+    async function fetchBackendToken() {
+      try {
+        const res = await fetch(API_BASE + '/api/admin/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: ADMIN_PASSWORD })
+        });
+        const data = await res.json();
+        if (data.success) {
+          adminToken = data.token;
+          sessionStorage.setItem('adminToken', adminToken);
+        }
+      } catch (e) { /* backend may not be deployed yet */ }
+    }
+
+    async function fetchLatestVersions() {
+      try {
+        const res = await fetch(API_BASE + '/api/patch-notes');
+        if (!res.ok) return;
+        const notes = await res.json();
+        for (const note of notes) {
+          const match = note.version.match(/(\d+)\.(\d+)\.(\d+)/);
+          if (!match) continue;
+          const ver = match[0];
+          if (!latestVersions[note.botId] || compareVersions(ver, latestVersions[note.botId]) > 0) {
+            latestVersions[note.botId] = ver;
+          }
+        }
+      } catch (e) { /* use fallback */ }
+      updateVersionHint();
+    }
+
+    function compareVersions(a, b) {
+      const pa = a.split('.').map(Number);
+      const pb = b.split('.').map(Number);
+      for (let i = 0; i < 3; i++) {
+        if (pa[i] > pb[i]) return 1;
+        if (pa[i] < pb[i]) return -1;
+      }
+      return 0;
+    }
+
+    function bumpVersion(type) {
+      const botId = document.getElementById('patchBot').value;
+      const current = latestVersions[botId] || '1.0.0';
+      const parts = current.split('.').map(Number);
+      if (type === 'major') { parts[0]++; parts[1] = 0; parts[2] = 0; }
+      else if (type === 'minor') { parts[1]++; parts[2] = 0; }
+      else { parts[2]++; }
+      document.getElementById('patchVersion').value = 'Version ' + parts.join('.');
+    }
+
+    function updateVersionHint() {
+      const botId = document.getElementById('patchBot').value;
+      const current = latestVersions[botId] || '?.?.?';
+      document.getElementById('versionHint').textContent = 'Current: v' + current + '  •  Click a bump button or type manually';
+    }
+
+    // Editor
+    function fmt(command) {
+      document.execCommand(command, false, null);
+      document.getElementById('patchContent').focus();
+    }
+    function insertCode() {
+      const sel = window.getSelection();
+      if (sel.rangeCount) {
+        const text = sel.toString();
+        document.execCommand('insertHTML', false, '<code>' + (text || 'command') + '</code>');
+      }
+    }
+    function insertHeading() {
+      const text = prompt('Section heading text:', '🔧 Bug Fixes');
+      if (text) document.execCommand('insertHTML', false, '<p><strong>' + text + '</strong></p>');
+    }
+    function insertEmoji() {
+      const emojis = ['🔧', '🚀', '✨', '🎉', '🐛', '⚡', '🎮', '🐱', '💜', '📋', '🗑️', '⚖️', '🎯', '📊', '🛡️'];
+      const pick = prompt('Pick an emoji or type your own:\n\n' + emojis.join(' '));
+      if (pick) document.execCommand('insertText', false, pick);
+    }
+
+    // Preview
+    function togglePreview() {
+      const panel = document.getElementById('previewPanel');
+      panel.classList.toggle('active');
+      if (panel.classList.contains('active')) updatePreview();
+    }
+    function updatePreview() {
+      const version = document.getElementById('patchVersion').value || 'Version X.X.X';
+      const title = document.getElementById('patchTitle').value || 'Untitled';
+      const date = document.getElementById('patchDate').value;
+      const content = document.getElementById('patchContent').innerHTML;
+      const dateObj = date ? new Date(date + 'T12:00:00') : new Date();
+      const formatted = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('previewTitle').textContent = '🔧 ' + version + ' - "' + title + '"';
+      document.getElementById('previewDate').textContent = 'Release Date: ' + formatted;
+      document.getElementById('previewBody').innerHTML = content;
+    }
+
+    // Submit
+    async function submitPatchNote() {
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('submitStatus');
+      const botSelect = document.getElementById('patchBot');
+      const botId = botSelect.value;
+      const botName = botSelect.options[botSelect.selectedIndex].dataset.name;
+      const version = document.getElementById('patchVersion').value.trim();
+      const title = document.getElementById('patchTitle').value.trim();
+      const date = document.getElementById('patchDate').value;
+      const contentHtml = document.getElementById('patchContent').innerHTML.trim();
+
+      if (!version || !title || !contentHtml) {
+        status.className = 'submit-status error';
+        status.textContent = 'Please fill in version, title, and content.';
+        return;
+      }
+
+      if (!adminToken) await fetchBackendToken();
+      if (!adminToken) {
+        status.className = 'submit-status error';
+        status.textContent = '❌ Backend not reachable. Deploy backend first.';
+        return;
+      }
+
+      const dateObj = new Date(date + 'T12:00:00');
+      const displayDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      btn.disabled = true;
+      btn.textContent = 'Publishing...';
+      status.className = 'submit-status';
+      status.textContent = '';
+
+      try {
+        const res = await fetch(API_BASE + '/api/admin/patch-notes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-token': adminToken },
+          body: JSON.stringify({ botId, botName, version, title, date: displayDate, contentHtml })
+        });
+
+        if (res.status === 401) {
+          await fetchBackendToken();
+          status.className = 'submit-status error';
+          status.textContent = '❌ Session expired. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Publish Patch Note';
+          return;
+        }
+
+        const data = await res.json();
+        if (data.success) {
+          status.className = 'submit-status success';
+          const discordMsg = data.discordPosted ? ' + posted to Discord!' : ' (Discord webhook not configured)';
+          status.textContent = '✅ Published' + discordMsg;
+          const verMatch = version.match(/(\d+)\.(\d+)\.(\d+)/);
+          if (verMatch) latestVersions[botId] = verMatch[0];
+          updateVersionHint();
+          document.getElementById('patchVersion').value = '';
+          document.getElementById('patchTitle').value = '';
+          document.getElementById('patchContent').innerHTML = '';
+          document.getElementById('previewPanel').classList.remove('active');
+        } else {
+          status.className = 'submit-status error';
+          status.textContent = '❌ ' + (data.error || 'Failed to publish');
+        }
+      } catch (e) {
+        status.className = 'submit-status error';
+        status.textContent = '❌ Connection error. Is the backend deployed?';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Publish Patch Note';
+    }
+
+    // ========== INIT ==========
     window.addEventListener('DOMContentLoaded', () => {
       if (localStorage.getItem('adminLoggedIn') === 'true') {
         document.getElementById('loginForm').classList.add('hidden');
         document.getElementById('adminPanel').classList.remove('hidden');
         loadStatuses();
+        initPatchNotesTab();
       }
     });
   </script>

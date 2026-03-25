@@ -18,8 +18,11 @@ const BOT_USERNAME = process.env.BOT_USERNAME || 'your_bot_username';
 const BOT_ACCESS_TOKEN = process.env.BOT_ACCESS_TOKEN;
 
 // Admin Panel Configuration
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'change_me_immediately';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'meow1994';
 const activeSessions = new Map(); // Store active sessions: token -> { createdAt, expiresAt }
+
+// Discord Webhook Configuration
+const DISCORD_PATCH_WEBHOOK = process.env.DISCORD_PATCH_WEBHOOK || 'https://discord.com/api/webhooks/1486478450561646773/UMT7q-p-_PNtg2T-dVT3mLyThhGz4VH6hwd1FN_gTcWIdWI0KxRAHXNvKyLuurYNt1Gq';
 
 // Validate required environment variables
 if (!TWITCH_CLIENT_SECRET) {
@@ -226,6 +229,132 @@ async function joinChannel(channelName) {
     }
     return true;
 }
+
+// ============ PATCH NOTES MANAGEMENT ============
+
+const PATCH_NOTES_FILE = './patch-notes.json';
+
+function loadPatchNotes() {
+    try {
+        if (fs.existsSync(PATCH_NOTES_FILE)) {
+            return JSON.parse(fs.readFileSync(PATCH_NOTES_FILE, 'utf-8'));
+        }
+    } catch (err) {
+        console.error('Error loading patch notes:', err);
+    }
+    return [];
+}
+
+function savePatchNotes(notes) {
+    try {
+        fs.writeFileSync(PATCH_NOTES_FILE, JSON.stringify(notes, null, 2));
+    } catch (err) {
+        console.error('Error saving patch notes:', err);
+    }
+}
+
+// Get all patch notes (public)
+app.get('/api/patch-notes', (req, res) => {
+    const notes = loadPatchNotes();
+    const { bot } = req.query;
+    if (bot) {
+        res.json(notes.filter(n => n.botId === bot));
+    } else {
+        res.json(notes);
+    }
+});
+
+// Create a patch note (admin only) — saves to file + posts to Discord
+app.post('/api/admin/patch-notes', requireAdminToken, async (req, res) => {
+    const { botId, botName, version, title, date, contentHtml } = req.body;
+
+    if (!botId || !botName || !version || !title || !date || !contentHtml) {
+        return res.status(400).json({ error: 'Missing required fields: botId, botName, version, title, date, contentHtml' });
+    }
+
+    const validBots = ['cat-cafe', 'meow-bot', 'meow-manager'];
+    if (!validBots.includes(botId)) {
+        return res.status(400).json({ error: 'Invalid botId. Must be: cat-cafe, meow-bot, or meow-manager' });
+    }
+
+    const note = {
+        id: Date.now().toString(),
+        botId,
+        botName,
+        version,
+        title,
+        date,
+        contentHtml,
+        createdAt: new Date().toISOString()
+    };
+
+    // Save to file
+    const notes = loadPatchNotes();
+    notes.unshift(note); // newest first
+    savePatchNotes(notes);
+
+    // Post to Discord webhook
+    let discordPosted = false;
+    if (DISCORD_PATCH_WEBHOOK) {
+        try {
+            // Convert HTML to Discord markdown
+            const discordText = contentHtml
+                .replace(/<br\s*\/?>/gi, '\n')
+                .replace(/<\/li>/gi, '\n')
+                .replace(/<li>/gi, '• ')
+                .replace(/<\/?(ul|ol)[^>]*>/gi, '\n')
+                .replace(/<\/p>/gi, '\n')
+                .replace(/<p[^>]*>/gi, '')
+                .replace(/<strong>(.*?)<\/strong>/gi, '**$1**')
+                .replace(/<em>(.*?)<\/em>/gi, '*$1*')
+                .replace(/<code>(.*?)<\/code>/gi, '`$1`')
+                .replace(/<[^>]+>/g, '')
+                .replace(/&amp;/g, '&')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quot;/g, '"')
+                .replace(/\n{3,}/g, '\n\n')
+                .trim();
+
+            const colorMap = { 'cat-cafe': 0x818CF8, 'meow-bot': 0xF472B6, 'meow-manager': 0x86EFAC };
+            const emojiMap = { 'cat-cafe': '🐱', 'meow-bot': '😺', 'meow-manager': '🛠️' };
+
+            const embed = {
+                author: { name: botName + ' Update' },
+                title: `${emojiMap[botId] || '📋'} ${version} — "${title}"`,
+                description: discordText.slice(0, 4000),
+                color: colorMap[botId] || 0x818CF8,
+                fields: [
+                    { name: '📅 Release Date', value: date, inline: true },
+                    { name: '🤖 Bot', value: botName, inline: true }
+                ],
+                footer: { text: 'Meow Bots • meowbots.xyz/patch-notes' },
+                timestamp: new Date().toISOString()
+            };
+
+            await axios.post(DISCORD_PATCH_WEBHOOK, {
+                username: 'Meow Updates',
+                embeds: [embed]
+            });
+            discordPosted = true;
+        } catch (error) {
+            console.error('Discord webhook error:', error.response?.data || error.message);
+        }
+    }
+
+    res.json({ success: true, note, discordPosted });
+});
+
+// Delete a patch note (admin only)
+app.delete('/api/admin/patch-notes/:id', requireAdminToken, (req, res) => {
+    const notes = loadPatchNotes();
+    const filtered = notes.filter(n => n.id !== req.params.id);
+    if (filtered.length === notes.length) {
+        return res.status(404).json({ error: 'Patch note not found' });
+    }
+    savePatchNotes(filtered);
+    res.json({ success: true });
+});
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

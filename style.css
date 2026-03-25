@@ -165,7 +165,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-@media (max-width: 480px) { .brand-text { display: none; } }
+@media (max-width: 480px) { .brand-text { font-size: 0.95rem; } }
 .nav-pills {
   display: flex;
   gap: 28px;
@@ -422,7 +422,7 @@ body {
   .hero-stats { grid-row: auto; grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 500px) {
-  .hero-stats { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
 }
 
 /* ========== SECTION HEADERS ========== */
