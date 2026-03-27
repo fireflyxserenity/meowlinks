@@ -755,11 +755,10 @@
     firebase.initializeApp(firebaseConfig);
 
     const botsRef = firebase.database().ref('botStatuses');
+    const patchNotesRef = firebase.database().ref('patchNotes');
 
     // ========== PASSWORD CONFIGURATION ==========
     const ADMIN_PASSWORD = 'meow1994';
-    const API_BASE = 'https://oauthmeow-production.up.railway.app';
-    let adminToken = sessionStorage.getItem('adminToken') || '';
 
     // Known latest versions per bot
     const KNOWN_VERSIONS = { 'cat-cafe': '1.5.0', 'meow-bot': '2.12.0', 'meow-manager': '2.10.0' };
@@ -880,30 +879,13 @@
     function initPatchNotesTab() {
       document.getElementById('patchDate').valueAsDate = new Date();
       document.getElementById('patchBot').addEventListener('change', updateVersionHint);
-      fetchBackendToken();
       fetchLatestVersions();
     }
 
-    async function fetchBackendToken() {
-      try {
-        const res = await fetch(API_BASE + '/api/admin/verify', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: ADMIN_PASSWORD })
-        });
-        const data = await res.json();
-        if (data.success) {
-          adminToken = data.token;
-          sessionStorage.setItem('adminToken', adminToken);
-        }
-      } catch (e) { /* backend may not be deployed yet */ }
-    }
-
-    async function fetchLatestVersions() {
-      try {
-        const res = await fetch(API_BASE + '/api/patch-notes');
-        if (!res.ok) return;
-        const notes = await res.json();
+    function fetchLatestVersions() {
+      patchNotesRef.on('value', (snapshot) => {
+        const notesObj = snapshot.val() || {};
+        const notes = Object.values(notesObj);
         for (const note of notes) {
           const match = note.version.match(/(\d+)\.(\d+)\.(\d+)/);
           if (!match) continue;
@@ -912,8 +894,8 @@
             latestVersions[note.botId] = ver;
           }
         }
-      } catch (e) { /* use fallback */ }
-      updateVersionHint();
+        updateVersionHint();
+      });
     }
 
     function compareVersions(a, b) {
@@ -1000,13 +982,6 @@
         return;
       }
 
-      if (!adminToken) await fetchBackendToken();
-      if (!adminToken) {
-        status.className = 'submit-status error';
-        status.textContent = '❌ Backend not reachable. Deploy backend first.';
-        return;
-      }
-
       const dateObj = new Date(date + 'T12:00:00');
       const displayDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -1016,40 +991,31 @@
       status.textContent = '';
 
       try {
-        const res = await fetch(API_BASE + '/api/admin/patch-notes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'x-admin-token': adminToken },
-          body: JSON.stringify({ botId, botName, version, title, date: displayDate, contentHtml })
+        const noteId = Date.now().toString();
+        await patchNotesRef.child(noteId).set({
+          id: noteId,
+          botId,
+          botName,
+          version,
+          title,
+          date: displayDate,
+          contentHtml,
+          createdAt: new Date().toISOString()
         });
 
-        if (res.status === 401) {
-          await fetchBackendToken();
-          status.className = 'submit-status error';
-          status.textContent = '❌ Session expired. Please try again.';
-          btn.disabled = false;
-          btn.textContent = 'Publish Patch Note';
-          return;
-        }
-
-        const data = await res.json();
-        if (data.success) {
-          status.className = 'submit-status success';
-          const discordMsg = data.discordPosted ? ' + posted to Discord!' : ' (Discord webhook not configured)';
-          status.textContent = '✅ Published' + discordMsg;
-          const verMatch = version.match(/(\d+)\.(\d+)\.(\d+)/);
-          if (verMatch) latestVersions[botId] = verMatch[0];
-          updateVersionHint();
-          document.getElementById('patchVersion').value = '';
-          document.getElementById('patchTitle').value = '';
-          document.getElementById('patchContent').innerHTML = '';
-          document.getElementById('previewPanel').classList.remove('active');
-        } else {
-          status.className = 'submit-status error';
-          status.textContent = '❌ ' + (data.error || 'Failed to publish');
-        }
+        status.className = 'submit-status success';
+        status.textContent = '✅ Published';
+        const verMatch = version.match(/(\d+)\.(\d+)\.(\d+)/);
+        if (verMatch) latestVersions[botId] = verMatch[0];
+        updateVersionHint();
+        document.getElementById('patchVersion').value = '';
+        document.getElementById('patchTitle').value = '';
+        document.getElementById('patchContent').innerHTML = '';
+        document.getElementById('previewPanel').classList.remove('active');
       } catch (e) {
+        console.error('Error publishing patch note:', e);
         status.className = 'submit-status error';
-        status.textContent = '❌ Connection error. Is the backend deployed?';
+        status.textContent = '❌ Error publishing. Check Firebase permissions.';
       }
       btn.disabled = false;
       btn.textContent = 'Publish Patch Note';
