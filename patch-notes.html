@@ -585,15 +585,25 @@
       loadDynamicPatchNotes().then(() => {
         applyPatchTimestamps();
       });
-      const urlParams = new URLSearchParams(window.location.search);
-      const botParam = urlParams.get('bot');
-      if (botParam === 'manager') {
-        showBot('meow-manager');
-      } else if (botParam === 'cat-cafe') {
-        showBot('cat-cafe');
+      
+      let botToShow = 'cat-cafe'; // default
+      
+      // Check hash first (from ticker links like #meow-bot)
+      const hash = window.location.hash.substring(1);
+      if (hash === 'cat-cafe' || hash === 'meow-bot' || hash === 'meow-manager') {
+        botToShow = hash;
       } else {
-        showBot('cat-cafe');
+        // Fall back to query parameter (?bot=)
+        const urlParams = new URLSearchParams(window.location.search);
+        const botParam = urlParams.get('bot');
+        if (botParam === 'manager') {
+          botToShow = 'meow-manager';
+        } else if (botParam === 'cat-cafe') {
+          botToShow = 'cat-cafe';
+        }
       }
+      
+      showBot(botToShow);
     });
 
     async function loadDynamicPatchNotes() {
