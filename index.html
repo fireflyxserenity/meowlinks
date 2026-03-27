@@ -349,12 +349,6 @@
 
     // ========== PATCH NOTES DOT ==========
     (function() {
-      const LAST_PATCH = '2026-03-22';
-      const BOT_PATCHES = {
-        'catcafe':  { date: '2026-03-22', label: 'Cat Cafe', hash: 'cat-cafe' },
-        'meowbot':  { date: '2026-03-17', label: 'Meow Bot', hash: 'meow-bot' },
-        'meowmanager': { date: '2026-03-17', label: 'Meow Manager', hash: 'meow-manager' },
-      };
       function relLabel(dateStr) {
         const patch = new Date(dateStr + 'T00:00:00');
         const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -373,35 +367,82 @@
         if (d < 30) return Math.floor(d / 7) + ' weeks ago';
         return Math.floor(d / 30) + 'mo ago';
       }
-      // Build ticker items dynamically from BOT_PATCHES
-      var tickerContainer = document.getElementById('ticker-updates');
-      if (tickerContainer) {
-        var keys = Object.keys(BOT_PATCHES);
-        var html = '';
-        keys.forEach(function(key, i) {
-          var info = BOT_PATCHES[key];
-          if (i > 0) html += '<div class="ticker-dot"></div>';
-          html += '<div class="ticker-item">';
-          html += '<span class="label">🔧 ' + info.label + '</span>';
-          html += '<a href="patch-notes.html#' + info.hash + '" class="value" style="text-decoration:none;">' + timeAgo(info.date) + '</a>';
-          html += '</div>';
-        });
-        tickerContainer.innerHTML = html;
-      }
-      const seen = localStorage.getItem('patchNotesSeen');
-      const patchDate = new Date(LAST_PATCH);
-      const daysSince = (Date.now() - patchDate.getTime()) / (1000 * 60 * 60 * 24);
-      const isNew = seen !== LAST_PATCH && daysSince <= 7;
-      const dot = document.getElementById('patch-dot');
-      const mobDot = document.getElementById('patch-dot-mobile');
-      if (dot) dot.style.display = isNew ? 'inline-block' : 'none';
-      if (mobDot) mobDot.style.display = isNew ? 'inline-block' : 'none';
-      Object.entries(BOT_PATCHES).forEach(function([key, info]) {
-        const badge = document.getElementById('patch-badge-' + key);
-        if (!badge) return;
-        const text = relLabel(info.date);
-        if (text) { badge.textContent = text; badge.style.display = 'inline-block'; }
-      });
+      
+      // Fetch and parse patch notes to extract latest dates
+      fetch('patch-notes.html')
+        .then(r => r.text())
+        .then(html => {
+          const BOT_PATCHES = {
+            'catcafe':  { label: 'Cat Cafe', hash: 'cat-cafe' },
+            'meowbot':  { label: 'Meow Bot', hash: 'meow-bot' },
+            'meowmanager': { label: 'Meow Manager', hash: 'meow-manager' },
+          };
+          
+          // Parse each bot's latest release date
+          const botIds = {
+            'catcafe': 'cat-cafe',
+            'meowbot': 'meow-bot',
+            'meowmanager': 'meow-manager'
+          };
+          
+          Object.entries(botIds).forEach(function([key, tabId]) {
+            // Find the tab section for this bot, then find first Release Date
+            const tabRegex = new RegExp('id="' + tabId + '"[\\s\\S]*?Release Date: ([^<]+)<', '');
+            const match = html.match(tabRegex);
+            if (!match) return;
+            
+            const dateText = match[1].trim();
+            const dateObj = new Date(dateText);
+            if (isNaN(dateObj.getTime())) return;
+            
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            BOT_PATCHES[key].date = year + '-' + month + '-' + day;
+          });
+          
+          // Use extracted dates or fallback
+          if (!BOT_PATCHES.catcafe.date) BOT_PATCHES.catcafe.date = '2026-03-26';
+          if (!BOT_PATCHES.meowbot.date) BOT_PATCHES.meowbot.date = '2026-03-17';
+          if (!BOT_PATCHES.meowmanager.date) BOT_PATCHES.meowmanager.date = '2026-03-17';
+          
+          // Find most recent patch
+          const dates = [BOT_PATCHES.catcafe.date, BOT_PATCHES.meowbot.date, BOT_PATCHES.meowmanager.date];
+          const LAST_PATCH = dates.sort().reverse()[0];
+          
+          // Build ticker items
+          var tickerContainer = document.getElementById('ticker-updates');
+          if (tickerContainer) {
+            var htmlStr = '';
+            Object.entries(BOT_PATCHES).forEach(function([key, info], i) {
+              if (i > 0) htmlStr += '<div class="ticker-dot"></div>';
+              htmlStr += '<div class="ticker-item">';
+              htmlStr += '<span class="label">🔧 ' + info.label + '</span>';
+              htmlStr += '<a href="patch-notes.html#' + info.hash + '" class="value" style="text-decoration:none;">' + timeAgo(info.date) + '</a>';
+              htmlStr += '</div>';
+            });
+            tickerContainer.innerHTML = htmlStr;
+          }
+          
+          // Update notification dots
+          const seen = localStorage.getItem('patchNotesSeen');
+          const patchDate = new Date(LAST_PATCH + 'T00:00:00');
+          const daysSince = (Date.now() - patchDate.getTime()) / (1000 * 60 * 60 * 24);
+          const isNew = seen !== LAST_PATCH && daysSince <= 7;
+          const dot = document.getElementById('patch-dot');
+          const mobDot = document.getElementById('patch-dot-mobile');
+          if (dot) dot.style.display = isNew ? 'inline-block' : 'none';
+          if (mobDot) mobDot.style.display = isNew ? 'inline-block' : 'none';
+          
+          // Update badges
+          Object.entries(BOT_PATCHES).forEach(function([key, info]) {
+            const badge = document.getElementById('patch-badge-' + key);
+            if (!badge) return;
+            const text = relLabel(info.date);
+            if (text) { badge.textContent = text; badge.style.display = 'inline-block'; }
+          });
+        })
+        .catch(e => console.log('Could not fetch patch dates:', e));
     })();
   </script>
 
